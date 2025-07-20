@@ -15,7 +15,7 @@ import DigitalMarketingCourse from "./pages/services/DigitalMarketingCourse";
 import InternshipProgram from "./pages/services/InternshipProgram";
 import OurProcess from "./pages/services/OurProcess";
 import PartnerPage from "./pages/services/PartnerPage";
-import TermsPage from "./pages/services/TermsPage"; // ✅ Updated case
+import TermsPage from "./pages/services/Termspage";
 import DigitalMarketingPage from "./pages/services/DigitalMarketingPage";
 
 function App() {
