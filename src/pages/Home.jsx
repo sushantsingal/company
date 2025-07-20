@@ -37,7 +37,7 @@ const Home = () => {
             </Link>
           </motion.div>
           <motion.img
-            src="/assets/hero-image.png"
+            src="../assets/hero-image.png"
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: 50 }}
@@ -60,7 +60,7 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.img
-            src="/assets/about-us.jpg"
+            src="../assets/about-us.jpg"
             alt="About Us"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: -50 }}
@@ -132,17 +132,17 @@ const Home = () => {
             {[
               {
                 title: "Plan & Research",
-                image: "/assets/Planing.jpg",
+                image: "../assets/Planing.jpg",
                 desc: "We deep dive into your brand, audience, and market to define the best course of action.",
               },
               {
                 title: "Design & Build",
-                image: "/assets/Designing.jpg",
+                image: "../assets/Designing.jpg",
                 desc: "Turning strategy into creative executions, we build stunning assets that resonate.",
               },
               {
                 title: "Launch & Scale",
-                image: "/assets/Launching.jpg",
+                image: "../assets/Launching.jpg",
                 desc: "With launch strategies in place, we drive growth and scale your brand consistently.",
               },
             ].map((step, i) => (
@@ -181,12 +181,12 @@ const Home = () => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            { title: "Fashion Landing Page", image: "/assets/Project1.png" },
-            { title: "Fitness Studio", image: "/assets/Project2.png" },
-            { title: "Corporate Branding", image: "/assets/Project3.png" },
-            { title: "E-commerce UI", image: "/assets/Project4.png" },
-            { title: "Social Media Creatives", image: "/assets/Project5.png" },
-            { title: "SEO Campaign", image: "/assets/Project6.png" },
+            { title: "Fashion Landing Page", image: "../assets/Project1.png" },
+            { title: "Fitness Studio", image: "../assets/Project2.png" },
+            { title: "Corporate Branding", image: "../assets/Project3.png" },
+            { title: "E-commerce UI", image: "../assets/Project4.png" },
+            { title: "Social Media Creatives", image: "../assets/Project5.png" },
+            { title: "SEO Campaign", image: "../assets/Project6.png" },
           ].map((project, i) => (
             <motion.div
               key={i}
