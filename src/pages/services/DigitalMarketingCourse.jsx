@@ -1,0 +1,71 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const DigitalMarketingCourse = () => {
+  return (
+    <div className="bg-[#f1f7fb] text-gray-800 min-h-screen py-20 px-6 md:px-20">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-pink-600">Digital Marketing Course</h1>
+
+        {/* Introduction */}
+        <p className="text-gray-700 mb-4">
+          Explore our comprehensive digital marketing course designed to equip you with the skills to thrive in the digital world. From SEO and content creation to paid advertising and analytics, we cover everything you need to become a confident digital marketer.
+        </p>
+        <p className="text-gray-700 mb-8">
+          Our experienced mentors, live projects, and hands-on assignments ensure you're ready to take on real-world challenges. Join our program to build a rewarding career in digital marketing.
+        </p>
+
+        {/* What You'll Learn */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-pink-600">What You'll Learn</h2>
+          <ul className="list-disc list-inside text-gray-700 space-y-2">
+            <li>Search Engine Optimization (SEO)</li>
+            <li>Search Engine Marketing (SEM)</li>
+            <li>Social Media Management</li>
+            <li>Google Ads & Facebook Ads</li>
+            <li>Email Marketing Campaigns</li>
+            <li>Content Strategy & Copywriting</li>
+            <li>Google Analytics & Reporting</li>
+          </ul>
+        </div>
+
+        {/* Course Highlights */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-pink-600">Course Highlights</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Live Sessions</h3>
+              <p className="text-gray-600">Engage in interactive live sessions led by industry professionals.</p>
+            </div>
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Hands-On Projects</h3>
+              <p className="text-gray-600">Work on real client projects to apply your learning.</p>
+            </div>
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">1:1 Mentorship</h3>
+              <p className="text-gray-600">Get personal guidance and feedback from experts.</p>
+            </div>
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Career Support</h3>
+              <p className="text-gray-600">We assist with resume building, mock interviews, and job placement.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="bg-pink-100 p-6 rounded-xl text-center">
+          <h2 className="text-xl font-semibold text-pink-700 mb-2">Ready to Level Up?</h2>
+          <p className="text-gray-700 mb-4">Kickstart your digital marketing career with our expert-led training program.</p>
+          <a
+            href="/apply"
+            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
+          >
+            Apply Now
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DigitalMarketingCourse;

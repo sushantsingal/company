@@ -1,0 +1,86 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const PartnersPage = () => {
+  return (
+    <div className="bg-[#f1f7fb] text-gray-800 min-h-screen py-20 px-6 md:px-20">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-pink-600">Our Partners</h1>
+
+        {/* Introduction */}
+        <p className="text-gray-700 mb-4">
+          We are proud to be associated with a growing network of partners who share our mission of enabling digital transformation and business growth. Our partnerships span across industries and are built on trust, collaboration, and a shared commitment to excellence.
+        </p>
+        <p className="text-gray-700 mb-8">
+          From strategic alliances to community partnerships, our partner ecosystem enhances our ability to deliver quality services, innovative campaigns, and impactful outcomes for clients across sectors.
+        </p>
+
+        {/* Partner Categories */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-pink-600">Types of Partners</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Technology Partners</h3>
+              <p className="text-gray-600">
+                We work with top-tier tech companies to bring you the best platforms, tools, and integrations for success.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Training Partners</h3>
+              <p className="text-gray-600">
+                Our educational and training partnerships ensure up-to-date curriculum and mentorship from experienced industry professionals.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Corporate Alliances</h3>
+              <p className="text-gray-600">
+                Collaborating with startups, SMEs, and enterprises to deliver measurable results through marketing and digital consulting.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded shadow">
+              <h3 className="text-lg font-semibold mb-2">Community Collaborations</h3>
+              <p className="text-gray-600">
+                We support local communities and institutions to promote skill development and digital awareness.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Partner Carousel */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6 text-pink-600 text-center">Meet Our Partners</h2>
+          <div className="overflow-hidden relative">
+            <motion.div
+              className="flex gap-10"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+            >
+              {[...Array(10)].map((_, i) => (
+                <img
+                  key={i}
+                  src={`/assets/partners/partner-${(i % 5) + 1}.png`}
+                  alt={`Partner ${i + 1}`}
+                  className="h-20 object-contain"
+                />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="bg-pink-100 p-6 rounded-xl text-center">
+          <h2 className="text-xl font-semibold text-pink-700 mb-2">Want to Collaborate?</h2>
+          <p className="text-gray-700 mb-4">Join our growing list of partners and let's build something great together.</p>
+          <a
+            href="/contact"
+            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
+          >
+            Become a Partner
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PartnersPage;
