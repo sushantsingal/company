@@ -1,4 +1,4 @@
-import React from "react";
+import hero from "../assets/hero-image.jpg";
 import {
   Facebook,
   Twitter,
@@ -71,7 +71,7 @@ const Footer = () => {
 
         {/* Column 4 */}
         <div className="flex flex-col items-center md:items-end">
-          <img src="src/assets/hero-image.jpg" alt="logo" className="h-24 w-auto mb-4" />
+          <img src={hero} alt="logo" className="h-24 w-auto mb-4" />
           <div className="flex gap-4">
             <a href="#" className="text-gray-500 hover:text-pink-600">
               <Facebook size={18} />

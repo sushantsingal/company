@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
 import { Lightbulb, TrendingUp, DollarSign, Mail, Phone, Linkedin, Instagram } from "lucide-react";
+import team1 from "../assets/team1.jpg";
+import team2 from "../assets/team2.jpg";
+import team3 from "../assets/team3.jpg";
+import team4 from "../assets/team4.jpg";
+import team5 from "../assets/team5.jpg";
+import team6 from "../assets/team6.jpg";
+import about from "../assets/about-us.jpg";
+import focus from "../assets/focus.jpg";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -16,7 +24,7 @@ const teamMembers = [
   {
     name: "Rohan Sharma",
     role: "Creative Director",
-    img: "src/assets/team4.jpg",
+    img: team4,
     email: "test@gmail.com",
     phone: "9568574589",
     desc: "Rohan is the creative brain behind our visual campaigns. With over a decade of experience, he ensures each brand has a distinct visual voice."
@@ -24,31 +32,31 @@ const teamMembers = [
   {
     name: "Ananya Verma",
     role: "Marketing Strategist",
-    img: "src/assets/team3.jpg",
+    img: team3,
     desc: "Ananya leads our strategic initiatives with a keen understanding of market trends, crafting campaigns that drive results."
   },
   {
     name: "Karan Mehta",
     role: "Tech Lead",
-    img: "src/assets/team2.jpg",
+    img: team2,
     desc: "Karan architects our technical solutions, ensuring robust, scalable, and secure platforms that support brand growth."
   },
   {
     name: "Priya Kapoor",
     role: "Content Head",
-    img: "src/assets/team1.jpg",
+    img: team1,
     desc: "Priya ensures that all content is engaging, brand-aligned, and crafted for maximum impact."
   },
   {
     name: "Siddharth Jain",
     role: "SEO Expert",
-    img: "src/assets/team6.jpg",
+    img: team6,
     desc: "Siddharth optimizes all our digital assets to rank higher and perform better across search engines."
   },
   {
     name: "Neha Singh",
     role: "UI/UX Designer",
-    img: "src/assets/team5.jpg",
+    img: team5,
     desc: "Neha designs seamless and beautiful user experiences that enhance brand credibility and conversion."
   },
 ];
@@ -143,7 +151,7 @@ const About = () => {
             </p>
           </motion.div>
           <motion.img
-            src="src/assets/about-us.jpg"
+            src={about}
             alt="Team working together"
             className="rounded-xl shadow-md"
             initial={{ opacity: 0, x: 40 }}
@@ -215,7 +223,7 @@ const About = () => {
       <section className="bg-gray-50 py-20 px-6 md:px-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.img
-            src="src/assets/focus.jpg"
+            src={focus}
             alt="Focus areas graph"
             className="rounded-xl shadow-md"
             initial={{ opacity: 0, x: 40 }}

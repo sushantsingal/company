@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import hero from "../assets/hero-image.png";
+import about from "../assets/about-us.jpg";
+import planing from "../assets/Planing.jpg";
+import designing from "../assets/Designing.jpg";
+import launching from "../assets/Launching.jpg";
 import project1 from "../assets/Project1.png";
 import project2 from "../assets/Project2.png";
 import project3 from "../assets/Project3.png";
 import project4 from "../assets/Project4.png";
+import project5 from "../assets/Project5.png";
+import project6 from "../assets/Project6.png";
 import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {
@@ -65,7 +71,7 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.img
-            src="../assets/about-us.jpg"
+            src={about}
             alt="About Us"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: -50 }}
@@ -137,17 +143,17 @@ const Home = () => {
             {[
               {
                 title: "Plan & Research",
-                image: "../assets/Planing.jpg",
+                image: planing,
                 desc: "We deep dive into your brand, audience, and market to define the best course of action.",
               },
               {
                 title: "Design & Build",
-                image: "../assets/Designing.jpg",
+                image: designing,
                 desc: "Turning strategy into creative executions, we build stunning assets that resonate.",
               },
               {
                 title: "Launch & Scale",
-                image: "../assets/Launching.jpg",
+                image: launching,
                 desc: "With launch strategies in place, we drive growth and scale your brand consistently.",
               },
             ].map((step, i) => (
@@ -186,12 +192,12 @@ const Home = () => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            { title: "Fashion Landing Page", image: {project1}  },
-            { title: "Fitness Studio", image: {project2} },
-            { title: "Corporate Branding", image: {project3} },
-            { title: "E-commerce UI", image: {project4} },
-            { title: "Social Media Creatives", image: "../assets/Project5.png" },
-            { title: "SEO Campaign", image: "../assets/Project6.png" },
+            { title: "Fashion Landing Page", image: project1  },
+            { title: "Fitness Studio", image: project2 },
+            { title: "Corporate Branding", image: project3 },
+            { title: "E-commerce UI", image: project4 },
+            { title: "Social Media Creatives", image: project5 },
+            { title: "SEO Campaign", image: project6 },
           ].map((project, i) => (
             <motion.div
               key={i}
