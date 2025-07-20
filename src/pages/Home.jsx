@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import hero from "../assets/hero-image.png";
+import project1 from "../assets/Project1.png";
+import project2 from "../assets/Project2.png";
+import project3 from "../assets/Project3.png";
+import project4 from "../assets/Project4.png";
 import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {
@@ -182,10 +186,10 @@ const Home = () => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            { title: "Fashion Landing Page", image: "../assets/Project1.png" },
-            { title: "Fitness Studio", image: "../assets/Project2.png" },
-            { title: "Corporate Branding", image: "../assets/Project3.png" },
-            { title: "E-commerce UI", image: "../assets/Project4.png" },
+            { title: "Fashion Landing Page", image: {project1}  },
+            { title: "Fitness Studio", image: {project2} },
+            { title: "Corporate Branding", image: {project3} },
+            { title: "E-commerce UI", image: {project4} },
             { title: "Social Media Creatives", image: "../assets/Project5.png" },
             { title: "SEO Campaign", image: "../assets/Project6.png" },
           ].map((project, i) => (
