@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import event from "../../assets/event-consulting.jpg";
+import event from "../assets/event-consulting.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import CTA from "../../components/CTA";
-import Testimonials from "../../components/Testimonials";
-import tech from "../../assets/tech-consulting.jpg";
+import CTA from "../components/CTA";
+import Testimonials from "../components/Testimonials";
+import tech from "../assets/tech-consulting.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

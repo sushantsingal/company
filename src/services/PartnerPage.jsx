@@ -1,5 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import partner1 from "../assets/partner1.png";
+import partner2 from "../assets/partner2.png";
+import partner3 from "../assets/partner3.png";
+import partner4 from "../assets/partner4.png";
+import partner5 from "../assets/partner5.png";
+import partner6 from "../assets/partner6.png";
+
+const partners = [partner1, partner2, partner3, partner4, partner5, partner6];
 
 const PartnersPage = () => {
   return (
@@ -55,14 +63,11 @@ const PartnersPage = () => {
               animate={{ x: ["0%", "-50%"] }}
               transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             >
-              {[...Array(10)].map((_, i) => (
-                <img
-                  key={i}
-                  src={`/assets/partners/partner-${(i % 5) + 1}.png`}
-                  alt={`Partner ${i + 1}`}
-                  className="h-20 object-contain"
-                />
-              ))}
+              {[...partners, ...partners].map((logo, index) => (
+              <div key={index} className="w-40 h-20 flex items-center justify-center opacity-80 hover:opacity-100 transition">
+                <img src={logo} alt={`partner-${index}`} className="max-h-16 object-contain grayscale hover:grayscale-0 transition" />
+              </div>
+            ))}
             </motion.div>
           </div>
         </div>
