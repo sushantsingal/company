@@ -30,11 +30,7 @@ const Navbar = () => {
           </NavLink>
 
           {/* Dropdown Wrapper */}
-          <div
-            className="relative group"
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
+          <div className="relative group">
             <span
               className="relative pb-1 font-medium capitalize transition duration-300 flex items-center gap-1 text-gray-700 hover:text-pink-600
               before:absolute before:bottom-0 before:left-2 before:h-[2px]
@@ -45,19 +41,19 @@ const Navbar = () => {
             </span>
 
             {/* Dropdown Menu */}
-            {isDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-48 z-50 py-2">
-                {["Event Consulting", "Marketing Consulting", "Tech Consulting"].map((service, index) => (
-                  <Link
-                    key={index}
-                    to={`/services/${service.toLowerCase().replace(/ /g, "-")}`}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
-                  >
-                    {service}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <div
+              className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-48 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+            >
+              {["Event Consulting", "Marketing Consulting", "Tech Consulting"].map((service, index) => (
+                <Link
+                  key={index}
+                  to={`/services/${service.toLowerCase().replace(/ /g, "-")}`}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
+                >
+                  {service}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <NavLink
