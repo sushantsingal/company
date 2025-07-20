@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import hero from "../assets/hero-image.png";
 import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {
@@ -37,7 +38,7 @@ const Home = () => {
             </Link>
           </motion.div>
           <motion.img
-            src="../assets/hero-image.png"
+            src={hero}
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: 50 }}
