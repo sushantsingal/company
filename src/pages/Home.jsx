@@ -1,24 +1,15 @@
 import { motion } from "framer-motion";
-import hero from "../assets/hero-image.png";
-import about from "../assets/about-us.jpg";
-import planing from "../assets/Planing.jpg";
-import designing from "../assets/Designing.jpg";
-import launching from "../assets/Launching.jpg";
-import project1 from "../assets/Project1.png";
-import project2 from "../assets/Project2.png";
-import project3 from "../assets/Project3.png";
-import project4 from "../assets/Project4.png";
-import project5 from "../assets/Project5.png";
-import project6 from "../assets/Project6.png";
 import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {
   BarChart3,
   MonitorSmartphone,
-  Brush,
+  Layers,
   ThumbsUp,
-  DollarSign,
+  Megaphone,
   Video,
+  TrendingUp, 
+  BarChart4
 } from "lucide-react";
 
 const fadeUp = {
@@ -48,7 +39,7 @@ const Home = () => {
             </Link>
           </motion.div>
           <motion.img
-            src={hero}
+            src="src/assets/hero-image.png"
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: 50 }}
@@ -62,16 +53,16 @@ const Home = () => {
       <section className="min-h-screen bg-gray-50 py-20 px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div className="space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-3xl font-bold text-pink-600">Who We Are</h2>
+            <h1 className="text-3xl font-bold text-pink-600">Who We Are</h1>
             <p className="text-gray-700 text-base md:text-lg">
-              At Marketing Crawlers, we are passionate digital experts focused on crafting meaningful brand experiences. Our team blends creativity with data to generate results that matter.
+              At <b>Marketing Crawlers</b>, we are passionate digital experts focused on crafting meaningful <b>brand experiences</b>. Our team blends creativity with data to generate results that matter.
             </p>
             <p className="text-gray-600">
               From ideation to execution, we specialize in building strategies that help businesses grow across platforms.
             </p>
           </motion.div>
           <motion.img
-            src={about}
+            src="src/assets/about-us.jpg"
             alt="About Us"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: -50 }}
@@ -84,11 +75,11 @@ const Home = () => {
       {/* Services Section */}
       <section className="min-h-screen bg-white py-20 px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto text-center">
-          <motion.h2 className="text-3xl font-bold mb-4" initial="hidden" whileInView="visible" variants={fadeUp}>
+          <motion.h1 className="text-5xl font-bold mb-4" initial="hidden" whileInView="visible" variants={fadeUp}>
             Transforming Businesses with Insight, Creativity, and Bold Ideas
-          </motion.h2>
+          </motion.h1>
           <motion.p
-            className="text-gray-600 mb-12 max-w-xl mx-auto"
+            className="text-gray-600 mb-12 max-w-xl mx-auto text-xl"
             initial="hidden"
             whileInView="visible"
             custom={1}
@@ -101,9 +92,9 @@ const Home = () => {
             {[
               { title: "SEO & Performance", icon: <BarChart3 size={36} />, desc: "Boost visibility and drive results with strategic SEO." },
               { title: "Website Development", icon: <MonitorSmartphone size={36} />, desc: "Fast, modern websites built to convert visitors." },
-              { title: "Branding & UI/UX", icon: <Brush size={36} />, desc: "Stand out with impactful design and intuitive interfaces." },
+              { title: "Branding & UI/UX", icon: <Layers size={36} />, desc: "Stand out with impactful design and intuitive interfaces." },
               { title: "Social Media Marketing", icon: <ThumbsUp size={36} />, desc: "Captivate your audience with compelling content." },
-              { title: "Google & Meta Ads", icon: <DollarSign size={36} />, desc: "Drive ROI with targeted, high-performance campaigns." },
+              { title: "Google & Meta Ads", icon: <Megaphone size={36} />, desc: "Drive ROI with targeted, high-performance campaigns." },
               { title: "Video Production", icon: <Video size={36} />, desc: "Tell your story with stunning digital video content." },
             ].map((s, i) => (
               <motion.div
@@ -124,80 +115,73 @@ const Home = () => {
       </section>
 
       {/* Work Process Section */}
-      <section className="min-h-screen bg-gray-50 py-20 px-6 md:px-20 flex items-center">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h2 className="text-3xl font-bold mb-4" initial="hidden" whileInView="visible" variants={fadeUp}>
-            Our Work Process : From Idea to Execution
-          </motion.h2>
-          <motion.p
-            className="text-gray-600 mb-12 max-w-xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            custom={1}
-            variants={fadeUp}
-          >
-            Our client-centric process ensures seamless execution and success from start to finish.
-          </motion.p>
+      <section className="bg-gray-50 py-24 px-6 md:px-20">
+      <div className="max-w-7xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Empowering Businesses with Data, Design & Disruption
+        </h1>
+        <p className="text-gray-500 max-w-3xl mx-auto text-xl">
+          Marketing Crawlers blends strategy, analytics, and innovation to push your brand—
+          beyond just ideas and into lasting success.
+        </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Plan & Research",
-                image: planing,
-                desc: "We deep dive into your brand, audience, and market to define the best course of action.",
-              },
-              {
-                title: "Design & Build",
-                image: designing,
-                desc: "Turning strategy into creative executions, we build stunning assets that resonate.",
-              },
-              {
-                title: "Launch & Scale",
-                image: launching,
-                desc: "With launch strategies in place, we drive growth and scale your brand consistently.",
-              },
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                className="bg-white p-6 rounded-xl border shadow-md group hover:shadow-xl transition-all duration-300 hover:scale-105"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
-              >
-                <div className="mb-4">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="h-20 mx-auto transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-pink-600 group-hover:-translate-y-1 transition">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-sm group-hover:scale-[1.02] transition">
-                  {step.desc}
-                </p>
-              </motion.div>
-            ))}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div>
+            <div className="flex justify-center items-center mb-6">
+              <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
+                <Megaphone className="text-white w-8 h-8" />
+              </span>
+            </div>
+            <h4 className="text-xl font-semibold text-gray-900 mb-3">Brand-Centric Vision</h4>
+            <p className="text-gray-500">
+              From concept to execution, we keep your brand at the center. Our strategies align
+              with your mission and values to establish authentic connections with your audience.
+            </p>
+          </div>
+
+          <div>
+            <div className="flex justify-center items-center mb-6">
+              <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="text-white w-8 h-8" />
+              </span>
+            </div>
+            <h4 className="text-xl font-semibold text-gray-900 mb-3">Resilient Growth</h4>
+            <p className="text-gray-500">
+              Every business deserves consistent and measurable growth. We build strategies that scale,
+              using data-driven insights and disruptive innovation.
+            </p>
+          </div>
+
+          <div>
+            <div className="flex justify-center items-center mb-6">
+              <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
+                <BarChart4 className="text-white w-8 h-8" />
+              </span>
+            </div>
+            <h4 className="text-xl font-semibold text-gray-900 mb-3">The Financial Gain</h4>
+            <p className="text-gray-500">
+              We don’t just create marketing strategies—we engineer business growth. Every decision
+              is made to optimize your return on investment.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Projects Showcase */}
       <section className="bg-white py-20 px-6 md:px-20 text-center">
-        <motion.h2 className="text-3xl font-bold mb-8" initial="hidden" whileInView="visible" variants={fadeUp}>
+        <motion.h1 className="text-5xl font-bold mb-12" initial="hidden" whileInView="visible" variants={fadeUp}>
           Our Work Speaks for Itself
-        </motion.h2>
+        </motion.h1>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            { title: "Fashion Landing Page", image: project1  },
-            { title: "Fitness Studio", image: project2 },
-            { title: "Corporate Branding", image: project3 },
-            { title: "E-commerce UI", image: project4 },
-            { title: "Social Media Creatives", image: project5 },
-            { title: "SEO Campaign", image: project6 },
+            { title: "Fashion Landing Page", image: "src/assets/Project1.png" },
+            { title: "Fitness Studio", image: "src/assets/Project2.png" },
+            { title: "Corporate Branding", image: "src/assets/Project3.png" },
+            { title: "E-commerce UI", image: "src/assets/Project4.png" },
+            { title: "Social Media Creatives", image: "src/assets/Project5.png" },
+            { title: "SEO Campaign", image: "src/assets/Project6.png" },
           ].map((project, i) => (
             <motion.div
               key={i}

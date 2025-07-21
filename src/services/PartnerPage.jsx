@@ -64,8 +64,8 @@ const PartnersPage = () => {
               transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             >
               {[...partners, ...partners].map((logo, index) => (
-              <div key={index} className="w-40 h-20 flex items-center justify-center opacity-80 hover:opacity-100 transition">
-                <img src={logo} alt={`partner-${index}`} className="max-h-16 object-contain grayscale hover:grayscale-0 transition" />
+              <div key={index} className="w-40 h-20 flex items-center justify-center transition">
+                <img src={logo} alt={`partner-${index}`} className="max-h-100 object-contain transition" />
               </div>
             ))}
             </motion.div>
