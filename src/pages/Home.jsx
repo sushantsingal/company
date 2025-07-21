@@ -1,4 +1,15 @@
 import { motion } from "framer-motion";
+import hero from "../assets/hero-image.png";
+import about from "../assets/about-us.jpg";
+import planing from "../assets/Planing.jpg";
+import designing from "../assets/Designing.jpg";
+import launching from "../assets/Launching.jpg";
+import project1 from "../assets/Project1.png";
+import project2 from "../assets/Project2.png";
+import project3 from "../assets/Project3.png";
+import project4 from "../assets/Project4.png";
+import project5 from "../assets/Project5.png";
+import project6 from "../assets/Project6.png";
 import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {
@@ -39,7 +50,7 @@ const Home = () => {
             </Link>
           </motion.div>
           <motion.img
-            src="src/assets/hero-image.png"
+            src={hero}
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: 50 }}
@@ -62,7 +73,7 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.img
-            src="src/assets/about-us.jpg"
+            src={about}
             alt="About Us"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: -50 }}
@@ -116,72 +127,72 @@ const Home = () => {
 
       {/* Work Process Section */}
       <section className="bg-gray-50 py-24 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Empowering Businesses with Data, Design & Disruption
-        </h1>
-        <p className="text-gray-500 max-w-3xl mx-auto text-xl">
-          Marketing Crawlers blends strategy, analytics, and innovation to push your brand—
-          beyond just ideas and into lasting success.
-        </p>
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Empowering Businesses with Data, Design & Disruption
+          </h1>
+          <p className="text-gray-500 max-w-3xl mx-auto text-xl">
+            Marketing Crawlers blends strategy, analytics, and innovation to push your brand—
+            beyond just ideas and into lasting success.
+          </p>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div>
-            <div className="flex justify-center items-center mb-6">
-              <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
-                <Megaphone className="text-white w-8 h-8" />
-              </span>
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div>
+              <div className="flex justify-center items-center mb-6">
+                <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
+                  <Megaphone className="text-white w-8 h-8" />
+                </span>
+              </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">Brand-Centric Vision</h4>
+              <p className="text-gray-500">
+                From concept to execution, we keep your brand at the center. Our strategies align
+                with your mission and values to establish authentic connections with your audience.
+              </p>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">Brand-Centric Vision</h4>
-            <p className="text-gray-500">
-              From concept to execution, we keep your brand at the center. Our strategies align
-              with your mission and values to establish authentic connections with your audience.
-            </p>
-          </div>
 
-          <div>
-            <div className="flex justify-center items-center mb-6">
-              <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
-                <TrendingUp className="text-white w-8 h-8" />
-              </span>
+            <div>
+              <div className="flex justify-center items-center mb-6">
+                <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
+                  <TrendingUp className="text-white w-8 h-8" />
+                </span>
+              </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">Resilient Growth</h4>
+              <p className="text-gray-500">
+                Every business deserves consistent and measurable growth. We build strategies that scale,
+                using data-driven insights and disruptive innovation.
+              </p>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">Resilient Growth</h4>
-            <p className="text-gray-500">
-              Every business deserves consistent and measurable growth. We build strategies that scale,
-              using data-driven insights and disruptive innovation.
-            </p>
-          </div>
 
-          <div>
-            <div className="flex justify-center items-center mb-6">
-              <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
-                <BarChart4 className="text-white w-8 h-8" />
-              </span>
+            <div>
+              <div className="flex justify-center items-center mb-6">
+                <span className="bg-pink-500 rounded-full p-4 hover:scale-110 transition-transform duration-300">
+                  <BarChart4 className="text-white w-8 h-8" />
+                </span>
+              </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">The Financial Gain</h4>
+              <p className="text-gray-500">
+                We don’t just create marketing strategies—we engineer business growth. Every decision
+                is made to optimize your return on investment.
+              </p>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">The Financial Gain</h4>
-            <p className="text-gray-500">
-              We don’t just create marketing strategies—we engineer business growth. Every decision
-              is made to optimize your return on investment.
-            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* Projects Showcase */}
       <section className="bg-white py-20 px-6 md:px-20 text-center">
-        <motion.h1 className="text-5xl font-bold mb-12" initial="hidden" whileInView="visible" variants={fadeUp}>
+        <motion.h1 className="text-5xl font-bold mb-8" initial="hidden" whileInView="visible" variants={fadeUp}>
           Our Work Speaks for Itself
         </motion.h1>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            { title: "Fashion Landing Page", image: "src/assets/Project1.png" },
-            { title: "Fitness Studio", image: "src/assets/Project2.png" },
-            { title: "Corporate Branding", image: "src/assets/Project3.png" },
-            { title: "E-commerce UI", image: "src/assets/Project4.png" },
-            { title: "Social Media Creatives", image: "src/assets/Project5.png" },
-            { title: "SEO Campaign", image: "src/assets/Project6.png" },
+            { title: "Fashion Landing Page", image: project1  },
+            { title: "Fitness Studio", image: project2 },
+            { title: "Corporate Branding", image: project3 },
+            { title: "E-commerce UI", image: project4 },
+            { title: "Social Media Creatives", image: project5 },
+            { title: "SEO Campaign", image: project6 },
           ].map((project, i) => (
             <motion.div
               key={i}

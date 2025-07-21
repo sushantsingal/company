@@ -8,15 +8,15 @@ import PortfolioPage from "./pages/Portfolio";
 import IndustriesPage from "./pages/Industries";
 import ContactPage from "./pages/Contact";
 import Layout from "./components/Layout";
-import EventConsulting from "./services/EventConsulting";
-import TechConsulting from "./services/TechConsulting";
-import MarketingConsulting from "./services/MarketingConsulting";
-import DigitalMarketingCourse from "./services/DigitalMarketingCourse";
-import InternshipProgram from "./services/InternshipProgram";
-import OurProcess from "./services/OurProcess";
-import PartnerPage from "./services/PartnerPage";
-import TermsPage from "./services/Termspage";
-import DigitalMarketingPage from "./services/DigitalMarketingPage";
+import EventConsulting from "./pages/services/EventConsulting";
+import TechConsulting from "./pages/services/TechConsulting";
+import MarketingConsulting from "./pages/services/MarketingConsulting";
+import DigitalMarketingCourse from "./pages/services/DigitalMarketingCourse";
+import InternshipProgram from "./pages/services/InternshipProgram";
+import OurProcess from "./pages/services/OurProcess";
+import PartnerPage from "./pages/services/PartnerPage";
+import TermsPage from "./pages/services/Termspage";
+import DigitalMarketingPage from "./pages/services/DigitalMarketingPage";
 
 function App() {
   return (
