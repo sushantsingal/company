@@ -67,8 +67,8 @@ const Home = () => {
       {/* Partner Carousel */}
       <section className="bg-gray-50 py-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-gray-800">Trusted by Leading Brands</h2>
-          <p className="text-gray-600 mt-2">We’re proud to partner with some of the most respected organizations in the industry.</p>
+          <h1 className="text-5xl font-semibold text-gray-800">Trusted by Leading Brands</h1>
+          <p className="text-gray-600 mt-2 text-base md:text-lg">We’re proud to partner with some of the most respected organizations in the industry.</p>
         </div>
         <div className="overflow-hidden relative w-full">
           <motion.div
