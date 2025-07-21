@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import hero from "../assets/hero-image.png";
 import about from "../assets/about-us.jpg";
-import planing from "../assets/Planing.jpg";
-import designing from "../assets/Designing.jpg";
-import launching from "../assets/Launching.jpg";
 import project1 from "../assets/Project1.png";
 import project2 from "../assets/Project2.png";
 import project3 from "../assets/Project3.png";
