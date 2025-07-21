@@ -54,23 +54,55 @@ const PartnersPage = () => {
           </div>
         </div>
 
-        {/* Partner Carousel */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 text-pink-600 text-center">Meet Our Partners</h2>
-          <div className="overflow-hidden relative">
-            <motion.div
-              className="flex gap-10"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            >
-              {[...partners, ...partners].map((logo, index) => (
-              <div key={index} className="w-40 h-20 flex items-center justify-center transition">
-                <img src={logo} alt={`partner-${index}`} className="max-h-100 object-contain transition" />
+        {/* Meet Our Partners Section */}
+        <section className="mb-20">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-pink-600 mb-4">
+            Meet Our Partners
+          </h2>
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+            Trusted by industry leaders and future-forward innovators, our partners share our passion for excellence, growth, and digital enablement. Explore the organizations that empower our mission.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 place-items-center">
+            {partners.map((logo, index) => (
+              <div
+                key={index}
+                className="w-32 h-32 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
+              >
+                <img
+                  src={logo}
+                  alt={`partner-${index}`}
+                  className="object-contain max-h-full max-w-full"
+                />
               </div>
             ))}
-            </motion.div>
           </div>
-        </div>
+        </section>
+
+        {/* Event Partners Section */}
+        <section className="mb-20">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-pink-600 mb-4">
+            Our Event Partners
+          </h2>
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+            From industry summits to student fests, our event partners are instrumental in helping us amplify our brand presence and deliver meaningful experiences.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 place-items-center">
+            {[partner4, partner5, partner6].map((logo, index) => (
+              <div
+                key={`event-${index}`}
+                className="w-36 h-20 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
+              >
+                <img
+                  src={logo}
+                  alt={`event-partner-${index}`}
+                  className="object-contain max-h-full max-w-full"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Call to Action */}
         <div className="bg-pink-100 p-6 rounded-xl text-center">

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -11,8 +12,16 @@ const fade = {
 };
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Optional: Add form submission logic (e.g., API call) here
+    setSubmitted(true);
+  };
+
   return (
-    <div className=" bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-20 text-center px-4">
         <motion.h1
@@ -34,7 +43,7 @@ const Contact = () => {
         </motion.p>
       </section>
 
-      {/* Form + Info */}
+      {/* Content */}
       <section className="py-20 px-6 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -69,48 +78,61 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Form */}
-          <motion.form
-            className="bg-white rounded-2xl shadow-xl p-8 space-y-6"
+          {/* Conditional Rendering */}
+          <motion.div
+            className="bg-white rounded-2xl shadow-xl p-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
             variants={fade}
+            viewport={{ once: true }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-              <input
-                type="text"
-                placeholder="Company"
-                className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-              <input
-                type="text"
-                placeholder="Phone Number"
-                className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-            </div>
-            <textarea
-              rows="5"
-              placeholder="Tell us about your project..."
-              className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
-            >
-              Submit
-            </button>
-          </motion.form>
+            {submitted ? (
+              <div className="text-center py-12">
+                <h3 className="text-2xl font-semibold text-pink-600 mb-4">Thank You!</h3>
+                <p className="text-gray-700">
+                  We've received your details. Our team will get in touch with you shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    required
+                  />
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Company"
+                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Phone Number"
+                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
+                </div>
+                <textarea
+                  rows="5"
+                  placeholder="Tell us about your project..."
+                  className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                ></textarea>
+                <button
+                  type="submit"
+                  className="bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
+          </motion.div>
         </div>
       </section>
     </div>

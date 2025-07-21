@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import partner1 from "../assets/partner1.png";
 import partner2 from "../assets/partner2.png";
 import partner3 from "../assets/partner3.png";
@@ -95,6 +96,11 @@ const Industries = () => {
             ))}
           </motion.div>
         </div>
+        <motion.div className="mt-4 text-center py-2" initial="hidden" whileInView="visible" custom={2} variants={fadeIn}>
+          <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
+            View All
+          </Link>
+        </motion.div>
       </section>
     </div>
   );

@@ -7,6 +7,12 @@ import project3 from "../assets/Project3.png";
 import project4 from "../assets/Project4.png";
 import project5 from "../assets/Project5.png";
 import project6 from "../assets/Project6.png";
+import partner1 from "../assets/partner1.png";
+import partner2 from "../assets/partner2.png";
+import partner3 from "../assets/partner3.png";
+import partner4 from "../assets/partner4.png";
+import partner5 from "../assets/partner5.png";
+import partner6 from "../assets/partner6.png";
 import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {
@@ -20,6 +26,7 @@ import {
   BarChart4
 } from "lucide-react";
 
+const partners = [partner1, partner2, partner3, partner4, partner5, partner6];
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
@@ -55,6 +62,33 @@ const Home = () => {
             transition={{ duration: 0.6 }}
           />
         </div>
+      </section>
+
+      {/* Partner Carousel */}
+      <section className="bg-gray-50 py-4">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-semibold text-gray-800">Trusted by Leading Brands</h2>
+          <p className="text-gray-600 mt-2">We’re proud to partner with some of the most respected organizations in the industry.</p>
+        </div>
+        <div className="overflow-hidden relative w-full">
+          <motion.div
+            className="flex space-x-12 animate-slide px-10"
+            initial={{ x: "100%" }}
+            animate={{ x: "-50%" }}
+            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          >
+            {[...partners, ...partners].map((logo, index) => (
+              <div key={index} className="w-32 h-32 flex items-center justify-center transition">
+                <img src={logo} alt={`partner-${index}`} className="max-h-full object-contain " />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+        <motion.div className="mt-4 text-center py-2" initial="hidden" whileInView="visible" custom={2} variants={fadeUp}>
+          <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
+            View All
+          </Link>
+        </motion.div>
       </section>
 
       {/* About Section */}
