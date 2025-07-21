@@ -95,7 +95,7 @@ const Home = () => {
       <section className="min-h-screen bg-gray-50 py-20 px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div className="space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h1 className="text-3xl font-bold text-pink-600">Who We Are</h1>
+            <h1 className="text-5xl font-bold text-pink-600">Who We Are</h1>
             <p className="text-gray-700 text-base md:text-lg">
               At <b>Marketing Crawlers</b>, we are passionate digital experts focused on crafting meaningful <b>brand experiences</b>. Our team blends creativity with data to generate results that matter.
             </p>
