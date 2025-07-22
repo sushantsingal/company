@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import CTA from "../components/CTA";
 import event from "../assets/event-consulting.jpg";
+import {
+  Lightbulb,
+  Truck,
+  Users,
+  CalendarCheck,
+  BarChart3,
+  Palette
+} from "lucide-react";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -101,28 +110,36 @@ const EventConsulting = () => {
             {
               title: "Strategic Planning",
               desc: "We analyze your event goals to craft a strategy that aligns with your brand and target audience.",
+              icon: Lightbulb,
             },
             {
               title: "Vendor Coordination",
               desc: "Leverage our network of trusted vendors for logistics, tech, venue, and more.",
+              icon: Truck,
             },
             {
               title: "Audience Engagement",
               desc: "We design interactive experiences and creative content to keep your audience hooked.",
+              icon: Users,
             },
             {
               title: "On-Ground Management",
               desc: "From setup to teardown, we manage everything so you can focus on networking and visibility.",
+              icon: CalendarCheck,
             },
             {
               title: "Post-Event Analysis",
               desc: "Get detailed insights and reports on performance, attendee feedback, and ROI.",
+              icon: BarChart3,
             },
             {
               title: "Custom Branding",
               desc: "We ensure your brand identity is seamlessly integrated across all event touchpoints.",
+              icon: Palette,
             },
-          ].map((item, i) => (
+          ].map((item, i) =>{
+            const Icon = item.icon;
+            return(
             <motion.div
               key={i}
               className="bg-white p-6 rounded-xl shadow hover:shadow-md transition"
@@ -131,10 +148,14 @@ const EventConsulting = () => {
               custom={i + 1}
               variants={fadeUp}
             >
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <div className="flex items-center gap-4 mb-4">
+                <Icon className="w-6 h-6 text-pink-600" />
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+              </div>
               <p className="text-gray-600">{item.desc}</p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
