@@ -111,7 +111,7 @@ const Contact = () => {
                   type="submit"
                   className="bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
                 >
-                  Submit
+                  Register
                 </button>
               </form>
             )}
