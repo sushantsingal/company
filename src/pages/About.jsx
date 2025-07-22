@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Lightbulb, TrendingUp, DollarSign, Mail, Phone, Linkedin, Instagram } from "lucide-react";
+import { Lightbulb, TrendingUp, DollarSign, Mail, Phone, Linkedin, Instagram, Brain,Users,Layers,Cpu,Handshake,ChevronLeft, ChevronRight } from "lucide-react";
 import team1 from "../assets/team1.jpg";
 import team2 from "../assets/team2.jpg";
 import team3 from "../assets/team3.jpg";
 import team4 from "../assets/team4.jpg";
 import team5 from "../assets/team5.jpg";
 import team6 from "../assets/team6.jpg";
-import about from "../assets/about-us.jpg";
+import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -289,28 +289,34 @@ const About = () => {
             {[
               {
                 title: "Creative & Strategic",
-                desc: "We combine imaginative storytelling with data-backed strategies to deliver campaigns that resonate and convert."
+                desc: "We combine imaginative storytelling with data-backed strategies to deliver campaigns that resonate and convert.",
+                icon: <Brain className="text-pink-600 w-8 h-8 mb-4" />,
               },
               {
                 title: "Experienced Team",
-                desc: "With over a decade of hands-on experience across diverse industries, our team understands what works and what doesn’t—so your brand doesn’t have to learn the hard way."
+                desc: "With over a decade of hands-on experience across diverse industries, our team understands what works and what doesn’t—so your brand doesn’t have to learn the hard way.",
+                icon: <Users className="text-pink-600 w-8 h-8 mb-4" />,
               },
               {
                 title: "Proven Results",
-                desc: "100+ brands have scaled their business with our performance-driven solutions. We let our track record speak for itself."
+                desc: "100+ brands have scaled their business with our performance-driven solutions. We let our track record speak for itself.",
+                icon: <TrendingUp className="text-pink-600 w-8 h-8 mb-4" />,
               },
               {
                 title: "Full-Service Capabilities",
-                desc: "From branding and digital marketing to development and automation—we offer end-to-end services to cover your complete growth journey."
+                desc: "From branding and digital marketing to development and automation—we offer end-to-end services to cover your complete growth journey.",
+                icon: <Layers className="text-pink-600 w-8 h-8 mb-4" />,
               },
               {
                 title: "Tech-Enabled Execution",
-                desc: "We leverage the latest technologies, automation tools, and performance dashboards to ensure precision and transparency."
+                desc: "We leverage the latest technologies, automation tools, and performance dashboards to ensure precision and transparency.",
+                icon: <Cpu className="text-pink-600 w-8 h-8 mb-4" />,
               },
               {
                 title: "Client-Centric Approach",
-                desc: "Your vision is at the core of what we do. We work closely with you to align strategies with your goals and KPIs."
-              }
+                desc: "Your vision is at the core of what we do. We work closely with you to align strategies with your goals and KPIs.",
+                icon: <Handshake className="text-pink-600 w-8 h-8 mb-4" />,
+              },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -320,6 +326,7 @@ const About = () => {
                 custom={i + 1}
                 variants={fadeUp}
               >
+                {item.icon}
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </motion.div>

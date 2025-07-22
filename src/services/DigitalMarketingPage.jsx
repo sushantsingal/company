@@ -1,4 +1,14 @@
 import React from "react";
+import {
+  Search,
+  ThumbsUp,
+  MousePointerClick,
+  Mail,
+  ShieldCheck,
+  Users,
+  BarChart3,
+  Target
+} from "lucide-react";
 
 const DigitalMarketingPage = () => {
   return (
@@ -14,29 +24,41 @@ const DigitalMarketingPage = () => {
 
         {/* Service Breakdown */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-lg font-semibold mb-2">Search Engine Optimization (SEO)</h3>
-            <p className="text-gray-600">
-              Improve your rankings on search engines and drive organic traffic to your website with our expert SEO solutions.
-            </p>
+          <div className="bg-white p-6 rounded-xl shadow flex gap-4 items-start">
+            <Search className="text-pink-600 w-16 h-16 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Search Engine Optimization (SEO)</h3>
+              <p className="text-gray-600">
+                Improve your rankings on search engines and drive organic traffic to your website with our expert SEO solutions.
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-lg font-semibold mb-2">Social Media Marketing</h3>
-            <p className="text-gray-600">
-              Engage with your audience and grow your following through strategic campaigns on platforms like Instagram, Facebook, LinkedIn, and more.
-            </p>
+          <div className="bg-white p-6 rounded-xl shadow flex gap-4 items-start">
+            <ThumbsUp className="text-pink-600 w-16 h-16 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Social Media Marketing</h3>
+              <p className="text-gray-600">
+                Engage with your audience and grow your following through strategic campaigns on platforms like Instagram, Facebook, LinkedIn, and more.
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-lg font-semibold mb-2">Pay-Per-Click Advertising (PPC)</h3>
-            <p className="text-gray-600">
-              Maximize your ROI with targeted paid campaigns that bring results quickly across Google, Facebook, and YouTube.
-            </p>
+          <div className="bg-white p-6 rounded-xl shadow flex gap-4 items-start">
+            <MousePointerClick className="text-pink-600 w-16 h-16 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Pay-Per-Click Advertising (PPC)</h3>
+              <p className="text-gray-600">
+                Maximize your ROI with targeted paid campaigns that bring results quickly across Google, Facebook, and YouTube.
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-lg font-semibold mb-2">Email & Content Marketing</h3>
-            <p className="text-gray-600">
-              Build long-term customer relationships through valuable content, newsletters, and automated funnels.
-            </p>
+          <div className="bg-white p-6 rounded-xl shadow flex gap-4 items-start">
+            <Mail className="text-pink-600 w-16 h-16 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Email & Content Marketing</h3>
+              <p className="text-gray-600">
+                Build long-term customer relationships through valuable content, newsletters, and automated funnels.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -45,11 +67,23 @@ const DigitalMarketingPage = () => {
           <h2 className="text-2xl font-semibold text-pink-600 mb-4">
             Why Choose Us?
           </h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li>Proven track record of successful campaigns</li>
-            <li>Dedicated team of certified marketers</li>
-            <li>Transparent reporting and analytics</li>
-            <li>Customized strategy for your industry and goals</li>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-center gap-2">
+              <ShieldCheck className="text-pink-600 w-5 h-5" />
+              Proven track record of successful campaigns
+            </li>
+            <li className="flex items-center gap-2">
+              <Users className="text-pink-600 w-5 h-5" />
+              Dedicated team of certified marketers
+            </li>
+            <li className="flex items-center gap-2">
+              <BarChart3 className="text-pink-600 w-5 h-5" />
+              Transparent reporting and analytics
+            </li>
+            <li className="flex items-center gap-2">
+              <Target className="text-pink-600 w-5 h-5" />
+              Customized strategy for your industry and goals
+            </li>
           </ul>
         </div>
 

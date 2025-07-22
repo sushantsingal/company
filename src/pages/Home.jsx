@@ -73,7 +73,7 @@ const Home = () => {
         <div className="overflow-hidden relative w-full">
           <motion.div
             className="flex space-x-12 animate-slide px-10"
-            initial={{ x: "100%" }}
+            initial={{ x: "0%" }}
             animate={{ x: "-50%" }}
             transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           >

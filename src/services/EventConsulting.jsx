@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import CTA from "../components/CTA";
 import event from "../assets/event-consulting.jpg";
 
 const fadeUp = {
@@ -137,19 +138,7 @@ const EventConsulting = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-pink-600 text-white py-16 px-4 text-center">
-        <h2 className="text-3xl font-bold mb-4">Let’s Build Your Next Big Event</h2>
-        <p className="mb-6 max-w-2xl mx-auto">
-          Collaborate with our event consulting experts and take the stress out of planning while ensuring remarkable outcomes.
-        </p>
-        <a
-          href="/contact"
-          className="bg-white text-pink-600 px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition"
-        >
-          Contact Us
-        </a>
-      </section>
+      <CTA />
     </div>
   );
 };

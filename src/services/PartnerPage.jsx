@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { Settings, GraduationCap, Building2, Users } from "lucide-react";
 import partner1 from "../assets/partner1.png";
 import partner2 from "../assets/partner2.png";
 import partner3 from "../assets/partner3.png";
@@ -27,29 +26,41 @@ const PartnersPage = () => {
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 text-pink-600">Types of Partners</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded shadow">
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <Settings className="text-pink-600 w-20 h-20 mt-1" />
+              <div>
               <h3 className="text-lg font-semibold mb-2">Technology Partners</h3>
               <p className="text-gray-600">
                 We work with top-tier tech companies to bring you the best platforms, tools, and integrations for success.
               </p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded shadow">
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <GraduationCap className="text-pink-600 w-20 h-20 mt-1" />
+              <div>
               <h3 className="text-lg font-semibold mb-2">Training Partners</h3>
               <p className="text-gray-600">
                 Our educational and training partnerships ensure up-to-date curriculum and mentorship from experienced industry professionals.
               </p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded shadow">
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <Building2 className="text-pink-600 w-20 h-20 mt-1" />
+              <div>
               <h3 className="text-lg font-semibold mb-2">Corporate Alliances</h3>
               <p className="text-gray-600">
                 Collaborating with startups, SMEs, and enterprises to deliver measurable results through marketing and digital consulting.
               </p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded shadow">
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <Users className="text-pink-600 w-20 h-20 mt-1" />
+              <div>
               <h3 className="text-lg font-semibold mb-2">Community Collaborations</h3>
               <p className="text-gray-600">
                 We support local communities and institutions to promote skill development and digital awareness.
               </p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { Clock, Cpu, ClipboardCheck, Award } from "lucide-react";
+import InternshipBanner from "../assets/internship-program.jpg";
 
 const InternshipProgram = () => {
   return (
@@ -17,37 +18,71 @@ const InternshipProgram = () => {
 
         {/* What You'll Gain */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-pink-600">What You'll Gain</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li>Work on real client campaigns and projects</li>
-            <li>Exposure to digital tools & platforms (SEO, SMM, Canva, etc.)</li>
-            <li>Collaborate with experienced mentors</li>
-            <li>Build a job-ready portfolio</li>
-            <li>Certificate & letter of recommendation</li>
-            <li>Potential job placement opportunities</li>
-          </ul>
+          <h2 className="text-2xl font-semibold mb-8 text-pink-600 text-center">What You'll Gain</h2>
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            
+            {/* List */}
+            <ul className="list-disc list-inside text-gray-700 space-y-3 text-base">
+              <li>Work on real client campaigns and projects</li>
+              <li>Exposure to digital tools & platforms (SEO, SMM, Canva, etc.)</li>
+              <li>Collaborate with experienced mentors</li>
+              <li>Build a job-ready portfolio</li>
+              <li>Certificate & letter of recommendation</li>
+              <li>Potential job placement opportunities</li>
+            </ul>
+
+            {/* Image */}
+            <div>
+              <img
+                src={InternshipBanner}
+                alt="Internship Program"
+                className="rounded-xl shadow-md w-full object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Program Highlights */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-pink-600">Program Highlights</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-pink-600">Program Highlights</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded shadow">
-              <h3 className="text-lg font-semibold mb-2">Flexible Timing</h3>
-              <p className="text-gray-600">Balance your studies or job while gaining work experience.</p>
+            
+            {/* Card 1 */}
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <Clock className="text-pink-600 w-6 h-6 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Flexible Timing</h3>
+                <p className="text-gray-600">Balance your studies or job while gaining work experience.</p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded shadow">
-              <h3 className="text-lg font-semibold mb-2">Practical Exposure</h3>
-              <p className="text-gray-600">Learn by doing, not just watching tutorials.</p>
+
+            {/* Card 2 */}
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <Cpu className="text-pink-600 w-6 h-6 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Practical Exposure</h3>
+                <p className="text-gray-600">Learn by doing, not just watching tutorials.</p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded shadow">
-              <h3 className="text-lg font-semibold mb-2">Weekly Assignments</h3>
-              <p className="text-gray-600">Track progress and receive regular feedback.</p>
+
+            {/* Card 3 */}
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <ClipboardCheck className="text-pink-600 w-6 h-6 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Weekly Assignments</h3>
+                <p className="text-gray-600">Track progress and receive regular feedback.</p>
+              </div>
             </div>
-            <div className="bg-white p-6 rounded shadow">
-              <h3 className="text-lg font-semibold mb-2">Certification</h3>
-              <p className="text-gray-600">Get certified upon successful completion of the program.</p>
+
+            {/* Card 4 */}
+            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
+              <Award className="text-pink-600 w-6 h-6 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Certification</h3>
+                <p className="text-gray-600">Get certified upon successful completion of the program.</p>
+              </div>
             </div>
+
           </div>
         </div>
 
