@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import contact from "../assets/contact.jpg";
+import OfficeLocations from "../components/OfficeLocation";
 
 const fade = {
   hidden: { opacity: 0, y: 30 },
@@ -43,40 +44,22 @@ const Contact = () => {
         </motion.p>
       </section>
 
+      {/* Location Dropdown */}
+      <OfficeLocations />
+
       {/* Content */}
       <section className="py-20 px-6 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <motion.div
-            className="bg-white rounded-2xl p-8 shadow-xl flex flex-col justify-center space-y-6"
-            initial="hidden"
-            whileInView="visible"
-            custom={1}
-            variants={fade}
+          {/* Contact Img */}
+          <motion.img
+            src= {contact} // ← Replace this with the correct path
+            alt="Our Office Locations"
+            className="rounded-2xl shadow-xl w-full object-cover"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-          >
-            <div className="flex items-start gap-4">
-              <MapPin className="text-pink-600 mt-1" />
-              <div>
-                <h3 className="font-semibold text-lg">Address</h3>
-                <p className="text-gray-600">Jaipur, Rajasthan, India</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Phone className="text-pink-600 mt-1" />
-              <div>
-                <h3 className="font-semibold text-lg">Phone</h3>
-                <p className="text-gray-600">+91 98765 43210</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Mail className="text-pink-600 mt-1" />
-              <div>
-                <h3 className="font-semibold text-lg">Email</h3>
-                <p className="text-gray-600">hello@yourcompany.com</p>
-              </div>
-            </div>
-          </motion.div>
+          />
 
           {/* Conditional Rendering */}
           <motion.div
