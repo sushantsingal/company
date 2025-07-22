@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import CTA from "../components/CTA";
 import Testimonials from "../components/Testimonials";
 import tech from "../assets/tech-consulting.jpg";
+import {
+  ServerCog,
+  Cloud,
+  Bot,
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -74,16 +79,21 @@ const TechConsulting = () => {
               {
                 title: "System Architecture",
                 desc: "We design scalable architectures that optimize speed, reliability, and security.",
+                icon: ServerCog,
               },
               {
                 title: "Cloud Solutions",
                 desc: "Move to the cloud or optimize your cloud stack for better performance.",
+                icon: Cloud,
               },
               {
                 title: "Automation & AI",
                 desc: "Integrate intelligent automation tools and AI-driven processes into your workflow.",
+                icon: Bot,
               },
-            ].map((item, i) => (
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
               <motion.div
                 key={i}
                 className="bg-white p-6 rounded-lg shadow hover:shadow-md transition"
@@ -92,10 +102,14 @@ const TechConsulting = () => {
                 custom={i + 1}
                 variants={fadeUp}
               >
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <div className="flex items-center gap-4 mb-4">
+                    <Icon className="w-6 h-6 text-pink-600" />
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                  </div>
                 <p className="text-gray-600">{item.desc}</p>
               </motion.div>
-            ))}
+            );
+          })}
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import CTA from "../components/CTA";
 import Testimonials from "../components/Testimonials";
 import marketing from "../assets/marketing-consulting.jpg";
+import { BarChart3, Lightbulb, Rocket, SlidersHorizontal } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -75,18 +76,22 @@ const MarketingConsulting = () => {
           <div className="grid md:grid-cols-4 gap-8 text-left">
             {[
               {
+                icon: <BarChart3 className="text-pink-600 w-6 h-6 mb-3" />,
                 title: "Market Research",
                 desc: "In-depth analysis of your industry, competitors, and audience for informed strategies.",
               },
               {
+                icon: <Lightbulb className="text-pink-600 w-6 h-6 mb-3" />,
                 title: "Strategy Creation",
                 desc: "We build custom campaigns focused on performance, conversion, and customer journey.",
               },
               {
+                icon: <Rocket className="text-pink-600 w-6 h-6 mb-3" />,
                 title: "Execution",
                 desc: "Deploy and monitor marketing campaigns across the right channels for your business.",
               },
               {
+                icon: <SlidersHorizontal className="text-pink-600 w-6 h-6 mb-3" />,
                 title: "Optimization",
                 desc: "We refine and scale campaigns based on continuous tracking, analytics, and user behavior.",
               },
@@ -99,6 +104,7 @@ const MarketingConsulting = () => {
                 custom={i + 1}
                 variants={fadeUp}
               >
+                <div className="mb-2">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </motion.div>
