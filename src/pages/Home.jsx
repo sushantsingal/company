@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import hero from "../assets/hero-image.png";
 import about from "../assets/about-us.jpg";
 import project1 from "../assets/Project1.png";
@@ -27,6 +28,17 @@ import {
 } from "lucide-react";
 
 const partners = [partner1, partner2, partner3, partner4, partner5, partner6];
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile;
+};
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
@@ -37,6 +49,7 @@ const fadeUp = {
 };
 
 const Home = () => {
+  const isMobile = useIsMobile();
   return (
     <div className="text-black overflow-x-hidden">
       {/* Hero Section */}
@@ -66,26 +79,46 @@ const Home = () => {
 
       {/* Partner Carousel */}
       <section className="bg-gray-50 py-4">
-        <div className="text-center mb-10">
-          <h1 className="text-5xl font-bold text-gray-800">Trusted by Leading Brands</h1>
-          <p className="text-gray-600 mt-2 text-base md:text-lg">We’re proud to partner with some of the most respected organizations in the industry.</p>
+        <div className="text-center mb-10 px-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-800">Trusted by Leading Brands</h1>
+          <p className="text-gray-600 mt-2 text-sm md:text-lg">
+            We’re proud to partner with some of the most respected organizations in the industry.
+          </p>
         </div>
+
         <div className="overflow-hidden relative w-full">
-          <motion.div
-            className="flex space-x-12 animate-slide px-10"
-            initial={{ x: "0%" }}
-            animate={{ x: "-50%" }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          >
-            {[...partners, ...partners].map((logo, index) => (
-              <div key={index} className="w-32 h-32 flex items-center justify-center transition">
-                <img src={logo} alt={`partner-${index}`} className="max-h-full object-contain " />
-              </div>
-            ))}
-          </motion.div>
+          {isMobile ? (
+            <div className="flex flex-wrap justify-center gap-6 px-4">
+              {partners.map((logo, index) => (
+                <div key={index} className="w-20 h-20 flex items-center justify-center">
+                  <img src={logo} alt={`partner-${index}`} className="max-h-full object-contain" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <motion.div
+              className="flex space-x-8 px-4 md:px-10 animate-slide"
+              initial={{ x: "0%" }}
+              animate={{ x: "-50%" }}
+              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+            >
+              {[...partners, ...partners].map((logo, index) => (
+                <div key={index} className="w-20 h-20 md:w-32 md:h-32 flex items-center justify-center">
+                  <img src={logo} alt={`partner-${index}`} className="max-h-full object-contain" />
+                </div>
+              ))}
+            </motion.div>
+          )}
         </div>
-        <motion.div className="mt-4 text-center py-2" initial="hidden" whileInView="visible" custom={2} variants={fadeUp}>
-          <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
+
+        <motion.div
+          className="mt-4 text-center py-2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 transition">
             View All
           </Link>
         </motion.div>
