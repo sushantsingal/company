@@ -17,6 +17,7 @@ import OurProcess from "./services/OurProcess";
 import PartnerPage from "./services/PartnerPage";
 import TermsPage from "./services/Termspage";
 import DigitalMarketingPage from "./services/DigitalMarketingPage";
+import PortfolioDetail from "./services/PortfoiloDetails";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="services/tech-consulting" element={<TechConsulting />} />
           <Route path="services/marketing-consulting" element={<MarketingConsulting />} />
           <Route path="portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:id" element={<PortfolioDetail />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="digital-marketing-course" element={<DigitalMarketingCourse />} />
           <Route path="digital-marketing" element={<DigitalMarketingPage />} />
