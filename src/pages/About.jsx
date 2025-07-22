@@ -9,7 +9,6 @@ import team6 from "../assets/team6.jpg";
 import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
 import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
