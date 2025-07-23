@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import hero from "../assets/hero-image.png";
+import about from "../assets/about-us.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CTA from "../components/CTA";
@@ -74,7 +76,7 @@ const Home = () => {
             </Link>
           </motion.div>
           <motion.img
-            src="src/assets/hero-image.png"
+            src={hero}
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: 50 }}
@@ -129,7 +131,7 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.img
-            src="src/assets/about-us.jpg"
+            src={about}
             alt="About Us"
             className="rounded-xl w-full max-w-full h-auto"
             initial={{ opacity: 0, x: -50 }}
