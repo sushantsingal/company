@@ -9,7 +9,7 @@ const PartnersPage = () => {
   useEffect(() => {
     const fetchLogos = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/partners");
+        const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
         setPartners(res.data.generalPartners || []);
         setEventPartners(res.data.eventPartners || []);
       } catch (err) {
@@ -92,7 +92,7 @@ const PartnersPage = () => {
                 className="w-32 h-32 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
               >
                 <img
-                  src={`http://localhost:5000${logo.imageUrl}`}
+                  src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
                   alt={`partner-${index}`}
                   className="object-contain max-h-full max-w-full"
                 />
@@ -117,7 +117,7 @@ const PartnersPage = () => {
                 className="w-36 h-20 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
               >
                 <img
-                  src={`http://localhost:5000${logo.imageUrl}`}
+                  src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
                   alt={`event-partner-${index}`}
                   className="object-contain max-h-full max-w-full"
                 />

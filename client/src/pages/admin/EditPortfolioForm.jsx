@@ -4,7 +4,7 @@ const EditPortfolioForm = ({ formData, onClose, onSubmit }) => {
   const [title, setTitle] = useState(formData.title || "");
   const [description, setDescription] = useState(formData.description || "");
   const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(formData.image ? `http://localhost:5000${formData.image}` : "");
+  const [preview, setPreview] = useState(formData.image ? `https://marketing-crawlers.onrender.com${formData.image}` : "");
 
   useEffect(() => {
     if (image) {

@@ -7,7 +7,7 @@ const AdminPartnerLogo = () => {
   const [logos, setLogos] = useState([]);
 
   const fetchLogos = async () => {
-    const res = await axios.get("http://localhost:5000/api/partners");
+    const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
     const all = [...res.data.generalPartners, ...res.data.eventPartners];
     setLogos(all);
   };
@@ -22,13 +22,13 @@ const AdminPartnerLogo = () => {
     formData.append("logo", file);
     formData.append("type", type);
 
-    await axios.post("http://localhost:5000/api/partners/upload", formData);
+    await axios.post("https://marketing-crawlers.onrender.com/api/partners/upload", formData);
     setFile(null);
     fetchLogos();
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/partners/${id}`);
+    await axios.delete(`https://marketing-crawlers.onrender.com/api/partners/${id}`);
     fetchLogos();
   };
 
@@ -61,7 +61,7 @@ const AdminPartnerLogo = () => {
             className="relative bg-white p-4 rounded shadow text-center"
           >
             <img
-              src={`http://localhost:5000${logo.imageUrl}`}
+              src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
               alt="logo"
               className="w-full h-24 object-contain"
             />

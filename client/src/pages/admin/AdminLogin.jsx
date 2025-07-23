@@ -11,7 +11,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/admin/login", {
+      const res = await axios.post("https://marketing-crawlers.onrender.com/api/admin/login", {
         email,
         password,
       });

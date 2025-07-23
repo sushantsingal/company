@@ -63,7 +63,7 @@ const PortfolioPage = () => {
                 className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition block"
               >
                 <img
-                  src={project.image ? `http://localhost:5000${project.image}` : "/placeholder.png"}
+                  src={project.image ? `https://marketing-crawlers.onrender.com${project.image}` : "/placeholder.png"}
                   alt={project.title || "Project"}
                   className="w-full h-48 object-cover"
                   loading="lazy"

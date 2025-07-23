@@ -73,7 +73,7 @@ const SingleProject = () => {
       {/* Cover Image */}
       <div className="mb-8">
         <img
-          src={`http://localhost:5000${project.image}`}
+          src={`https://marketing-crawlers.onrender.com${project.image}`}
           alt={project.title}
           className="w-full rounded-lg object-cover shadow"
         />

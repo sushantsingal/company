@@ -35,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/portfolio");
+        const res = await axios.get("https://marketing-crawlers.onrender.com/api/portfolio");
         setPortfolioData(res.data);
       } catch (err) {
         console.error(err);
@@ -47,7 +47,7 @@ const Home = () => {
 
     const fetchLogos = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/partners");
+        const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
         setPartners(res.data.generalPartners || []);
         setEventPartners(res.data.eventPartners || []);
       } catch (err) {
@@ -99,7 +99,7 @@ const Home = () => {
             <div className="flex flex-wrap justify-center gap-6 px-4">
               {partners.map((logo, index) => (
                 <div key={index} className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
-                  <img src={`http://localhost:5000${logo.imageUrl}`} alt={`partner-${index}`} className="max-h-full object-contain" />
+                  <img src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`} alt={`partner-${index}`} className="max-h-full object-contain" />
                 </div>
               ))}
             </div>
@@ -258,7 +258,7 @@ const Home = () => {
           custom={i + 1}
           variants={fadeUp}
         >
-          <img src= {`http://localhost:5000${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
+          <img src= {`https://marketing-crawlers.onrender.com${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
           <div className="p-4">
             <h3 className="text-lg font-semibold">{project.title}</h3>
           </div>

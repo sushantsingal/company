@@ -26,7 +26,7 @@ const PortfolioForm = ({ editingProject = null, onSuccess = () => {} }) => {
         date: editingProject.date || "",
         comments: editingProject.comments || "",
       });
-      setPreview(`http://localhost:5000${editingProject.image}`);
+      setPreview(`https://marketing-crawlers.onrender.com${editingProject.image}`);
     }
   }, [editingProject]);
 

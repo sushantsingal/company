@@ -76,7 +76,7 @@ const PortfolioAdmin = () => {
               className="relative rounded-xl shadow-lg bg-white p-4 border"
             >
               <img
-                src={`http://localhost:5000${project.image}`}
+                src={`https://marketing-crawlers.onrender.com${project.image}`}
                 alt={project.title}
                 className="w-full h-40 object-cover rounded-md mb-3"
               />
