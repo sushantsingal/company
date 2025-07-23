@@ -1,6 +1,6 @@
 export const submitContactFrom = async (formData) => {
     try{
-        const res = await fetch("http://localhost:5000/api/contact", {
+        const res = await fetch("https://marketing-crawlers.onrender.com/api/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
