@@ -57,10 +57,10 @@ const PortfolioForm = ({ editingProject = null, onSuccess = () => {} }) => {
 
     try {
       if (editingProject) {
-        await axios.put(`/api/portfolio/${editingProject._id}`, data);
+        await axios.put(`https://marketing-crawlers.onrender.com/api/portfolio/${editingProject._id}`, data);
         toast.success("Portfolio updated ✅");
       } else {
-        await axios.post("/api/portfolio", data);
+        await axios.post("https://marketing-crawlers.onrender.com/api/portfolio", data);
         toast.success("Portfolio uploaded ✅");
       }
 
