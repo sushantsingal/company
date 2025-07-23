@@ -59,8 +59,8 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/industries" className={navLinkClass}>Industries</NavLink>
-          <NavLink to="/portfolio" className={navLinkClass}>Portfolio</NavLink>
           <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+          <NavLink to="/portfolio" className={navLinkClass}>Insights</NavLink>
         </nav>
 
         {/* CTA for Desktop */}

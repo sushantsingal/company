@@ -1,13 +1,7 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import partner1 from "../assets/partner1.png";
-import partner2 from "../assets/partner2.png";
-import partner3 from "../assets/partner3.png";
-import partner4 from "../assets/partner4.png";
-import partner5 from "../assets/partner5.png";
-import partner6 from "../assets/partner6.png";
-
-const partners = [partner1, partner2, partner3, partner4, partner5, partner6];
+import axios from "axios";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -30,6 +24,23 @@ const industries = [
 ];
 
 const Industries = () => {
+  const [partners, setPartners] = useState([]);
+  const [eventPartners, setEventPartners] = useState([]);
+
+  useEffect(() => {
+    const fetchLogos = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/partners");
+        setPartners(res.data.generalPartners || []);
+        setEventPartners(res.data.eventPartners || []);
+      } catch (err) {
+        console.error("Failed to fetch partner logos", err);
+      }
+    };
+
+    fetchLogos();
+  }, []);
+
   return (
     <div className="text-gray-800">
       {/* Hero */}
@@ -83,20 +94,15 @@ const Industries = () => {
           <p className="text-gray-600 mt-2">We’re proud to partner with some of the most respected organizations in the industry.</p>
         </div>
         <div className="overflow-hidden relative w-full">
-          <motion.div
-            className="flex space-x-12 animate-slide px-10"
-            initial={{ x: "0%" }}
-            animate={{ x: "-50%" }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          >
-            {[...partners, ...partners].map((logo, index) => (
-              <div key={index} className="w-40 h-20 flex items-center justify-center transition">
-                <img src={logo} alt={`partner-${index}`} className="max-h-100 object-contain transition" />
-              </div>
-            ))}
-          </motion.div>
+            <div className="flex flex-wrap justify-center gap-6 px-4">
+              {partners.map((logo, index) => (
+                <div key={index} className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
+                  <img src={`http://localhost:5000${logo.imageUrl}`} alt={`partner-${index}`} className="max-h-full object-contain" />
+                </div>
+              ))}
+            </div>
         </div>
-        <motion.div className="mt-4 text-center py-2" initial="hidden" whileInView="visible" custom={2} variants={fadeIn}>
+        <motion.div className="mt-4 text-center py-6" initial="hidden" whileInView="visible" custom={2} variants={fadeIn}>
           <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
             View All
           </Link>

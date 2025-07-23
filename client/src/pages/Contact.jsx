@@ -13,33 +13,52 @@ const fade = {
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Optional: Add form submission logic (e.g., API call) here
-    setSubmitted(true);
+    setLoading(true);
+    setStatus(null);
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Submission failed");
+
+      setSubmitted(true);
+    } catch (error) {
+      setStatus({ error: true, message: error.message });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="bg-white">
       {/* Hero */}
       <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-20 text-center px-4">
-        <motion.h1
-          className="text-4xl font-bold mb-4"
-          initial="hidden"
-          animate="visible"
-          variants={fade}
-        >
+        <motion.h1 className="text-4xl font-bold mb-4" initial="hidden" animate="visible" variants={fade}>
           Let’s Connect & Grow Together
         </motion.h1>
-        <motion.p
-          className="max-w-2xl mx-auto text-lg text-gray-300"
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          variants={fade}
-        >
+        <motion.p className="max-w-2xl mx-auto text-lg text-gray-300" initial="hidden" animate="visible" custom={1} variants={fade}>
           We’re excited to hear about your brand. Fill the form below and our team will reach out.
         </motion.p>
       </section>
@@ -52,7 +71,7 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Img */}
           <motion.img
-            src= {contact} // ← Replace this with the correct path
+            src={contact}
             alt="Our Office Locations"
             className="rounded-2xl shadow-xl w-full object-cover"
             initial={{ opacity: 0, y: 40 }}
@@ -61,7 +80,7 @@ const Contact = () => {
             viewport={{ once: true }}
           />
 
-          {/* Conditional Rendering */}
+          {/* Form */}
           <motion.div
             className="bg-white rounded-2xl shadow-xl p-8"
             initial="hidden"
@@ -80,40 +99,61 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input
+                    name="name"
                     type="text"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your Name"
                     className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   />
                   <input
+                    name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Your Email"
                     className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   />
                   <input
+                    name="company"
                     type="text"
+                    value={formData.company}
+                    onChange={handleChange}
                     placeholder="Company"
                     className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                   />
                   <input
+                    name="phone"
                     type="text"
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="Phone Number"
                     className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                   />
                 </div>
                 <textarea
+                  name="message"
                   rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us about your project..."
                   className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  required
                 ></textarea>
                 <button
                   type="submit"
+                  disabled={loading}
                   className="bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
                 >
-                  Register
+                  {loading ? "Sending..." : "Register"}
                 </button>
               </form>
+            )}
+
+            {status?.error && (
+              <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
             )}
           </motion.div>
         </div>

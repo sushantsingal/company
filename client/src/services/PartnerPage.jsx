@@ -1,14 +1,25 @@
 import { Settings, GraduationCap, Building2, Users } from "lucide-react";
-import partner1 from "../assets/partner1.png";
-import partner2 from "../assets/partner2.png";
-import partner3 from "../assets/partner3.png";
-import partner4 from "../assets/partner4.png";
-import partner5 from "../assets/partner5.png";
-import partner6 from "../assets/partner6.png";
-
-const partners = [partner1, partner2, partner3, partner4, partner5, partner6];
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const PartnersPage = () => {
+  const [partners, setPartners] = useState([]);
+  const [eventPartners, setEventPartners] = useState([]);
+
+  useEffect(() => {
+    const fetchLogos = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/partners");
+        setPartners(res.data.generalPartners || []);
+        setEventPartners(res.data.eventPartners || []);
+      } catch (err) {
+        console.error("Failed to fetch partner logos", err);
+      }
+    };
+
+    fetchLogos();
+  }, []);
+
   return (
     <div className="bg-[#f1f7fb] text-gray-800 min-h-screen py-20 px-6 md:px-20">
       <div className="max-w-5xl mx-auto">
@@ -81,7 +92,7 @@ const PartnersPage = () => {
                 className="w-32 h-32 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
               >
                 <img
-                  src={logo}
+                  src={`http://localhost:5000${logo.imageUrl}`}
                   alt={`partner-${index}`}
                   className="object-contain max-h-full max-w-full"
                 />
@@ -100,13 +111,13 @@ const PartnersPage = () => {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 place-items-center">
-            {[partner4, partner5, partner6].map((logo, index) => (
+            {eventPartners.map((logo, index) => (
               <div
                 key={`event-${index}`}
                 className="w-36 h-20 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
               >
                 <img
-                  src={logo}
+                  src={`http://localhost:5000${logo.imageUrl}`}
                   alt={`event-partner-${index}`}
                   className="object-contain max-h-full max-w-full"
                 />

@@ -2,10 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
+const mongoose = require('mongoose');
 const contactRoutes = require('./routes/contactRoute');
 const portfolioRoutes = require('./routes/portfolioRoute');
-const partnerRoutes = require("./routes/partner");
-const mongoose = require('mongoose');
+const partnerRoutes = require('./routes/partner');
+const adminRoutes = require('./routes/adminAuth');
 require('dotenv').config();
 
 const app = express();
@@ -29,16 +30,17 @@ app.use(
     },
   })
 );
+
+// Routes
 app.use("/api/partners", partnerRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/portfolio", portfolioRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
   res.send("API is working...");
 });
-
-// Load Routes
-app.use('/api/contact', contactRoutes);
-app.use('/api/portfolio', portfolioRoutes);
 
 // MongoDB Connection
 const connectDB = async () => {
