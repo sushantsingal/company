@@ -11,7 +11,7 @@ const ContactAdmin = () => {
   }, []);
 
   const fetchContacts = () => {
-    axios.get("/api/contact")
+    axios.get("https://marketing-crawlers.onrender.com/api/contact")
       .then((res) => {
         setContacts(res.data);
         setLoading(false);
@@ -25,7 +25,7 @@ const ContactAdmin = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this contact?")) return;
     try {
-      await axios.delete(`/api/contact/${id}`);
+      await axios.delete(`https://marketing-crawlers.onrender.com/api/contact/${id}`);
       setContacts(prev => prev.filter(contact => contact._id !== id));
     } catch (error) {
       console.error("Delete failed:", error);

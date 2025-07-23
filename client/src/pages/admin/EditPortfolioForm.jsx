@@ -25,7 +25,7 @@ const EditPortfolioForm = ({ formData, onClose, onSubmit }) => {
         form.append("image", updatedData.image);
         }
 
-        await axios.put(`/api/portfolio/${updatedData._id}`, form, {
+        await axios.put(`https://marketing-crawlers.onrender.com/api/portfolio/${updatedData._id}`, form, {
         headers: {
             "Content-Type": "multipart/form-data",
         },
