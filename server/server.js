@@ -13,7 +13,7 @@ const app = express();
 
 // Global Middleware
 app.use(cors({
-  origin: 'https://marketing-crawlers.onrender.com',
+  origin: 'https://marketing-crawlers.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
