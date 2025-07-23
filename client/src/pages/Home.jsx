@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import hero from "../assets/hero-image.png";
-import about from "../assets/about-us.png";
+import about from "../assets/about-us.jpg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CTA from "../components/CTA";
