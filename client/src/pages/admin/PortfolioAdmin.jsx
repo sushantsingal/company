@@ -12,7 +12,7 @@ const PortfolioAdmin = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("/api/portfolio");
+      const res = await axios.get("https://marketing-crawlers.onrender.com/api/portfolio");
       setProjects(res.data);
       setLoading(false);
     } catch (err) {

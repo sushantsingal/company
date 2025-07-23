@@ -14,7 +14,7 @@ const PortfolioPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("/api/portfolio")
+    axios.get("https://marketing-crawlers.onrender.com/api/portfolio")
       .then((res) => {
         console.log("Portfolio API response:", res.data);
         setProjects(res.data);
