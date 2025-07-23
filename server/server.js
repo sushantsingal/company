@@ -11,9 +11,21 @@ require('dotenv').config();
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://marketing-crawlers.vercel.app",
+  "https://marketing-crawlers.onrender.com", // optional if you want Render frontend to still work
+];
+
 // Global Middleware
 app.use(cors({
-  origin: 'https://marketing-crawlers.vercel.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
