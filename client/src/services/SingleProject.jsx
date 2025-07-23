@@ -18,7 +18,7 @@ const SingleProject = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await axios.get(`/api/portfolio/${id}`);
+        const res = await axios.get(`https://marketing-crawlers.onrender.com/api/portfolio/${id}`);
         setProject(res.data);
       } catch (err) {
         setError("Project not found.");
