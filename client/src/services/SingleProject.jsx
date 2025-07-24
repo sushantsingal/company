@@ -15,6 +15,8 @@ const SingleProject = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const allTags = [...new Set((project?.tags || []))];
+
   useEffect(() => {
     const fetchProject = async () => {
       try {
@@ -87,13 +89,18 @@ const SingleProject = () => {
       </div>
 
       {/* Tags */}
-      <div className="mt-10 flex gap-2 flex-wrap">
-        <span className="bg-pink-100 text-pink-700 text-xs font-medium px-3 py-1 rounded-full">
-          {project.category || "Design"}
-        </span>
-        <span className="bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
-          {project.client || "Creative"}
-        </span>
+      <div>
+        <label className="block text-gray-700 font-medium mb-2">Tags</label>
+        <div className="flex flex-wrap gap-2">
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              className="px-3 py-1 rounded-full text-sm bg-pink-500 text-white"
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Social Share (optional) */}

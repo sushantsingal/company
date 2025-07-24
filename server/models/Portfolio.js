@@ -14,6 +14,7 @@ const PortfolioSchema = new mongoose.Schema({
   },
   author: String,
   category: String,
+  tags: [String],
   comments: String,
 });
 
