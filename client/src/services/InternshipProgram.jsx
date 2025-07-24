@@ -91,7 +91,7 @@ const InternshipProgram = () => {
           <h2 className="text-xl font-semibold text-pink-700 mb-2">Launch Your Career With Confidence</h2>
           <p className="text-gray-700 mb-4">Apply now to join our next internship batch and gain practical industry experience.</p>
           <a
-            href="/apply"
+            href="/contact"
             className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
           >
             Apply Now

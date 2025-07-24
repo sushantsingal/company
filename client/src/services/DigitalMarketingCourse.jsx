@@ -91,7 +91,7 @@ const DigitalMarketingCourse = () => {
           <h2 className="text-xl font-semibold text-pink-700 mb-2">Ready to Level Up?</h2>
           <p className="text-gray-700 mb-4">Kickstart your digital marketing career with our expert-led training program.</p>
           <a
-            href="/apply"
+            href="/contact"
             className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
           >
             Apply Now
