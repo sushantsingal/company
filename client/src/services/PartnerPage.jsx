@@ -89,7 +89,7 @@ const PartnersPage = () => {
             {partners.map((logo, index) => (
               <div
                 key={index}
-                className="w-32 h-32 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
+                className="w-56 h-56 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
               >
                 <img
                   src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
@@ -114,7 +114,7 @@ const PartnersPage = () => {
             {eventPartners.map((logo, index) => (
               <div
                 key={`event-${index}`}
-                className="w-36 h-20 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
+                className="w-56 h-40 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-110 hover:shadow-md transition"
               >
                 <img
                   src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
