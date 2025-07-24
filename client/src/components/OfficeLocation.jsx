@@ -87,8 +87,8 @@ const OfficeLocation = () => {
                 >
                   <div className="flex items-start gap-3 mb-2">
                     <Building2 className="text-pink-600 mt-1" />
-                    <h4 className="font-semibold text-lg text-gray-800">{office.title}</h4>
-                  </div>
+                    <h4 className="font-semibold text-sm text-gray-800">{office.title}</h4>
+                  </div><br></br>
                   <div className="text-sm text-gray-600 leading-relaxed">
                     {office.address.map((line, i) => (
                       <p key={i}>{line}</p>
