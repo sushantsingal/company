@@ -47,7 +47,7 @@ const PortfolioAdmin = () => {
     if (!confirm("Are you sure you want to delete this portfolio item?")) return;
 
     try {
-      await axios.delete(`/api/portfolio/${id}`);
+      await axios.delete(`https://marketing-crawlers.onrender.com/api/portfolio/${id}`);
       toast.success("Portfolio deleted.");
       fetchProjects(); // Refresh list
     } catch (err) {
