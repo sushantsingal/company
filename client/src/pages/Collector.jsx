@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import contact from "../assets/contact.jpg";
-import OfficeLocations from "../components/OfficeLocation";
 
 const fade = {
   hidden: { opacity: 0, y: 30 },
@@ -62,10 +61,6 @@ const Contact = () => {
           We’re excited to hear about your brand. Fill the form below and our team will reach out.
         </motion.p>
       </section>
-
-      {/* Location Dropdown */}
-      <OfficeLocations />
-
       {/* Content */}
       <section className="py-20 px-6 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
