@@ -161,7 +161,7 @@ Whether it’s a retreat in nature, a mastermind session with thought leaders, o
             },
             {
               title: "Volleyball: Net Vibes Only",
-              desc: "Precision, patience, and perfect angles — all in good company",
+              desc: "High-fives, high jumps, and unforgettable rallies",
               icon: GiVolleyballBall,
             },
             {
