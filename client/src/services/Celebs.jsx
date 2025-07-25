@@ -40,20 +40,11 @@ const EventConsulting = () => {
 
       {/* Image Only */}
         <section className="w-full">
-            <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={{
-                hidden: { opacity: 0, x: 30 },
-                visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-            }}
-            >
                 <img
                 src={event}
                 alt="Event Graphic"
                 className="w-screen h-auto object-cover block"
                 />
-            </motion.div>
         </section>
 
       {/* Services Grid */}
@@ -92,12 +83,7 @@ const EventConsulting = () => {
             const Icon = item.icon;
             return(
             <motion.div
-              key={i}
               className="bg-white p-6 rounded-xl shadow hover:shadow-pink-600 hover:shadow-md transition"
-              initial="hidden"
-              whileInView="visible"
-              custom={i + 1}
-              variants={fadeUp}
             >
               <div className="flex items-center gap-4 mb-4">
                 <Icon className="w-8 h-8 text-pink-600" />
@@ -108,25 +94,16 @@ const EventConsulting = () => {
             );
           })}
         </div>
-        <motion.div
-            className="flex-1 space-y-6"
-            initial="hidden"
-            whileInView="visible"
-            variants={{
-              hidden: { opacity: 0, y: 60 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-            }}>
         <div className="flex justify-center pt-8"><a 
             href="https://www.instagram.com/_celebsnow/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-white font-semibold rounded-md transition-all duration-300
+            className="flex items-center gap-2 px-6 py-4 text-xl text-white font-semibold rounded-md transition-all duration-300
                bg-pink-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
           >
-            <BsInstagram className="text-base" />
+            <BsInstagram className="text-xl" />
             Join Us
           </a></div>
-        </motion.div>
       </section>
     </div>
   );
