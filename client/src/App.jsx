@@ -10,6 +10,7 @@ import AboutPage from "./pages/About";
 import ServicesPage from "./pages/Services";
 import PortfolioPage from "./pages/Portfolio";
 import IndustriesPage from "./pages/Industries";
+import CollectivePage from "./pages/Collector"
 import ContactPage from "./pages/Contact";
 import EventConsulting from "./services/EventConsulting";
 import TechConsulting from "./services/TechConsulting";
@@ -58,6 +59,7 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="industries" element={<IndustriesPage />} />
+          <Route path="collective" element={<CollectivePage />} />
           <Route path="services/event-consulting" element={<EventConsulting />} />
           <Route path="services/tech-consulting" element={<TechConsulting />} />
           <Route path="services/marketing-consulting" element={<MarketingConsulting />} />

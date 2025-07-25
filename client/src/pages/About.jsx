@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Lightbulb, TrendingUp, DollarSign, Mail, Phone, Linkedin, Instagram, Brain,Users,Layers,Cpu,Handshake,ChevronLeft, ChevronRight } from "lucide-react";
 import team1 from "../assets/team1.jpg";
 import team2 from "../assets/team2.jpg";

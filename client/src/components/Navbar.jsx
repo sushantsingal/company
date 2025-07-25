@@ -19,6 +19,11 @@ const Navbar = () => {
     "Tech Consulting",
   ];
 
+  const collective = [
+    "Dream Chasers",
+    "Yoga Mantra",
+  ]
+
   return (
     <header className="bg-white shadow sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -47,6 +52,30 @@ const Navbar = () => {
 
             <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-48 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               {services.map((service, index) => (
+                <Link
+                  key={index}
+                  to={`/services/${service.toLowerCase().replace(/ /g, "-")}`}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
+                >
+                  {service}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/*Collective */}
+          <div className="relative group">
+            <span
+              className="relative pb-1 font-medium capitalize transition duration-300 flex items-center gap-1 text-gray-700 hover:text-pink-600
+                before:absolute before:bottom-0 before:left-2 before:h-[2px]
+                before:bg-pink-600 before:transition-all before:duration-300
+                before:w-0 group-hover:before:w-full cursor-pointer"
+            >
+              Crawlers Collective <ChevronDown className="w-4 h-4" />
+            </span>
+
+            <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-48 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              {collective.map((service, index) => (
                 <Link
                   key={index}
                   to={`/services/${service.toLowerCase().replace(/ /g, "-")}`}
