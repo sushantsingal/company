@@ -21,6 +21,8 @@ const Navbar = () => {
 
   const collective = [
     "Dream Chasers",
+    "Celebs Now",
+    "Tech Bridge Diplomacy",
     "Yoga Mantra",
   ]
 
