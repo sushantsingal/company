@@ -170,7 +170,7 @@ Whether it’s a retreat in nature, a mastermind session with thought leaders, o
               icon: GiCoffeeCup,
             },
             {
-              title: "Trekking:Wander & Warrior",
+              title: "Trekking: Wander & Warrior",
               desc: "Adventure isn’t just a destination, it’s a shared experience",
               icon: GiMountains,
             },
