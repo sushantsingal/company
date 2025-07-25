@@ -117,7 +117,9 @@ const EventConsulting = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
             }}>
         <div className="flex justify-center pt-8"><a 
-            href="/contact"
+            href="https://www.instagram.com/_celebsnow/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 text-white font-semibold rounded-md transition-all duration-300
                bg-pink-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
           >

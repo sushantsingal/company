@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import CTA from "../components/CTA";
 import event from "../assets/partner1.png";
 import { GiShuttlecock, GiEightBall, GiVolleyballBall, GiCoffeeCup, GiMountains, GiCricketBat } from "react-icons/gi";
 import about from "../assets/dream-chasers.jpg";
