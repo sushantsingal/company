@@ -16,6 +16,7 @@ import EventConsulting from "./services/EventConsulting";
 import TechConsulting from "./services/TechConsulting";
 import MarketingConsulting from "./services/MarketingConsulting";
 import DigitalMarketingCourse from "./services/DigitalMarketingCourse";
+import DreamChasers from "./services/DreamChasers";
 import InternshipProgram from "./services/InternshipProgram";
 import OurProcess from "./services/OurProcess";
 import PartnerPage from "./services/PartnerPage";
@@ -63,6 +64,7 @@ function App() {
           <Route path="services/event-consulting" element={<EventConsulting />} />
           <Route path="services/tech-consulting" element={<TechConsulting />} />
           <Route path="services/marketing-consulting" element={<MarketingConsulting />} />
+          <Route path="services/dream-chasers" element={<DreamChasers />} />
           <Route path="portfolio" element={<PortfolioPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="digital-marketing-course" element={<DigitalMarketingCourse />} />
