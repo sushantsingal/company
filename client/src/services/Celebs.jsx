@@ -124,7 +124,7 @@ const EventConsulting = () => {
                bg-pink-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
           >
             <BsInstagram className="text-base" />
-            Join Our Now
+            Join Us
           </a></div>
         </motion.div>
       </section>
