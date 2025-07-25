@@ -194,12 +194,21 @@ Whether it’s a retreat in nature, a mastermind session with thought leaders, o
             );
           })}
         </div>
+        <motion.div
+            className="flex-1 space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, y: 60 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}>
         <div className="text-center pt-8"><a 
             href="/contact"
             className=" px-6 py-3 bg-pink-500 text-white text-center font-semibold rounded-lg hover:bg-pink-700 hover:text-white"
           >
             Join Our Community
           </a></div>
+        </motion.div>
       </section>
     </div>
   );
