@@ -44,9 +44,9 @@ const Industries = () => {
   return (
     <div className="text-gray-800">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-pink-600 py-20 text-white text-center px-6">
+      <section className="bg-gradient-to-br from-blue-600 to-pink-600 py-10 text-white text-center px-6">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
+          className="text-6xl md:text-5xl font-bold mb-4 tracking-tight"
           initial="hidden"
           animate="visible"
           variants={fadeIn}
@@ -65,7 +65,7 @@ const Industries = () => {
       </section>
 
       {/* Industries Grid */}
-      <section className="py-20 px-6 md:px-20 bg-white">
+      <section className="py-10 px-6 md:px-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {industries.map((industry, index) => (
@@ -88,7 +88,7 @@ const Industries = () => {
       </section>
 
       {/* Partner Carousel */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-semibold text-gray-800">Trusted by Leading Brands</h2>
           <p className="text-gray-600 mt-2">We’re proud to partner with some of the most respected organizations in the industry.</p>

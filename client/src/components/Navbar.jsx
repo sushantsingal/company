@@ -141,6 +141,37 @@ const Navbar = () => {
             )}
           </div>
 
+          <div className="relative group">
+            <span
+              className="relative pb-1 font-medium capitalize transition duration-300 flex items-center gap-1 text-gray-700 hover:text-pink-600
+                before:absolute before:bottom-0 before:left-2 before:h-[2px]
+                before:bg-pink-600 before:transition-all before:duration-300
+                before:w-0 group-hover:before:w-full cursor-pointer"
+            >
+              Crawlers Collective <ChevronDown className="w-4 h-4" />
+            </span>
+
+            <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-56 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <Link to="/services/dream-chasers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Dream Chasers</Link>
+              <Link to="/services/celebs-now" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Celebs Now</Link><a
+                href="https://techbridgediplomacy.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
+              >
+                Tech Bridge Diplomacy
+              </a>
+              <a
+                href="https://theyogamantra.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
+              >
+                Yoga Mantra
+              </a>
+            </div>
+          </div>
+
           <NavLink to="/industries" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Industries</NavLink>
           <NavLink to="/contact" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Contact</NavLink>
           <NavLink to="/portfolio" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Insights</NavLink>

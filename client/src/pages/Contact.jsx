@@ -54,8 +54,8 @@ const Contact = () => {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-20 text-center px-4">
-        <motion.h1 className="text-4xl font-bold mb-4" initial="hidden" animate="visible" variants={fade}>
+      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-10 text-center px-4">
+        <motion.h1 className="text-6xl font-bold mb-4" initial="hidden" animate="visible" variants={fade}>
           Let’s Connect & Grow Together
         </motion.h1>
         <motion.p className="max-w-2xl mx-auto text-lg text-gray-300" initial="hidden" animate="visible" custom={1} variants={fade}>
@@ -67,7 +67,7 @@ const Contact = () => {
       <OfficeLocations />
 
       {/* Content */}
-      <section className="py-20 px-6 md:px-20 bg-gray-50">
+      <section className="py-10 px-6 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Img */}
           <motion.img
@@ -89,7 +89,7 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             {submitted ? (
-              <div className="text-center py-12">
+              <div className="text-center py-10">
                 <h3 className="text-2xl font-semibold text-pink-600 mb-4">Thank You!</h3>
                 <p className="text-gray-700">
                   We've received your details. Our team will get in touch with you shortly.
@@ -147,7 +147,7 @@ const Contact = () => {
                   disabled={loading}
                   className="bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
                 >
-                  {loading ? "Sending..." : "Register"}
+                  {loading ? "Sending..." : "Submit"}
                 </button>
               </form>
             )}

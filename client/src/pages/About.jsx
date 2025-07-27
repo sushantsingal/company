@@ -74,9 +74,9 @@ const About = () => {
   return (
     <div className="text-gray-800">
       {/* Page Banner */}
-      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-20 text-center px-4">
+      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-10 text-center px-4">
         <motion.h1
-          className="text-4xl font-bold mb-4"
+          className="text-6xl font-bold mb-4"
           initial="hidden"
           animate="visible"
           variants={fadeUp}
@@ -130,7 +130,7 @@ const About = () => {
       </section>
 
       {/* Company Story */}
-      <section className="py-20 px-6 md:px-20 bg-gray-50">
+      <section className="py-10 px-6 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial="hidden"
@@ -161,7 +161,7 @@ const About = () => {
       </section>
 
       {/* Meet the Team Carousel */}
-      <section className="bg-white py-20 px-6 md:px-20">
+      <section className="bg-white py-10 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2 className="text-3xl font-bold mb-4" initial="hidden" whileInView="visible" variants={fadeUp}>
             Meet Our Team
@@ -219,7 +219,7 @@ const About = () => {
       </section>
 
       {/* Percentage Graph Section */}
-      <section className="bg-gray-50 py-20 px-6 md:px-20">
+      <section className="bg-gray-50 py-10 px-6 md:px-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.img
             src={focus}
@@ -274,7 +274,7 @@ const About = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-gray-50 py-20 px-6 md:px-20">
+      <section className="bg-gray-50 py-10 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             className="text-3xl font-bold mb-8"
