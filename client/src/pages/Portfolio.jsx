@@ -63,7 +63,7 @@ const PortfolioPage = () => {
             className="text-center mb-14"
           >
             <h1 className="text-4xl font-bold text-pink-600 mb-4">
-              Insights & Case Studies
+              Insights
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Explore how we solve real-world business problems with our digital strategies.
