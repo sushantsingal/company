@@ -55,7 +55,7 @@ const CelebrityLandingPage = () => {
             {/* Center logo + heading + text */}
             <div className="flex flex-col items-center max-w-md px-4">
               <h1 className="text-5xl font-bold mb-2">
-                <span className="text-red-500">Celeb</span>
+                <span className="text-red-500">Celebs</span>
                 <span className="text-gray-700">Now</span>
               </h1>
               <img
@@ -70,7 +70,7 @@ const CelebrityLandingPage = () => {
 
             {/* Right 4 celebs */}
             <div className="flex gap-4">
-              {(window.innerWidth < 768 ? celebs.slice(4, 6) : celebs.slice(4)).map((celeb, index) => (
+              {(celebs.slice(4)).map((celeb, index) => (
                 <div
                   key={index + 4}
                   className={`relative overflow-hidden w-[70px] md:w-[100px] ${celeb.height} transition-all duration-300 transform hover:scale-110`}
