@@ -29,7 +29,11 @@ const EventConsulting = () => {
           className="text-4xl font-bold mb-4"
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           Event Consulting
         </motion.h1>
@@ -38,7 +42,11 @@ const EventConsulting = () => {
           initial="hidden"
           animate="visible"
           custom={1}
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           Maximize your event’s impact with tailored strategies, expert planning, and seamless execution.
         </motion.p>
@@ -53,9 +61,10 @@ const EventConsulting = () => {
             className="flex-1 space-y-6"
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }}
             variants={{
-              hidden: { opacity: 0, x: -30 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
             }}
           >
             <h2 className="text-3xl font-bold text-gray-800">
@@ -77,9 +86,10 @@ const EventConsulting = () => {
             className="flex-1"
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }}
             variants={{
-              hidden: { opacity: 0, x: 30 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                  hidden: { opacity: 0, x: 30 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
             }}
           >
             <img
@@ -146,7 +156,11 @@ const EventConsulting = () => {
               initial="hidden"
               whileInView="visible"
               custom={i + 1}
-              variants={fadeUp}
+              viewport={{ once: true }}
+              variants={{
+                    hidden: { opacity: 0, y: 50 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <Icon className="w-6 h-6 text-pink-600" />

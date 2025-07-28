@@ -1,4 +1,4 @@
-import hero from "../assets/hero-image.jpg";
+import hero from "../assets/hero-image.png";
 import { BsTwitterX } from "react-icons/bs";
 import {
   Facebook,

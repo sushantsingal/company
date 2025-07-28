@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
-import Loader from "./components/LoadingScreen"; // New Loader Component
+import Loader from "./components/LoadingScreen";
 
 import Home from "./pages/Home";
 import AboutPage from "./pages/About";
 import ServicesPage from "./pages/Services";
-import PortfolioPage from "./pages/Portfolio";
+import PortfolioPage from "./pages/Insights";
 import IndustriesPage from "./pages/Industries";
 import CollectivePage from "./pages/Collector";
 import ContactPage from "./pages/Contact";
@@ -18,7 +18,7 @@ import TechConsulting from "./services/TechConsulting";
 import MarketingConsulting from "./services/MarketingConsulting";
 import DigitalMarketingCourse from "./services/DigitalMarketingCourse";
 import DreamChasers from "./services/DreamChasers";
-import Celebs from "./services/CelebsLanding";
+import Celebs from "./services/Celebs";
 import InternshipProgram from "./services/InternshipProgram";
 import OurProcess from "./services/OurProcess";
 import PartnerPage from "./services/PartnerPage";

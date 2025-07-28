@@ -19,9 +19,11 @@ const Testimonials = () => {
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
           className="text-3xl font-bold mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           What Our Clients Say
         </motion.h2>
@@ -30,9 +32,11 @@ const Testimonials = () => {
             <motion.div
               key={i}
               className="bg-white shadow-md rounded-lg p-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2, duration: 0.5 }}
+              viewport={{ once: true }}
+              variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              }}
             >
               <p className="text-gray-700 italic mb-4">“{t.text}”</p>
               <h4 className="font-semibold text-pink-600">{t.name}</h4>

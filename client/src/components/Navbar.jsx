@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-white shadow sticky top-0 z-50">
+    <header className="bg-white shadow sticky">
       <div className="max-w-7xl mx-auto py-4 flex justify-between items-center">
         {/* Logo */}
         <Link

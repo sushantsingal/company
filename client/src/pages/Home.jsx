@@ -79,9 +79,13 @@ const Home = () => {
             src={hero}
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, x: 50 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+            }}
           />
         </div>
       </section>
@@ -134,9 +138,13 @@ const Home = () => {
             src={about}
             alt="About Us"
             className="rounded-xl w-full max-w-full h-auto"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+            }}
           />
         </div>
       </section>
@@ -144,7 +152,11 @@ const Home = () => {
       {/* Services Section */}
       <section className="min-h-screen bg-white py-20 px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto text-center">
-          <motion.h1 className="text-3xl md:text-5xl font-bold mb-4" initial="hidden" whileInView="visible" variants={fadeUp}>
+          <motion.h1 className="text-3xl md:text-5xl font-bold mb-4" initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}>
             Transforming Businesses with Insight, Creativity, and Bold Ideas
           </motion.h1>
           <motion.p
@@ -152,7 +164,11 @@ const Home = () => {
             initial="hidden"
             whileInView="visible"
             custom={1}
-            variants={fadeUp}
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             Marketing Crawlers blends strategy, analytics, and innovation to push your brand beyond just ideas and into lasting success.
           </motion.p>
@@ -171,8 +187,12 @@ const Home = () => {
                 className="bg-gray-50 p-6 rounded-xl border shadow-md hover:shadow-lg transition hover:scale-105"
                 initial="hidden"
                 whileInView="visible"
-                custom={i + 2}
-                variants={fadeUp}
+                custom={i + 1}
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
               >
                 <div className="mb-4 text-pink-600">{s.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
@@ -237,42 +257,53 @@ const Home = () => {
       </div>
     </section>
 
-      {/* Projects Showcase */}
-      <section className="bg-white py-20 px-6 md:px-20 text-center">
-  <motion.h1 className="text-3xl md:text-5xl font-bold mb-12" initial="hidden" whileInView="visible" variants={fadeUp}>
+    {/* Projects Showcase */}
+    <section className="bg-white py-20 px-6 md:px-20 text-center">
+    <motion.h1 className="text-3xl md:text-5xl font-bold mb-12" initial="hidden" whileInView="visible" viewport={{ once: true }}
+    variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}>
     Our Work Speaks for Itself
-  </motion.h1>
+    </motion.h1>
 
-  {loading ? (
-    <p className="text-gray-600">Loading projects...</p>
-  ) : error ? (
-    <p className="text-red-500">{error}</p>
-  ) : (
-    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {portfolioData.map((project, i) => (
-        <motion.div
-          key={project._id}
-          className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition-all"
-          initial="hidden"
-          whileInView="visible"
-          custom={i + 1}
-          variants={fadeUp}
-        >
-          <img src= {`https://marketing-crawlers.onrender.com${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
-          <div className="p-4">
-            <h3 className="text-lg font-semibold">{project.title}</h3>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  )}
+    {loading ? (
+      <p className="text-gray-600">Loading projects...</p>
+    ) : error ? (
+      <p className="text-red-500">{error}</p>
+    ) : (
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {portfolioData.map((project, i) => (
+          <motion.div
+            key={project._id}
+            className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition-all"
+            initial="hidden"
+            whileInView="visible"
+            custom={i + 1}
+            viewport={{ once: true }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+          >
+            <img src= {`https://marketing-crawlers.onrender.com${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
+            <div className="p-4">
+              <h3 className="text-lg font-semibold">{project.title}</h3>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    )}
 
-  <motion.div className="mt-8 py-2" initial="hidden" whileInView="visible" custom={2} variants={fadeUp}>
-    <Link to="/portfolio" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
-      View All
-    </Link>
-  </motion.div>
-</section>
+    <motion.div className="mt-8 py-2" initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }} variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}>
+      <Link to="/portfolio" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
+        View All
+      </Link>
+    </motion.div>
+  </section>
 
       <CTA />
     </div>

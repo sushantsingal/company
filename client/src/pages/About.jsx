@@ -79,7 +79,11 @@ const About = () => {
           className="text-6xl font-bold mb-4"
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
         >
           About Us
         </motion.h1>
@@ -87,8 +91,12 @@ const About = () => {
           className="text-lg max-w-3xl mx-auto"
           initial="hidden"
           animate="visible"
+          viewport={{ once: true }}
           custom={1}
-          variants={fadeUp}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
         >
           We’re a passionate team driving brands forward with strategy, creativity, and technology.
         </motion.p>
@@ -119,7 +127,11 @@ const About = () => {
               initial="hidden"
               whileInView="visible"
               custom={i + 1}
-              variants={fadeUp}
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              }}
             >
               {item.icon}
               <h3 className="text-xl font-semibold">{item.title}</h3>
@@ -136,7 +148,10 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeUp}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -153,9 +168,11 @@ const About = () => {
             src={about}
             alt="Team working together"
             className="rounded-xl shadow-md"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+            }}
           />
         </div>
       </section>
@@ -163,7 +180,11 @@ const About = () => {
       {/* Meet the Team Carousel */}
       <section className="bg-white py-10 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
-          <motion.h2 className="text-3xl font-bold mb-4" initial="hidden" whileInView="visible" variants={fadeUp}>
+          <motion.h2 className="text-3xl font-bold mb-4" initial="hidden" whileInView="visible" viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}>
             Meet Our Team
           </motion.h2>
           <motion.p
@@ -171,7 +192,11 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             custom={1}
-            variants={fadeUp}
+            viewport={{ once: true }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             Our team consists of creative thinkers, problem solvers, and experienced professionals who bring their best every day to help your brand thrive. From strategic planning to flawless execution, every member plays a key role in our success.
           </motion.p>
@@ -193,7 +218,11 @@ const About = () => {
                   initial="hidden"
                   whileInView="visible"
                   custom={i + 1}
-                  variants={fadeUp}
+                  viewport={{ once: true }}
+                  variants={{
+                    hidden: { opacity: 0, y: 50 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                  }}
                 >
                   <img src={member.img} alt={member.name} className="w-28 h-28 mx-auto rounded-full mb-4" />
                   <h3 className="text-xl font-semibold">{member.name}</h3>
@@ -225,16 +254,22 @@ const About = () => {
             src={focus}
             alt="Focus areas graph"
             className="rounded-xl shadow-md"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           />
           <div className="space-y-6">
             <motion.h2
               className="text-3xl font-bold"
               initial="hidden"
               whileInView="visible"
-              variants={fadeUp}
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+              }}
             >Enhanced Efficiency, Exceptional Outcomes
             </motion.h2>
             <motion.p
@@ -242,7 +277,11 @@ const About = () => {
               initial="hidden"
               whileInView="visible"
               custom={1}
-              variants={fadeUp}
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              }}
             >
              Empowering our clients with systems that maximize productivity and performance. We turn complex challenges into scalable, impactful solutions.
             </motion.p>
@@ -255,7 +294,11 @@ const About = () => {
                 initial="hidden"
                 whileInView="visible"
                 custom={i + 1}
-                variants={fadeUp}
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
               >
                 <div className="flex justify-between mb-1">
                   <span className="text-sm font-medium text-gray-700">{item.label}</span>
@@ -280,7 +323,11 @@ const About = () => {
             className="text-3xl font-bold mb-8"
             initial="hidden"
             whileInView="visible"
-            variants={fadeUp}
+            viewport={{ once: true }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             Why Choose Marketing Crawlers?
           </motion.h2>
@@ -323,7 +370,11 @@ const About = () => {
                 initial="hidden"
                 whileInView="visible"
                 custom={i + 1}
-                variants={fadeUp}
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
               >
                 {item.icon}
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>

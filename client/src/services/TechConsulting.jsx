@@ -25,7 +25,11 @@ const TechConsulting = () => {
           className="text-4xl font-bold mb-4"
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           Tech Consulting
         </motion.h1>
@@ -34,7 +38,11 @@ const TechConsulting = () => {
           initial="hidden"
           animate="visible"
           custom={1}
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           Empower your business with smart technology decisions, optimized systems, and future-ready strategies.
         </motion.p>
@@ -46,7 +54,10 @@ const TechConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeUp}
+            variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             <h2 className="text-3xl font-bold mb-6">Smart Technology, Smarter Business</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -57,9 +68,11 @@ const TechConsulting = () => {
             src={tech}
             alt="Tech Consulting Graphic"
             className="rounded-xl shadow-md"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, x: 40 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+            }}
           />
         </div>
       </section>
@@ -70,7 +83,11 @@ const TechConsulting = () => {
             className="text-3xl font-bold mb-8 text-center"
             initial="hidden"
             whileInView="visible"
-            variants={fadeUp}
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             What We Offer
           </motion.h2>
@@ -100,7 +117,11 @@ const TechConsulting = () => {
                 initial="hidden"
                 whileInView="visible"
                 custom={i + 1}
-                variants={fadeUp}
+                viewport={{ once: true }}
+                variants={{
+                      hidden: { opacity: 0, y: 50 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
               >
                 <div className="flex items-center gap-4 mb-4">
                     <Icon className="w-6 h-6 text-pink-600" />
@@ -120,7 +141,11 @@ const TechConsulting = () => {
             className="text-3xl font-bold mb-8"
             initial="hidden"
             whileInView="visible"
-            variants={fadeUp}
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             Our Process
           </motion.h2>
@@ -137,7 +162,11 @@ const TechConsulting = () => {
                 initial="hidden"
                 whileInView="visible"
                 custom={i + 1}
-                variants={fadeUp}
+                viewport={{ once: true }}
+                variants={{
+                      hidden: { opacity: 0, y: 50 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
               >
                 <span className="text-4xl font-bold text-pink-600 block mb-2">
                   0{i + 1}

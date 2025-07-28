@@ -6,9 +6,11 @@ const CTA = () => {
     <section className="bg-pink-600 text-white py-20 px-6 text-center">
       <motion.h2
         className="text-3xl md:text-4xl font-bold mb-4"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        }}
       >
         Ready to Elevate Your Brand?
       </motion.h2>

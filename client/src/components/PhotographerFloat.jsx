@@ -18,11 +18,11 @@ const PhotographerFloat = () => {
 
   return (
     show && (
-      <div className="fixed top-1/3 left-20 z-40 hidden md:block transition-opacity duration-500 ease-in-out">
+      <div className="fixed top-1/3 left-12 z-40 hidden md:block transition-opacity duration-500 ease-in-out">
         <img
           src={photographer}
           alt="Photographer Vector"
-          className="w-60 h-auto hover:scale-110 transition-transform duration-300"
+          className="w-32 h-auto transition-transform duration-300"
         />
       </div>
     )

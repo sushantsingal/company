@@ -102,7 +102,11 @@ const Industries = () => {
               ))}
             </div>
         </div>
-        <motion.div className="mt-4 text-center py-6" initial="hidden" whileInView="visible" custom={2} variants={fadeIn}>
+        <motion.div className="mt-4 text-center py-6" initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
+                    variants={{
+                          hidden: { opacity: 0, y: 50 },
+                          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                    }}>
           <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
             View All
           </Link>

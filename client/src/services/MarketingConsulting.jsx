@@ -22,7 +22,11 @@ const MarketingConsulting = () => {
           className="text-4xl font-bold mb-4"
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           Marketing Consulting
         </motion.h1>
@@ -31,7 +35,11 @@ const MarketingConsulting = () => {
           initial="hidden"
           animate="visible"
           custom={1}
-          variants={fadeUp}
+          viewport={{ once: true }}
+          variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
         >
           Our marketing consultants help you create high-impact strategies that connect with your audience and drive growth.
         </motion.p>
@@ -44,7 +52,10 @@ const MarketingConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeUp}
+            variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             <h2 className="text-3xl font-bold mb-6">Marketing that Drives Real Results</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -55,9 +66,11 @@ const MarketingConsulting = () => {
             src={marketing}
             alt="Marketing Strategy"
             className="rounded-xl shadow-md"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, x: 40 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+            }}
           />
         </div>
       </section>
@@ -69,7 +82,11 @@ const MarketingConsulting = () => {
             className="text-3xl font-bold mb-12"
             initial="hidden"
             whileInView="visible"
-            variants={fadeUp}
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
           >
             Our Consulting Process
           </motion.h2>
@@ -102,7 +119,11 @@ const MarketingConsulting = () => {
                 initial="hidden"
                 whileInView="visible"
                 custom={i + 1}
-                variants={fadeUp}
+                viewport={{ once: true }}
+                variants={{
+                      hidden: { opacity: 0, y: 50 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
               >
                 <div className="mb-2">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
