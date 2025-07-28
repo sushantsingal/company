@@ -17,7 +17,7 @@ import TechConsulting from "./services/TechConsulting";
 import MarketingConsulting from "./services/MarketingConsulting";
 import DigitalMarketingCourse from "./services/DigitalMarketingCourse";
 import DreamChasers from "./services/DreamChasers";
-import Celebs from "./services/Celebs";
+import Celebs from "./services/CelebsLanding";
 import InternshipProgram from "./services/InternshipProgram";
 import OurProcess from "./services/OurProcess";
 import PartnerPage from "./services/PartnerPage";

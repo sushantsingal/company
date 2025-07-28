@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
+import indiaFlag from "../assets/flags/india.jpg";
+import philippinesFlag from "../assets/flags/philippines.webp";
+import usaFlag from "../assets/flags/usa.png";
+import nepalFlag from "../assets/flags/nepal.png";
+import kenyaFlag from "../assets/flags/kenya.png";
+import hongkongFlag from "../assets/flags/hongkong.png";
+import ukFlag from "../assets/flags/uk.avif";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -95,13 +102,18 @@ const Navbar = () => {
           <NavLink to="/portfolio" className={navLinkClass}>Insights</NavLink>
         </nav>
 
-        {/* CTA for Desktop */}
-        <Link
-          to="/contact"
-          className="hidden md:inline-block bg-pink-600 text-white px-4 py-2 rounded hover:bg-blue-600 hover:text-white transition"
-        >
-          Get Proposal
-        </Link>
+        {/* Country Flags (Desktop) */}
+        <div className="hidden md:flex items-center gap-2">
+          {[indiaFlag, philippinesFlag, usaFlag, nepalFlag, kenyaFlag, hongkongFlag, ukFlag].map((flag, idx) => (
+            <img
+              key={idx}
+              src={flag}
+              alt="Country Flag"
+              className="w-5 h-3 rounded-sm object-cover border"
+              title="Office"
+            />
+          ))}
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
