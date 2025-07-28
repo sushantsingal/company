@@ -25,20 +25,20 @@ const celebs = [
 
 const CelebrityLandingPage = () => {
   return (
-    <div className="font-sans text-pink-900 bg-white">
+    <div className="font-sans text-red-500 bg-white">
       {/* Hero Section */}
-      <section className="bg-pink-100 py-8 text-center h-min">
-        <PhotographerFloat />
+      <section className="bg-white py-8 text-center h-min">
+        {/* <PhotographerFloat /> */}
         <img
           src={logo}
           alt="Company Logo"
-          className="h-36 mx-auto mb-4 rounded-full"
+          className="h-36 mx-auto mb-4 rounded-full shadow-lg"
         />
         <h1 className="text-5xl font-bold mb-4">
           CelebsNow
         </h1>
         <h2 className="text-4xl font-bold mb-4">✨ </h2>
-        <p className="text-lg max-w-2xl mx-auto mb-6">
+        <p className="text-lg max-w-2xl mx-auto mb-6 text-gray-700">
           From red carpet rumors to real-time Insta Lives — stay in the loop with the latest celebrity gossip, entertainment news, and exclusive star interviews.
         </p>
 
@@ -64,7 +64,7 @@ const CelebrityLandingPage = () => {
 
       {/* Star of the Week */}
       <section className="bg-white py-16 relative overflow-hidden">
-        <h2 className="text-pink-600 text-4xl font-bold text-center mb-10">
+        <h2 className="text-red-500 text-4xl font-bold text-center mb-10">
           Celebrity Brand Shoutouts
         </h2>
 
@@ -90,14 +90,14 @@ const CelebrityLandingPage = () => {
 
       {/* Quote */}
       <section className="bg-white py-6">
-        <p className="text-center italic text-pink-800 text-lg font-medium">
+        <p className="text-center italic text-gray-700 text-lg font-medium">
           “You don’t need a red carpet to shine. Just a camera and some love.” –
           Celebs Now
         </p>
       </section>
 
       {/* What we Do */}
-      <section className="bg-pink-50 py-12 px-6 md:px-20">
+      <section className="bg-white py-12 px-6 md:px-20">
         <div className="max-w-5xl mx-auto pb-6 text-center">
           <h2 className="text-4xl font-bold mb-4">Explore What We Do</h2>
         </div>
@@ -132,13 +132,13 @@ const CelebrityLandingPage = () => {
             const Icon = item.icon;
             return(
             <motion.div
-              className="bg-white p-6 rounded-xl shadow hover:shadow-pink-600 hover:shadow-md transition"
+              className="bg-white p-6 rounded-xl shadow hover:shadow-red-600 hover:shadow-md transition"
             >
               <div className="flex items-center gap-4 mb-4">
-                <Icon className="w-8 h-8 text-pink-600" />
+                <Icon className="w-8 h-8 text-red-500" />
                 <h3 className="text-xl font-semibold">{item.title}</h3>
               </div>
-              <p className="text-gray-600">{item.desc}</p>
+              <p className="text-gray-700">{item.desc}</p>
             </motion.div>
             );
           })}
@@ -148,7 +148,7 @@ const CelebrityLandingPage = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-4 text-xl text-white font-semibold rounded-md transition-all duration-300
-               bg-pink-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
+               bg-red-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
           >
             <BsInstagram className="text-xl" />
             Join Us
