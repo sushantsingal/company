@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-white shadow sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto py-4 flex justify-between items-center">
         {/* Logo */}
         <Link
           to="/"
@@ -114,6 +114,14 @@ const Navbar = () => {
             />
           ))}
         </div>
+
+        {/* CTA for Desktop */}
+        <Link
+          to="/contact"
+          className="hidden md:inline-block bg-pink-600 text-white px-4 py-2 rounded hover:bg-blue-600 hover:text-white transition"
+        >
+          Get Proposal
+        </Link>
 
         {/* Mobile Menu Toggle */}
         <button

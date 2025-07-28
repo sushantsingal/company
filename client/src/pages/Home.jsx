@@ -62,7 +62,7 @@ const Home = () => {
   return (
     <div className="text-black overflow-x-hidden">
       {/* Hero Section */}
-      <section className=" bg-white md:px-20 flex items-center">
+      <section className="min-h-screen bg-white px-10 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
