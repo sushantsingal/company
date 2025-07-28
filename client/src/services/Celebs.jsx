@@ -1,54 +1,103 @@
 import { motion } from "framer-motion";
-import CTA from "../components/CTA";
-import event from "../assets/celebs.jpg";
 import { GiMicrophone, GiNewspaper } from "react-icons/gi";
 import { BsCameraReelsFill, BsCameraFill, BsHearts, BsInstagram } from "react-icons/bs";
+import PhotographerFloat from "../components/PhotographerFloat";
+import logo from "../assets/celebsnow.jpg";
+import img1 from "../assets/celeb/celeb6.jpg";
+import img2 from "../assets/celeb/celeb5.jpg";
+import img3 from "../assets/celeb/celeb2.jpg";
+import img4 from "../assets/celeb/celeb3.jpg";
+import img5 from "../assets/celeb/celeb4.jpg";
+import img6 from "../assets/celeb/celeb1.jpg";
+import img7 from "../assets/celeb/celeb7.jpg";
+import img8 from "../assets/celeb/celeb8.jpg";
 
+const celebs = [
+  { src: img1, height: "h-72" },
+  { src: img2, height: "h-64" },
+  { src: img3, height: "h-80" },
+  { src: img4, height: "h-72" },
+  { src: img5, height: "h-64" },
+  { src: img6, height: "h-80" },
+  { src: img7, height: "h-72" },
+  { src: img8, height: "h-64" },
+];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
-  }),
-};
-
-const EventConsulting = () => {
+const CelebrityLandingPage = () => {
   return (
-    <div className="text-gray-800">
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-16 text-center px-4">
-        <motion.h1
-          className="text-6xl font-bold mb-4"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          Celebs Now
-        </motion.h1>
-        <motion.p
-          className="max-w-3xl mx-auto text-lg"
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          variants={fadeUp}
-        >
-          Where Fame Meets the Frame
-        </motion.p>
+    <div className="font-sans text-pink-900 bg-white">
+      {/* Hero Section */}
+      <section className="bg-pink-100 py-8 text-center h-min">
+        <PhotographerFloat />
+        <img
+          src={logo}
+          alt="Company Logo"
+          className="h-36 mx-auto mb-4 rounded-full"
+        />
+        <h1 className="text-5xl font-bold mb-4">
+          CelebsNow
+        </h1>
+        <h2 className="text-4xl font-bold mb-4">✨ </h2>
+        <p className="text-lg max-w-2xl mx-auto mb-6">
+          From red carpet rumors to real-time Insta Lives — stay in the loop with the latest celebrity gossip, entertainment news, and exclusive star interviews.
+        </p>
+
+        {/* <div className="bg-white shadow-lg rounded-xl p-6 mx-auto max-w-2xl mb-6">
+          <h3 className="text-2xl font-semibold mb-2">
+            🎥 Celebrity Lives & Market Highlights
+          </h3>
+          <p className="text-pink-700">
+            Never miss a moment with your favorite stars — from trending stories to live conversations that keep the spotlight shining.
+          </p>
+        </div>
+
+        <div className="flex justify-center pt-8"><a 
+            href="https://www.instagram.com/_celebsnow/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-6 py-4 text-xl text-white font-semibold rounded-md transition-all duration-300 shadow hover:shadow-gray-700 bg-pink-600 hover:shadow-md hover:text-white"
+          >
+            Join Now
+            <BsInstagram className="text-xl" />
+          </a></div> */}
       </section>
 
-      {/* Image Only */}
-        <section className="w-full">
-                <img
-                src={event}
-                alt="Event Graphic"
-                className="w-screen h-auto object-cover block"
-                />
-        </section>
+      {/* Star of the Week */}
+      <section className="bg-white py-16 relative overflow-hidden">
+        <h2 className="text-pink-600 text-4xl font-bold text-center mb-10">
+          Celebrity Brand Shoutouts
+        </h2>
 
-      {/* Services Grid */}
-      <section className="bg-gray-50 py-12 px-6 md:px-20">
+        <div className="flex justify-center items-end gap-2 flex-wrap max-w-[1200px] mx-auto px-6">
+          {celebs.map((celeb, index) => (
+            <div
+              key={index}
+              className={`relative overflow-hidden w-[80px] md:w-[130px] ${celeb.height} transition-all duration-300 transform hover:scale-125 hover:z-10`}
+              style={{
+                clipPath: "polygon(0% 8%, 100% 0%, 100% 85%, 0% 100%)",
+              }}
+            >
+              <img
+                src={celeb.src}
+                alt={`celeb-${index}`}
+                className="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+      {/* Quote */}
+      <section className="bg-white py-6">
+        <p className="text-center italic text-pink-800 text-lg font-medium">
+          “You don’t need a red carpet to shine. Just a camera and some love.” –
+          Celebs Now
+        </p>
+      </section>
+
+      {/* What we Do */}
+      <section className="bg-pink-50 py-12 px-6 md:px-20">
         <div className="max-w-5xl mx-auto pb-6 text-center">
           <h2 className="text-4xl font-bold mb-4">Explore What We Do</h2>
         </div>
@@ -109,4 +158,4 @@ const EventConsulting = () => {
   );
 };
 
-export default EventConsulting;
+export default CelebrityLandingPage;
