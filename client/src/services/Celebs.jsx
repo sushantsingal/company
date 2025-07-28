@@ -34,7 +34,7 @@ const CelebrityLandingPage = () => {
           <div className="flex flex-row items-center justify-center gap-6 flex-wrap">
 
             {/* Left 4 celebs */}
-            <div className="flex gap-4">
+            <div className="hidden md:flex gap-4">
               {celebs.slice(0, 4).map((celeb, index) => (
                 <div
                   key={index}
@@ -70,10 +70,10 @@ const CelebrityLandingPage = () => {
 
             {/* Right 4 celebs */}
             <div className="flex gap-4">
-              {celebs.slice(4).map((celeb, index) => (
+              {(window.innerWidth < 768 ? celebs.slice(4, 6) : celebs.slice(4)).map((celeb, index) => (
                 <div
                   key={index + 4}
-                  className={`relative overflow-hidden w-[80px] md:w-[100px] ${celeb.height} transition-all duration-300 transform hover:scale-110`}
+                  className={`relative overflow-hidden w-[70px] md:w-[100px] ${celeb.height} transition-all duration-300 transform hover:scale-110`}
                   style={{
                     clipPath: "polygon(0% 8%, 100% 0%, 100% 85%, 0% 100%)",
                   }}
