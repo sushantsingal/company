@@ -35,7 +35,8 @@ const CelebrityLandingPage = () => {
           className="h-36 mx-auto mb-4 rounded-full shadow-lg"
         />
         <h1 className="text-5xl font-bold mb-4">
-          CelebsNow
+          <span className="text-red-500">Celeb</span>
+          <span className="text-gray-700">Now</span>
         </h1>
         <h2 className="text-4xl font-bold mb-4">✨ </h2>
         <p className="text-lg max-w-2xl mx-auto mb-6 text-gray-700">
@@ -132,7 +133,7 @@ const CelebrityLandingPage = () => {
             const Icon = item.icon;
             return(
             <motion.div
-              className="bg-white p-6 rounded-xl shadow hover:shadow-red-600 hover:shadow-md transition"
+              className="bg-white p-6 rounded-xl shadow hover:shadow-gray-700 hover:shadow-md transition"
             >
               <div className="flex items-center gap-4 mb-4">
                 <Icon className="w-8 h-8 text-red-500" />
@@ -147,8 +148,8 @@ const CelebrityLandingPage = () => {
             href="https://www.instagram.com/_celebsnow/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-4 text-xl text-white font-semibold rounded-md transition-all duration-300
-               bg-red-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
+            className="flex items-center gap-2 px-6 py-4 text-xl text-red-500 font-semibold rounded-md transition-all duration-300
+               bg-gray-700 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
           >
             <BsInstagram className="text-xl" />
             Join Us
