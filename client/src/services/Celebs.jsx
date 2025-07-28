@@ -152,7 +152,7 @@ const CelebrityLandingPage = () => {
                bg-gray-700 hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
           >
             <BsInstagram className="text-xl" />
-            Join Us
+            Follow Us
           </a></div>
       </section>
     </div>
