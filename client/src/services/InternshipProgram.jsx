@@ -4,95 +4,90 @@ import InternshipBanner from "../assets/internship-program.jpg";
 
 const InternshipProgram = () => {
   return (
-    <div className="bg-[#f1f7fb] text-gray-800 min-h-screen py-20 px-6 md:px-20">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-pink-600">Internship Program</h1>
+    <div className="bg-blue-50 text-gray-800 min-h-screen py-16 px-4 md:px-20">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Introduction */}
-        <p className="text-gray-700 mb-4">
-          Join our intensive internship program to gain hands-on experience in real-world digital marketing, design, and development projects. Learn by doing and boost your career prospects in just a few months.
+        {/* Page Title */}
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-pink-600 mb-10">
+          Internship Program
+        </h1>
+
+        {/* Intro */}
+        <p className="text-lg text-gray-700 leading-relaxed mb-4">
+          Elevate your skills with our intensive internship program crafted for emerging talents. Get practical experience, expert mentorship, and a portfolio that gets noticed.
         </p>
-        <p className="text-gray-700 mb-8">
-          Whether you're a student or a recent graduate, our program offers mentorship, flexible schedules, and project-based learning tailored to help you grow in today’s digital-first world.
+        <p className="text-lg text-gray-700 leading-relaxed mb-10">
+          Designed for students and recent graduates, this program helps you gain confidence in digital marketing, design, and development with real-time exposure.
         </p>
 
         {/* What You'll Gain */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-8 text-pink-600 text-center">What You'll Gain</h2>
+        <div className="mb-16">
+          <h2 className="text-5xl font-bold text-center text-pink-600 mb-8">What You'll Gain</h2>
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            
-            {/* List */}
-            <ul className="list-disc list-inside text-gray-700 space-y-3 text-base">
-              <li>Work on real client campaigns and projects</li>
-              <li>Exposure to digital tools & platforms (SEO, SMM, Canva, etc.)</li>
-              <li>Collaborate with experienced mentors</li>
-              <li>Build a job-ready portfolio</li>
-              <li>Certificate & letter of recommendation</li>
-              <li>Potential job placement opportunities</li>
+            <ul className="space-y-4 text-base sm:text-lg text-gray-700 font-medium list-disc">
+              <li>Real client projects & campaigns</li>
+              <li>Master SEO, SMM, Canva, and marketing tools</li>
+              <li>Learn directly from industry mentors</li>
+              <li>Build a portfolio that opens doors</li>
+              <li>Internship certificate & LOR</li>
+              <li>Job & freelance opportunities</li>
             </ul>
 
-            {/* Image */}
             <div>
               <img
                 src={InternshipBanner}
                 alt="Internship Program"
-                className="rounded-xl shadow-md w-full object-cover"
+                className="rounded-2xl shadow-lg w-full object-cover"
               />
             </div>
           </div>
         </div>
 
         {/* Program Highlights */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 text-pink-600">Program Highlights</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            
-            {/* Card 1 */}
-            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
-              <Clock className="text-pink-600 w-6 h-6 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Flexible Timing</h3>
-                <p className="text-gray-600">Balance your studies or job while gaining work experience.</p>
+        <div className="mb-20">
+          <h2 className="text-2xl font-semibold text-pink-600 mb-6 text-center">Program Highlights</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Cards */}
+            {[{
+              icon: <Clock className="text-pink-600 w-6 h-6" />,
+              title: "Flexible Timing",
+              desc: "Schedule that suits your availability—learn alongside your studies or job."
+            }, {
+              icon: <Cpu className="text-pink-600 w-6 h-6" />,
+              title: "Hands-On Learning",
+              desc: "Experience the tools, strategies, and challenges professionals face."
+            }, {
+              icon: <ClipboardCheck className="text-pink-600 w-6 h-6" />,
+              title: "Weekly Assignments",
+              desc: "Interactive tasks with feedback to track your growth every week."
+            }, {
+              icon: <Award className="text-pink-600 w-6 h-6" />,
+              title: "Completion Certificate",
+              desc: "Showcase your achievement with a professional certificate."
+            }].map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-md flex gap-4 hover:shadow-lg transition"
+              >
+                <div className="mt-1">{item.icon}</div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-1 text-gray-800">{item.title}</h3>
+                  <p className="text-gray-600">{item.desc}</p>
+                </div>
               </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
-              <Cpu className="text-pink-600 w-6 h-6 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Practical Exposure</h3>
-                <p className="text-gray-600">Learn by doing, not just watching tutorials.</p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
-              <ClipboardCheck className="text-pink-600 w-6 h-6 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Weekly Assignments</h3>
-                <p className="text-gray-600">Track progress and receive regular feedback.</p>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-white p-6 rounded shadow flex items-start gap-4">
-              <Award className="text-pink-600 w-6 h-6 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Certification</h3>
-                <p className="text-gray-600">Get certified upon successful completion of the program.</p>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="bg-pink-100 p-6 rounded-xl text-center">
-          <h2 className="text-xl font-semibold text-pink-700 mb-2">Launch Your Career With Confidence</h2>
-          <p className="text-gray-700 mb-4">Apply now to join our next internship batch and gain practical industry experience.</p>
+        {/* CTA */}
+        <div className="bg-pink-100 p-8 rounded-xl text-center max-w-3xl mx-auto shadow-inner">
+          <h2 className="text-xl sm:text-2xl font-bold text-pink-700 mb-3">Launch Your Career With Confidence</h2>
+          <p className="text-gray-700 text-base mb-5">
+            Don’t miss this opportunity to build your skills and break into the digital world. Limited seats only!
+          </p>
           <a
             href="/contact"
-            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
+            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition"
           >
             Apply Now
           </a>
