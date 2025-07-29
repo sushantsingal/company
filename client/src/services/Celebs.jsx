@@ -63,7 +63,7 @@ const CelebrityLandingPage = () => {
                 alt="Company Logo"
                 className="h-36 mx-auto rounded-full shadow-lg mb-4"
               />
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-red-500">
                 From red carpet rumors to real-time Insta Lives — stay in the loop with the latest celebrity gossip, entertainment news, and exclusive star interviews.
               </p>
             </div>
@@ -128,7 +128,7 @@ const CelebrityLandingPage = () => {
       {/* What we Do */}
       <section className="bg-white py-12 px-6 md:px-20">
         <div className="max-w-5xl mx-auto pb-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">Explore What We Do</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-700">Explore What We Do</h2>
         </div>
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {[
@@ -164,10 +164,10 @@ const CelebrityLandingPage = () => {
               className="bg-white p-6 rounded-xl shadow hover:shadow-gray-700 hover:shadow-md transition"
             >
               <div className="flex items-center gap-4 mb-4">
-                <Icon className="w-8 h-8 text-red-500" />
-                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <Icon className="w-8 h-8 text-gray-700" />
+                <h3 className="text-xl font-semibold text-gray-700">{item.title}</h3>
               </div>
-              <p className="text-gray-700">{item.desc}</p>
+              <p className="text-red-500">{item.desc}</p>
             </motion.div>
             );
           })}
