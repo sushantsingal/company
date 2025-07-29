@@ -54,7 +54,7 @@ const DreamChasers = () => {
               className="mx-auto my-6 w-full h-80 object-contain"
             />
             <p className="text-lg text-gray-700 leading-relaxed">
-              Dream Chasers is an exclusive community crafted for CEOs, founders, visionaries, and dreamers — who seek more than just boardroom wins.
+              Dream Chasers is an exclusive community of high-performing individuals—CEOs, MDs, Founders, and change-makers—who believe in the power of connection, collaboration, and purposeful living.
             </p>
           </div>
 
@@ -84,8 +84,8 @@ const DreamChasers = () => {
        {/* Content */}
       <section className="flex justify-center">
         <div className="relative z-10 max-w-5xl px-6">
-          <p className="mt-6 font-semibold text-lg md:text-2xl max-w-4xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores corrupti dolor aperiam, ab amet beatae, veritatis qui dolorem quisquam officia ex et incidunt minima ipsam nam fuga pariatur nulla laboriosam.
+          <p className="mt-6 font-semibold text-lg md:text-2xl max-w-5xl mx-auto">
+            "Power players. Purposeful lives. One extraordinary community." - Dream Chasers
           </p>
         </div>
       </section>
