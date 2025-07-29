@@ -6,7 +6,7 @@ import img1 from "../assets/dreams/dc1.jpg";
 import img2 from "../assets/dreams/dc2.png";
 import img3 from "../assets/dreams/dc3.png";
 import img4 from "../assets/dreams/dc4.jpg";
-import img5 from "../assets/dreams/dc5.png";
+import img5 from "../assets/dreams/dc5.jpg";
 import img6 from "../assets/dreams/dc6.png";
 
 const fadeUp = {
