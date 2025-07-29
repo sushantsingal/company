@@ -163,7 +163,7 @@ const DreamChasers = () => {
             }}>
         <div className="flex justify-center pt-8">
           <a
-            href="https://www.instagram.com/_celebsnow/"
+            href="https://www.instagram.com/dreamchaserscommunity_/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-4 text-xl text-white font-semibold rounded-md transition-all duration-300 bg-black hover:bg-gradient-to-r hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
