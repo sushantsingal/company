@@ -63,7 +63,7 @@ const CelebrityLandingPage = () => {
                 alt="Company Logo"
                 className="h-36 mx-auto rounded-full shadow-lg mb-4"
               />
-              <p className="text-lg text-red-500">
+              <p className="text-lg text-gray-700">
                 From red carpet rumors to real-time Insta Lives — stay in the loop with the latest celebrity gossip, entertainment news, and exclusive star interviews.
               </p>
             </div>
@@ -119,9 +119,10 @@ const CelebrityLandingPage = () => {
 
       {/* Quote */}
       <section className="bg-white py-6">
-        <p className="text-center italic text-gray-700 text-lg font-medium">
-          “You don’t need a red carpet to shine. Just a camera and some love.” –
-          Celebs Now
+        <p className="text-center italic text-red-500 text-lg font-medium">
+          “You don’t need a red carpet to shine. Just a camera and some love.” – 
+          <span className="text-red-500 font-bold"> Celebs</span>
+          <span className="text-gray-700 font-bold">Now</span>
         </p>
       </section>
 
