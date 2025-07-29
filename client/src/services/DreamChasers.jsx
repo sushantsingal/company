@@ -137,7 +137,11 @@ const DreamChasers = () => {
               initial="hidden"
               whileInView="visible"
               custom={i + 1}
-              variants={fadeUp}
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <Icon className="w-8 h-8 text-black" />
@@ -152,9 +156,10 @@ const DreamChasers = () => {
             className="flex-1 space-y-6"
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }}
             variants={{
-              hidden: { opacity: 0, y: 60 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}>
         <div className="flex justify-center pt-8">
           <a
