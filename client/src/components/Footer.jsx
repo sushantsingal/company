@@ -30,7 +30,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="/partners" className="text-gray-600 hover:text-pink-600">
-                Our Partners
+                Our Clients
               </a>
             </li>
           </ul>
