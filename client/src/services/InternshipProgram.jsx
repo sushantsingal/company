@@ -86,7 +86,8 @@ const InternshipProgram = () => {
             Don’t miss this opportunity to build your skills and break into the digital world. Limited seats only!
           </p>
           <a
-            href="/contact"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe9rUidrdcScHB61VLZ5O1M6lkxMV-g3v6W2lcXDSWJE-ILlA/viewform?usp=dialog"
+            target="blank"
             className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition"
           >
             Apply Now
