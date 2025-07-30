@@ -71,19 +71,19 @@ const Footer = () => {
         </div>
 
         {/* Column 4 */}
-        <div className="flex flex-col items-center md:items-end">
+        <div className="flex flex-col items-center md:items-center">
           <img src={hero} alt="logo" className="h-24 w-auto mb-4" />
           <div className="flex gap-4">
-            <a href="#" className="text-gray-500 hover:text-pink-600">
+            <a href="https://www.facebook.com/marketingcrawlers/" target="blank" className="text-gray-500 hover:text-pink-600">
               <Facebook size={18} />
             </a>
-            <a href="#" className="text-gray-500 hover:text-pink-600">
+            <a href="https://x.com/MarketingCrawl1/status/1418865005848629256" target="blank" className="text-gray-500 hover:text-pink-600">
               <BsTwitterX size={18} />
             </a>
-            <a href="#" className="text-gray-500 hover:text-pink-600">
+            <a href="https://www.instagram.com/marketingcrawlers/?hl=en " target="blank" className="text-gray-500 hover:text-pink-600">
               <Instagram size={18} />
             </a>
-            <a href="#" className="text-gray-500 hover:text-pink-600">
+            <a href="https://www.linkedin.com/company/marketing-crawlers/posts/?feedView=all" target="blank" className="text-gray-500 hover:text-pink-600">
               <LinkedinIcon size={18} />
             </a>
           </div>

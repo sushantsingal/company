@@ -21,7 +21,7 @@ const CTA = () => {
         to="/contact"
         className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
       >
-        Get in Touch
+        Let's Connect
       </Link>
     </section>
   );

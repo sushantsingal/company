@@ -23,19 +23,19 @@ const PartnersPage = () => {
   return (
     <div className="bg-[#f1f7fb] text-gray-800 min-h-screen py-20 px-6 md:px-20">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-pink-600">Our Partners</h1>
+        <h1 className="text-4xl font-bold mb-6 text-pink-600">Our Clients</h1>
 
         {/* Introduction */}
-        <p className="text-gray-700 mb-4">
-          We are proud to be associated with a growing network of partners who share our mission of enabling digital transformation and business growth. Our partnerships span across industries and are built on trust, collaboration, and a shared commitment to excellence.
+        <p className="text-gray-700 mb-4 font-sans">
+          We are proud to be associated with a growing network of individuals who share our mission of enabling digital transformation and business growth. Our partnerships span across industries and are built on trust, collaboration, and a shared commitment to excellence.
         </p>
-        <p className="text-gray-700 mb-8">
+        <p className="text-gray-700 mb-8 font-sans">
           From strategic alliances to community partnerships, our partner ecosystem enhances our ability to deliver quality services, innovative campaigns, and impactful outcomes for clients across sectors.
         </p>
 
         {/* Partner Categories */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-pink-600">Types of Partners</h2>
+        {/* <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-pink-600">Types of Clients</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded shadow flex items-start gap-4">
               <Settings className="text-pink-600 w-20 h-20 mt-1" />
@@ -74,16 +74,16 @@ const PartnersPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Meet Our Partners Section */}
         <section className="mb-20">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-pink-600 mb-4">
-            Meet Our Partners
-          </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+          {/* <h2 className="text-2xl md:text-3xl font-semibold text-center text-pink-600 mb-4">
+            Meet Our Clients
+          </h2> */}
+          {/* <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
             Trusted by industry leaders and future-forward innovators, our partners share our passion for excellence, growth, and digital enablement. Explore the organizations that empower our mission.
-          </p>
+          </p> */}
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 place-items-center">
             {partners.map((logo, index) => (
@@ -104,7 +104,7 @@ const PartnersPage = () => {
         {/* Event Partners Section */}
         <section className="mb-20">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-pink-600 mb-4">
-            Our Event Partners
+            Our Event Clients
           </h2>
           <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
             From industry summits to student fests, our event partners are instrumental in helping us amplify our brand presence and deliver meaningful experiences.
@@ -134,7 +134,7 @@ const PartnersPage = () => {
             href="/contact"
             className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
           >
-            Become a Partner
+            Become a Client
           </a>
         </div>
       </div>

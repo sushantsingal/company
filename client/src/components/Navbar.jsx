@@ -78,7 +78,8 @@ const Navbar = () => {
 
             <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-56 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <Link to="/services/dream-chasers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Dream Chasers</Link>
-              <Link to="/services/celebs-now" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Celebs Now</Link><a
+              <Link to="/services/celebs-now" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Celebs Now</Link>
+              {/* <a
                 href="https://techbridgediplomacy.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -93,7 +94,7 @@ const Navbar = () => {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
               >
                 Yoga Mantra
-              </a>
+              </a> */}
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import hero from "../assets/hero-image.png";
-import about from "../assets/about-us.jpg";
+import about from "../assets/aa.jpg";
+import{ChevronLeft, ChevronRight} from "lucide-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CTA from "../components/CTA";
@@ -26,6 +27,17 @@ const fadeUp = {
 };
 
 const Home = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to move to the previous item
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? partners.length - 1 : prev - 1));
+  };
+
+  // Function to move to the next item
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === partners.length - 1 ? 0 : prev + 1));
+  };
   const [portfolioData, setPortfolioData] = useState([]);
   const [partners, setPartners] = useState([]);
   const [eventPartners, setEventPartners] = useState([]);
@@ -62,7 +74,7 @@ const Home = () => {
   return (
     <div className="text-black overflow-x-hidden">
       {/* Hero Section */}
-      <section className="min-h-screen bg-white px-10 md:px-20 flex items-center">
+      <section className="py-28 bg-white px-10 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
@@ -91,41 +103,74 @@ const Home = () => {
       </section>
 
       {/* Partner Carousel */}
-      <section className="bg-gray-50 py-4">
-        <div className="text-center mb-10 px-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-800">Trusted by Leading Brands</h1>
-          <p className="text-gray-600 mt-2 text-sm md:text-lg">
-            We’re proud to partner with some of the most respected organizations in the industry.
-          </p>
+      <section className="bg-gray-50 py-10">
+      <div className="text-center mb-10 px-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-800">Trusted by Leading Brands</h1>
+        <p className="text-gray-600 mt-2 text-sm md:text-lg">
+          We’re proud to partner with some of the most respected organizations in the industry.
+        </p>
+      </div>
+
+      {/* Carousel Container */}
+      <div className="relative">
+        <div className="overflow-x-auto whitespace-nowrap px-4 scrollbar-hide">
+          <div
+            className="inline-flex space-x-6"
+            style={{
+              transform: `translateX(-${currentIndex*140}px)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
+          >
+            {partners.map((logo, index) => (
+              <div key={index} className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded shadow">
+                <img
+                  src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
+                  alt={`partner-${index}`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="overflow-hidden relative w-full">
-            <div className="flex flex-wrap justify-center gap-6 px-4">
-              {partners.map((logo, index) => (
-                <div key={index} className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
-                  <img src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`} alt={`partner-${index}`} className="max-h-full object-contain" />
-                </div>
-              ))}
-            </div>
-        </div>
-
-        <motion.div
-          className="mt-4 text-center py-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
+        {/* Previous Button */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-transparent p-2 border-transparent focus:outline-none active:border-transparent"
         >
-          <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
-            View All
-          </Link>
-        </motion.div>
-      </section>
+          <ChevronLeft className="w-20 h-20 text-gray-600"/>
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-transparent p-2 focus:outline-none active:border-transparent"
+        >
+          <ChevronRight className="w-20 h-20 text-gray-600"/>
+        </button>
+      </div>
+
+      {/* View All Button */}
+      {/* <motion.div
+        className="mt-6 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <Link
+          to="/partners"
+          className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 transition"
+        >
+          View All
+        </Link>
+      </motion.div> */}
+    </section>
 
       {/* About Section */}
-      <section className=" bg-gray-50 py-10 px-6 md:px-20 flex items-center">
+      <section className=" bg-gray-50 py-8 px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <motion.div className="space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+          <motion.div className="space-y-2" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h1 className="text-3xl md:text-5xl font-bold text-pink-600">Who We Are</h1>
             <p className="text-gray-700 text-base md:text-lg">
               At <b>Marketing Crawlers</b>, we are passionate digital experts focused on crafting meaningful <b>brand experiences</b>. Our team blends creativity with data to generate results that matter.
@@ -133,6 +178,20 @@ const Home = () => {
             <p className="text-gray-600">
               From ideation to execution, we specialize in building strategies that help businesses grow across platforms.
             </p>
+            <motion.div
+              className="mt-6 text-center py-16"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
+              <Link
+                to="/about"
+                className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 transition hover:text-white"
+              >
+                About Us
+              </Link>
+            </motion.div>
           </motion.div>
           <motion.img
             src={about}
@@ -150,7 +209,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="min-h-screen bg-white py-20 px-6 md:px-20 flex items-center">
+      <section className=" bg-white py-10 px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h1 className="text-3xl md:text-5xl font-bold mb-4" initial="hidden" whileInView="visible" viewport={{ once: true }}
             variants={{
@@ -204,7 +263,7 @@ const Home = () => {
       </section>
 
       {/* Work Process Section */}
-      <section className="bg-gray-50 py-24 px-6 md:px-20">
+      <section className="bg-gray-50 py-8 px-6 md:px-20">
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Empowering Businesses with Data, Design & Disruption
@@ -258,7 +317,7 @@ const Home = () => {
     </section>
 
     {/* Projects Showcase */}
-    <section className="bg-white py-20 px-6 md:px-20 text-center">
+    <section className="bg-white py-8 px-6 md:px-20 text-center">
     <motion.h1 className="text-3xl md:text-5xl font-bold mb-12" initial="hidden" whileInView="visible" viewport={{ once: true }}
     variants={{
             hidden: { opacity: 0, y: 50 },
@@ -273,7 +332,7 @@ const Home = () => {
       <p className="text-red-500">{error}</p>
     ) : (
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {portfolioData.map((project, i) => (
+        {portfolioData.slice(0,3).map((project, i) => (
           <motion.div
             key={project._id}
             className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition-all"

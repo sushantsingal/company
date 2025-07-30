@@ -20,6 +20,52 @@ const fadeUp = {
   }),
 };
 
+const steps = [
+  {
+    title: "Initial Consultation",
+    number: "1",
+  },
+  {
+    title: "Custom Strategy Development",
+    number: "2",
+  },
+  {
+    title: "Collaborative Solution Design",
+    number: "3",
+  },
+  {
+    title: "Implementation & Real-Time Support",
+    number: "4",
+  },
+  {
+    title: "Post-Event Review & Feedback",
+    number: "5",
+  },
+];
+
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.6, // delay between each child
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 60,
+      damping: 15,
+    },
+  },
+};
+
+
 const EventConsulting = () => {
   return (
     <div className="text-gray-800">
@@ -113,6 +159,39 @@ const EventConsulting = () => {
         </div>
       </section>
 
+      {/* Steps Section */}
+      <section className="bg-white py-16 overflow-x-hidden">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10 uppercase">
+          How We Address and Resolve Event Consultancy Queries
+        </h2>
+
+        <motion.div
+          className="flex flex-row items-center gap-6 overflow-x-auto no-scrollbar px-2 md:px-6"
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariant}
+              className="relative flex-shrink-0 w-60 h-48 bg-yellow-400 text-white shadow-md transform -skew-x-12"
+            >
+              <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
+                <div className="text-4xl font-bold mb-2">{step.number}</div>
+                <div className="text-md md:text-lg font-medium text-center">{step.title}</div>
+              </div>
+
+              {index !== steps.length - 1 && (
+                <div className="absolute top-1/2 -right-5 transform -translate-y-1/2 border-l-[20px] border-l-yellow-400 border-y-[24px] border-y-transparent"></div>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
       {/* Services Grid */}
       <section className="bg-gray-50 py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">

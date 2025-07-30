@@ -6,9 +6,9 @@ import logo from "../assets/celebsnow.jpg";
 import img1 from "../assets/celeb/celeb6.jpg";
 import img2 from "../assets/celeb/celeb5.jpg";
 import img3 from "../assets/celeb/celeb2.jpg";
-import img4 from "../assets/celeb/celeb3.jpg";
+import img4 from "../assets/celeb/celeb1.jpg";
 import img5 from "../assets/celeb/celeb4.jpg";
-import img6 from "../assets/celeb/celeb1.jpg";
+import img6 from "../assets/celeb/celeb3.jpg";
 import img7 from "../assets/celeb/celeb7.jpg";
 import img8 from "../assets/celeb/celeb8.jpg";
 

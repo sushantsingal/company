@@ -94,7 +94,7 @@ const About = () => {
       </section>
 
       {/* Focus Points */}
-      <section className="py-16 px-6 md:px-20 bg-white">
+      {/* <section className="py-16 px-6 md:px-20 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center">
           {[{
               title: "Brand Awareness",
@@ -130,7 +130,7 @@ const About = () => {
             </motion.div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Company Story */}
       <section className="py-10 px-6 md:px-20 bg-gray-50">
