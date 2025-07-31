@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import indiaFlag from "../assets/flags/india.jpg";
@@ -12,6 +12,23 @@ import ukFlag from "../assets/flags/uk.avif";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const navAnimationClass = `transition-transform duration-300 ${
+    showNavbar ? "translate-y-0" : "-translate-y-full"
+  }`;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 50);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const navLinkClass = ({ isActive }) =>
     `relative pb-1 font-medium capitalize transition duration-300
@@ -27,7 +44,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-white shadow sticky z-50">
+    <header className={`bg-white shadow sticky top-0 z-50 transform ${navAnimationClass}`}>
       <div className="max-w-7xl mx-auto py-4 flex justify-between items-center">
         {/* Logo */}
         <Link
@@ -174,7 +191,8 @@ const Navbar = () => {
 
             <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md w-56 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <Link to="/services/dream-chasers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Dream Chasers</Link>
-              <Link to="/services/celebs-now" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Celebs Now</Link><a
+              <Link to="/services/celebs-now" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition">Celebs Now</Link>
+              {/* <a
                 href="https://techbridgediplomacy.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -189,7 +207,7 @@ const Navbar = () => {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-100 transition"
               >
                 Yoga Mantra
-              </a>
+              </a> */}
             </div>
           </div>
 

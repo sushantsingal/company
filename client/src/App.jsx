@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import Topbar from "./components/Topbar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
@@ -16,12 +17,21 @@ import ContactPage from "./pages/Contact";
 import EventConsulting from "./services/EventConsulting";
 import TechConsulting from "./services/TechConsulting";
 import MarketingConsulting from "./services/MarketingConsulting";
-import DigitalMarketingCourse from "./services/DigitalMarketingCourse";
+import DigitalMarketingCourse from "./pages/DigitalMarketingCourse";
 import DreamChasers from "./services/DreamChasers";
 import Celebs from "./services/Celebs";
-import InternshipProgram from "./services/InternshipProgram";
+import InternshipProgram from "./pages/InternshipProgram";
+import CaseStudy from "./pages/CaseStudy";
+import RetailCaseStudy from "./services/case/Retail";
+import RealEstateCaseStudy from "./services/case/RealEstate";
+import OilGasCaseStudy from "./services/case/OilGas";
+import ManufacturingCaseStudy from "./services/case/Manufacturing";
+import HealthCaseStudy from "./services/case/HealthCare";
+import FintechCaseStudy from "./services/case/Fintech";
+import EducationCaseStudy from "./services/case/Education";
+import ChemicalCaseStudy from "./services/case/Chemical";
 import OurProcess from "./services/OurProcess";
-import PartnerPage from "./services/PartnerPage";
+import PartnerPage from "./pages/PartnerPage";
 import TermsPage from "./services/Termspage";
 import DigitalMarketingPage from "./services/DigitalMarketingPage";
 import SingleProject from "./services/SingleProject";
@@ -55,6 +65,7 @@ function App() {
       {loading && <Loader />} {/* Loading screen overlay */}
       {!loading && (
         <>
+          <Topbar />
           <Navbar />
           <Routes>
             {/* Admin Routes */}
@@ -80,8 +91,17 @@ function App() {
               <Route path="services/marketing-consulting" element={<MarketingConsulting />} />
               <Route path="services/dream-chasers" element={<DreamChasers />} />
               <Route path="services/celebs-now" element={<Celebs />} />
+              <Route path="/case-studies/retail" element={<RetailCaseStudy />} />
+              <Route path="/case-studies/real-estate" element={<RealEstateCaseStudy />} />
+              <Route path="/case-studies/oil-&-gas" element={<OilGasCaseStudy />} />
+              <Route path="/case-studies/manufacturing" element={<ManufacturingCaseStudy />} />
+              <Route path="/case-studies/health-care" element={<HealthCaseStudy />} />
+              <Route path="/case-studies/fintech" element={<FintechCaseStudy />} />
+              <Route path="/case-studies/education" element={<EducationCaseStudy />} />
+              <Route path="/case-studies/chemical" element={<ChemicalCaseStudy />} />
               <Route path="portfolio" element={<PortfolioPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="case-studies" element={<CaseStudy />} />
               <Route path="digital-marketing-course" element={<DigitalMarketingCourse />} />
               <Route path="digital-marketing" element={<DigitalMarketingPage />} />
               <Route path="internship-program" element={<InternshipProgram />} />

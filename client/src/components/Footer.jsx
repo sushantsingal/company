@@ -12,12 +12,17 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 text-gray-800 py-12 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-gray-50 text-gray-800 py-12 px-2 md:px-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-1">
         {/* Column 1 */}
         <div>
           <h4 className="font-semibold text-lg mb-4">Important links</h4>
           <ul className="space-y-2 text-sm text-gray-600">
+            <li>
+              <a href="/case-studies" className="text-gray-600 hover:text-pink-600">
+                Case Studies
+              </a>
+            </li>
             <li>
               <a href="/digital-marketing-course" className="text-gray-600 hover:text-pink-600">
                 Digital Marketing Course
@@ -57,11 +62,11 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-4">Categories</h4>
           <ul className="space-y-2 text-sm text-gray-600">
-            <li>
+            {/* <li>
               <a href="/digital-marketing" className="text-gray-600 hover:text-pink-600">
                 Digital Marketing
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="/portfolio" className="text-gray-600 hover:text-pink-600">
                 Insights
@@ -69,8 +74,25 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-
+        
         {/* Column 4 */}
+        <div>
+          <h4 className="font-semibold text-lg mb-4">Our Verticals</h4>
+          <ul className="space-y-2 text-sm text-gray-600">
+            <li>
+              <a href="/digital-marketing" className="text-gray-600 hover:text-pink-600">
+               Tech Bridge Diplomacy
+              </a>
+            </li>
+            <li>
+              <a href="/portfolio" className="text-gray-600 hover:text-pink-600">
+                Yog Mantra
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Column 5 */}
         <div className="flex flex-col items-center md:items-center">
           <img src={hero} alt="logo" className="h-24 w-auto mb-4" />
           <div className="flex gap-4">
