@@ -117,7 +117,7 @@ const Navbar = () => {
 
           <NavLink to="/industries" className={navLinkClass}>Industries</NavLink>
           <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
-          <NavLink to="/portfolio" className={navLinkClass}>Insights</NavLink>
+          <NavLink to="/insights" className={navLinkClass}>Insights</NavLink>
         </nav>
 
         {/* Country Flags (Desktop) */}
@@ -213,7 +213,7 @@ const Navbar = () => {
 
           <NavLink to="/industries" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Industries</NavLink>
           <NavLink to="/contact" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Contact</NavLink>
-          <NavLink to="/portfolio" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Insights</NavLink>
+          <NavLink to="/insights" className={navLinkClass} onClick={() => setIsMobileMenuOpen(false)}>Insights</NavLink>
           <Link
             to="/contact"
             className="block w-full text-center bg-pink-600 text-white py-2 rounded hover:bg-blue-600 transition"

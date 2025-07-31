@@ -1,5 +1,6 @@
 import hero from "../assets/hero-image.png";
 import { BsTwitterX } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa";
 import {
   Facebook,
   Mail,
@@ -104,6 +105,9 @@ const Footer = () => {
             </a>
             <a href="https://www.instagram.com/marketingcrawlers/?hl=en " target="blank" className="text-gray-500 hover:text-pink-600">
               <Instagram size={18} />
+            </a>
+            <a href="https://wa.me/917627025781" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp className= "text-gray-500 hover:text-pink-600" size={20} />
             </a>
             <a href="https://www.linkedin.com/company/marketing-crawlers/posts/?feedView=all" target="blank" className="text-gray-500 hover:text-pink-600">
               <LinkedinIcon size={18} />

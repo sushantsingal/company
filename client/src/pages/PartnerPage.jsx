@@ -127,14 +127,14 @@ const PartnersPage = () => {
         </section>
 
         {/* Call to Action */}
-        <div className="bg-pink-100 p-6 rounded-xl text-center">
-          <h2 className="text-xl font-semibold text-pink-700 mb-2">Want to Collaborate?</h2>
-          <p className="text-gray-700 mb-4">Join our growing list of partners and let's build something great together.</p>
+        <div className="text-center">
+          {/* <h2 className="text-xl font-semibold text-pink-700 mb-2">Let's Connect</h2>
+          <p className="text-gray-700 mb-4">Join our growing list of partners and let's build something great together.</p> */}
           <a
             href="/contact"
-            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
+            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 hover:text-white transition"
           >
-            Become a Client
+            Let's Connect
           </a>
         </div>
       </div>
