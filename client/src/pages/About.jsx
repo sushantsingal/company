@@ -8,7 +8,7 @@ import team5 from "../assets/team5.jpg";
 import team6 from "../assets/team6.jpg";
 import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const teamMembers = [
   {
@@ -61,6 +61,28 @@ const About = () => {
       scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
     }
   };
+
+// useEffect(() => {
+//   const scrollSpeed = 2;
+//   const stepTime = 3;
+
+//   const scrollElement = scrollRef.current;
+
+//   const auto = () => {
+//     if(!scrollElement) return;
+
+//     const { scrollLeft, scrollWidth, clientWidth } = scrollElement;
+
+//       if(scrollLeft + clientWidth >= scrollWidth - scrollSpeed){
+//         scrollElement.scrollTo({left:0, behavior: "smooth"});
+//       } else {
+//         scrollElement.scrollBy({left: scrollSpeed, behavior: "auto",});
+//       }
+//     };
+
+//     const interval = setInterval(auto, stepTime)
+//   return ()=> clearInterval(interval);
+// }, []);
 
   return (
     <div className="text-gray-800">
@@ -201,7 +223,7 @@ const About = () => {
                 <ChevronRight size={20} />
               </button>
             </div>
-            <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide pb-4">
+            <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide pb-4" style={{ scrollBehavior: "smooth"}}>
               {teamMembers.map((member, i) => (
                 <motion.div
                   key={i}
@@ -218,17 +240,17 @@ const About = () => {
                   <img src={member.img} alt={member.name} className="w-28 h-28 mx-auto rounded-full mb-4" />
                   <h3 className="text-xl font-semibold">{member.name}</h3>
                   <p className="text-gray-600 font-medium mb-2">{member.role}</p>
-                  <p className="text-gray-600 text-sm mb-4">{member.desc}</p>
-                  <div className="absolute inset-0 bg-white bg-opacity-90 rounded-xl flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer">
-                    <p className="mb-2 text-sm text-grey-700 flex items-center gap-2 hover:text-pink-600"><Mail size={16} /> {member.email}</p>
-                    <p className="mb-2 text-sm text-gray-700 flex items-center gap-2 hover:text-pink-600"><Phone size={16} /> {member.phone}</p>
+                  {/* <p className="text-gray-600 text-sm mb-4">{member.desc}</p> */}
+                  <div className="absolute inset-0 bg-white bg-opacity-60 rounded-xl flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer">
+                    {/* <p className="mb-2 text-sm text-grey-700 flex items-center gap-2 hover:text-pink-600"><Mail size={16} /> {member.email}</p>
+                    <p className="mb-2 text-sm text-gray-700 flex items-center gap-2 hover:text-pink-600"><Phone size={16} /> {member.phone}</p> */}
                     <div className="flex gap-4 mt-2">
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
-                        <Linkedin size={20} />
+                        <Linkedin size={40} />
                       </a>
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
+                      {/* <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
                         <Instagram size={20} />
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </motion.div>

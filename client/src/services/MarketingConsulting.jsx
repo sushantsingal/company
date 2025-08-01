@@ -46,7 +46,7 @@ const MarketingConsulting = () => {
       </section>
 
       {/* Graphic + Description */}
-      <section className="py-20 px-6 md:px-20 bg-white">
+      <section className="py-6 px-6 md:px-20 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial="hidden"
@@ -76,7 +76,7 @@ const MarketingConsulting = () => {
       </section>
 
       {/* Our Process */}
-      <section className="bg-gray-50 py-20 px-6 md:px-20">
+      <section className="bg-gray-50 py-6 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             className="text-3xl font-bold mb-12"

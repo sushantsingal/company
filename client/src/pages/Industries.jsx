@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import{ChevronLeft, ChevronRight} from "lucide-react";
 import axios from "axios";
 
 const fadeIn = {
@@ -26,6 +27,15 @@ const industries = [
 const Industries = () => {
   const [partners, setPartners] = useState([]);
   const [eventPartners, setEventPartners] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? partners.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === partners.length - 1 ? 0 : prev + 1));
+  };
 
   useEffect(() => {
     const fetchLogos = async () => {
@@ -93,15 +103,43 @@ const Industries = () => {
           <h2 className="text-3xl font-semibold text-gray-800">Trusted by Leading Brands</h2>
           <p className="text-gray-600 mt-2">We’re proud to partner with some of the most respected organizations in the industry.</p>
         </div>
-        <div className="overflow-hidden relative w-full">
-            <div className="flex flex-wrap justify-center gap-6 px-4">
-              {partners.map((logo, index) => (
-                <div key={index} className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
-                  <img src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`} alt={`partner-${index}`} className="max-h-full object-contain" />
-                </div>
-              ))}
-            </div>
+        <div className="relative">
+        <div className="overflow-x-auto whitespace-nowrap px-4 scrollbar-hide">
+          <div
+            className="flex space-x-6"
+            style={{
+              transform: `translateX(-${currentIndex*140}px)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
+          >
+            {partners.map((logo, index) => (
+              <div key={index} className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded shadow">
+                <img
+                  src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
+                  alt={`partner-${index}`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Previous Button */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-transparent p-2 border-transparent focus:outline-none active:border-transparent"
+        >
+          <ChevronLeft className="w-20 h-20 text-gray-600"/>
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-transparent p-2 focus:outline-none active:border-transparent"
+        >
+          <ChevronRight className="w-20 h-20 text-gray-600"/>
+        </button>
+      </div>
         <motion.div className="mt-4 text-center py-6" initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
                     variants={{
                           hidden: { opacity: 0, y: 50 },

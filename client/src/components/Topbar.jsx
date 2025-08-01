@@ -73,15 +73,15 @@ const Topbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-1 flex justify-between items-center relative">
         {/* Left: Contact Info */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1 text-pink-600">
+          <div className="flex items-center gap-1  text-pink-600">
             <Phone size={16} />
-            <span>+91 7627025781</span>
+            <span className="text-gray-600 hover:text-pink-600 cursor-pointer font-semibold">+91 7627025781</span>
           </div>
           <div className="flex items-center gap-1 text-pink-600">
             <Mail size={16} />
             <a
               href="mailto:info@marketingcrawlers.com"
-              className="text-gray-600 hover:underline"
+              className="text-gray-600 hover:text-pink-600"
             >
               info@marketingcrawlers.com
             </a>

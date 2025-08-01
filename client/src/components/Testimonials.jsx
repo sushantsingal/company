@@ -15,7 +15,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-gray-50 py-20 px-6 md:px-20">
+    <section className="bg-gray-50 py-6 px-6 md:px-20">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
           className="text-3xl font-bold mb-10"

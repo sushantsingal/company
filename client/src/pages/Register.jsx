@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import contact from "../assets/contact.jpg";
+import register from "../assets/register.jpg";
 
 const fade = {
   hidden: { opacity: 0, y: 30 },
@@ -56,16 +56,13 @@ const Register = () => {
         <motion.h1 className="text-6xl font-bold mb-4" initial="hidden" animate="visible" variants={fade}>
           Digital Marketing Registeration
         </motion.h1>
-        <motion.p className="max-w-2xl mx-auto text-lg text-gray-300" initial="hidden" animate="visible" custom={1} variants={fade}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam nesciunt facilis perspiciatis. Eaque iure alias nihil eius libero neque, quas enim aspernatur consequatur, nulla possimus, quisquam necessitatibus omnis cupiditate?
-        </motion.p>
       </section>
       {/* Content */}
       <section className="py-10 px-6 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Img */}
           <motion.img
-            src={contact}
+            src={register}
             alt="Our Office Locations"
             className="rounded-2xl shadow-xl w-full object-cover"
             initial={{ opacity: 0, y: 40 }}
@@ -91,14 +88,16 @@ const Register = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid py-16 gap-6">
                   <input
                     name="name"
                     type="text"
                     value={formData.name}
                     onChange={handleChange}
+                    pattern="^[A-Za-z\s]{2,50}$"
+                    title="Name should contain only letters and spaces"
                     placeholder="Your Name"
-                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className=" p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   />
                   <input
@@ -106,6 +105,8 @@ const Register = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
+                    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                    title="Please enter a valid email address"
                     placeholder="Your Email"
                     className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
@@ -115,25 +116,30 @@ const Register = () => {
                     type="text"
                     value={formData.phone}
                     onChange={handleChange}
+                    pattern="^[6-9]\d{9}$"
+                    title="Enter a valid 10-digit Indian mobile number"
                     placeholder="Phone Number"
                     className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    required
                   />
-                </div>
-                <textarea
+                <input
                   name="city"
-                  rows="text"
-                  value={formData.message}
+                  type="text"
+                  value={formData.city}
                   onChange={handleChange}
                   placeholder="Your City"
-                  className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  pattern="^[A-Za-z\s]{2,50}$"
+                  title="Name should contain only letters and spaces"
+                  className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
                   required
-                ></textarea>
+                ></input>
+                </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
+                  className="w-full text-xl bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
                 >
-                  {loading ? "Sending..." : "Submit"}
+                  {loading ? "Sending..." : "Register"}
                 </button>
               </form>
             )}

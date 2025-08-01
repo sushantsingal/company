@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PortfolioForm from "./PortfolioForm";
 import ContactAdmin from "./ContactAdmin";
+import RegisterAdmin from "./RegisterAdmin";
 import PortfolioAdmin from "./PortfolioAdmin";
 import AdminPartnerLogo from "./AdminPartnerLogo";
 import { FilePlus, FolderKanban, ClipboardList, Handshake } from "lucide-react";
@@ -12,6 +13,8 @@ const AdminDashboard = () => {
     switch (activeSection) {
       case "content":
         return <ContactAdmin />;
+      case "register":
+        return <RegisterAdmin />;
       case "portfolio":
         return <PortfolioForm />;
       case "logo":
@@ -23,7 +26,8 @@ const AdminDashboard = () => {
   };
 
   const tabs = [
-    { id: "content", label: "Registrations", icon: ClipboardList },
+    { id: "content", label: "Contacts", icon: ClipboardList },
+    { id: "register", label: "Registrations", icon: ClipboardList },
     { id: "portfolios", label: "Portfolios", icon: FolderKanban },
     { id: "portfolio", label: "Add Portfolio", icon: FilePlus },
     { id: "logo", label: "Partners", icon: Handshake },
