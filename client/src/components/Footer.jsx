@@ -39,6 +39,11 @@ const Footer = () => {
                 Our Clients
               </a>
             </li>
+            <li>
+              <a href="/advisors" className="text-gray-600 hover:text-pink-600">
+                Our Advisors
+              </a>
+            </li>
           </ul>
         </div>
 

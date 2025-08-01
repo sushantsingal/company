@@ -38,6 +38,7 @@ import DigitalMarketingPage from "./services/DigitalMarketingPage";
 import SingleProject from "./services/SingleProject";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminLogin from "./pages/admin/AdminLogin";
+import Advisor from "./pages/Advisors";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -110,6 +111,7 @@ function App() {
               <Route path="our-process" element={<OurProcess />} />
               <Route path="partners" element={<PartnerPage />} />
               <Route path="terms" element={<TermsPage />} />
+              <Route path="advisors" element={<Advisor />} />
               <Route path="/portfolio/:id" element={<SingleProject />} />
             </Route>
           </Routes>

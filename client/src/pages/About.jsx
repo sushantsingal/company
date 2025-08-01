@@ -11,45 +11,31 @@ import focus from "../assets/focus.jpg";
 import { useEffect, useRef } from "react";
 
 const teamMembers = [
-  {
-    name: "Rohan Sharma",
-    role: "Creative Director",
-    img: team4,
-    email: "test@gmail.com",
-    phone: "9568574589",
-    desc: "Rohan is the creative brain behind our visual campaigns. With over a decade of experience, he ensures each brand has a distinct visual voice."
-  },
-  {
-    name: "Ananya Verma",
-    role: "Marketing Strategist",
-    img: team3,
-    desc: "Ananya leads our strategic initiatives with a keen understanding of market trends, crafting campaigns that drive results."
-  },
-  {
-    name: "Karan Mehta",
-    role: "Tech Lead",
-    img: team2,
-    desc: "Karan architects our technical solutions, ensuring robust, scalable, and secure platforms that support brand growth."
-  },
-  {
-    name: "Priya Kapoor",
-    role: "Content Head",
-    img: team1,
-    desc: "Priya ensures that all content is engaging, brand-aligned, and crafted for maximum impact."
-  },
-  {
-    name: "Siddharth Jain",
-    role: "SEO Expert",
-    img: team6,
-    desc: "Siddharth optimizes all our digital assets to rank higher and perform better across search engines."
-  },
-  {
-    name: "Neha Singh",
-    role: "UI/UX Designer",
-    img: team5,
-    desc: "Neha designs seamless and beautiful user experiences that enhance brand credibility and conversion."
-  },
-];
+    {
+      name: "Krishna Saini",
+      role: "Founder & CEO",
+      img: team1,
+      linkedin: "https://www.linkedin.com/in/krishna-saini-global/",
+    },
+    {
+      name: "Suvinay Mathur",
+      role: "Global Partnership Specialist",
+      img: team2,
+      linkedin: "https://www.linkedin.com/in/suvinaymathur/",
+    },
+    {
+      name: "Vikas Kumawat",
+      role: "Project Head cum Business Developer",
+      img: team3,
+      linkedin: "https://www.linkedin.com/in/vikas-kumawat-326884a3/",
+    },
+    // {
+    //   name: "Priya Kapoor",
+    //   role: "Content Head",
+    //   img: team4,
+    //   linkedin: "https://www.linkedin.com/in/krishna-saini-global/",
+    // },
+  ];
 
 const About = () => {
   const scrollRef = useRef(null);
@@ -223,11 +209,11 @@ const About = () => {
                 <ChevronRight size={20} />
               </button>
             </div>
-            <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide pb-4" style={{ scrollBehavior: "smooth"}}>
+            <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide py-4" style={{ scrollBehavior: "smooth"}}>
               {teamMembers.map((member, i) => (
                 <motion.div
                   key={i}
-                  className="group relative min-w-[280px] bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition"
+                  className="group relative min-w-[280px] bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition pt-4"
                   initial="hidden"
                   whileInView="visible"
                   custom={i + 1}
@@ -237,7 +223,7 @@ const About = () => {
                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
                   }}
                 >
-                  <img src={member.img} alt={member.name} className="w-28 h-28 mx-auto rounded-full mb-4" />
+                  <img src={member.img} alt={member.name} className="w-28 h-auto mx-auto rounded-full mb-4" />
                   <h3 className="text-xl font-semibold">{member.name}</h3>
                   <p className="text-gray-600 font-medium mb-2">{member.role}</p>
                   {/* <p className="text-gray-600 text-sm mb-4">{member.desc}</p> */}
