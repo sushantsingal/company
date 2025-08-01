@@ -45,7 +45,7 @@ const RetailCaseStudy = () => {
 
       {/* Section 2 - Reversed + Motion */}
       <motion.div
-        className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-32 items-center"
+        className="max-w-7xl mx-auto px-6 py-16 border-t grid md:grid-cols-2 gap-32 items-center"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
@@ -77,7 +77,7 @@ const RetailCaseStudy = () => {
 
       {/* Section 3 - Normal Order + Motion */}
       <motion.div
-        className="max-w-7xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-32 items-center"
+        className="max-w-7xl mx-auto px-6 py-16 border-t grid md:grid-cols-2 gap-32 items-center"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
