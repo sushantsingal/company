@@ -20,7 +20,7 @@ const pages = [
   { name: "Dream Chasers", path: "/services/dream-chasers" },
   { name: "Celebs Now", path: "/services/celebs-now" },
   { name: "Industries", path: "/industries" },
-  { name: "Case Study", path: "/case-studies" },
+  { name: "Case Studies", path: "/case-studies" },
   { name: "Retail", path: "/case-studies/retail" },
   { name: "Real Estate", path: "/case-studies/real-estate" },
   { name: "Oil & Gas", path: "/case-studies/oil-&-gas" },

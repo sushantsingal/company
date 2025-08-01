@@ -142,7 +142,7 @@ const InternshipProgram = () => {
             target="blank"
             className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition"
           >
-            Apply Now
+            Register
           </a>
         </div>
       </div>
