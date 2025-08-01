@@ -14,6 +14,7 @@ import PortfolioPage from "./pages/Insights";
 import IndustriesPage from "./pages/Industries";
 import CollectivePage from "./pages/Collector";
 import ContactPage from "./pages/Contact";
+import RegisterPage from "./pages/Register";
 import EventConsulting from "./services/EventConsulting";
 import TechConsulting from "./services/TechConsulting";
 import MarketingConsulting from "./services/MarketingConsulting";
@@ -101,6 +102,7 @@ function App() {
               <Route path="/case-studies/chemical" element={<ChemicalCaseStudy />} />
               <Route path="insights" element={<PortfolioPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="register" element={<RegisterPage />} />
               <Route path="case-studies" element={<CaseStudy />} />
               <Route path="digital-marketing-course" element={<DigitalMarketingCourse />} />
               <Route path="digital-marketing" element={<DigitalMarketingPage />} />

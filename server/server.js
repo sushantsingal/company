@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const path = require('path');
 const mongoose = require('mongoose');
 const contactRoutes = require('./routes/contactRoute');
+const registerRoutes = require('./routes/registerRoute');
 const portfolioRoutes = require('./routes/portfolioRoute');
 const partnerRoutes = require('./routes/partner');
 const adminRoutes = require('./routes/adminAuth');
@@ -47,6 +48,7 @@ app.use(
 app.use("/api/partners", partnerRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/register", registerRoutes);
 app.use("/api/portfolio", portfolioRoutes);
 
 // Test Route
