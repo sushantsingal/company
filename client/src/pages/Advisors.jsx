@@ -1,16 +1,21 @@
 import { motion } from "framer-motion";
-import team1 from "../assets/team1.jpg";
-import team2 from "../assets/team2.jpg";
-import team3 from "../assets/team3.jpg";
-import team4 from "../assets/team4.jpg";
-import team5 from "../assets/team5.jpg";
+import team1 from "../assets/advisor/kamlakant.jpeg";
+import team2 from "../assets/advisor/ben.jpeg";
+import team3 from "../assets/advisor/prakash.jpg";
+import team4 from "../assets/advisor/pankaj.jpeg";
+import team5 from "../assets/advisor/dev.jpeg";
 
 const Advisor = () => {
   const advisors = [
     {
-      imageUrl: team1,
-      name: "Mr. Kamala Kant Dash",
-      role: "Government & Public Affairs | Academia ⇆ Industry ⇆Govt Partnership",
+      imageUrl: team3,
+      name: "Mr. Prakash Chandra Saini",
+      role: "Retd. Deputy Secretary, Rajasthan Legacy Assembly",
+    },
+    {
+      imageUrl: team4,
+      name: "Mr. Pankaj Satav",
+      role: "Founder & CEO, Kallakar Factory",
     },
     {
       imageUrl: team2,
@@ -18,15 +23,12 @@ const Advisor = () => {
       role: "Global Partnerships, Content and Programming Director at DigiMarCon & TECHSPO",
     },
     {
-      imageUrl: team3,
-      name: "Mr. Prakash Chandra Saini",
-      role: "Retd. Deputy Secretary, Rajasthan Legacy Assembly",
-    },{
-      imageUrl: team3,
-      name: "Mr. Pankaj Satav",
-      role: "Founder & CEO, Kallakar Factory",
-    },{
-      imageUrl: team3,
+      imageUrl: team1,
+      name: "Mr. Kamala Kant Dash",
+      role: "Government & Public Affairs | Academia ⇆ Industry ⇆Govt Partnership",
+    },
+    {
+      imageUrl: team5,
       name: "Mr. Dev Ray",
       role: "Co-founder KANOE GLOBAL",
     },
@@ -61,7 +63,7 @@ const Advisor = () => {
                   <img
                     src={advisor.imageUrl}
                     alt={advisor.name}
-                    className="object-cover max-h-full w-full"
+                    className="object-cover max-h-64 w-60"
                   />
                 </div>
                 <h3 className="text-md font-semibold text-gray-600 mt-1">{advisor.name}</h3>

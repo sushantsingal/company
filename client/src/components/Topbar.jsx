@@ -37,7 +37,8 @@ const pages = [
   { name: "Internship Program", path: "/internship-program" },
   { name: "Our Process", path: "/our-process" },
   { name: "Partners", path: "/partners" },
-  { name: "Terms", path: "/terms" }
+  { name: "Terms", path: "/terms" },
+  { name: "Advisors", path: "/advisors" },
 ];
 
 const Topbar = () => {
