@@ -4,8 +4,6 @@ import team1 from "../assets/team1.jpg";
 import team2 from "../assets/team2.jpg";
 import team3 from "../assets/team3.jpg";
 import team4 from "../assets/team4.jpg";
-import team5 from "../assets/team5.jpg";
-import team6 from "../assets/team6.jpg";
 import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
 import { useEffect, useRef } from "react";
@@ -29,12 +27,12 @@ const teamMembers = [
       img: team3,
       linkedin: "https://www.linkedin.com/in/vikas-kumawat-326884a3/",
     },
-    // {
-    //   name: "Priya Kapoor",
-    //   role: "Content Head",
-    //   img: team4,
-    //   linkedin: "https://www.linkedin.com/in/krishna-saini-global/",
-    // },
+    {
+      name: "Bhanu Priya",
+      role: "Digital Marketing Manager",
+      img: team4,
+      linkedin: "https://www.linkedin.com/in/bhanupriya-singal/",
+    },
   ];
 
 const About = () => {
