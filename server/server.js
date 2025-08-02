@@ -8,6 +8,7 @@ const registerRoutes = require('./routes/registerRoute');
 const portfolioRoutes = require('./routes/portfolioRoute');
 const partnerRoutes = require('./routes/partner');
 const adminRoutes = require('./routes/adminAuth');
+const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -17,6 +18,14 @@ const allowedOrigins = [
   "https://marketing-crawlers.vercel.app",
   "https://marketing-crawlers.onrender.com", // optional if you want Render frontend to still work
 ];
+
+const folders = ["uploads", "uploads/partners"];
+folders.forEach((folder) => {
+  const fullPath = path.join(__dirname, folder);
+  if (!fs.existsSync(fullPath)) {
+    fs.mkdirSync(fullPath, { recursive: true });
+  }
+});
 
 // Global Middleware
 app.use(cors({
