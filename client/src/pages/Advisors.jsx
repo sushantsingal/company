@@ -36,7 +36,7 @@ const Advisor = () => {
 
   return (
     <div className="text-gray-800">
-      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-10 text-center px-4 mb-10">
+      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-10 text-center px-6 mb-10">
         <motion.h1
           className="text-6xl font-bold mb-4"
           initial="hidden"
