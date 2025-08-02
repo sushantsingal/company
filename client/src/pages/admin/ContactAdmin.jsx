@@ -34,7 +34,7 @@ const ContactAdmin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9fbfc] px-6 py-10 md:px-10">
+    <div className="min-h-screen px-6 py-10 md:px-10">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold text-pink-600 mb-8">
           Contact Form Submissions
