@@ -86,12 +86,12 @@ const Footer = () => {
           <h4 className="font-semibold text-lg mb-4">Our Verticals</h4>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
-              <a href="/digital-marketing" className="text-gray-600 hover:text-pink-600">
+              <a href="https://techbridgediplomacy.com/" className="text-gray-600 hover:text-pink-600">
                Tech Bridge Diplomacy
               </a>
             </li>
             <li>
-              <a href="/portfolio" className="text-gray-600 hover:text-pink-600">
+              <a href="https://theyogamantra.com/" className="text-gray-600 hover:text-pink-600">
                 Yog Mantra
               </a>
             </li>
