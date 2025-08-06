@@ -86,17 +86,17 @@ const Footer = () => {
           <h4 className="font-semibold text-lg mb-4">Our Verticals</h4>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
-              <a href="https://landing-page-two-beta-82.vercel.app/" className="text-gray-600 hover:text-pink-600">
+              <a href="https://landing-page-two-beta-82.vercel.app/" target="blank" className="text-gray-600 hover:text-pink-600">
                Mobile App Development
               </a>
             </li>
             <li>
-              <a href="https://techbridgediplomacy.com/" className="text-gray-600 hover:text-pink-600">
+              <a href="https://techbridgediplomacy.com/" target="blank" className="text-gray-600 hover:text-pink-600">
                Tech Bridge Diplomacy
               </a>
             </li>
             <li>
-              <a href="https://theyogamantra.com/" className="text-gray-600 hover:text-pink-600">
+              <a href="https://theyogamantra.com/" target="blank" className="text-gray-600 hover:text-pink-600">
                 Yog Mantra
               </a>
             </li>
