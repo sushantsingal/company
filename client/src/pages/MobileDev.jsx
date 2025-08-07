@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Calendar, PhoneCall, ShieldCheck, DollarSign, Headphones, Settings2, } from "lucide-react";
 import phone3 from "../assets/phone3.png";
@@ -163,6 +164,7 @@ const MobileDev = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isManual, setIsManual] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [partners, setPartners] = useState([]);
     const manualTimerRef = useRef(null);
 
     const scroll = (direction) => {
@@ -177,6 +179,16 @@ const MobileDev = () => {
     };
 
     useEffect(() => {
+        const fetchLogos = async () => {
+        try {
+            const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
+            setPartners(res.data.generalPartners || []);
+        } catch (err) {
+            console.error("Failed to fetch partner logos", err);
+        }
+        };
+        fetchLogos();
+
         if (isManual) return;
 
         const interval = setInterval(() => {
@@ -259,11 +271,11 @@ const MobileDev = () => {
                 onMouseLeave={() => setIsHovered(false)}
                 >
                 <div className="inline-flex items-center gap-12">
-                    {clientLogos.concat(clientLogos).map((logoImg, index) => (
+                    {partners.map((logo, index) => (
                     <img
                         key={index}
-                        src={logoImg}
-                        alt={`Client ${index + 1}`}
+                        src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
+                        alt={`partner-${index}`}
                         className="h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
                     />
                     ))}
@@ -400,12 +412,16 @@ const MobileDev = () => {
 
                     {/* Description */}
                     <motion.div
-                        className="absolute top-0 left-[140px] h-full px-4 py-6 flex items-center text-sm text-gray-600 w-[140px]"
+                        className="absolute top-0 left-[140px] h-full px-4 py-6 flex flex-col gap-4 items-center justify-center border-l-4 border-rose-500 text-sm text-gray-600 w-[140px]"
                         initial={{ opacity: index === 0 ? 1 : 0 }}
                         animate={{ opacity: isActive ? 1 : 0 }}
                         transition={{ duration: 0.4, ease: "easeInOut" }}
-                    >
-                        {step.description}
+                        >
+                        {/* Icon + Description */}
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <step.icon className="w-10 h-10 text-rose-500" />
+                        </div>
+                        <p className="text-sm">{step.description}</p>
                     </motion.div>
                     </motion.div>
                 );

@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const contactRoutes = require('./routes/contactRoute');
 const registerRoutes = require('./routes/registerRoute');
 const portfolioRoutes = require('./routes/portfolioRoute');
+const adminRoutes = require('./routes/adminAuth');
 const partnerRoutes = require('./routes/partner');
 require('dotenv').config();
 

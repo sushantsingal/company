@@ -40,7 +40,6 @@ const Home = () => {
   };
   const [portfolioData, setPortfolioData] = useState([]);
   const [partners, setPartners] = useState([]);
-  const [eventPartners, setEventPartners] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -61,7 +60,6 @@ const Home = () => {
       try {
         const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
         setPartners(res.data.generalPartners || []);
-        setEventPartners(res.data.eventPartners || []);
       } catch (err) {
         console.error("Failed to fetch partner logos", err);
       }
