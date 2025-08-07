@@ -40,7 +40,7 @@ const pages = [
   { name: "Terms", path: "/terms" },
   { name: "Advisors", path: "/advisors" },
   { name: "Mobile App Development", path: "/mobile-dev" },
-  { name: "Web Development", path: "/web-dev" },
+  { name: "Website Development", path: "/web-dev" },
 ];
 
 const Topbar = () => {
