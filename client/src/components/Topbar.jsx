@@ -39,6 +39,7 @@ const pages = [
   { name: "Partners", path: "/partners" },
   { name: "Terms", path: "/terms" },
   { name: "Advisors", path: "/advisors" },
+  { name: "Mobile App Development", path: "/mobile-dev" },
 ];
 
 const Topbar = () => {
