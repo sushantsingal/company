@@ -221,13 +221,10 @@ const About = () => {
                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
                   }}
                 >
-                  <img src={member.img} alt={member.name} className="w-28 h-auto mx-auto rounded-full mb-4" />
+                  <img src={member.img} alt={member.name} className="w-36 h-auto mx-auto rounded-full mb-4" />
                   <h3 className="text-xl font-semibold">{member.name}</h3>
                   <p className="text-gray-600 font-medium mb-2">{member.role}</p>
-                  {/* <p className="text-gray-600 text-sm mb-4">{member.desc}</p> */}
                   <div className="absolute inset-0 bg-white bg-opacity-60 rounded-xl flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer">
-                    {/* <p className="mb-2 text-sm text-grey-700 flex items-center gap-2 hover:text-pink-600"><Mail size={16} /> {member.email}</p>
-                    <p className="mb-2 text-sm text-gray-700 flex items-center gap-2 hover:text-pink-600"><Phone size={16} /> {member.phone}</p> */}
                     <div className="flex gap-4 mt-2">
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                         <Linkedin size={40} />
