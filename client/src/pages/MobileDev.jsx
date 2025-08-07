@@ -202,6 +202,7 @@ const MobileDev = () => {
 
   return (
     <div>
+        {/* Hero */}
         <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
             <div className="relative z-10 max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-20">
                 {/* Heading */}
@@ -237,9 +238,10 @@ const MobileDev = () => {
             </div>
         </section>
 
-        <section className="bg-white py-16 px-1">
+        {/* Client */}
+        <section className="bg-white py-12 px-1">
             <div className="text-center text-gray-800 mb-14">
-                <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
+                <h2 className="text-4xl md:text-6xl font-extrabold relative inline-block">
                 Our Clients
                 <span className="text-rose-500">.</span>
                 <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
@@ -283,8 +285,9 @@ const MobileDev = () => {
                 </div>
             </div>
         </section>
-
-        <section className="relative py-20 bg-white overflow-hidden">
+        
+        {/* Features */}
+        <section className="relative py-12 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-10">
                 <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
@@ -344,8 +347,9 @@ const MobileDev = () => {
                 </div>
             </div>
         </section>
-
-        <section className="bg-white py-20 px-6 md:px-24 text-gray-800">
+        
+        {/* Have */}
+        <section className="bg-white py-12 px-6 md:px-24 text-gray-800">
             <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
                 What We Have
@@ -368,8 +372,9 @@ const MobileDev = () => {
                 ))}
             </div>
         </section>
-
-        <section className="bg-white text-black py-24 px-6 md:px-20">
+        
+        {/* Process */}
+        <section className="bg-white text-black py-12 px-6 md:px-20">
             <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
                 Our Process
@@ -428,8 +433,9 @@ const MobileDev = () => {
                 })}
             </div>
         </section>
-
-        <section className="py-16 bg-gray-50 px-4 sm:px-8">
+        
+        {/* Trust */}
+        <section className="py-12 bg-gray-50 px-4 sm:px-8">
             <div className="max-w-6xl mx-auto text-center">
                 <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
@@ -468,8 +474,9 @@ const MobileDev = () => {
                 </motion.div>
             </div>
         </section>
-
-        <section className="bg-white py-20 px-6 md:px-20 text-center text-gray-900">
+        
+        {/* CTA */}
+        <section className="bg-white py-12 px-6 md:px-20 text-center text-gray-900">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Transform Your Business?
             </h2>
