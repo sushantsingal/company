@@ -34,6 +34,7 @@ import ChemicalCaseStudy from "./services/case/Chemical";
 import OurProcess from "./services/OurProcess";
 import PartnerPage from "./pages/PartnerPage";
 import MobileDev from "./pages/MobileDev";
+import WebDev from "./pages/WebDev";
 import TermsPage from "./services/Termspage";
 import DigitalMarketingPage from "./services/DigitalMarketingPage";
 import SingleProject from "./services/SingleProject";
@@ -108,6 +109,7 @@ function App() {
               <Route path="case-studies" element={<CaseStudy />} />
               <Route path="digital-marketing-course" element={<DigitalMarketingCourse />} />
               <Route path="mobile-dev" element={<MobileDev />} />
+              <Route path="web-dev" element={<WebDev />} />
               <Route path="digital-marketing" element={<DigitalMarketingPage />} />
               <Route path="internship-program" element={<InternshipProgram />} />
               <Route path="our-process" element={<OurProcess />} />

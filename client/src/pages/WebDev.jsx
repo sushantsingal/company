@@ -2,9 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Calendar, PhoneCall, ShieldCheck, DollarSign, Headphones, Settings2, } from "lucide-react";
-import phone3 from "../assets/phone3.png";
-import phone1 from "../assets/phone1.png";
-import phone2 from "../assets/phone2.png";
+import phone3 from "../assets/Group 5.png";
+import phone1 from "../assets/Group 4.png";
 import Embed from "../assets/logos/device.svg?react";
 import Ios from "../assets/logos/ios.svg?react";
 import Android from "../assets/logos/android.svg?react";
@@ -24,6 +23,12 @@ const containerVariants = {
         },
     },
 };
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 
 const cardVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -157,7 +162,7 @@ const features = [
 ];
 
 
-const MobileDev = () => {
+const WebDev = () => {
     const scrollRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
     const [isManual, setIsManual] = useState(false);
@@ -201,43 +206,61 @@ const MobileDev = () => {
   return (
     <div>
         {/* Hero */}
-        <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-            <div className="relative z-10 max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-20">
-                {/* Heading */}
-                <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                #1 Ranked Mobile App <br className="hidden md:block" /> Development Agency
-                <span className="text-rose-500">.</span>
-                </h1>
+        <section className="min-h-screen bg-white flex items-center justify-center px-6 md:px-16 py-20">
+          <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 items-center gap-16">
 
-                {/* Subheading */}
-                <p className="text-lg md:text-xl text-gray-600 mt-6 max-w-2xl">
-                We solve problems with strategy, creativity and technology.
-                A lot of people have ideas, but don’t have a clue. We can help.
-                </p>
+            {/* Left Side Content */}
+            <div className="flex flex-col justify-start space-y-8">
 
-                {/* CTA Button */}
-                <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
-                LET'S TALK
-                </button>
-
-                {/* Phone Images */}
-                <div className="relative flex justify-center gap-28">
-                <img
-                    src={phone1}
-                    alt="App Mockup 1"
-                    className="w-52 md:w-80 rotate-[12deg] drop-shadow-2xl"
-                />
-                <img
-                    src={phone2}
-                    alt="App Mockup 2"
-                    className="w-52 md:w-80 -rotate-[12deg] drop-shadow-2xl"
-                />
+              {/* Top Heading and Stats */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    WEB DEVELOPMENT <br />
+                    SERVICES <br />
+                    COMPANY
+                  </h1>
                 </div>
-            </div>
-        </section>
 
+                <div className="mt-4 sm:mt-1 sm:ml-6 space-y-1 text-gray-600 text-base md:text-lg">
+                  <p><span className="text-black font-bold">+ 7 years</span> in the game</p>
+                  <p><span className="text-black font-bold">+ 50</span> software projects</p>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-700 text-base md:text-lg max-w-xl">
+                Establish a solid digital presence with our web development company. We specialize in building unique web-based solutions with advanced technologies to help you fulfill your business needs on the spot.
+              </p>
+
+              {/* Right-aligned CTA and follow-up */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-xl">
+                <p className="text-gray-700 text-base md:text-lg md:max-w-xs">
+                  Want to know more details and learn how we can help?
+                </p>
+                <button
+                  onClick={() => window.location.href = "/contact"}
+                  className="mt-4 md:mt-0 bg-rose-600 hover:bg-rose-700 text-white font-semibold px-6 py-3 rounded-md transition-all duration-300"
+                >
+                  LET’S GET IN TOUCH
+                </button>
+              </div>
+            </div>
+
+            {/* Right Side Illustration */}
+            <div className="flex justify-center">
+              <img
+                src={phone1} // Replace with your image path
+                alt="Developer Illustration"
+                className="w-full max-w-md md:max-w-7xl"
+              />
+            </div>
+            
+          </div>
+        </section>
+        
         {/* Client */}
-        <section className="bg-white py-12 px-1">
+        <section className="bg-white py-12 px-5">
             <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-6xl font-extrabold relative inline-block">
                 Our Clients
@@ -365,64 +388,47 @@ const MobileDev = () => {
         </section>
         
         {/* Process */}
-        <section className="bg-white text-black py-12 px-6 md:px-20">
-            <div className="text-center mb-14">
-                <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
-                Our Process
-                <span className="text-rose-500">.</span>
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
-                </h2>
-                <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
-                Work with groundbreakers who create top-notch mobile and web apps on time & on budget.
-                </p>
-            </div>
+        <section className="bg-white text-black py-24 px-6 md:px-20">
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+              Our Process<span className="text-rose-600">.</span>
+            </h2>
+            <div className="w-16 h-1 bg-rose-600 mx-auto mt-2"></div>
+            <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+              Work with groundbreakers who create top-notch mobile and web apps on time & on budget.
+            </p>
+          </div>
 
-            {/* Cards */}
-            <div
-                className="flex gap-4 justify-center flex-wrap md:flex-nowrap max-w-7xl mx-auto mb-16"
-                onMouseLeave={() => setHoveredIndex(null)} // reset on leave
-            >
-                {steps.map((step, index) => {
-                const isHovered = hoveredIndex === index;
-                const isStep1AndNotHovering = index === 0 && hoveredIndex === null;
-                const isActive = isHovered || isStep1AndNotHovering;
+          {/* Steps with connector line */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="relative max-w-7xl mx-auto grid grid-cols-5 gap-8"
+          >
+            {/* Horizontal line */}
+            <div className="absolute top-[100px] left-[10%] right-[10%] h-1 bg-rose-200 z-0 md:block hidden"></div>
 
-                return (
-                    <motion.div
-                    key={index}
-                    className="relative flex flex-col items-start justify-start border border-gray-200 rounded overflow-hidden shadow-md bg-white transition-all duration-500"
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    animate={{ width: isActive ? 280 : 140 }}
-                    initial={{ width: index === 0 ? 280 : 140 }}
-                    style={{ height: 240 }}
-                    >
-                    {/* Step Number */}
-                    <div className="px-3 w-1/2 text-center text-2xl font-bold mt-4 text-gray-900">
-                        {step.id}
-                    </div>
-
-                    {/* Title */}
-                    <div className="w-1/2 text-center mt-6 px-2 font-semibold text-gray-800">
-                        {step.title}
-                    </div>
-
-                    {/* Description */}
-                    <motion.div
-                        className="absolute top-0 left-[140px] h-full px-4 py-6 flex flex-col gap-4 items-center justify-center border-l-4 border-rose-500 text-sm text-gray-600 w-[140px]"
-                        initial={{ opacity: index === 0 ? 1 : 0 }}
-                        animate={{ opacity: isActive ? 1 : 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        >
-                        {/* Icon + Description */}
-                        <div className="flex flex-col items-center justify-center gap-2">
-                            <step.icon className="w-10 h-10 text-rose-500" />
-                        </div>
-                        <p className="text-sm">{step.description}</p>
-                    </motion.div>
-                    </motion.div>
-                );
-                })}
-            </div>
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  variants={itemVariants}
+                  key={index}
+                  className="flex flex-col items-center text-center z-10"
+                >
+                  <div className="text-5xl font-extrabold text-gray-900 mb-4">{step.id}</div>
+                  <div className="p-4 mb-4 rounded-full bg-rose-100 text-rose-600 border-4 border-white shadow-lg relative z-20">
+                    <Icon size={28} />
+                  </div>
+                  <h4 className="text-lg font-semibold mb-1">{step.title}</h4>
+                  <p className="text-gray-600 text-sm">{step.description}</p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </section>
         
         {/* Trust */}
@@ -485,4 +491,4 @@ const MobileDev = () => {
   );
 };
 
-export default MobileDev;
+export default WebDev;

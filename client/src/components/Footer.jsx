@@ -91,6 +91,11 @@ const Footer = () => {
               </a>
             </li>
             <li>
+              <a href="/web-dev" target="blank" className="text-gray-600 hover:text-pink-600">
+               Web Development
+              </a>
+            </li>
+            <li>
               <a href="https://techbridgediplomacy.com/" target="blank" className="text-gray-600 hover:text-pink-600">
                Tech Bridge Diplomacy
               </a>
