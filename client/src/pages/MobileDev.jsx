@@ -194,7 +194,7 @@ const MobileDev = () => {
             <div className="relative z-10 max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-20">
                 {/* Heading */}
                 <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                #1 Ranked US App <br className="hidden md:block" /> Development Agency
+                #1 Ranked Mobile App <br className="hidden md:block" /> Development Agency
                 <span className="text-rose-500">.</span>
                 </h1>
 
@@ -205,7 +205,7 @@ const MobileDev = () => {
                 </p>
 
                 {/* CTA Button */}
-                <button className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
+                <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
                 LET'S TALK
                 </button>
 
