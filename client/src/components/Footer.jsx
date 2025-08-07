@@ -92,7 +92,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="/web-dev" target="blank" className="text-gray-600 hover:text-pink-600">
-               Web Development
+               Website Development
               </a>
             </li>
             <li>
