@@ -303,13 +303,6 @@ const MobileDev = () => {
                 <div className="relative flex flex-col md:flex-row items-stretch md:min-h-[600px]">
                 {/* Left image section */}
                 <div className="relative w-full md:w-1/2 h-[300px] md:h-auto overflow-hidden">
-                    {/* Background Bold Text */}
-                    <div className="absolute inset-0 flex justify-start z-0">
-                    <h1 className="text-[70px] md:text-[120px] font-extrabold text-black/5 tracking-tight select-none">
-                        MOBILE
-                    </h1>
-                    </div>
-
                     {/* Foreground Image */}
                     <img
                     src={phone3}
