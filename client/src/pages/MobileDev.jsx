@@ -34,32 +34,32 @@ const offer = [
   {
     icon: <Ios className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
     title: "iOS App Development",
-    desc: "Beautiful and fast mobile apps tailored for Android & iOS using modern technologies.",
+    desc: "Craft high-performance, intuitive, and elegant apps for iPhone and iPad using the latest iOS frameworks.",
   },
   {
     icon: <Android className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
     title: "Android App Development",
-    desc: "From simple landing pages to complex web applications — we build it all.",
+    desc: "Build feature-rich Android applications that run smoothly across all devices, tailored for diverse screen sizes and user needs.",
   },
   {
     icon: <Embed className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
     title: "Wearables and Embedded Software",
-    desc: "Deploy faster and safer with robust CI/CD pipelines and scalable infrastructure.",
+    desc: "Develop smart, responsive apps for wearables and IoT devices with seamless connectivity and real-time performance.",
   },
   {
     icon: <Native className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
     title: "Native Mobile Apps",
-    desc: "Pixel-perfect and user-first designs for modern web and mobile applications.",
+    desc: "Fast, responsive apps built specifically for iOS or Android, offering superior user experience and device-level optimization.",
   },
   {
     icon: <Cross className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
     title: "Cross-Platform Apps",
-    desc: "Rapid prototyping for startups with a focus on launching fast and iterating.",
+    desc: "Deliver cost-effective mobile apps that work seamlessly across iOS and Android platforms.",
   },
   {
     icon: <Progress className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
     title: "Progressive Web Apps",
-    desc: "Optimize speed, rankings, and conversions for better online visibility.",
+    desc: "Combine the power of web and mobile with fast, installable, and offline-capable web apps that boost user engagement and reach.",
   },
 ];
 
@@ -126,33 +126,33 @@ const steps = [
 const features = [
   {
     icon: <Calendar className="w-6 h-6 text-rose-600" />,
-    title: "1st Demo in 8 Days",
-    desc: "Get your first working Demo within 8 working days of the project kickoff.",
+    title: "We Think Like Partners",
+    desc: "Your success is our priority. We collaborate closely to solve real problems with smart tech.",
   },
   {
     icon: <PhoneCall className="w-6 h-6 text-rose-600" />,
-    title: "Weekly Project Scrum Calls",
-    desc: "We ensure that you are updated with the project status on a weekly basis.",
+    title: "Weekly Scrum Updates",
+    desc: " Stay in the loop with structured weekly calls, updates, and progress reviews.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-rose-600" />,
-    title: "Transfer Of IP",
-    desc: "You are the owner of the product Intellectual Property Rights.",
+    title: "Quality First, Always",
+    desc: "Every line of code is reviewed, tested, and optimized for performance and security.",
   },
   {
     icon: <DollarSign className="w-6 h-6 text-rose-600" />,
-    title: "On Time. On Budget",
-    desc: "Set your project delivery when expected and within your budget.",
+    title: "On Time. Within Budget",
+    desc: "We deliver exactly what you expect, on schedule and with no hidden costs.",
   },
   {
     icon: <Headphones className="w-6 h-6 text-rose-600" />,
-    title: "Free Support",
-    desc: "We provide free 90 Days Technical Support to ensure the stability of the product.",
+    title: "Scalable Solutions",
+    desc: "We don’t just build apps. We build future-proof platforms designed to grow with your business.",
   },
   {
     icon: <Settings2 className="w-6 h-6 text-rose-600" />,
-    title: "Risk Free Trial",
-    desc: "Try our developer for 2 weeks, retaining the rights of your code, if you cancel the partnership.",
+    title: "Free Support",
+    desc: "Our commitment doesn’t end at launch. We’re here for the long haul with 90 days of free support.",
   },
 ];
 
@@ -205,19 +205,18 @@ const MobileDev = () => {
             <div className="relative z-10 max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-20">
                 {/* Heading */}
                 <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                #1 Ranked Mobile App <br className="hidden md:block" /> Development Agency
+                Innovate. Design. Launch. Scale. <br className=" hidden md:block" /> Your Trusted Partner for Custom Mobile App Development
                 <span className="text-rose-500">.</span>
                 </h1>
 
                 {/* Subheading */}
                 <p className="text-lg md:text-xl text-gray-600 mt-6 max-w-2xl">
-                We solve problems with strategy, creativity and technology.
-                A lot of people have ideas, but don’t have a clue. We can help.
+                Transform your vision into a high-performance mobile app that engages users and drives growth.
                 </p>
 
                 {/* CTA Button */}
                 <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
-                LET'S TALK
+                Let's Talk
                 </button>
 
                 {/* Phone Images */}
@@ -435,8 +434,7 @@ const MobileDev = () => {
                     <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
                 </h2>
                 <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
-                    Your Project is our responsibility: We are the team of technology experts that care for your business. We will share our best ideas for the amazing project delivery.
-
+                    We treat your project like our own. As a team of passionate tech experts, we bring not only skill but genuine care to every stage of development.
                 </p>
                 </div>
 

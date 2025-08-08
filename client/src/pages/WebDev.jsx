@@ -38,33 +38,48 @@ const cardVariants = {
 const offer = [
   {
     icon: <Ios className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
-    title: "iOS App Development",
-    desc: "Beautiful and fast mobile apps tailored for Android & iOS using modern technologies.",
+    title: "Web App Integration Services",
+    desc: "We always stay on top of the latest developments in deployment, customization, and integration to design the perfect, seamless approach to how you utilize your software.",
   },
   {
     icon: <Android className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
-    title: "Android App Development",
-    desc: "From simple landing pages to complex web applications — we build it all.",
+    title: "Mobile App Development Services",
+    desc: "With years of expertise under our belt, our team specializing in custom mobile app development can assist you in creating seamless and fluid experiences across various mobile devices.",
   },
   {
     icon: <Embed className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
-    title: "Wearables and Embedded Software",
-    desc: "Deploy faster and safer with robust CI/CD pipelines and scalable infrastructure.",
+    title: "Enterprise Web Design and Development",
+    desc: "We use custom APIs and our vast knowledge of web services to build Enterprise Web Applications for digital marketing, CRM, inventory control, expedited workflows, and so much more.",
   },
   {
     icon: <Native className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
-    title: "Native Mobile Apps",
-    desc: "Pixel-perfect and user-first designs for modern web and mobile applications.",
+    title: "Full-Stack Web Development Solutions",
+    desc: "Our expert Full-Stack website developers are highly skilled in Java and SQL programming languages with experience in leading 12-factor applications and cloud platform implementation.",
   },
   {
     icon: <Cross className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
-    title: "Cross-Platform Apps",
-    desc: "Rapid prototyping for startups with a focus on launching fast and iterating.",
+    title: "Web Portal Development",
+    desc: "Our Web Portal Developers have both engineering expertise and a keen understanding of the business sector to create reliable and robust web solutions that help companies manage their workflows.",
   },
   {
     icon: <Progress className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
-    title: "Progressive Web Apps",
-    desc: "Optimize speed, rankings, and conversions for better online visibility.",
+    title: "Animation & Graphics Web Design",
+    desc: "Our award-winning animators and graphic designers create beautiful logos, branding materials, illustrations, infographics, motion graphics, and more to fulfill your branding vision.",
+  },
+  {
+    icon: <Progress className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    title: "Ecommerce Development Solutions",
+    desc: "Our Ecommerce development services can help you build an online store that drives sales and revenue. We have experience with various e-commerce platforms, including Magento, Shopify, and BigCommerce and we can help you choose the best for your business.",
+  },
+  {
+    icon: <Progress className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    title: "Web Integration Services",
+    desc: "Our team of experienced web developers provides comprehensive web integration services, ensuring your software operates seamlessly across all platforms and devices for optimal performance and user experience.",
+  },
+  {
+    icon: <Progress className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    title: "CMS Integration",
+    desc: "We integrate CMS capabilities into your existing website or application, enabling you to add and edit web content without needing to rewrite or update any code.",
   },
 ];
 
