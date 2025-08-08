@@ -435,7 +435,7 @@ const WebDev = () => {
                   className="flex flex-col items-center text-center z-10"
                 >
                   <div className="text-5xl font-extrabold text-gray-900 mb-4">{step.id}</div>
-                  <div className="p-4 mb-4 rounded-full bg-rose-100 text-rose-600 border-4 border-white shadow-lg relative z-20">
+                  <div className="p-4 mb-4 rounded-full bg-rose-100 text-rose-600 border-4 border-white shadow-lg relative z-20 ransition-transform duration-300 hover:scale-125">
                     <Icon size={28} />
                   </div>
                   <h4 className="text-lg font-semibold mb-1">{step.title}</h4>

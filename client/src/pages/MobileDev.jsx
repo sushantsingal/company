@@ -201,36 +201,40 @@ const MobileDev = () => {
   return (
     <div>
         {/* Hero */}
-        <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-            <div className="relative z-10 max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-20">
+        <section className="relative flex w-full items-center justify-center bg-white overflow-hidden">
+            <div className="relative max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-16">
                 {/* Heading */}
-                <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                Innovate. Design. Launch. Scale. <br className=" hidden md:block" /> Your Trusted Partner for Custom Mobile App Development
+                <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Innovate • Design • Launch • Scale </h1>
+                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+                Your Trusted Partner for Custom Mobile App Development
                 <span className="text-rose-500">.</span>
                 </h1>
 
                 {/* Subheading */}
-                <p className="text-lg md:text-xl text-gray-600 mt-6 max-w-2xl">
-                Transform your vision into a high-performance mobile app that engages users and drives growth.
-                </p>
-
-                {/* CTA Button */}
-                <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
-                Let's Talk
-                </button>
+                
 
                 {/* Phone Images */}
-                <div className="relative flex justify-center gap-28">
-                <img
-                    src={phone1}
-                    alt="App Mockup 1"
-                    className="w-52 md:w-80 rotate-[12deg] drop-shadow-2xl"
-                />
-                <img
-                    src={phone2}
-                    alt="App Mockup 2"
-                    className="w-52 md:w-80 -rotate-[12deg] drop-shadow-2xl"
-                />
+                <div className="relative flex justify-center py-14">
+                    <img
+                        src={phone1}
+                        alt="App Mockup 1"
+                        className="w-52 md:w-96 rotate-[12deg] drop-shadow-2xl"
+                    />
+                    <div className="w-full">
+                        <p className="text-lg md:text-xl text-gray-600 mt-6 max-w-2xl">
+                        Transform your vision into a high-performance mobile app that engages users and drives growth.
+                        </p>
+
+                        {/* CTA Button */}
+                        <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
+                        Let's Talk
+                        </button>
+                    </div>
+                    <img
+                        src={phone2}
+                        alt="App Mockup 2"
+                        className="w-52 md:w-96 -rotate-[12deg] drop-shadow-2xl"
+                    />
                 </div>
             </div>
         </section>
