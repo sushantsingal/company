@@ -199,15 +199,14 @@ const MobileDev = () => {
     }, [isHovered, isManual]);
 
   return (
-    <div>
+    <div className="bg-white">
         {/* Hero */}
         <section className="relative flex w-full items-center justify-center bg-white overflow-hidden">
-            <div className="relative max-w-7xl w-full flex flex-col items-center text-center px-6 md:px-12 py-16">
+            <div className="relative w-full flex flex-col items-center text-center px-6 md:px-12 pt-16">
                 {/* Heading */}
-                <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Innovate • Design • Launch • Scale </h1>
-                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+                <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6">Innovate • Design • Launch • Scale </h1>
+                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800">
                 Your Trusted Partner for Custom Mobile App Development
-                <span className="text-rose-500">.</span>
                 </h1>
 
                 {/* Subheading */}
@@ -218,10 +217,10 @@ const MobileDev = () => {
                     <img
                         src={phone1}
                         alt="App Mockup 1"
-                        className="w-52 md:w-96 rotate-[12deg] drop-shadow-2xl"
+                        className="w-64 md:w-96 rotate-[12deg] drop-shadow-2xl"
                     />
                     <div className="w-full">
-                        <p className="text-lg md:text-xl text-gray-600 mt-6 max-w-2xl">
+                        <p className="text-lg md:text-2xl text-gray-600 mt-6 max-w-2xl">
                         Transform your vision into a high-performance mobile app that engages users and drives growth.
                         </p>
 
@@ -233,19 +232,18 @@ const MobileDev = () => {
                     <img
                         src={phone2}
                         alt="App Mockup 2"
-                        className="w-52 md:w-96 -rotate-[12deg] drop-shadow-2xl"
+                        className="w-64 md:w-96 -rotate-[12deg] drop-shadow-2xl"
                     />
                 </div>
             </div>
         </section>
 
         {/* Client */}
-        <section className="bg-white py-12 px-1">
+        <section className="bg-white py-8 px-1">
             <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-6xl font-extrabold relative inline-block">
                 Our Clients
-                <span className="text-rose-500">.</span>
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
                 </h2>
             </div>
 
@@ -279,7 +277,7 @@ const MobileDev = () => {
                         key={index}
                         src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
                         alt={`partner-${index}`}
-                        className="h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+                        className="h-20 object-contain transition-transform duration-300 hover:scale-110"
                     />
                     ))}
                 </div>
@@ -289,68 +287,66 @@ const MobileDev = () => {
         
         {/* Features */}
         <section className="relative py-12 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-10">
+            <div className=" mx-auto px-4 sm:px-10">
                 <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
                     What We Offer
-                    <span className="text-rose-500">.</span>
-                    <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+                    <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
                 </h2>
-                <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+                <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
                     We offer end-to-end digital solutions to help businesses launch, scale, and succeed with technology.
                 </p>
                 </div>
 
                 <div className="relative flex flex-col md:flex-row items-stretch md:min-h-[600px]">
-                {/* Left image section */}
-                <div className="relative w-full md:w-1/2 h-[300px] md:h-auto overflow-hidden">
-                    {/* Foreground Image */}
-                    <img
-                    src={phone3}
-                    alt="phone3"
-                    className="absolute inset-0 w-full h-full object-contain z-10"
-                    />
-                </div>
+                    {/* Left image section */}
+                    <div className="relative w-full h-[300px] md:h-auto overflow-hidden">
+                        {/* Foreground Image */}
+                        <img
+                        src={phone3}
+                        alt="phone3"
+                        className="absolute inset-0 w-full h-full object-container z-10"
+                        />
+                    </div>
 
-                {/* Right text section */}
-                <motion.div
-                    className="w-full md:w-1/2 p-6 sm:p-10 flex flex-col justify-start items-start bg-white z-10"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    {offer.map((item, idx) => (
+                    {/* Right text section */}
                     <motion.div
-                        key={idx}
-                        variants={cardVariants}
-                        className="flex items-start gap-4 mb-6"
+                        className="w-full md:w-2/3 p-6 sm:p-10 flex flex-col justify-start items-start bg-white z-10"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                     >
-                        <div className="bg-rose-100 p-3 rounded-full">
-                        {item.icon}
-                        </div>
-                        <div>
-                        <h4 className="font-semibold text-lg text-gray-800">
-                            {item.title}
-                        </h4>
-                        <p className="text-sm text-gray-600 mt-1 max-w-sm">{item.desc}</p>
-                        </div>
+                        {offer.map((item, idx) => (
+                        <motion.div
+                            key={idx}
+                            variants={cardVariants}
+                            className="flex items-start gap-4 mb-6"
+                        >
+                            <div className="bg-rose-100 p-3 rounded-full">
+                            {item.icon}
+                            </div>
+                            <div>
+                            <h4 className="font-semibold text-lg text-gray-800">
+                                {item.title}
+                            </h4>
+                            <p className="text-sm text-gray-600 mt-1 max-w-sm">{item.desc}</p>
+                            </div>
+                        </motion.div>
+                        ))}
                     </motion.div>
-                    ))}
-                </motion.div>
                 </div>
             </div>
         </section>
         
         {/* Have */}
-        <section className="bg-white py-12 px-6 md:px-24 text-gray-800">
+        <section className="bg-white py-2 px-6 md:px-24 text-gray-800">
             <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
                 What We Have
-                <span className="text-rose-500">.</span>
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
                 </h2>
-                <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+                <p className="py-4 text-gray-500 text-2xl max-w-full mx-auto">
                 We’re a team of designers, developers, and marketers who deliver
                 end-to-end digital solutions.
                 </p>
@@ -358,31 +354,30 @@ const MobileDev = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
                 {services.map(({ title, description, icon: Icon }, index) => (
-                <div key={index} className="flex flex-col items-start transition-transform duration-300 hover:scale-110">
+                <div key={index} className="flex flex-col w-2/3 items-start transition-transform duration-300 hover:scale-110">
                     <Icon className="w-8 h-8 mb-4 text-rose-600" />
                     <h3 className="text-lg font-semibold mb-2">{title}</h3>
-                    <p className="text-sm text-gray-600">{description}</p>
+                    <p className="text-md text-gray-600">{description}</p>
                 </div>
                 ))}
             </div>
         </section>
         
         {/* Process */}
-        <section className="bg-white text-black py-12 px-6 md:px-20">
+        <section className="bg-white text-black py-16 px-6 md:px-20">
             <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
                 Our Process
-                <span className="text-rose-500">.</span>
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
                 </h2>
-                <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+                <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
                 Work with groundbreakers who create top-notch mobile and web apps on time & on budget.
                 </p>
             </div>
 
             {/* Cards */}
             <div
-                className="flex gap-4 justify-center flex-wrap md:flex-nowrap max-w-7xl mx-auto mb-16"
+                className="flex justify-center flex-wrap md:flex-nowrap mx-auto mb-16"
                 onMouseLeave={() => setHoveredIndex(null)} // reset on leave
             >
                 {steps.map((step, index) => {
@@ -429,15 +424,14 @@ const MobileDev = () => {
         </section>
         
         {/* Trust */}
-        <section className="py-12 bg-gray-50 px-4 sm:px-8">
+        <section className="py-8 bg-gray-50 px-4 sm:px-8">
             <div className="max-w-6xl mx-auto text-center">
                 <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
                     Your Mobile App, In Trusted Hands
-                    <span className="text-rose-500">.</span>
-                    <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+                    <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
                 </h2>
-                <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+                <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
                     We treat your project like our own. As a team of passionate tech experts, we bring not only skill but genuine care to every stage of development.
                 </p>
                 </div>
@@ -469,7 +463,7 @@ const MobileDev = () => {
         </section>
         
         {/* CTA */}
-        <section className="bg-white py-12 px-6 md:px-20 text-center text-gray-900">
+        <section className="bg-white py-8 px-6 md:px-20 text-center text-gray-900">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Transform Your Business?
             </h2>
