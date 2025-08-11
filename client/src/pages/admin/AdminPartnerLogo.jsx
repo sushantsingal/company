@@ -32,6 +32,25 @@ const AdminPartnerLogo = () => {
     fetchLogos();
   };
 
+  // Move logo up or down in local state
+  const handleMove = async (index, direction) => {
+    const newLogos = [...logos];
+    const targetIndex = index + direction;
+
+    // Ensure movement stays inside array bounds
+    if (targetIndex < 0 || targetIndex >= newLogos.length) return;
+
+    // Swap positions
+    [newLogos[index], newLogos[targetIndex]] = [newLogos[targetIndex], newLogos[index]];
+
+    setLogos(newLogos);
+
+    // Optional: send new order to backend
+    await axios.post("https://marketing-crawlers.onrender.com/api/partners/reorder", {
+      order: newLogos.map((l) => l._id),
+    });
+  };
+
   return (
     <div className="p-6 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold mb-4 text-pink-500">Upload Partner Logo</h1>
@@ -55,7 +74,7 @@ const AdminPartnerLogo = () => {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-        {logos.map((logo) => (
+        {logos.map((logo, index) => (
           <div
             key={logo._id}
             className="relative bg-white p-4 rounded shadow text-center"
@@ -66,12 +85,32 @@ const AdminPartnerLogo = () => {
               className="w-full h-24 object-contain"
             />
             <p className="text-sm mt-2">{logo.type.toUpperCase()}</p>
+
+            {/* Delete button */}
             <button
               onClick={() => handleDelete(logo._id)}
               className="absolute top-1 right-1 text-sm text-red-600 bg-white"
             >
               ❌
             </button>
+
+            {/* Move controls */}
+            <div className="flex justify-center gap-2 mt-3">
+              <button
+                onClick={() => handleMove(index, -1)}
+                disabled={index === 0}
+                className="px-2 py-1 text-xs bg-gray-200 rounded disabled:opacity-50"
+              >
+                ⬆
+              </button>
+              <button
+                onClick={() => handleMove(index, 1)}
+                disabled={index === logos.length - 1}
+                className="px-2 py-1 text-xs bg-gray-200 rounded disabled:opacity-50"
+              >
+                ⬇
+              </button>
+            </div>
           </div>
         ))}
       </div>
