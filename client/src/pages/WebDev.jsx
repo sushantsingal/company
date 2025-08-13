@@ -243,7 +243,7 @@ const WebDev = () => {
 
               {/* Right-aligned CTA and follow-up */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-xl">
-                <p className="text-gray-700 text-base md:text-lg md:max-w-xs">
+                <p className="text-gray-700 text-base md:text-lg md:max-w-xl font-bold">
                   Your Vision. Our Code.
                 </p>
               </div>
