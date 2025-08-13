@@ -1,65 +1,64 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { SearchCheck, ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, PencilRuler, BarChart3, Gauge, PlayCircle } from "lucide-react";
-import phone2 from "../assets/Group 5.png";
+import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, PencilRuler, BarChart3, Gauge, PlayCircle, Building2, ShoppingCart } from "lucide-react";
 import phone1 from "../assets/Group 4.png";
+import html from "../assets/Web/html.png";
+import css from "../assets/Web/css.png";
+import ts from "../assets/Web/ts.png";
+import tailwind from "../assets/Web/tailwind.png";
+import dotnet from "../assets/Web/dotnet.png";
+import node from "../assets/Web/node.png";
+import python from "../assets/Web/python.png";
+import php from "../assets/Web/php.png";
+import laravel from "../assets/Web/laravel.png";
+import react from "../assets/Web/react.png";
+import graph from "../assets/Web/graph.png";
+import bootstrap from "../assets/Web/bootstrap.png";
+import javascript from "../assets/Web/javascript.png";
+import nextjs from "../assets/Web/nextjs.png";
+import angular from "../assets/Web/angular.png";
+import material from "../assets/Web/material.png";
 import discover from "../assets/Web/discover.png";
 import deploy from "../assets/Web/deploy.png";
 import design from "../assets/Web/design.png";
 import develop from "../assets/Web/develop.png";
-import Cross from "../assets/logos/cross.svg?react";
-import Progress from "../assets/logos/progressive.svg?react";
 import Pro from "../assets/logos/pro.svg?react";
+import Cross from "../assets/logos/cross.svg?react";
 import Dev from "../assets/logos/dev.svg?react";
 import UX from "../assets/logos/UX.svg?react";
+import Web from "../assets/logos/web.svg?react";
+import Portal from "../assets/logos/portal.svg?react";
+import Graphic from "../assets/logos/graphic.svg?react";
 
 const offers = [
   {
-    img: phone1,
-    color: "#F28B82", // Soft rose
-    title: "Web App Integration Services",
-    desc: "We always stay on top of the latest developments in deployment, customization, and integration to design the perfect, seamless approach to how you utilize your software.",
-  },
-  {
-    img: phone1,
-    color: "#FBBC04", // Warm amber
-    title: "Mobile App Development Services",
-    desc: "With years of expertise under our belt, our team specializing in custom mobile app development can assist you in creating seamless and fluid experiences across various mobile devices.",
-  },
-  {
-    img: phone1,
-    color: "#34A853", // Fresh green
+    img: Building2,
     title: "Enterprise Web Design and Development",
     desc: "We use custom APIs and our vast knowledge of web services to build Enterprise Web Applications for digital marketing, CRM, inventory control, expedited workflows, and so much more.",
   },
   {
-    img: phone1,
-    color: "#4285F4", // Google blue
+    img: Cross,
     title: "Full-Stack Web Development Solutions",
     desc: "Our expert Full-Stack website developers are highly skilled in Java and SQL programming languages with experience in leading 12-factor applications and cloud platform implementation.",
   },
   {
-    img: phone1,
-    color: "#34A853", // Fresh green
+    img: Portal,
     title: "Web Portal Development",
     desc: "Our Web Portal Developers have both engineering expertise and a keen understanding of the business sector to create reliable and robust web solutions that help companies manage their workflows.",
   },
   {
-    img: phone1,
-    color: "#34A853", // Fresh green
+    img: Graphic,
     title: "Animation & Graphics Web Design",
     desc: "Our award-winning animators and graphic designers create beautiful logos, branding materials, illustrations, infographics, motion graphics, and more to fulfill your branding vision.",
   },
   {
-    img: phone2,
-    color: "#4285F4", // Google blue
+    img: ShoppingCart,
     title: "Ecommerce Development Solutions",
     desc: "Our Ecommerce development services can help you build an online store that drives sales and revenue. We have experience with various e-commerce platforms, including Magento, Shopify, and BigCommerce and we can help you choose the best for your business.",
   },
   {
-    img: phone2,
-    color: "#F28B82", // Soft rose
+    img: Web,
     title: "Web Integration Services",
     desc: "Our team of experienced web developers provides comprehensive web integration services, ensuring your software operates seamlessly across all platforms and devices for optimal performance and user experience.",
   },
@@ -137,21 +136,25 @@ const steps = [
 
 const categories = [
   { name: "Frontend", items: [
-    { icon: phone1, label: "Material UI" },
-    { icon: phone1, label: "TypeScript" },
-    { icon: phone1, label: "GraphQL" },
-    { icon: phone1, label: "WebSockets" },
-    { icon: phone1, label: "HTML" },
-    { icon: phone1, label: "CSS" },
-    { icon: phone1, label: "CSS" },
-    { icon: phone1, label: "CSS" },
-    { icon: phone1, label: "CSS" },
-    { icon: phone1, label: "CSS" },
+    { icon: material, label: "Material UI" },
+    { icon: ts, label: "TypeScript" },
+    { icon: graph, label: "GraphQL" },
+    { icon: tailwind, label: "Tailwind" },
+    { icon: html, label: "HTML" },
+    { icon: css, label: "CSS" },
+    { icon: bootstrap, label: "Bootstrap" },
+    { icon: javascript, label: "JavaScript" },
+    { icon: angular, label: "Angular" },
+    { icon: nextjs, label: "Next.js" },
   ]},
   { name: "Backend", items: [
-    { icon: phone2, label: "Node.js" },
-    { icon: phone2, label: "Express" },
-    { icon: phone2, label: "MongoDB" },
+    { icon: php, label: "PHP" },
+    { icon: laravel, label: "Laravel" },
+    { icon: react, label: "React.js" },
+    { icon: node, label: "Node.js" },
+    { icon: dotnet, label: ".Net" },
+    { icon: python, label: "Python" },
+    { icon: javascript, label: "JavaScript" },
   ]},
   // Add other categories here...
 ];
@@ -317,26 +320,28 @@ const WebDev = () => {
 
           {/* Two Column List */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 max-w-6xl mx-auto">
-            {offers.map((service, idx) => (
-              <div key={idx} className="flex items-start space-x-4">
-                {/* Icon */}
-                <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-rose-100 rounded-lg">
-                  <img
-                    src={service.img}
-                    alt={service.title}
-                    className="w-8 h-8 object-contain"
-                  />
-                </div>
-                {/* Text */}
-                <div>
-                  <h4 className="text-2xl font-extrabold text-gray-800 mb-4">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-600 text-md">{service.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+  {offers.map((service, idx) => {
+    const Icon = service.img;
+    return (
+      <div
+        key={idx}
+        className="flex items-start justify-center space-x-4"
+      >
+        {/* Icon */}
+        <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center bg-rose-100 rounded-lg">
+          <Icon className="w-10 h-10 text-rose-600" />
+        </div>
+        {/* Text */}
+        <div>
+          <h4 className="text-2xl font-extrabold text-gray-800 mb-4">
+            {service.title}
+          </h4>
+          <p className="text-gray-600 text-md">{service.desc}</p>
+        </div>
+      </div>
+    );
+  })}
+</div>
         </section>
 
         {/* Have */}
@@ -462,7 +467,7 @@ const WebDev = () => {
                   key={idx}
                   className="flex flex-col items-center min-w-[250px]"
                 >
-                  <img src={item.icon} alt={item.label} className="w-60 h-auto hover:scale-110 transition-transform" />
+                  <img src={item.icon} alt={item.label} className="w-auto h-28 hover:scale-105 transition-transform" />
                   <span className="mt-3 text-sm font-medium">{item.label}</span>
                 </div>
               ))}
