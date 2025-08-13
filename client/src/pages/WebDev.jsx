@@ -30,37 +30,50 @@ import Dev from "../assets/logos/dev.svg?react";
 import UX from "../assets/logos/UX.svg?react";
 import Graphic from "../assets/logos/graphic.svg?react";
 import Web from "../assets/logos/web.svg?react";
+import Progress from "../assets/logos/progressive.svg?react";
+import App from "../assets/logos/app.svg?react";
+import CRM from "../assets/logos/device.svg?react";
 
 const offers = [
   {
+    img: App,
+    title: "Web App Integration",
+    desc: "We connect your website with the tools, platforms, and systems that power your business. From CRMs and ERPs to payment gateways and analytics, we make sure everything works in perfect sync.",
+  },
+  {
     img: Building2,
-    title: "Enterprise Web Design and Development",
-    desc: "We use custom APIs and our vast knowledge of web services to build Enterprise Web Applications for digital marketing, CRM, inventory control, expedited workflows, and so much more.",
+    title: "Enterprise Web Solutions",
+    desc: "From CRM and inventory control to marketing automation, we use custom APIs and advanced web services to build enterprise-grade applications that streamline workflows and boost productivity.",
   },
   {
     img: Cross,
-    title: "Full-Stack Web Development Solutions",
-    desc: "Our expert Full-Stack website developers are highly skilled in Java and SQL programming languages with experience in leading 12-factor applications and cloud platform implementation.",
+    title: "Full-Stack Web Development",
+    desc: "Our full-stack developers are proficient in front-end and back-end technologies, including Java and SQL, with expertise in 12-factor applications and cloud platform deployment.",
   },
   {
     img: Portal,
-    title: "Web Portal Development",
-    desc: "Our Web Portal Developers have both engineering expertise and a keen understanding of the business sector to create reliable and robust web solutions that help companies manage their workflows.",
+    title: "Web Portal Creation",
+    desc: "We build secure, scalable, and user-friendly web portals tailored to your industry, helping businesses centralize information, improve communication, and manage workflows effectively.",
   },
   {
     img: Graphic,
-    title: "Animation & Graphics Web Design",
-    desc: "Our award-winning animators and graphic designers create beautiful logos, branding materials, illustrations, infographics, motion graphics, and more to fulfill your branding vision.",
+    title: "Animation & Creative Design",
+    desc: " Our creative team designs stunning visuals—from logos and branding materials to motion graphics—that bring your brand identity to life and leave a lasting impression.",
   },
   {
     img: ShoppingCart,
-    title: "Ecommerce Development Solutions",
-    desc: "Our Ecommerce development services can help you build an online store that drives sales and revenue. We have experience with various e-commerce platforms, including Magento, Shopify, and BigCommerce and we can help you choose the best for your business.",
+    title: "E-Commerce Development Solutions",
+    desc: "We develop powerful online stores with secure payment systems and easy product management, specializing in platforms like Shopify, Magento, and BigCommerce to fit your business needs.",
   },
   {
     img: Web,
     title: "Web Integration Services",
-    desc: "Our team of experienced web developers provides comprehensive web integration services, ensuring your software operates seamlessly across all platforms and devices for optimal performance and user experience.",
+    desc: "Our developers ensure your website integrates seamlessly with databases, APIs, and third-party tools, enabling flawless performance across platforms and devices.",
+  },
+  {
+    img: CRM,
+    title: "CMS Integration",
+    desc: "We integrate CMS capabilities into your site or application, allowing you to update and manage content easily—without touching a single line of code.",
   },
 ];
 
@@ -219,20 +232,19 @@ const WebDev = () => {
                   <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
                     WEB DEVELOPMENT <br />
                     SERVICES <br />
-                    COMPANY
                   </h1>
                 </div>
               </div>
 
               {/* Description */}
               <p className="text-gray-700 text-base md:text-lg max-w-xl">
-                Establish a solid digital presence with our web development company. We specialize in building unique web-based solutions with advanced technologies to help you fulfill your business needs on the spot.
+                At <b>Marketing Crawlers</b>, we don’t just build websites - we create powerful digital experiences that convert. Our fast, responsive, and visually stunning sites are designed to engage visitors, strengthen your brand, and drive measurable growth.
               </p>
 
               {/* Right-aligned CTA and follow-up */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-xl">
                 <p className="text-gray-700 text-base md:text-lg md:max-w-xs">
-                  Want to know more details and learn how we can help?
+                  Your Vision. Our Code.
                 </p>
               </div>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-xl">
@@ -240,7 +252,7 @@ const WebDev = () => {
                   onClick={() => window.location.href = "/contact"}
                   className="mt-4 md:mt-0 bg-rose-600 hover:bg-rose-700 text-white font-semibold px-6 py-3 rounded-md transition-all duration-300"
                 >
-                  LET’S GET IN TOUCH
+                  Let’s Connect
                 </button>
               </div>
             </div>
@@ -394,7 +406,7 @@ const WebDev = () => {
               <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
             </h2>
             <p className="mt-4 text-gray-500 text-xl max-w-3xl mx-auto">
-              Work with groundbreakers who create top-notch mobile and web apps on time & on budget.
+              Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
             </p>
           </div>
           {/* Steps */}
