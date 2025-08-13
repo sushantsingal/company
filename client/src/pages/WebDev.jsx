@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, PencilRuler, BarChart3, Gauge, PlayCircle, Building2, ShoppingCart } from "lucide-react";
+import phone2 from "../assets/Group 5.png";
 import phone1 from "../assets/Group 4.png";
+import integration from "../assets/Web/integration.png";
 import html from "../assets/Web/html.png";
 import css from "../assets/Web/css.png";
 import ts from "../assets/Web/ts.png";
@@ -24,12 +26,8 @@ import deploy from "../assets/Web/deploy.png";
 import design from "../assets/Web/design.png";
 import develop from "../assets/Web/develop.png";
 import Pro from "../assets/logos/pro.svg?react";
-import Cross from "../assets/logos/cross.svg?react";
 import Dev from "../assets/logos/dev.svg?react";
 import UX from "../assets/logos/UX.svg?react";
-import Web from "../assets/logos/web.svg?react";
-import Portal from "../assets/logos/portal.svg?react";
-import Graphic from "../assets/logos/graphic.svg?react";
 
 const offers = [
   {
@@ -38,17 +36,17 @@ const offers = [
     desc: "We use custom APIs and our vast knowledge of web services to build Enterprise Web Applications for digital marketing, CRM, inventory control, expedited workflows, and so much more.",
   },
   {
-    img: Cross,
+    img: Gauge,
     title: "Full-Stack Web Development Solutions",
     desc: "Our expert Full-Stack website developers are highly skilled in Java and SQL programming languages with experience in leading 12-factor applications and cloud platform implementation.",
   },
   {
-    img: Portal,
+    img: Gauge,
     title: "Web Portal Development",
     desc: "Our Web Portal Developers have both engineering expertise and a keen understanding of the business sector to create reliable and robust web solutions that help companies manage their workflows.",
   },
   {
-    img: Graphic,
+    img: Gauge,
     title: "Animation & Graphics Web Design",
     desc: "Our award-winning animators and graphic designers create beautiful logos, branding materials, illustrations, infographics, motion graphics, and more to fulfill your branding vision.",
   },
@@ -58,7 +56,7 @@ const offers = [
     desc: "Our Ecommerce development services can help you build an online store that drives sales and revenue. We have experience with various e-commerce platforms, including Magento, Shopify, and BigCommerce and we can help you choose the best for your business.",
   },
   {
-    img: Web,
+    img: Gauge,
     title: "Web Integration Services",
     desc: "Our team of experienced web developers provides comprehensive web integration services, ensuring your software operates seamlessly across all platforms and devices for optimal performance and user experience.",
   },
