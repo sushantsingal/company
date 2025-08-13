@@ -320,16 +320,16 @@ const WebDev = () => {
             {offers.map((service, idx) => (
               <div key={idx} className="flex items-start space-x-4">
                 {/* Icon */}
-                {/* <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-rose-100 rounded-lg">
+                <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-rose-100 rounded-lg">
                   <img
                     src={service.img}
                     alt={service.title}
                     className="w-8 h-8 object-contain"
                   />
-                </div> */}
+                </div>
                 {/* Text */}
                 <div>
-                  <h4 className="text-2xl font-extrabold text-gray-800 my-4">
+                  <h4 className="text-2xl font-extrabold text-gray-800 mb-4">
                     {service.title}
                   </h4>
                   <p className="text-gray-600 text-md">{service.desc}</p>
