@@ -348,7 +348,7 @@ const WebDev = () => {
                     <h4 className="text-2xl font-extrabold text-gray-800 mb-4">
                       {service.title}
                     </h4>
-                    <p className="text-gray-600 text-md">{service.desc}</p>
+                    <p className="text-gray-600 text-md text-justify">{service.desc}</p>
                   </div>
                 </div>
               );
