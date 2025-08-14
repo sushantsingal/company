@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Calendar, PhoneCall, ShieldCheck, DollarSign, Headphones, Settings2, } from "lucide-react";
-import phone3 from "../assets/phone4.png";
+import phone3 from "../assets/phone3.png";
 import phone1 from "../assets/phone1.png";
 import phone2 from "../assets/phone2.png";
 import Embed from "../assets/logos/device.svg?react";
