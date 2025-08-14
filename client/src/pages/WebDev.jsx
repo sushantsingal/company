@@ -308,7 +308,7 @@ const WebDev = () => {
                         key={index}
                         src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
                         alt={`partner-${index}`}
-                        className="h-20 object-contain transition-transform duration-300 hover:scale-110"
+                        className="h-24 w-24 object-contain transition-transform duration-300 hover:scale-110"
                     />
                     ))}
                 </div>

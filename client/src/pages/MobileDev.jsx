@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Calendar, PhoneCall, ShieldCheck, DollarSign, Headphones, Settings2, } from "lucide-react";
-import phone3 from "../assets/phone4.png";
+import phone3 from "../assets/phone3.png";
 import phone1 from "../assets/phone1.png";
 import phone2 from "../assets/phone2.png";
 import Embed from "../assets/logos/device.svg?react";
@@ -226,7 +226,7 @@ const MobileDev = () => {
 
                         {/* CTA Button */}
                         <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
-                        Let's Talk
+                        Let's Connect
                         </button>
                     </div>
                     <img
@@ -277,7 +277,7 @@ const MobileDev = () => {
                         key={index}
                         src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
                         alt={`partner-${index}`}
-                        className="h-20 object-contain transition-transform duration-300 hover:scale-110"
+                        className="h-24 w-24 object-contain transition-transform duration-300 hover:scale-110"
                     />
                     ))}
                 </div>
@@ -287,57 +287,69 @@ const MobileDev = () => {
         
         {/* Features */}
         <section className="relative py-12 bg-white overflow-hidden">
-            <div className=" mx-auto px-4 sm:px-10">
-                <div className="text-center mb-14">
-                <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
-                    What We Offer
-                    <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
-                </h2>
-                <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
-                    We offer end-to-end digital solutions to help businesses launch, scale, and succeed with technology.
-                </p>
-                </div>
-
-                <div className="relative flex flex-col md:flex-row items-stretch md:min-h-[600px]">
-                    {/* Left image section */}
-                    <div className="relative w-full h-[300px] md:h-auto overflow-hidden">
-                        {/* Foreground Image */}
-                        <img
-                        src={phone3}
-                        alt="phone3"
-                        className="absolute inset-0 w-full h-full object-container z-10"
-                        />
-                    </div>
-
-                    {/* Right text section */}
-                    <motion.div
-                        className="w-full md:w-2/3 p-6 sm:p-10 flex flex-col justify-start items-start bg-white z-10"
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, amount: 0.2 }}
-                    >
-                        {offer.map((item, idx) => (
-                        <motion.div
-                            key={idx}
-                            variants={cardVariants}
-                            className="flex items-start gap-4 mb-6"
-                        >
-                            <div className="bg-rose-100 p-3 rounded-full">
-                            {item.icon}
-                            </div>
-                            <div>
-                            <h4 className="font-semibold text-lg text-gray-800">
-                                {item.title}
-                            </h4>
-                            <p className="text-sm text-gray-600 mt-1 max-w-sm">{item.desc}</p>
-                            </div>
-                        </motion.div>
-                        ))}
-                    </motion.div>
-                </div>
+          <div className="mx-auto px-4 sm:px-10">
+            {/* Section Heading */}
+            <div className="text-center mb-14">
+              <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
+                What We Offer
+                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+              </h2>
+              <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
+                We offer end-to-end digital solutions to help businesses launch, scale, and succeed with technology.
+              </p>
             </div>
+
+            {/* Content Section */}
+            <div className="relative flex flex-col md:flex-row items-stretch md:min-h-[600px]">
+              {/* Left Image */}
+              <div className="relative w-full h-[300px] md:h-auto overflow-hidden">
+                <img
+                  src={phone3}
+                  alt="phone3"
+                  className="absolute inset-0 w-full h-full object-container z-10"
+                />
+              </div>
+
+              {/* Right Text Section */}
+              <motion.div
+                className="w-full md:w-2/3 p-6 sm:p-10 flex flex-col justify-between items-center bg-white z-10"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                {/* Scrollable List */}
+                <div className="overflow-y-auto pr-3" style={{ maxHeight: "400px" }}>
+                  {offer.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      className="flex items-start gap-4 mb-6"
+                    >
+                      <div className="bg-rose-100 p-3 rounded-full">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg text-gray-800">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 mt-1 max-w-sm">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-6">
+                  <button className="px-6 py-3 bg-rose-500 text-white font-semibold rounded-lg shadow hover:bg-rose-600 transition-all duration-300">
+                    Get Started
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </section>
+
         
         {/* Have */}
         <section className="bg-white py-2 px-6 md:px-24 text-gray-800">
