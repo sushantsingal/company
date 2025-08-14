@@ -364,63 +364,42 @@ const MobileDev = () => {
         </section>
         
         {/* Process */}
-        <section className="bg-white text-black py-16 px-6 md:px-20">
-            <div className="text-center mb-14">
-                <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
-                Our Process
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
-                </h2>
-                <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
-                Work with groundbreakers who create top-notch mobile and web apps on time & on budget.
-                </p>
-            </div>
-
-            {/* Cards */}
-            <div
-                className="flex justify-center flex-wrap md:flex-nowrap mx-auto mb-16"
-                onMouseLeave={() => setHoveredIndex(null)} // reset on leave
-            >
-                {steps.map((step, index) => {
-                const isHovered = hoveredIndex === index;
-                const isStep1AndNotHovering = index === 0 && hoveredIndex === null;
-                const isActive = isHovered || isStep1AndNotHovering;
-
-                return (
-                    <motion.div
-                    key={index}
-                    className="relative flex flex-col items-start justify-start border border-gray-200 rounded overflow-hidden shadow-md bg-white transition-all duration-500"
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    animate={{ width: isActive ? 280 : 140 }}
-                    initial={{ width: index === 0 ? 280 : 140 }}
-                    style={{ height: 240 }}
-                    >
-                    {/* Step Number */}
-                    <div className="px-3 w-1/2 text-center text-2xl font-bold mt-4 text-gray-900">
-                        {step.id}
+        <section className="py-12 px-6 bg-white text-gray-800 select-none">
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
+              Our Process
+              <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+            </h2>
+            <p className="mt-4 text-gray-500 text-xl max-w-3xl mx-auto">
+              Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
+            </p>
+          </div>
+          {/* Steps */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+            {steps.map((step, idx, arr) => {
+              const Icon = step.icon;
+              return (
+                <div key={idx} className="flex items-center gap-8">
+                  {/* Step Circle */}
+                  <div className="flex flex-col items-center group">
+                    <div className="w-24 h-24 flex items-center justify-center rounded-full border-2 border-gray-300 bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:bg-rose-500">
+                      <Icon className="w-10 h-10 text-gray-700 group-hover:text-white transition-colors duration-300" />
                     </div>
-
-                    {/* Title */}
-                    <div className="w-1/2 text-center mt-6 px-2 font-semibold text-gray-800">
-                        {step.title}
-                    </div>
-
-                    {/* Description */}
-                    <motion.div
-                        className="absolute top-0 left-[140px] h-full px-4 py-6 flex flex-col gap-4 items-center justify-center border-l-4 border-rose-500 text-sm text-gray-600 w-[140px]"
-                        initial={{ opacity: index === 0 ? 1 : 0 }}
-                        animate={{ opacity: isActive ? 1 : 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        >
-                        {/* Icon + Description */}
-                        <div className="flex flex-col items-center justify-center gap-2">
-                            <step.icon className="w-10 h-10 text-rose-500" />
-                        </div>
-                        <p className="text-sm">{step.description}</p>
-                    </motion.div>
-                    </motion.div>
-                );
-                })}
-            </div>
+                    <p className="mt-3 font-semibold text-gray-800">
+                      {step.title}
+                    </p>
+                  </div>
+                  {/* Arrow (except last step) */}
+                  {idx < arr.length - 1 && (
+                    <span className="px-4 text-gray-400 text-4xl hidden md:inline-block">
+                      ›
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </section>
         
         {/* Trust */}
