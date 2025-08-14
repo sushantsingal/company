@@ -388,33 +388,39 @@ const MobileDev = () => {
               Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
             </p>
           </div>
-          {/* Steps */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-            {steps.map((step, idx, arr) => {
-              const Icon = step.icon;
-              return (
-                <div key={idx} className="flex items-center gap-8">
-                  {/* Step Circle */}
-                  <div className="flex flex-col items-center group">
-                    <div className="w-24 h-24 flex items-center justify-center rounded-full border-2 border-gray-300 bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:bg-rose-500">
-                      <Icon className="w-10 h-10 text-gray-700 group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <p className="mt-3 font-semibold text-gray-800">
-                      {step.title}
-                    </p>
-                  </div>
-                  {/* Arrow (except last step) */}
-                  {idx < arr.length - 1 && (
-                    <span className="px-4 text-gray-400 text-4xl hidden md:inline-block">
-                      ›
-                    </span>
-                  )}
+          {/* Timeline */}
+          <div className="relative">
+            {/* Horizontal Line */}
+            <div className="absolute top-[100px] left-0 w-full h-[2px] bg-gray-200"></div>
+
+            {/* Steps */}
+            <div className="flex justify-between text-center relative z-10">
+              {steps.map((step, index) =>{
+                const Icon = step.icon;
+                return (
+                <div key={index} className="flex flex-col items-center">
+                  
+                  {/* Icon */}
+                  <Icon className="w-10 h-10 text-gray-800"/>
+
+                  {/* Title */}
+                  <h3 className="mt-4 font-semibold text-gray-800">{step.title}</h3>
+
+                  {/* Dot on line */}
+                  <div className="w-3 h-3 bg-rose-500 rounded-full mt-4"></div>
+
+                  {/* Dashed line downwards */}
+                  <div className="w-px h-8 border-l-2 border-dashed border-rose-500"></div>
+
+                  {/* Subtext */}
+                  <p className="text-sm text-gray-500 mt-2">{step.description}</p>
                 </div>
               );
-            })}
+              })}
+            </div>
           </div>
         </section>
-        
+
         {/* Trust */}
         <section className="py-8 bg-gray-50 px-4 sm:px-8">
             <div className="max-w-6xl mx-auto text-center">
