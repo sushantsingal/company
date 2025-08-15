@@ -10,7 +10,7 @@ import { useEffect, useRef } from "react";
 
 const teamMembers = [
     {
-      name: "Krishna Saini",
+      name: "Krishna K. Saini",
       role: "Founder & CEO",
       img: team1,
       linkedin: "https://www.linkedin.com/in/krishna-saini-global/",
