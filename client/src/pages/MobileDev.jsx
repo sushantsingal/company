@@ -452,7 +452,7 @@ const MobileDev = () => {
                   >
                     {/* Number on left for odd rows, right for even rows */}
                     {!isEven && (
-                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-red-500 text-red-500 font-bold rounded-full flex items-center justify-center z-10">
+                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-rose-500 text-rose-500 font-bold rounded-full flex items-center justify-center z-10">
                         {index + 1}
                       </div>
                     )}
