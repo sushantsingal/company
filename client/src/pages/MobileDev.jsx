@@ -379,7 +379,7 @@ const MobileDev = () => {
         {/* Process */}
         <section className="py-12 px-6 bg-white text-gray-800 select-none">
           {/* Heading */}
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
               Our Process
               <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
@@ -388,34 +388,88 @@ const MobileDev = () => {
               Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
             </p>
           </div>
-          {/* Timeline */}
-          <div className="relative">
-            {/* Horizontal Line */}
-            <div className="absolute top-[100px] left-0 w-full h-[2px] bg-gray-200"></div>
+          <div className="max-w-6xl mx-auto relative">
+            {/* Curved dotted connectors */}
+            <svg
+          className="absolute top-12 left-1/2 transform -translate-x-1/2 space-8 hidden md:block"
+          width="100%"
+          height={steps.length * 220} // also increase SVG height
+          viewBox={`0 0 1000 ${steps.length * 250}`} // adjust viewBox height
+          preserveAspectRatio="none"
+        >
+          {steps.map((_, i) => {
+            if (i === steps.length - 1) return null;
 
+            const verticalSpacing = 195;
+            const y1 = i * verticalSpacing + 40;
+            const y2 = (i + 1) * verticalSpacing + 40;
+            const isRight = i % 2 === 0;
+
+            const midX = 350;
+            const midy = 640;
+            const offset = 105;
+
+            const d = isRight
+              ? `M${midX},${y1}
+                H${midX + offset}
+                Q${midX + offset + 40},${y1} ${midX + offset + 40},${y1 + 40}
+                V${y2 - 40}
+                Q${midX + offset + 40},${y2} ${midX + offset + 80},${y2}
+                H${midX + offset * 3}`
+              : `M${midy},${y1}
+                H${midy - offset}
+                Q${midy - offset - 40},${y1} ${midy - offset - 40},${y1 + 40}
+                V${y2 - 40}
+                Q${midy - offset - 40},${y2} ${midy - offset - 80},${y2}
+                H${midy - offset * 2.5}`;
+
+            return (
+              <path
+                key={i}
+                d={d}
+                stroke="#dc2626"
+                strokeWidth="3"
+                strokeLinejoin="round"
+                strokeDasharray="8,8"
+                fill="none"
+              />
+            );
+          })}
+        </svg>
             {/* Steps */}
-            <div className="flex justify-between text-center relative z-10">
-              {steps.map((step, index) =>{
-                const Icon = step.icon;
+            <div className="grid grid-rows-2 relative">
+              {steps.map((step, index) => {
+                const isEven = index % 2 === 0;
                 return (
-                <div key={index} className="flex flex-col items-center">
-                  
-                  {/* Icon */}
-                  <Icon className="w-10 h-10 text-gray-800"/>
+                  <div
+                    key={index}
+                    className={`flex gap-6 items-center ${
+                      isEven
+                        ? ` row-start-${index+1} justify-start text-right`
+                        : ` row-start-${index+1} justify-end text-left`
+                    }`}
+                    style={{ minHeight: "170px" }}
+                  >
+                    {/* Number on left for odd rows, right for even rows */}
+                    {!isEven && (
+                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-red-500 text-red-500 font-bold rounded-full flex items-center justify-center z-10">
+                        {index + 1}
+                      </div>
+                    )}
 
-                  {/* Title */}
-                  <h3 className="mt-4 font-semibold text-gray-800">{step.title}</h3>
+                    {/* Content */}
+                    <div className="max-w-sm">
+                      <h3 className="text-xl font-bold text-red-500">{step.title}</h3>
+                      <p className="text-gray-700 mt-2">{step.description}</p>
+                    </div>
 
-                  {/* Dot on line */}
-                  <div className="w-3 h-3 bg-rose-500 rounded-full mt-4"></div>
-
-                  {/* Dashed line downwards */}
-                  <div className="w-px h-8 border-l-2 border-dashed border-rose-500"></div>
-
-                  {/* Subtext */}
-                  <p className="text-sm text-gray-500 mt-2">{step.description}</p>
-                </div>
-              );
+                    {isEven && (
+                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-red-500 text-red-500 font-bold rounded-full flex items-center justify-center z-10">
+                        {index + 1}
+                      </div>
+                    )}
+                  </div>
+                );
               })}
             </div>
           </div>
