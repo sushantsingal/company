@@ -427,7 +427,7 @@ const MobileDev = () => {
               <path
                 key={i}
                 d={d}
-                stroke="#dc2626"
+                stroke="#f43f5e"
                 strokeWidth="3"
                 strokeLinejoin="round"
                 strokeDasharray="8,8"
@@ -459,12 +459,12 @@ const MobileDev = () => {
 
                     {/* Content */}
                     <div className="max-w-sm">
-                      <h3 className="text-xl font-bold text-red-500">{step.title}</h3>
+                      <h3 className="text-xl font-bold text-rose-500">{step.title}</h3>
                       <p className="text-gray-700 mt-2">{step.description}</p>
                     </div>
 
                     {isEven && (
-                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-red-500 text-red-500 font-bold rounded-full flex items-center justify-center z-10">
+                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-rose-500 text-rose-500 font-bold rounded-full flex items-center justify-center z-10">
                         {index + 1}
                       </div>
                     )}
