@@ -393,8 +393,8 @@ const MobileDev = () => {
             <svg
           className="absolute top-12 left-1/2 transform -translate-x-1/2 space-8 hidden md:block"
           width="100%"
-          height={steps.length * 220} // also increase SVG height
-          viewBox={`0 0 1000 ${steps.length * 250}`} // adjust viewBox height
+          height={steps.length * 180} // also increase SVG height
+          viewBox={`0 0 1000 ${steps.length * 255}`} // adjust viewBox height
           preserveAspectRatio="none"
         >
           {steps.map((_, i) => {
@@ -448,7 +448,7 @@ const MobileDev = () => {
                         ? ` row-start-${index+1} justify-start text-right`
                         : ` row-start-${index+1} justify-end text-left`
                     }`}
-                    style={{ minHeight: "170px" }}
+                    style={{ minHeight: "140px" }}
                   >
                     {/* Number on left for odd rows, right for even rows */}
                     {!isEven && (
