@@ -391,9 +391,9 @@ const MobileDev = () => {
           <div className="max-w-6xl mx-auto relative">
             {/* Curved dotted connectors */}
             <svg
-          className="absolute top-12 left-1/2 transform -translate-x-1/2 space-8 hidden md:block"
+          className="absolute top-6 left-1/2 transform -translate-x-1/2 space-8 hidden md:block"
           width="100%"
-          height={steps.length * 180} // also increase SVG height
+          height={steps.length * 133} // also increase SVG height
           viewBox={`0 0 1000 ${steps.length * 255}`} // adjust viewBox height
           preserveAspectRatio="none"
         >
@@ -421,7 +421,7 @@ const MobileDev = () => {
                 Q${midy - offset - 40},${y1} ${midy - offset - 40},${y1 + 40}
                 V${y2 - 40}
                 Q${midy - offset - 40},${y2} ${midy - offset - 80},${y2}
-                H${midy - offset * 2.5}`;
+                H${midy - offset * 2.7}`;
 
             return (
               <path
@@ -448,7 +448,7 @@ const MobileDev = () => {
                         ? ` row-start-${index+1} justify-start text-right`
                         : ` row-start-${index+1} justify-end text-left`
                     }`}
-                    style={{ minHeight: "140px" }}
+                    style={{ minHeight: "100px" }}
                   >
                     {/* Number on left for odd rows, right for even rows */}
                     {!isEven && (
