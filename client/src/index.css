@@ -111,3 +111,12 @@ select:-webkit-autofill{
   -webkit-text-fill-color: black !important;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.clip-hex {
+  clip-path: polygon(
+    25% 5%, 75% 5%,
+    100% 50%,
+    75% 95%, 25% 95%,
+    0% 50%
+  );
+}

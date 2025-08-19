@@ -5,6 +5,7 @@ import{ChevronLeft, ChevronRight} from "lucide-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CTA from "../components/CTA";
+import Testimonials from "../components/Testimonials";
 import { Link } from "react-router-dom";
 import {
   BarChart3,
@@ -362,6 +363,7 @@ const Home = () => {
     </motion.div>
   </section>
 
+      <Testimonials />
       <CTA />
     </div>
   )
