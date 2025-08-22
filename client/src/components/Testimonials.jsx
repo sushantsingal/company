@@ -55,7 +55,7 @@ export default function Testimonials() {
     <section className="py-16 bg-gray-50 relative">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-5xl font-bold text-center mb-12">
-          Customer Testimonials
+          Hear It from Them
         </h2>
 
         {/* Navigation Buttons */}
