@@ -33,7 +33,7 @@ const Contact = () => {
     setStatus(null);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
