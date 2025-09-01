@@ -357,7 +357,7 @@ const Home = () => {
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}>
-      <Link to="/portfolio" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
+      <Link to="/insights" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
         View All
       </Link>
     </motion.div>
