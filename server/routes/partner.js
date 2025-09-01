@@ -1,44 +1,49 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const multer = require("multer");
-const PartnerLogo = require("../models/Partner");
-const path = require("path");
+const multer = require('multer');
+const db = require('../config/db');
+const path = require('path');
 
-// Configure multer
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/partners/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  },
+  destination: (req, file, cb) => cb(null, 'uploads/partners/'),
+  filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
 });
+
 const upload = multer({ storage });
 
-// Upload logo
-router.post("/upload", upload.single("logo"), async (req, res) => {
-  const type = req.body.type || "general";
-  const imageUrl = `/uploads/partners/${req.file.filename}`;
-
-  const newLogo = new PartnerLogo({ imageUrl, type });
-  await newLogo.save();
-
-  res.status(201).json(newLogo);
+router.post('/upload', upload.single('logo'), async (req, res) => {
+  try {
+    const imageUrl = `/uploads/partners/${req.file.filename}`;
+    const type = req.body.type || 'general';
+    const pool = await db();
+    await pool.query('INSERT INTO partner_logos (imageUrl, type) VALUES (?, ?)', [imageUrl, type]);
+    res.json({ imageUrl, type });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error uploading logo' });
+  }
 });
 
-// Get all logos
-router.get("/", async (req, res) => {
-  const all = await PartnerLogo.find();
-  const generalPartners = all.filter(p => p.type === "general");
-  const eventPartners = all.filter(p => p.type === "event");
-
-  res.json({ generalPartners, eventPartners });
+router.get('/', async (req, res) => {
+  try {
+    const pool = await db();
+    const [rows] = await pool.query('SELECT * FROM partner_logos ORDER BY createdAt DESC');
+    const generalPartners = rows.filter(p => p.type === 'general');
+    const eventPartners = rows.filter(p => p.type === 'event');
+    res.json({ generalPartners, eventPartners });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// Delete a logo
-router.delete("/:id", async (req, res) => {
-  await PartnerLogo.findByIdAndDelete(req.params.id);
-  res.sendStatus(204);
+router.delete('/:id', async (req, res) => {
+  try {
+    const pool = await db();
+    await pool.query('DELETE FROM partner_logos WHERE id=?', [req.params.id]);
+    res.sendStatus(204);
+  } catch (err) {
+    res.status(500).json({ error: 'Error deleting logo' });
+  }
 });
 
 module.exports = router;

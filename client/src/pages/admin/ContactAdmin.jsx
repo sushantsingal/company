@@ -11,7 +11,7 @@ const ContactAdmin = () => {
   }, []);
 
   const fetchContacts = () => {
-    axios.get("https://marketing-crawlers.onrender.com/api/contact")
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`)
       .then((res) => {
         setContacts(res.data);
         setLoading(false);
@@ -25,8 +25,8 @@ const ContactAdmin = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this contact?")) return;
     try {
-      await axios.delete(`https://marketing-crawlers.onrender.com/api/contact/${id}`);
-      setContacts(prev => prev.filter(contact => contact._id !== id));
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/contacts/${id}`);
+      setContacts(prev => prev.filter(contact => contact.id !== id));
     } catch (error) {
       console.error("Delete failed:", error);
       alert("Failed to delete contact.");
@@ -48,11 +48,11 @@ const ContactAdmin = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {contacts.map((contact) => (
               <div
-                key={contact._id}
+                key={contact.id}
                 className="relative bg-white rounded-2xl shadow-md p-5 transition hover:shadow-lg border border-gray-100"
               >
                 <button
-                  onClick={() => handleDelete(contact._id)}
+                  onClick={() => handleDelete(contact.id)}
                   className="absolute top-3 right-3 bg-white text-gray-600 hover:text-red-500 transition"
                   title="Delete"
                 >

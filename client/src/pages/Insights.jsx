@@ -24,7 +24,7 @@ const PortfolioPage = () => {
   const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
 
   useEffect(() => {
-    axios.get("https://marketing-crawlers.onrender.com/api/portfolio")
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`)
       .then((res) => {
         setProjects(res.data);
         setLoading(false);
@@ -84,8 +84,8 @@ const PortfolioPage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {paginatedProjects.map((project, index) => (
                   <motion.a
-                    href={`/portfolio/${project.slug || project._id}`}
-                    key={project._id}
+                    href={`/portfolio/${project.slug || project.id}`}
+                    key={project.id}
                     viewport={{ once: true }}
                     variants={{
                           hidden: { opacity: 0, y: 50 },
@@ -94,7 +94,7 @@ const PortfolioPage = () => {
                     className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition block"
                   >
                     <img
-                      src={project.image ? `https://marketing-crawlers.onrender.com${project.image}` : "/placeholder.png"}
+                      src={project.image ? `${import.meta.env.VITE_BACKEND_URL}${project.image}` : "/placeholder.png"}
                       alt={project.title}
                       className="w-full h-48 object-cover"
                     />

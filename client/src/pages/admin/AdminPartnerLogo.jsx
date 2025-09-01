@@ -7,7 +7,7 @@ const AdminPartnerLogo = () => {
   const [logos, setLogos] = useState([]);
 
   const fetchLogos = async () => {
-    const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
     const all = [...res.data.generalPartners, ...res.data.eventPartners];
     setLogos(all);
   };
@@ -22,13 +22,13 @@ const AdminPartnerLogo = () => {
     formData.append("logo", file);
     formData.append("type", type);
 
-    await axios.post("https://marketing-crawlers.onrender.com/api/partners/upload", formData);
+    await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/partners/upload`, formData);
     setFile(null);
     fetchLogos();
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`https://marketing-crawlers.onrender.com/api/partners/${id}`);
+    await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/partners/${id}`);
     fetchLogos();
   };
 
@@ -46,8 +46,8 @@ const AdminPartnerLogo = () => {
     setLogos(newLogos);
 
     // Optional: send new order to backend
-    await axios.post("https://marketing-crawlers.onrender.com/api/partners/reorder", {
-      order: newLogos.map((l) => l._id),
+    await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/partners/reorder`, {
+      order: newLogos.map((l) => l.id),
     });
   };
 
@@ -76,11 +76,11 @@ const AdminPartnerLogo = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {logos.map((logo, index) => (
           <div
-            key={logo._id}
+            key={logo.id}
             className="relative bg-white p-4 rounded shadow text-center"
           >
             <img
-              src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
               alt="logo"
               className="w-full h-24 object-contain"
             />
@@ -88,7 +88,7 @@ const AdminPartnerLogo = () => {
 
             {/* Delete button */}
             <button
-              onClick={() => handleDelete(logo._id)}
+              onClick={() => handleDelete(logo.id)}
               className="absolute top-1 right-1 text-sm text-red-600 bg-white"
             >
               ❌

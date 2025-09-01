@@ -29,7 +29,7 @@ const PortfolioForm = ({ editingProject = null, onSuccess = () => {} }) => {
         comments: editingProject.comments || "",
       });
       if (editingProject.image) {
-        setPreview(`https://marketing-crawlers.onrender.com${editingProject.image}`);
+        setPreview(`${import.meta.env.VITE_BACKEND_URL}${editingProject.image}`);
       }
     }
   }, [editingProject]);
@@ -75,10 +75,10 @@ const PortfolioForm = ({ editingProject = null, onSuccess = () => {} }) => {
 
     try {
       if (editingProject) {
-        await axios.put(`https://marketing-crawlers.onrender.com/api/portfolio/${editingProject._id}`, data);
+        await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${editingProject.id}`, data);
         toast.success("Portfolio updated ✅");
       } else {
-        await axios.post("https://marketing-crawlers.onrender.com/api/portfolio", data);
+        await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`, data);
         toast.success("Portfolio uploaded ✅");
       }
 

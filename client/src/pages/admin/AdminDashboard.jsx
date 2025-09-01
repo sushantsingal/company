@@ -36,8 +36,8 @@ const AdminDashboard = () => {
   const tabs = [
     { id: "content", label: "Contacts", icon: ClipboardList },
     { id: "register", label: "Registrations", icon: ClipboardList },
-    { id: "portfolios", label: "Portfolios", icon: FolderKanban },
-    { id: "portfolio", label: "Add Portfolio", icon: FilePlus },
+    { id: "portfolios", label: "Insights", icon: FolderKanban },
+    { id: "portfolio", label: "Add Insight", icon: FilePlus },
     { id: "logo", label: "Partners", icon: Handshake },
   ];
 

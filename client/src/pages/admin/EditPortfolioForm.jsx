@@ -4,7 +4,7 @@ const EditPortfolioForm = ({ formData, onClose, onSubmit }) => {
   const [title, setTitle] = useState(formData.title || "");
   const [description, setDescription] = useState(formData.description || "");
   const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(formData.image ? `https://marketing-crawlers.onrender.com${formData.image}` : "");
+  const [preview, setPreview] = useState(formData.image ? `${import.meta.env.VITE_BACKEND_URL}${formData.image}` : "");
 
   useEffect(() => {
     if (image) {
@@ -25,7 +25,7 @@ const EditPortfolioForm = ({ formData, onClose, onSubmit }) => {
         form.append("image", updatedData.image);
         }
 
-        await axios.put(`https://marketing-crawlers.onrender.com/api/portfolio/${updatedData._id}`, form, {
+        await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${updatedData.id}`, form, {
         headers: {
             "Content-Type": "multipart/form-data",
         },
@@ -44,7 +44,7 @@ const EditPortfolioForm = ({ formData, onClose, onSubmit }) => {
         e.preventDefault();
 
         const updatedData = {
-            _id: formData._id,
+            id: formData.id,
             title,
             description,
             image: image || formData.image,

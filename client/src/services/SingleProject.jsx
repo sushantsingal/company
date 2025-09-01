@@ -20,7 +20,7 @@ const SingleProject = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await axios.get(`https://marketing-crawlers.onrender.com/api/portfolio/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${id}`);
         setProject(res.data);
       } catch (err) {
         setError("Project not found.");
@@ -75,7 +75,7 @@ const SingleProject = () => {
       {/* Cover Image */}
       <div className="mb-8">
         <img
-          src={`https://marketing-crawlers.onrender.com${project.image}`}
+          src={`${import.meta.env.VITE_BACKEND_URL}${project.image}`}
           alt={project.title}
           className="w-full rounded-lg object-cover shadow"
         />

@@ -47,7 +47,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const res = await axios.get("https://marketing-crawlers.onrender.com/api/portfolio");
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`);
         setPortfolioData(res.data);
       } catch (err) {
         console.error(err);
@@ -59,7 +59,7 @@ const Home = () => {
 
     const fetchLogos = async () => {
       try {
-        const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
         setPartners(res.data.generalPartners || []);
       } catch (err) {
         console.error("Failed to fetch partner logos", err);
@@ -123,7 +123,7 @@ const Home = () => {
             {partners.map((logo, index) => (
               <div key={index} className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded shadow">
                 <img
-                  src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
+                  src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
                   alt={`partner-${index}`}
                   className="max-h-full max-w-full object-contain"
                 />
@@ -333,7 +333,7 @@ const Home = () => {
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {portfolioData.slice(0,3).map((project, i) => (
           <motion.div
-            key={project._id}
+            key={project.id}
             className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition-all"
             initial="hidden"
             whileInView="visible"
@@ -344,7 +344,7 @@ const Home = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <img src= {`https://marketing-crawlers.onrender.com${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
+            <img src= {`${import.meta.env.VITE_BACKEND_URL}${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{project.title}</h3>
             </div>

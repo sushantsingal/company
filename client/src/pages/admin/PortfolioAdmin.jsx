@@ -12,7 +12,7 @@ const PortfolioAdmin = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("https://marketing-crawlers.onrender.com/api/portfolio");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`);
       setProjects(res.data);
       setLoading(false);
     } catch (err) {
@@ -30,7 +30,7 @@ const PortfolioAdmin = () => {
         form.append("image", updatedData.image);
       }
 
-      await axios.put(`https://marketing-crawlers.onrender.com/api/portfolio/${updatedData._id}`, form, {
+      await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${updatedData.id}`, form, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       
@@ -47,7 +47,7 @@ const PortfolioAdmin = () => {
     if (!confirm("Are you sure you want to delete this portfolio item?")) return;
 
     try {
-      await axios.delete(`https://marketing-crawlers.onrender.com/api/portfolio/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${id}`);
       toast.success("Portfolio deleted.");
       fetchProjects(); // Refresh list
     } catch (err) {
@@ -62,21 +62,23 @@ const PortfolioAdmin = () => {
   return (
     <div className="space-y-4 relative px-6 py-10 md:px-10">
       <Toaster />
-      <h2 className="text-3xl font-bold mb-4 text-pink-500">Manage Portfolios</h2>
+      <h2 className="text-3xl font-bold mb-4 text-pink-500">Manage Insights</h2>
       {loading ? (
-        <p>Loading...</p>
-      ) : (
+        <p className="text-gray-500 text-center">Loading submissions...</p>
+        ) : projects.length === 0 ? (
+          <p className="text-gray-500 text-center">No Insights found.</p>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
-              key={project._id}
+              key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="relative rounded-xl shadow-lg bg-white p-4 border"
             >
               <img
-                src={`https://marketing-crawlers.onrender.com${project.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}${project.image}`}
                 alt={project.title}
                 className="w-full h-40 object-cover rounded-md mb-3"
               />
@@ -91,7 +93,7 @@ const PortfolioAdmin = () => {
                   <Pencil className="w-4 h-4 text-yellow-700" />
                 </button>
                 <button
-                  onClick={() => handleDelete(project._id)}
+                  onClick={() => handleDelete(project.id)}
                   className="p-1.5 rounded-full bg-red-100 hover:bg-red-200"
                 >
                   <Trash2 className="w-4 h-4 text-red-600" />

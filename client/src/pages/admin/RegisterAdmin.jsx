@@ -11,7 +11,7 @@ const RegisterAdmin = () => {
   }, []);
 
   const fetchRegisters = () => {
-    axios.get("https://marketing-crawlers.onrender.com/api/register")
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/registers`)
       .then((res) => {
         setRegisters(res.data);
         setLoading(false);
@@ -25,8 +25,8 @@ const RegisterAdmin = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this Register?")) return;
     try {
-      await axios.delete(`https://marketing-crawlers.onrender.com/api/register/${id}`);
-      setRegisters(prev => prev.filter(Register => Register._id !== id));
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/registers/${id}`);
+      setRegisters(prev => prev.filter(Register => Register.id !== id));
     } catch (error) {
       console.error("Delete failed:", error);
       alert("Failed to delete Register.");
@@ -48,11 +48,11 @@ const RegisterAdmin = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {Registers.map((Register) => (
               <div
-                key={Register._id}
+                key={Register.id}
                 className="relative bg-white rounded-2xl shadow-md p-5 transition hover:shadow-lg border border-gray-100"
               >
                 <button
-                  onClick={() => handleDelete(Register._id)}
+                  onClick={() => handleDelete(Register.id)}
                   className="absolute top-3 right-3 bg-white text-gray-600 hover:text-red-500 transition"
                   title="Delete"
                 >

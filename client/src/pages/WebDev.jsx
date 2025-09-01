@@ -197,7 +197,7 @@ const WebDev = () => {
     useEffect(() => {
         const fetchLogos = async () => {
         try {
-            const res = await axios.get("https://marketing-crawlers.onrender.com/api/partners");
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
             setPartners(res.data.generalPartners || []);
         } catch (err) {
             console.error("Failed to fetch partner logos", err);
@@ -306,7 +306,7 @@ const WebDev = () => {
                     {partners.map((logo, index) => (
                     <img
                         key={index}
-                        src={`https://marketing-crawlers.onrender.com${logo.imageUrl}`}
+                        src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
                         alt={`partner-${index}`}
                         className="h-24 w-24 object-contain transition-transform duration-300 hover:scale-110"
                     />

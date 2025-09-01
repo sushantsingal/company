@@ -1,92 +1,107 @@
 const express = require('express');
 const router = express.Router();
-const Portfolio = require('../models/Portfolio');
 const multer = require('multer');
 const path = require('path');
+const db = require('../config/db');
 
-// Multer config for image upload
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // folder to store images
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + file.originalname;
-    cb(null, uniqueSuffix);
+  destination: (req, file, cb) => cb(null, 'uploads/'),
+  filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
+});
+const upload = multer({ storage });
+
+// Create portfolio
+router.post('/', upload.single('image'), async (req, res) => {
+  try {
+    const { title, description, link, date, author, category, comments, tags } = req.body;
+    if (!title) return res.status(400).json({ error: 'Title is required' });
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+
+    const pool = await db();
+    await pool.query(
+      'INSERT INTO portfolios (title, description, image, link, date, author, category, comments, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [title, description || null, imagePath, link || null, date || null, author || null, category || null, comments || null, Array.isArray(tags) ? tags.join(",") : (tags || null)]
+    );
+    res.status(201).json({ message: 'Portfolio created' });
+  } catch (err) {
+    console.error('Portfolio create error:', err);
+    res.status(500).json({ error: 'Server error while creating portfolio' });
   }
 });
-const upload = multer({ storage: storage });
 
-// Create a new project with image upload
-router.post("/", upload.single("image"), async (req, res) => {
+// Get all portfolios
+router.get('/', async (req, res) => {
   try {
-    const newProject = new Portfolio({
-      title: req.body.title,
-      description: req.body.description,
-      category: req.body.category,
-      tags: req.body.tags,
-      author: req.body.author,
-      comments: req.body.comments,
-      image: req.file ? `/uploads/${req.file.filename}` : "",
-    });
-
-    const saved = await newProject.save();
-    res.status(201).json(saved);
+    const pool = await db();
+    const [rows] = await pool.query('SELECT * FROM portfolios ORDER BY id DESC');
+    // Convert tags back to array if needed
+    rows.forEach(r => { if (r.tags) r.tags = r.tags.split(','); });
+    res.json(rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Get all projects
-router.get("/", async (req, res) => {
+// ✅ Get single portfolio by ID
+router.get('/:id', async (req, res) => {
   try {
-    const items = await Portfolio.find();
-    res.json(items);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+    const pool = await db();
+    const [rows] = await pool.query('SELECT * FROM portfolios WHERE id=?', [req.params.id]);
 
-// Get a single project by ID
-router.get("/:id", async (req, res) => {
-  try {
-    const project = await Portfolio.findById(req.params.id);
-    if (!project) return res.status(404).json({ error: "Not found" });
-    res.json(project);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// Delete a project
-router.delete("/:id", async (req, res) => {
-  try {
-    await Portfolio.findByIdAndDelete(req.params.id);
-    res.json({ message: "Project deleted" });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-//Edit a Project
-router.put("/:id", upload.single("image"), async (req, res) => {
-  try {
-    const { title, description } = req.body;
-    const updateFields = { title, description };
-
-    if (req.file) {
-      updateFields.image = "/uploads/" + req.file.filename;
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Portfolio not found' });
     }
 
-    const updated = await Portfolio.findByIdAndUpdate(req.params.id, updateFields, {
-      new: true,
-    });
+    // Convert tags back to array if needed
+    if (rows[0].tags) rows[0].tags = rows[0].tags.split(',');
 
-    if (!updated) return res.status(404).json({ error: "Portfolio not found" });
-
-    res.json(updated);
+    res.json(rows[0]);
   } catch (err) {
-    console.error("Update failed:", err);
-    res.status(500).json({ error: "Server error while updating portfolio" });
+    console.error('Error fetching portfolio by ID:', err);
+    res.status(500).json({ error: 'Server error while fetching portfolio' });
+  }
+});
+
+// Update portfolio
+router.put('/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { title, description, link, date, author, category, comments, tags } = req.body;
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+    const fields = [];
+    const values = [];
+
+    if (title !== undefined) { fields.push('title=?'); values.push(title); }
+    if (description !== undefined) { fields.push('description=?'); values.push(description); }
+    if (imagePath) { fields.push('image=?'); values.push(imagePath); }
+    if (link !== undefined) { fields.push('link=?'); values.push(link); }
+    if (date !== undefined) { fields.push('date=?'); values.push(date); }
+    if (author !== undefined) { fields.push('author=?'); values.push(author); }
+    if (category !== undefined) { fields.push('category=?'); values.push(category); }
+    if (comments !== undefined) { fields.push('comments=?'); values.push(comments); }
+    if (tags !== undefined) { fields.push('tags=?'); values.push(Array.isArray(tags) ? tags.join(",") : tags); }
+
+    if (!fields.length) return res.status(400).json({ error: 'No fields to update' });
+    values.push(req.params.id);
+
+    const pool = await db();
+    const [result] = await pool.query(`UPDATE portfolios SET ${fields.join(', ')} WHERE id=?`, values);
+    if (!result.affectedRows) return res.status(404).json({ error: 'Portfolio not found' });
+    res.json({ message: 'Updated successfully' });
+  } catch (err) {
+    console.error('Update failed:', err);
+    res.status(500).json({ error: 'Server error while updating portfolio' });
+  }
+});
+
+// Delete portfolio
+router.delete('/:id', async (req, res) => {
+  try {
+    const pool = await db();
+    const [result] = await pool.query('DELETE FROM portfolios WHERE id=?', [req.params.id]);
+    if (!result.affectedRows) return res.status(404).json({ error: 'Portfolio not found' });
+    res.json({ message: 'Deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
