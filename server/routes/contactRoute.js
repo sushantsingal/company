@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const connectDB = require('../config/db'); // your promise-based db.js
+const connectDB = require('../config/db');
+const transporter = require('../config/mailer'); // 👈 new file for nodemailer setup
 
-// Create a new contact
+// Create a new contact + send email to admin
 router.post('/', async (req, res) => {
-  // console.log("📥 Incoming Contact Request:", req.body);
   try {
     const { name, email, message, phone, company } = req.body;
 
@@ -18,10 +18,26 @@ router.post('/', async (req, res) => {
       [name, email, message, phone || null, company || null]
     );
 
-    res.status(201).json({ 
-      success: true, 
-      message: 'Contact message sent successfully ✅', 
-      id: result.insertId 
+    // ✅ Send email to admin
+    await transporter.sendMail({
+      from: `"Website Contact Form" <${process.env.ADMIN_EMAIL}>`,
+      to: process.env.ADMIN_EMAIL, // only goes to admin
+      subject: "📩 New Contact Form Submission from Marketing Crawlers",
+      html: `
+        <h2><b>New Contact Form Submission</b></h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Company:</b> ${company || "N/A"}</p>
+        <p><b>Phone:</b> ${phone || "N/A"}</p>
+        <p><b>Message:</b></p>
+        <p>${message}</p>
+      `,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'Contact message saved & emailed to admin ✅',
+      id: result.insertId
     });
   } catch (error) {
     console.error('Contact POST error:', error);

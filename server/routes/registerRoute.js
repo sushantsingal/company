@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const transporter = require('../config/mailer');
 
 router.post('/', async (req, res) => {
   try {
@@ -9,11 +10,29 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'Name, email, and city are required' });
     }
     const pool = await db();
-    await pool.query(
-      'INSERT INTO registers (name, email, city, phone) VALUES (?, ?, ?, ?)',
-      [name, email, city, phone || null]
+    const [result] = await pool.query(
+      'INSERT INTO registers (name, email,phone,city) VALUES (?, ?, ?, ?)',
+      [name, email, phone, city]
     );
-    res.status(201).json({ message: 'Registration sent successfully ✅' });
+    // ✅ Send email to admin
+    await transporter.sendMail({
+      from: `"Website Registeration Form" <${process.env.ADMIN_EMAIL}>`,
+      to: process.env.ADMIN_EMAIL, // only goes to admin
+      subject: "📩 New Registration Request on Marketing Crawlers",
+      html: `
+        <h2>New Registration Form Submission</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>City:</b> ${city}</p>
+        <p><b>Phone:</b> ${phone}</p>
+      `,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'Registration message saved & emailed to admin ✅',
+      id: result.insertId
+    });
   } catch (error) {
     console.error('Register POST error:', error);
     res.status(500).json({ error: 'Server error' });
