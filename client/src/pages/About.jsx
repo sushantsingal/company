@@ -132,7 +132,7 @@ const About = () => {
       </section> */}
 
       {/* Company Story */}
-      <section className="py-10 px-6 md:px-20 bg-gray-50">
+      <section className="py-10 px-4 md:px-20 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial="hidden"
@@ -171,7 +171,7 @@ const About = () => {
       </section>
 
       {/* Meet the Team Carousel */}
-      <section className="bg-white py-10 px-6 md:px-20">
+      <section className="bg-white py-10 px-4 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2 className="text-3xl font-bold mb-4" initial="hidden" whileInView="visible" viewport={{ once: true }}
           variants={{

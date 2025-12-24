@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import CTA from "../components/CTA";
 import event from "../assets/event-consulting.jpg";
 import {
@@ -125,6 +126,12 @@ const EventConsulting = () => {
               <li>Creative Design & Marketing Integration</li>
               <li>On-Ground Execution & Analytics</li>
             </ul>
+            <Link
+              to="/contact"
+              className="inline-block bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+            >
+              Let's Connect
+            </Link>
           </motion.div>
 
           {/* Right Image */}
@@ -151,7 +158,7 @@ const EventConsulting = () => {
       {/* Intro Section */}
       <section className="py-16 px-6 md:px-20 bg-white">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold mb-4">Our Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Expertise</h2>
           <p className="text-gray-600">
             Whether you’re organizing a corporate conference, product launch, or brand activation,
             our event consulting services are designed to deliver outstanding experiences and measurable success.
@@ -160,38 +167,44 @@ const EventConsulting = () => {
       </section>
 
       {/* Steps Section */}
-      <section className="bg-white py-16 overflow-x-hidden">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10 uppercase">
-          How We Address and Resolve Event Consultancy Queries
-        </h2>
+      <section className="bg-white py-20">
+        <div className="container mx-auto text-center px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-14 uppercase">
+            How We Address & Resolve Event Consultancy Queries
+          </h2>
 
-        <motion.div
-          className="flex flex-row items-center gap-6 overflow-x-auto no-scrollbar px-2 md:px-6"
-          variants={containerVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariant}
-              className="relative flex-shrink-0 w-60 h-48 bg-yellow-400 text-white shadow-md transform -skew-x-12"
-            >
-              <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
-                <div className="text-4xl font-bold mb-2">{step.number}</div>
-                <div className="text-md md:text-lg font-medium text-center">{step.title}</div>
+          <motion.div
+            className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-8"
+            variants={containerVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {steps.map((step, index) => (
+              <div key={index} className="relative flex items-center">
+                
+                {/* Card */}
+                <motion.div
+                  variants={cardVariant}
+                  whileHover={{ y: -6 }}
+                  className="w-56 h-36 bg-gradient-to-br from-pink-600 to-pink-500 
+                            text-white rounded-xl shadow-lg flex flex-col 
+                            items-center justify-center px-6 text-center"
+                >
+                  <div className="w-12 h-12 mb-3 rounded-full bg-white text-pink-600 
+                                  flex items-center justify-center font-bold text-xl">
+                    {step.number}
+                  </div>
+
+                  <h3 className="text-lg font-semibold leading-snug">
+                    {step.title}
+                  </h3>
+                </motion.div>
               </div>
-
-              {index !== steps.length - 1 && (
-                <div className="absolute top-1/2 -right-5 transform -translate-y-1/2 border-l-[20px] border-l-yellow-400 border-y-[24px] border-y-transparent"></div>
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+            ))}
+          </motion.div>
+        </div>
+      </section>
       {/* Services Grid */}
       <section className="bg-gray-50 py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
