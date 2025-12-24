@@ -1,21 +1,22 @@
 import { motion } from "framer-motion";
 import hero from "../assets/hero-image.png";
 import about from "../assets/aa.jpg";
-import{ChevronLeft, ChevronRight} from "lucide-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CTA from "../components/CTA";
 import Testimonials from "../components/Testimonials";
 import { Link } from "react-router-dom";
 import {
-  BarChart3,
-  MonitorSmartphone,
-  Layers,
-  ThumbsUp,
+  ChevronLeft, 
+  ChevronRight,
+  Workflow,
   Megaphone,
-  Video,
   TrendingUp, 
-  BarChart4
+  BarChart4,
+  Cpu,
+  Share2,
+  RefreshCcw,
+  GitBranch
 } from "lucide-react";
 
 const fadeUp = {
@@ -233,12 +234,12 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { title: "SEO & Performance", icon: <BarChart3 size={36} />, desc: "Boost visibility and drive results with strategic SEO." },
-              { title: "Website Development", icon: <MonitorSmartphone size={36} />, desc: "Fast, modern websites built to convert visitors." },
-              { title: "Branding & UI/UX", icon: <Layers size={36} />, desc: "Stand out with impactful design and intuitive interfaces." },
-              { title: "Social Media Marketing", icon: <ThumbsUp size={36} />, desc: "Captivate your audience with compelling content." },
-              { title: "Google & Meta Ads", icon: <Megaphone size={36} />, desc: "Drive ROI with targeted, high-performance campaigns." },
-              { title: "Video Production", icon: <Video size={36} />, desc: "Tell your story with stunning digital video content." },
+              { title: "Advanced Tech Integration", icon: <Cpu size={36} />, desc: "Boost visibility and drive results with strategic SEO." },
+              { title: "Automated Marketing Solutions", icon: <Workflow size={36} />, desc: "Fast, modern websites built to convert visitors." },
+              { title: "Multi-Channel Engagement", icon: <Share2 size={36} />, desc: "Stand out with impactful design and intuitive interfaces." },
+              { title: "Comprehensive Digital Revamp", icon: <RefreshCcw size={36} />, desc: "Captivate your audience with compelling content." },
+              { title: "Complete Engineering Solutions", icon: <GitBranch size={36} />, desc: "Drive ROI with targeted, high-performance campaigns." },
+              { title: "Event & Experiential Marketing", icon: <Megaphone size={36} />, desc: "Tell your story with stunning digital video content." },
             ].map((s, i) => (
               <motion.div
                 key={i}
