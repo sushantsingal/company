@@ -79,7 +79,7 @@ const Topbar = () => {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1  text-pink-600">
               <Phone size={16} />
-              <span className="text-gray-600 hover:text-pink-600 cursor-pointer font-semibold">+91 7627025781</span>
+              <span className="text-gray-600 hover:text-pink-600 cursor-pointer font-semibold">+91 7850995144</span>
             </div>
             <div className="flex items-center gap-1 text-pink-600">
               <Mail size={16} />
