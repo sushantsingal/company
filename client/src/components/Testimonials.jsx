@@ -5,35 +5,43 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Jessy",
-    designation: "XYZ Electronics - Marketing Head",
+    name: "Alex Morgan (USA)",
+    designation: "Startup Founder",
     title: "Unrivalled",
     feedback:
-      "ABC webX has exceeded our expectations! They prepare the strategy with time and bring outstanding results.",
+      "Marketing Crawlers gets startup hustle. Fast strategy, clean execution, real growth. No fluff, only results.",
     image: test,
   },
   {
-    name: "Olivia",
-    designation: "Project Manager - Accenture",
+    name: "Daniel Wright (UK)",
+    designation: "Tech Product Manager",
     title: "Indeed the Best!!",
     feedback:
-      "They helped us in every aspect to grow our business, their guidance and support are continuous.",
+      "They understand tech + marketing perfectly. Smart targeting, strong creatives, and performance that actually scales.",
     image: test,
   },
   {
-    name: "Robert",
-    designation: "CEO - AstonSports",
+    name: "Sophia Martinez (Spain)",
+    designation: "Event Curator",
     title: "Incredible !!",
     feedback:
-      "One of the best decisions of our company is to work with ABC webX! Professional and reliable team.",
+      "Our event buzz exploded online. From pre-launch to post-event hype, Marketing Crawlers nailed every touchpoint.",
     image: test,
   },
   {
-    name: "Sophia",
-    designation: "Founder - StarTech",
+    name: "Aisha Khan (UAE)",
+    designation: "Education Consultant",
     title: "Amazing Work",
     feedback:
-      "Professional team with a great mindset. Loved the work they did for us!",
+      "They simplified digital marketing for our institution and boosted enrollments organically and through ads. Super smooth collaboration.",
+    image: test,
+  },
+  {
+    name: "Michael Chen (Singapore)",
+    designation: "Healthcare Operations Lead",
+    title: "Amazing Work",
+    feedback:
+      "Professional, compliant, and growth-focused. Marketing Crawlers helped us build trust while increasing patient inquiries.",
     image: test,
   },
 ];
