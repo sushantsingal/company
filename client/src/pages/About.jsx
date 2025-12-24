@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import { Lightbulb, TrendingUp, DollarSign, Mail, Phone, Linkedin, Instagram, Brain,Users,Layers,Cpu,Handshake,ChevronLeft, ChevronRight } from "lucide-react";
+import { TrendingUp, Linkedin, Brain,Users,Layers,Cpu,Handshake,ChevronLeft, ChevronRight } from "lucide-react";
 import team1 from "../assets/team1.jpg";
 import team2 from "../assets/team2.jpg";
-import team3 from "../assets/team3.jpg";
 import team4 from "../assets/team4.jpg";
 import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const teamMembers = [
     {
@@ -20,12 +19,6 @@ const teamMembers = [
       role: "Global Partnership Specialist",
       img: team2,
       linkedin: "https://www.linkedin.com/in/suvinaymathur/",
-    },
-    {
-      name: "Vikas Kumawat",
-      role: "Project Head cum Business Developer",
-      img: team3,
-      linkedin: "https://www.linkedin.com/in/vikas-kumawat-326884a3/",
     },
     {
       name: "Bhanu Priya",
@@ -152,11 +145,14 @@ const About = () => {
           >
             <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
             <p className="text-gray-700 leading-relaxed">
-              At <b>Marketing Crawlers</b>, a <b>multi-award-winning digital marketing agency</b>, we specialize in building performance-driven campaigns, offering transparency and cost-effective digital solutions to mission-driven businesses worldwide.
+              We're <b>Marketing Crawlers</b> - your digital growth partners, not just another IT company. 💡
             </p><br></br>
             <p className="text-gray-700 leading-relaxed">
-              From <b>web development, SEO services</b>, and <b>custom ad campaigns</b> to <b>Google and Facebook Ads</b>, we craft digital journeys that transform businesses. Our tailored marketing strategies have empowered startups and global enterprises alike to achieve measurable success in their digital transformation.
+              From branding that vibes to designs that click, we craft digital experiences that make people stop, scroll, and engage. Our mission? To take your product from just another option → to the brand everyone remembers. With a mix of creativity, tech, and strategy, we build websites, apps, and campaigns that don’t just look good—they perform. Big brands trust us.Startups love us. And audiences? They can’t ignore us.
             </p><br></br>
+            <p className="text-gray-700 leading-relaxed"><b>
+              At Marketing Crawlers, we don’t chase trends. We set them.
+            </b></p><br></br>
             <p className="text-gray-700 leading-relaxed">
               Contact us today to experience the power of ethical and data-driven marketing solutions.
             </p>
