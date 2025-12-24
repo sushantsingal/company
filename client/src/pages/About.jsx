@@ -148,8 +148,8 @@ const About = () => {
               We're <b>Marketing Crawlers</b> - your digital growth partners, not just another IT company. 💡
             </p><br></br>
             <p className="text-gray-700 leading-relaxed">
-              From branding that vibes to designs that click, we craft digital experiences that make people stop, scroll, and engage. Our mission? To take your product from just another option → to the brand everyone remembers. With a mix of creativity, tech, and strategy, we build websites, apps, and campaigns that don’t just look good—they perform. Big brands trust us.Startups love us. And audiences? They can’t ignore us.
-            </p><br></br>
+              From branding that vibes to designs that click,<b> we craft digital experiences that make people stop, scroll, and engage. Our mission? To take your product from just another option → to the brand everyone remembers. </b>With a mix of creativity, tech, and strategy,<b> we build websites, apps, and campaigns that don’t just look good—they perform. Big brands trust us.Startups love us. And audiences? They can’t ignore us.
+            </b></p><br></br>
             <p className="text-gray-700 leading-relaxed"><b>
               At Marketing Crawlers, we don’t chase trends. We set them.
             </b></p><br></br>
