@@ -3,10 +3,11 @@ const bcrypt = require("bcrypt");
 const db = require("../config/dbUtil");
 
 exports.loginAdmin = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, username, password } = req.body;
+  const identifier = email || username;
   try {
     const pool = await db();
-    const [rows] = await pool.query('SELECT * FROM admins WHERE username = ? OR email = ? LIMIT 1', [username, username]);
+    const [rows] = await pool.query('SELECT * FROM admins WHERE email = ? OR username = ? LIMIT 1', [identifier.toLowerCase(), identifier]);
     const admin = rows[0];
     if (!admin) return res.status(401).json({ message: "Invalid credentials" });
 
