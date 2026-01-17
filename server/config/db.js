@@ -107,4 +107,4 @@ async function bootstrapSchema(pool) {
   }
 }
 
-module.exports = connectDB;
+module.exports = bootstrapSchema;
