@@ -17,6 +17,9 @@ const AdminLogin = () => {
       });
       localStorage.setItem("adminToken", res.data.token);
       navigate("/admin"); // ✅ Redirect after successful login
+      console.log("EMAIL:", email);
+      console.log("DB ROWS:", rows);
+
     } catch (err) {
       setError("Invalid email or password");
     }
