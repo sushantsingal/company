@@ -1,98 +1,386 @@
-import React from "react";
+import {useState} from "react";
 import { motion } from "framer-motion";
-import { Laptop, BookOpenCheck, UserCheck, Briefcase } from "lucide-react";
-import CourseBanner from "../assets/digital-marketing-course.jpg";
+import { Link } from "react-router-dom";
+import {ClockFading, GraduationCap, CalendarDays, Tags} from "lucide-react";
 import dm from "../assets/dm.jpg";
+import google from "../assets/google.png";
+import hs from "../assets/hs.png";
+import meta from "../assets/meta.png";
+
+const fade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.6 },
+  }),
+};
+
+const containerVariants = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.2,
+        },
+    },
+};
+const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const features = [
+  {    
+    title: "Content Creation & Storytelling",
+    desc: "Create content that captures attention, communicates value, and connects with real audiences across platforms.",
+  },
+  {
+    title: "SEO & Paid Media Execution",
+    desc: "Learn how to optimize for search, run Google Ads, and execute performance campaigns that drive measurable results.",
+  },
+  {
+    title: "Social Media Strategy & Management",
+    desc: "Plan, publish, and manage social content that builds brand presence, engagement, and community.",
+  },
+  {
+    title: "Analytics, Reporting & ROI Tracking",
+    desc: "Track performance, interpret data, and communicate results in a way businesses understand and value.",
+  },
+  {
+    title: "Live Projects & Real Campaigns",
+    desc: "Work on real-world campaigns and use actual data to gain practical experience and build confidence.",
+  },
+  {
+    title: "Tool & Platform Exposure",
+    desc: "Get hands-on with modern marketing platforms, analytics tools, automation systems, and AI-assisted workflows.",
+  },
+];
+
+const videoTestimonials = [
+  {
+    name: "Aman Sharma",
+    role: "Performance Marketer",
+    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1",
+  },
+  {
+    name: "Neha Verma",
+    role: "Social Media Strategist",
+    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_2",
+  },
+  {
+    name: "Rohit Meena",
+    role: "SEO Specialist",
+    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_3",
+  },
+];
 
 const DigitalMarketingCourse = () => {
+  const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      city: "",
+    });
+    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState(null);
+    const [loading, setLoading] = useState(false);
+  
+    const handleChange = (e) =>
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      setStatus(null);
+  
+      try {
+        const res = await fetch(`/api/registers`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+  
+        const data = await res.json();
+  
+        if (!res.ok) throw new Error(data.error || "Submission failed");
+  
+        setSubmitted(true);
+      } catch (error) {
+        setStatus({ error: true, message: error.message });
+      } finally {
+        setLoading(false);
+      }
+    };
   return (
     <div className="bg-white text-gray-800">
-      <div className="bg-gradient-to-r from-purple-700 to-pink-500 py-24 text-center">
-        <h1 className="text-white text-5xl md:text-7xl font-extrabold">Digital Marketing Course</h1>
-      </div>
-      <div className="pt-6 px-4 md:px-20">
-          <div className="grid gap-20 md:grid-cols-2">
-            <div>
-                <img
-                  src={CourseBanner}
-                  alt="Internship Program"
-                  className="rounded-2xl shadow-lg w-full h-auto object-cover"
-                />
-            </div>
-            <div>
-              {/* Intro */}
-              <h2 className="text-black text-xl font-bold py-4">Learn Digital Marketing the Practical Way</h2>
-              <p className="text-md text-gray-700 font-medium leading-relaxed mb-2">
-                In today’s digital world, knowing how to market online isn’t just a bonus—it’s a must. Our program is designed to give you real, hands-on experience so you can confidently apply what you learn.
-              </p>
-              <h2 className="text-black text-lg py-4">Here’s what you’ll explore:</h2>
-              <ul className="text-md text-gray-700 leading-relaxed mb-8 gap-4">
-                <li><b>Content Creation:</b> Make content that grabs attention and connects with people.</li><br></br>
-                <li><b>SEO & Google Ads:</b> Learn how to rank higher on Google and run successful ad campaigns.</li><br></br>
-                <li><b>Social Media Strategy:</b> Plan and manage content to grow your brand and engage followers.</li><br></br>
-                <li><b>Analytics & ROI:</b> Understand what’s working by tracking results and showing the value of your efforts.</li><br></br>
-                <li><b>Live Projects:</b> Work on real campaigns to build your skills and gain practical experience.</li><br></br>
+      <div className="bg-gradient-to-r from-purple-700 to-pink-500 p-12 text-center">
+        <div className="flex grid-cols-1 lg:grid-cols-2 p-4 gap-8 justify-end">
+          <div className="text-white text-left w-full">
+            <h1 className="text-6xl font-bold py-4">Join The Best Digital Marketing Course In Jaipur</h1>
+            <p className="text-lg font-medium leading-relaxed py-4">Real Projects • Expert Mentorship • Gen-AI Powered Marketing</p>
+            <p className="text-md leading-relaxed mb-2">
+<b>Marketing Crawlers</b> delivers an AI-powered digital marketing course in Jaipur where learning meets execution. Work on real campaigns, scale brands, and build job-ready skills, all in just 60 days. Our goal-oriented training takes you from fundamentals to advanced execution.
+            </p>
+            <ul className="text-md list-disc leading-relaxed mx-10 py-6">
+                <li>Internship & Freelancing Opportunities</li>
+                <li>Personal Mentorship & Career Guidance</li>
+                <li>AI-Driven Marketing & Automation</li>
+                <li>Real Client Projects & Live Campaigns</li>
               </ul>
+            <p className="text-md font-medium leading-relaxed mb-6">Ready to Launch Your Digital Career?
+            </p>
+            <div>
+              <Link
+                to="/"
+                className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
+              >
+                Enroll Now
+              </Link>
+
+              <Link
+                to="/"
+                className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
+              >
+                Download Brochure
+              </Link>
             </div>
           </div>
-      </div>
-      <div className=" flex justify-center text-center">
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSd-btwcxDOk0AAt4xBdYEE4FkFxIirT1KOqFmopEIPJsgj6wQ/viewform?usp=sharing&ouid=112648620577953336544"
-          target="blank"
-          className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition"
-        >
-          Apply Now
-        </a>
+          <motion.div
+            className="border-white border-2 rounded-2xl shadow-xl p-9"
+            initial="hidden"
+            whileInView="visible"
+            variants={fade}
+            viewport={{ once: true }}
+          >
+            {submitted ? (
+              <div>
+                <h3 className="text-2xl font-semibold text-pink-600 mb-4">Thank You!</h3>
+                <p className="text-gray-700">
+                  We've received your details. Our team will get in touch with you shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid gap-10 justify-end mb-10">
+                  <input
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    pattern="^[A-Za-z\s]{2,50}$"
+                    title="Name should contain only letters and spaces"
+                    placeholder="Your Name"
+                    className="p-3 border-b border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    required
+                  />
+                  <input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                    title="Please enter a valid email address"
+                    placeholder="Your Email"
+                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    required
+                  />
+                  <input
+                    name="phone"
+                    type="text"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    pattern="^[6-9]\d{9}$"
+                    title="Enter a valid 10-digit Indian mobile number"
+                    placeholder="Phone Number"
+                    className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    required
+                  />
+                <input
+                  name="city"
+                  type="text"
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="Your City"
+                  pattern="^[A-Za-z\s]{2,50}$"
+                  title="Name should contain only letters and spaces"
+                  className="p-3 border border-gray-300 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  required
+                ></input>
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="text-xl bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
+                >
+                  {loading ? "Sending..." : "Register"}
+                </button>
+              </form>
+            )}
+
+            {status?.error && (
+              <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
+            )}
+          </motion.div>
+        </div>
       </div>
 
-      <div className="py-12 px-4 md:px-20">
-              <div className="grid gap-20 md:grid-cols-2 py-6">
-                <div>
-                  {/* Intro */}
-                  <h2 className="text-black text-xl font-bold py-4">Learn from Experts Who Know the Industry</h2>
-                  <p className="text-md text-gray-700 font-medium leading-relaxed mb-2">
-                    Our trainers are experienced digital marketers who work with top brands and bring real-world knowledge to the classroom. They don’t just teach—they guide you with insights that come from doing the work themselves.
-                  </p>
-                  <h2 className="text-black text-lg py-4">What You’ll Get:</h2>
-                  <ul className="text-md text-gray-700 leading-relaxed mb-8">
-                    <li><b>Practical Tips:</b> Learn from real case studies and proven strategies.</li>
-                    <li><b>Latest Trends:</b> Stay updated with the newest tools and techniques.</li>
-                    <li><b>One-on-One Support:</b> Get answers to your questions and feedback on your work.</li>
-                    <li><b>Problem-Solving Skills:</b> Tackle real challenges and learn how to get results.</li>
-                  </ul>
-      
-                  <div className="text-center">
-                  <a
-                  href="/register"
-                  target="blank"
-                  className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition"
-                >
-                  Register Now
-                </a>
-                  </div>
-                </div>
-                <div>
-                    <img
-                      src={dm}
-                      alt="Internship Program"
-                      className="rounded-2xl shadow-lg w-full h-auto object-cover"
-                    />
-                </div>
-            </div>
-      </div>
-       {/* Call to Action */}
-        <div className="p-6 rounded-xl text-center">
-          <h2 className="text-4xl font-semibold text-pink-700 mb-4">Your Path to Career Acceleration Starts Here</h2>
-          <p className="text-gray-700 text-xl mb-4">Our Digital Marketing Expert course is designed to be a launchpad for your career. Whether you’re a fresh graduate looking to enter a booming industry, a professional seeking to upskill, or an entrepreneur aiming to boost your online presence, this program will equip you with the “future-ready skills” needed to succeed.</p>
-          <a
-            href="/contact"
-            className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
-          >
-            Contact Us
-          </a>
+      <div className="pt-6 px-4 md:px-20 bg-gray-50 p-4">
+        <div className="mb-8">
+          <h1 className="text-black text-4xl font-extrabold text-center ">Program Highlights</h1>
+          <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
-      
+          <div className="grid gap-10 md:grid-cols-4">
+            <div className="border-r-2">
+              <h2 className="text-black text-xl font-bold py-4">Certifications</h2>
+              <div className="flex items-center gap-4">
+                <GraduationCap className="w-10 h-10 text-pink-600 flex-shrink-0" />
+                <div className="grid grid-flow-cols w-24 content-center gap-2">
+                  <img src={hs} alt="hs" />
+                  <img src={meta} alt="meta" className="w-40"/>
+                  <img src={google} alt="google" />
+                </div>
+              </div>
+            </div>
+            <div className="border-r-2">
+              <h2 className="text-black text-xl font-bold py-4">Course Duration</h2>
+              <div className="flex items-center gap-6">
+                <CalendarDays className="w-10 h-10 text-pink-600 flex-shrink-0" />
+                <div>
+                  <p className="text-md text-gray-700 font-medium leading-relaxed">
+                      3 Months, Hybrid
+                  </p>
+                  <p className="text-md text-gray-700 font-medium leading-relaxed border-4 border-pink-500 rounded-sm p-1">
+                      60 Day 60 Hours
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="border-r-2">
+              <h2 className="text-black text-xl font-bold py-4">Batch Timings</h2>
+              <div className="flex items-center gap-3">
+                <ClockFading className="w-10 h-10 text-pink-600 flex-shrink-0" />
+                <div>
+                  <p className="text-md text-gray-700 font-medium leading-relaxed">
+                      8:00 - 9:00, Mon-Fri
+                  </p>
+                  <p className="text-md text-gray-700 font-medium leading-relaxed border-4 border-pink-500 rounded-sm text-center">
+                      AM / PM
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-black text-xl font-bold py-4">Course Fee</h2>
+              <div className="flex items-center gap-3">
+                <Tags className="w-10 h-10 text-pink-600 flex-shrink-0" />
+                <div>
+                  <p className="text-md text-gray-700 font-medium leading-relaxed">
+                      <b>₹ 25000</b> / <s>₹ 35000</s>
+                  </p>
+                  <p className="text-md text-gray-700 font-medium leading-relaxed border-4 border-pink-500 rounded-sm text-center">
+                      Limited Offer
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto text-center my-10">
+        <div className="text-center text-black mb-14">
+          <h2 className="text-3xl md:text-4xl font-extrabold relative inline-block">
+              AI-Integrated Digital Marketing Course in Jaipur
+              <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+          </h2>
+        </div>
+        <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+        {features.map((item, idx) => (
+            <motion.div
+            key={idx}
+            variants={cardVariants}
+            className="group flex flex-col items-center p-6 rounded-md shadow-sm border transition-all duration-300 bg-white text-black hover:bg-gray-600 hover:text-white"
+            >
+            <div className="flex items-center gap-3 mb-3">
+                <h4 className="font-bold text-md">{item.title}</h4>
+            </div>
+            <p className="text-sm">{item.desc}</p>
+            </motion.div>
+        ))}
+        </motion.div>
+      </div>
+
+      <div className="bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-6">
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+              Students Testimonials
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Hear directly from our students who transformed their careers
+            </p>
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+          </div>
+
+          {/* Videos */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {videoTestimonials.map((item, idx) => (
+              <motion.div
+                key={idx}
+                variants={cardVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                {/* Video */}
+                <div className="relative aspect-video">
+                  <iframe
+                    src={item.videoUrl}
+                    title={item.name}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+            
+                {/* Info */}
+                <div className="p-5 text-center">
+                  <h4 className="font-bold text-lg text-black">
+                    {item.name}
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {item.role}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          {/* CTA */}
+          <div className="text-center mt-14">
+            <Link
+              to="/contact"
+              className="inline-block bg-pink-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-pink-700 transition"
+            >
+              Join the Next Batch
+            </Link>
+          </div>
+          
+        </div>
+      </div>
     </div>
   );
 };
