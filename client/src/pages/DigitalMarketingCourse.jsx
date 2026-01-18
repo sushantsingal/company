@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { motion } from "framer-motion";
+import CTA from "../components/CTA";
 import { Link } from "react-router-dom";
 import {ClockFading, GraduationCap, CalendarDays, Tags} from "lucide-react";
 import dm from "../assets/dm.jpg";
@@ -55,6 +56,59 @@ const features = [
     desc: "Get hands-on with modern marketing platforms, analytics tools, automation systems, and AI-assisted workflows.",
   },
 ];
+const why = [
+  {    
+    title: "AI-Powered Marketing",
+  },
+  {
+    title: "Audience & Market Insight",
+  },
+  {
+    title: "Integrated Digital Strategy",
+  },
+  {
+    title: "Intelligent Campaign Design",
+  },
+  {
+    title: "Tech & Tools Mastery",
+  },
+  {
+    title: "Analytics & Growth Optimization",
+  },
+];
+
+const faqs = [
+  {
+    question: "Who can join this digital marketing course?",
+    answer:
+      "This course is ideal for students, fresh graduates, working professionals, entrepreneurs, and business owners who want to build practical digital marketing skills."
+  },
+  {
+    question: "Do I need prior marketing experience?",
+    answer:
+      "No prior experience is required. The course starts from fundamentals and gradually moves to advanced strategies, tools, and live projects."
+  },
+  {
+    question: "Is this course suitable for beginners?",
+    answer:
+      "Yes. The curriculum is designed to support beginners while also offering advanced modules for professionals looking to upskill."
+  },
+  {
+    question: "Will I get a certificate after completion?",
+    answer:
+      "Yes. You will receive industry-recognized certifications along with course completion certificates."
+  },
+  {
+    question: "Does the course provide placement assistance?",
+    answer:
+      "Yes. We provide placement assistance, internship opportunities, freelancing guidance, and career mentorship."
+  },
+  {
+    question: "Is the training online or offline?",
+    answer:
+      "The course is delivered in a hybrid format, combining classroom sessions with online learning resources."
+  },
+];
 
 const videoTestimonials = [
   {
@@ -73,6 +127,43 @@ const videoTestimonials = [
     videoUrl: "https://www.youtube.com/embed/VIDEO_ID_3",
   },
 ];
+const FAQItem = ({ faq }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={false}
+      animate={{ backgroundColor: open ? "#f9fafb" : "#ffffff" }}
+      className="border rounded-lg"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex justify-between items-center p-5 text-left"
+      >
+        <span className="text-lg font-semibold text-white">
+          {faq.question}
+        </span>
+        <span className="text-2xl text-pink-600">
+          {open ? "−" : "+"}
+        </span>
+      </button>
+
+      <motion.div
+        initial={false}
+        animate={{
+          height: open ? "auto" : 0,
+          opacity: open ? 1 : 0
+        }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden"
+      >
+        <p className="px-5 pb-5 text-gray-700 leading-relaxed">
+          {faq.answer}
+        </p>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const DigitalMarketingCourse = () => {
   const [formData, setFormData] = useState({
@@ -379,6 +470,67 @@ const DigitalMarketingCourse = () => {
             </Link>
           </div>
           
+        </div>
+      </div>
+
+      <div className="px-32 py-10">
+        <div className="my-10">
+          <h1 className="text-black text-4xl font-extrabold text-center ">Why Choose Marketing Crawlers?</h1>
+          <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+        </div>
+        <div className="grid gap-10 md:grid-cols-2 py-6">
+          <div>
+              <img
+                src={dm}
+                alt="Internship Program"
+                className="rounded-2xl shadow-lg h-full"
+              />
+          </div>
+          <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+        {why.map((item, idx) => (
+            <motion.div
+            key={idx}
+            variants={cardVariants}
+            className="group flex flex-col items-center p-6 rounded-md border transition-all duration-300 text-black hover:border-gray-600 shadow-lg"
+            >
+            <div className="flex items-center gap-3 mb-3">
+                <h4 className="font-bold text-md">{item.title}</h4>
+            </div>
+            </motion.div>
+        ))}
+        </motion.div>
+        </div>
+      </div> 
+
+       <CTA />
+
+       <div className="bg-white py-20 border-t">
+        <div className="max-w-5xl mx-auto px-6">
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+          </div>
+
+          {/* FAQ List */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} faq={faq} />
+            ))}
+          </div>
+
         </div>
       </div>
     </div>
