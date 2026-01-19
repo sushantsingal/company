@@ -1,9 +1,9 @@
 import {useState} from "react";
 import { motion } from "framer-motion";
-import CTA from "../components/CTA";
+import lin from "../assets/lin.png";
 import { Link } from "react-router-dom";
-import {ClockFading, GraduationCap, CalendarDays, Tags} from "lucide-react";
-import dm from "../assets/dm.jpg";
+import {ClockFading, GraduationCap, CalendarDays, Tags, Sparkles, BrainCircuit, Target, Layers, Settings2, TrendingUp} from "lucide-react";
+import dm from "../assets/hero-image.jpg";
 import google from "../assets/google.png";
 import hs from "../assets/hs.png";
 import meta from "../assets/meta.png";
@@ -59,21 +59,27 @@ const features = [
 const why = [
   {    
     title: "AI-Powered Marketing",
+    icon: <BrainCircuit/>
   },
   {
     title: "Audience & Market Insight",
+    icon: <Target/>
   },
   {
     title: "Integrated Digital Strategy",
+    icon: <Layers/>
   },
   {
     title: "Intelligent Campaign Design",
+    icon: <Sparkles/>
   },
   {
     title: "Tech & Tools Mastery",
+    icon: <Settings2/>
   },
   {
     title: "Analytics & Growth Optimization",
+    icon: <TrendingUp/>
   },
 ];
 
@@ -157,7 +163,7 @@ const FAQItem = ({ faq }) => {
         transition={{ duration: 0.3 }}
         className="overflow-hidden"
       >
-        <p className="px-5 pb-5 leading-relaxed">
+        <p className="px-5 pb-5 leading-relaxed text-black">
           {faq.answer}
         </p>
       </motion.div>
@@ -206,7 +212,7 @@ const DigitalMarketingCourse = () => {
     <div className="bg-white">
       <div className="bg-gradient-to-r from-purple-700 to-pink-500 p-12 text-center">
         <div className="flex grid-cols-1 lg:grid-cols-2 p-4 gap-8 justify-end">
-          <div className="text-white text-left w-full">
+          <div className="text-white text-left">
             <h1 className="text-6xl font-bold py-4">Join The Best Digital Marketing Course In Jaipur</h1>
             <p className="text-lg font-medium leading-relaxed py-4">Real Projects • Expert Mentorship • Gen-AI Powered Marketing</p>
             <p className="text-md leading-relaxed mb-2">
@@ -222,14 +228,14 @@ const DigitalMarketingCourse = () => {
             </p>
             <div>
               <Link
-                to="/"
+                to="/register"
                 className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
               >
                 Enroll Now
               </Link>
 
               <Link
-                to="/"
+                to="/digital-marketing-course"
                 className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
               >
                 Download Brochure
@@ -237,7 +243,7 @@ const DigitalMarketingCourse = () => {
             </div>
           </div>
           <motion.div
-            className="border-white border-2 rounded-2xl shadow-xl p-9"
+            className="border-white border-2 rounded-2xl shadow-xl p-10 w-3/4"
             initial="hidden"
             whileInView="visible"
             variants={fade}
@@ -252,7 +258,7 @@ const DigitalMarketingCourse = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid gap-10 justify-end mb-10">
+                <div className="grid gap-10 mb-10">
                   <input
                     name="name"
                     type="text"
@@ -315,9 +321,12 @@ const DigitalMarketingCourse = () => {
         </div>
       </div>
 
-      <div className="pt-6 px-4 md:px-20 bg-gray-50 p-4">
-        <div className="mb-8">
+      <section className="pt-6 px-4 md:px-20 bg-gray-50 p-4">
+        <div className="mb-8 text-center">
           <h1 className="text-black text-4xl font-extrabold text-center ">Program Highlights</h1>
+          <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
           <div className="grid gap-10 md:grid-cols-4">
@@ -325,10 +334,11 @@ const DigitalMarketingCourse = () => {
               <h2 className="text-black text-xl font-bold py-4">Certifications</h2>
               <div className="flex items-center gap-4">
                 <GraduationCap className="w-10 h-10 text-pink-600 flex-shrink-0" />
-                <div className="grid grid-flow-cols w-24 content-center gap-2">
+                <div className="grid grid-cols-2 w-2/3 content-center gap-2">
                   <img src={hs} alt="hs" />
                   <img src={meta} alt="meta" className="w-40"/>
                   <img src={google} alt="google" />
+                  <img src={lin} alt="google" />
                 </div>
               </div>
             </div>
@@ -338,9 +348,9 @@ const DigitalMarketingCourse = () => {
                 <CalendarDays className="w-10 h-10 text-pink-600 flex-shrink-0" />
                 <div>
                   <p className="text-md text-gray-700 font-medium leading-relaxed">
-                      3 Months, Hybrid
+                      2 Months, Hybrid
                   </p>
-                  <p className="text-md text-gray-700 font-medium leading-relaxed border-4 border-pink-500 rounded-sm p-1">
+                  <p className="text-md text-white font-medium leading-relaxed bg-gradient-to-r from-purple-700 to-pink-500 rounded-sm p-1">
                       60 Day 60 Hours
                   </p>
                 </div>
@@ -354,7 +364,7 @@ const DigitalMarketingCourse = () => {
                   <p className="text-md text-gray-700 font-medium leading-relaxed">
                       8:00 - 9:00, Mon-Fri
                   </p>
-                  <p className="text-md text-gray-700 font-medium leading-relaxed border-4 border-pink-500 rounded-sm text-center">
+                  <p className="text-md text-white font-medium leading-relaxed bg-gradient-to-r from-purple-700 to-pink-500 rounded-sm text-center p-1">
                       AM / PM
                   </p>
                 </div>
@@ -368,7 +378,7 @@ const DigitalMarketingCourse = () => {
                   <p className="text-md text-gray-700 font-medium leading-relaxed">
                       <b>₹ 25000</b> / <s>₹ 35000</s>
                   </p>
-                  <p className="text-md text-gray-700 font-medium leading-relaxed border-4 border-pink-500 rounded-sm text-center">
+                  <p className="text-md text-white font-medium leading-relaxed bg-gradient-to-r from-purple-700 to-pink-500 rounded-sm text-center p-1">
                       Limited Offer
                   </p>
                 </div>
@@ -376,14 +386,17 @@ const DigitalMarketingCourse = () => {
             </div>
             
           </div>
-      </div>
+      </section>
 
-      <div className="max-w-6xl mx-auto text-center my-10">
+      <section className="max-w-6xl mx-auto text-center my-10">
         <div className="text-center text-black mb-14">
           <h2 className="text-3xl md:text-4xl font-extrabold relative inline-block">
               AI-Integrated Digital Marketing Course in Jaipur
-              <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
           </h2>
+          <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
+          <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
         <motion.div
           className="grid md:grid-cols-3 gap-6"
@@ -396,7 +409,7 @@ const DigitalMarketingCourse = () => {
             <motion.div
             key={idx}
             variants={cardVariants}
-            className="group flex flex-col items-center p-6 rounded-md shadow-sm border transition-all duration-300 bg-white text-black hover:bg-gray-600 hover:text-white"
+            className="group flex flex-col items-center p-6 rounded-md shadow-sm border transition-all ease-in-out bg-white text-black hover:bg-gradient-to-r from-purple-700 to-pink-500 hover:text-white"
             >
             <div className="flex items-center gap-3 mb-3">
                 <h4 className="font-bold text-md">{item.title}</h4>
@@ -405,9 +418,9 @@ const DigitalMarketingCourse = () => {
             </motion.div>
         ))}
         </motion.div>
-      </div>
+      </section>
 
-      <div className="bg-gray-50 py-8">
+      <section className="bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* Heading */}
@@ -463,19 +476,22 @@ const DigitalMarketingCourse = () => {
           {/* CTA */}
           <div className="text-center mt-14">
             <Link
-              to="/contact"
-              className="inline-block bg-pink-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-pink-700 transition"
+              to="/register"
+              className="inline-block bg-pink-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
             >
               Join the Next Batch
             </Link>
           </div>
           
         </div>
-      </div>
+      </section>
 
-      <div className="px-32 py-10">
-        <div className="my-10">
+      <section className="px-32 py-10">
+        <div className="my-10 text-center">
           <h1 className="text-black text-4xl font-extrabold text-center ">Why Choose Marketing Crawlers?</h1>
+          <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
         <div className="grid gap-10 md:grid-cols-2 py-6">
@@ -499,18 +515,41 @@ const DigitalMarketingCourse = () => {
             variants={cardVariants}
             className="group flex flex-col items-center p-6 rounded-md border transition-all duration-300 text-black hover:border-gray-600 shadow-lg"
             >
-            <div className="flex items-center gap-3 mb-3">
-                <h4 className="font-bold text-md">{item.title}</h4>
+            <div className="justify-center flex flex-wrap gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-pink-500 bg-blue-300 group-hover:bg-white transition-colors duration-300">
+                {item.icon}
+              </div>
+              <h4 className="font-bold text-md text-center">{item.title}</h4>
             </div>
             </motion.div>
         ))}
         </motion.div>
         </div>
-      </div> 
+      </section> 
 
-       <CTA />
+       <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold mb-4"
+        viewport={{ once: true }}
+        variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        }}
+      >
+        Ready to Elevate Your Brand?
+      </motion.h2>
+      <p className="mb-6 max-w-xl mx-auto">
+        Let’s build something impactful together. Talk to our consultants today.
+      </p>
+      <Link
+        to="/contact"
+        className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+      >
+        Let's Connect
+      </Link>
+    </section>
 
-       <div className="bg-white py-20 border-t">
+       <section className="bg-white py-20 border-t">
         <div className="max-w-5xl mx-auto px-6">
 
           {/* Heading */}
@@ -532,7 +571,7 @@ const DigitalMarketingCourse = () => {
           </div>
 
         </div>
-      </div>
+      </section>
     </div>
   );
 };
