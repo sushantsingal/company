@@ -133,17 +133,17 @@ const FAQItem = ({ faq }) => {
   return (
     <motion.div
       initial={false}
-      animate={{ backgroundColor: open ? "#f9fafb" : "#ffffff" }}
+      animate={{}}
       className="border rounded-lg"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center p-5 text-left"
       >
-        <span className="text-lg font-semibold text-white">
+        <span className="text-lg font-semibold">
           {faq.question}
         </span>
-        <span className="text-2xl text-pink-600">
+        <span className="text-2xl">
           {open ? "−" : "+"}
         </span>
       </button>
@@ -157,7 +157,7 @@ const FAQItem = ({ faq }) => {
         transition={{ duration: 0.3 }}
         className="overflow-hidden"
       >
-        <p className="px-5 pb-5 text-gray-700 leading-relaxed">
+        <p className="px-5 pb-5 leading-relaxed">
           {faq.answer}
         </p>
       </motion.div>
@@ -203,7 +203,7 @@ const DigitalMarketingCourse = () => {
       }
     };
   return (
-    <div className="bg-white text-gray-800">
+    <div className="bg-white">
       <div className="bg-gradient-to-r from-purple-700 to-pink-500 p-12 text-center">
         <div className="flex grid-cols-1 lg:grid-cols-2 p-4 gap-8 justify-end">
           <div className="text-white text-left w-full">
