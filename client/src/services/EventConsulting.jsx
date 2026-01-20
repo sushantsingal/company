@@ -299,9 +299,21 @@ const EventConsulting = () => {
             </ul>
             <Link
               to="/contact"
-              className="inline-block bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-500 transition"
+              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
             >
-              Let's Connect
+              <span className="relative z-10 text-white transition-colors duration-300">Let's Connect</span>
+                    <span
+                      className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
             </Link>
           </motion.div>
 
