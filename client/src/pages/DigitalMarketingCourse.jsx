@@ -251,8 +251,8 @@ const DigitalMarketingCourse = () => {
           >
             {submitted ? (
               <div>
-                <h3 className="text-2xl font-semibold text-pink-600 mb-4">Thank You!</h3>
-                <p className="text-gray-700">
+                <h3 className="text-2xl font-semibold text-White mb-4">Thank You!</h3>
+                <p className="text-gray-300">
                   We've received your details. Our team will get in touch with you shortly.
                 </p>
               </div>
