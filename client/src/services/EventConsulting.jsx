@@ -486,7 +486,23 @@ const EventConsulting = () => {
             </motion.div>
         </div>
         <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2">
-          <div></div>
+         <motion.div
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="flex items-end pb-16"
+                >
+                  <div className="max-w-lg text-center md:text-left">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+                      Ready to Plan Your Upcoming Event?
+                    </h2>
+
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Let’s turn your next event into a strategic growth experience. Get a tailored event strategy today!
+                    </p>
+                  </div>
+                </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -591,11 +607,10 @@ const EventConsulting = () => {
                   </motion.button>
                 </form>
               )}
-              </div>
-
             {status?.error && (
               <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
             )}
+              </div>
           </motion.div>
         </div>
       </section>

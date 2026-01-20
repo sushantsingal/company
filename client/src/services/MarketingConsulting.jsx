@@ -333,7 +333,7 @@ const MarketingConsulting = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="h-1/2 overflow-hidden w-full"
+                  className="relative h-1/2 overflow-hidden w-full"
                   >
                     <img
                       src={marketing}
@@ -342,7 +342,23 @@ const MarketingConsulting = () => {
                   </motion.div>
               </div>
               <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2">
-                <div></div>
+                <motion.div
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="flex items-end pb-16"
+                >
+                  <div className="max-w-lg text-center md:text-left">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+                      Bring Clarity to Your Marketing Strategy
+                    </h2>
+
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      We are eager to learn about your aspirations and visions. Feel free to schedule a call with us.
+                    </p>
+                  </div>
+                </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 80 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -447,14 +463,13 @@ const MarketingConsulting = () => {
                         </motion.button>
                       </form>
                     )}
-                    </div>
-      
-                  {status?.error && (
+                    {status?.error && (
                     <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
                   )}
+                    </div>
                 </motion.div>
               </div>
-            </section>
+      </section>
     </div>
   );
 };
