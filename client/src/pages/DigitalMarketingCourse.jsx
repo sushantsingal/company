@@ -140,16 +140,16 @@ const FAQItem = ({ faq }) => {
     <motion.div
       initial={false}
       animate={{}}
-      className="border rounded-lg"
+      className="border rounded-lg bg-gradient-to-r from-purple-700 to-pink-600"
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center p-5 text-left"
+        className="w-full flex justify-between items-center p-5 text-left bg-white"
       >
-        <span className="text-lg font-semibold">
+        <span className="text-lg font-semibold text-black">
           {faq.question}
         </span>
-        <span className="text-2xl">
+        <span className="text-2xl text-black">
           {open ? "−" : "+"}
         </span>
       </button>
@@ -163,7 +163,7 @@ const FAQItem = ({ faq }) => {
         transition={{ duration: 0.3 }}
         className="overflow-hidden"
       >
-        <p className="px-5 pb-5 leading-relaxed text-black">
+        <p className="px-5 py-5 leading-relaxed text-white">
           {faq.answer}
         </p>
       </motion.div>
@@ -191,7 +191,7 @@ const DigitalMarketingCourse = () => {
       setStatus(null);
   
       try {
-        const res = await fetch(`/api/registers`, {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/registers`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -210,7 +210,7 @@ const DigitalMarketingCourse = () => {
     };
   return (
     <div className="bg-white">
-      <div className="bg-gradient-to-r from-purple-700 to-pink-500 p-12 text-center">
+      <section className="bg-gradient-to-r from-purple-700 to-pink-500 p-12 text-center">
         <div className="flex grid-cols-1 lg:grid-cols-2 p-4 gap-8 justify-end">
           <div className="text-white text-left">
             <h1 className="text-6xl font-bold py-4">Join The Best Digital Marketing Course In Jaipur</h1>
@@ -319,7 +319,7 @@ const DigitalMarketingCourse = () => {
             )}
           </motion.div>
         </div>
-      </div>
+      </section>
 
       <section className="pt-6 px-4 md:px-20 bg-gray-50 p-4">
         <div className="mb-8 text-center">
