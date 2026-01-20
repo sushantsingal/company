@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
+import logo from "../assets/logo1.png";
 import indiaFlag from "../assets/flags/india.jpg";
 import philippinesFlag from "../assets/flags/philippines.webp";
 import usaFlag from "../assets/flags/usa.png";
@@ -49,9 +50,9 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent"
+          className="px-12 bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent"
         >
-          Marketing Crawlers
+          <img className="h-8" src={logo} alt="logo"/>
         </Link>
 
         {/* Desktop Navigation */}
@@ -127,7 +128,7 @@ const Navbar = () => {
               key={idx}
               src={flag}
               alt="Country Flag"
-              className="w-5 h-3 rounded-sm object-cover border"
+              className="w-7 h-5 rounded-sm object-cover border"
               title="Office"
             />
           ))}
