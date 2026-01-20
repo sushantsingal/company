@@ -1,14 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {useRef, useEffect, useState} from "react";
 import CTA from "../components/CTA";
 import event from "../assets/event-consulting.jpg";
+import laravel from "../assets/Web/laravel.png";
+import python from "../assets/Web/python.png";
+import react from "../assets/Web/react.png";
+import javascript from "../assets/Web/javascript.png";
+import php from "../assets/Web/php.png";
+import dotnet from "../assets/Web/dotnet.png";
+import node from "../assets/Web/node.png";
 import {
   Lightbulb,
   Truck,
   Users,
   CalendarCheck,
   BarChart3,
-  Palette
+  Palette,
 } from "lucide-react";
 
 
@@ -23,26 +31,113 @@ const fadeUp = {
 
 const steps = [
   {
-    title: "Initial Consultation",
+    title: "Strategic Planning",
     number: "1",
+    desc: "Goal-driven planning aligned with your brand vision, audience expectations, and business objectives."
   },
   {
-    title: "Custom Strategy Development",
+    title: "Partner & Technology Coordination",
     number: "2",
+    desc: "Seamless coordination across vendors, platforms, and event technologies, ensuring smooth execution without complexity."
   },
   {
-    title: "Collaborative Solution Design",
+    title: "Audience Engagement",
     number: "3",
+    desc: "Interactive experiences, intelligent content, and engagement touchpoints designed to keep audiences involved and invested."
   },
   {
-    title: "Implementation & Real-Time Support",
+    title: "On-Ground Management",
     number: "4",
+    desc: "From pre-event setup to live execution and wrap-up, we handle every detail so you can focus on relationships and visibility."
   },
   {
-    title: "Post-Event Review & Feedback",
+    title: "Post-Event Performance Analysis",
     number: "5",
+    desc: "Clear reports, engagement insights, and ROI metrics that show what worked—and how to scale it next time."
+  },
+  {
+    title: "Consistent Brand Integration",
+    number: "6",
+    desc: "Your brand identity is thoughtfully embedded across every touchpoint, creating a cohesive and memorable experience."
   },
 ];
+
+const categories = [
+  { icon: php, label: "PHP" },
+  { icon: react, label: "React.js" },
+  { icon: node, label: "Node.js" },
+  { icon: dotnet, label: ".Net" },
+  { icon: python, label: "Python" },
+  { icon: javascript, label: "JavaScript" },
+  { icon: laravel, label: "Laravel" },
+];
+
+const grow = [
+  {
+    title: "Strategic Planning",
+    desc: "We analyze your event goals to craft a strategy that aligns with your brand and target audience.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Vendor Coordination",
+    desc: "Leverage our network of trusted vendors for logistics, tech, venue, and more.",
+    icon: Truck,
+  },
+  {
+    title: "Audience Engagement",
+    desc: "We design interactive experiences and creative content to keep your audience hooked.",
+    icon: Users,
+  },
+  {
+    title: "On-Ground Management",
+    desc: "From setup to teardown, we manage everything so you can focus on networking and visibility.",
+    icon: CalendarCheck,
+  },
+  {
+    title: "Post-Event Analysis",
+    desc: "Get detailed insights and reports on performance, attendee feedback, and ROI.",
+    icon: BarChart3,
+  },
+  {
+    title: "Custom Branding",
+    desc: "We ensure your brand identity is seamlessly integrated across all event touchpoints.",
+    icon: Palette,
+  },
+];
+
+const faqs = [
+  {
+    question: "Who can join this digital marketing course?",
+    answer:
+      "This course is ideal for students, fresh graduates, working professionals, entrepreneurs, and business owners who want to build practical digital marketing skills."
+  },
+  {
+    question: "Do I need prior marketing experience?",
+    answer:
+      "No prior experience is required. The course starts from fundamentals and gradually moves to advanced strategies, tools, and live projects."
+  },
+  {
+    question: "Is this course suitable for beginners?",
+    answer:
+      "Yes. The curriculum is designed to support beginners while also offering advanced modules for professionals looking to upskill."
+  },
+  {
+    question: "Will I get a certificate after completion?",
+    answer:
+      "Yes. You will receive industry-recognized certifications along with course completion certificates."
+  },
+  {
+    question: "Does the course provide placement assistance?",
+    answer:
+      "Yes. We provide placement assistance, internship opportunities, freelancing guidance, and career mentorship."
+  },
+  {
+    question: "Is the training online or offline?",
+    answer:
+      "The course is delivered in a hybrid format, combining classroom sessions with online learning resources."
+  },
+];
+
 
 const containerVariant = {
   hidden: {},
@@ -68,39 +163,111 @@ const cardVariant = {
 
 
 const EventConsulting = () => {
+  const techScroll = useRef(null);
+
+  useEffect(() => {
+    const container = techScroll.current;
+    if(!container) return;
+
+    let scrollAmount = 0;
+    const scrollStep = 0.5;
+    const interval = setInterval(() => {
+      if(!container) return;
+
+      scrollAmount += scrollStep;
+      container.scrollLeft += scrollStep;
+
+      if(
+        container.scrollLeft + container.clientWidth >= container.scrollWidth
+      ) {
+        container.scrollLeft = 0;
+        scrollAmount = 0;
+      }
+    }, 20);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const FAQItem = ({ faq }) => {
+    const [open, setOpen] = useState(false);
+  
+    return (
+      <motion.div
+        initial={false}
+        animate={{}}
+        className="border rounded-lg bg-gradient-to-r from-purple-700 to-pink-600"
+      >
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-full flex justify-between items-center p-5 text-left bg-white"
+        >
+          <span className="text-lg font-semibold text-black">
+            {faq.question}
+          </span>
+          <span className="text-2xl text-black">
+            {open ? "−" : "+"}
+          </span>
+        </button>
+  
+        <motion.div
+          initial={false}
+          animate={{
+            height: open ? "auto" : 0,
+            opacity: open ? 1 : 0
+          }}
+          transition={{ duration: 0.3 }}
+          className="overflow-hidden"
+        >
+          <p className="px-5 py-5 leading-relaxed text-white">
+            {faq.answer}
+          </p>
+        </motion.div>
+      </motion.div>
+    );
+  };
+
+  const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: ""
+    });
+    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState(null);
+    const [loading, setLoading] = useState(false);
+  
+    const handleChange = (e) =>
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      setStatus(null);
+  
+      try {
+        const res = await fetch(`/api/contacts`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+  
+        const data = await res.json();
+  
+        if (!res.ok) throw new Error(data.error || "Submission failed");
+  
+        setSubmitted(true);
+      } catch (error) {
+        setStatus({ error: true, message: error.message });
+      } finally {
+        setLoading(false);
+      }
+    };
+
   return (
     <div className="text-gray-800">
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-16 text-center px-4">
-        <motion.h1
-          className="text-4xl font-bold mb-4"
-          initial="hidden"
-          animate="visible"
-          viewport={{ once: true }}
-          variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-          }}
-        >
-          Event Consulting
-        </motion.h1>
-        <motion.p
-          className="max-w-3xl mx-auto text-lg"
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          viewport={{ once: true }}
-          variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-          }}
-        >
-          Maximize your event’s impact with tailored strategies, expert planning, and seamless execution.
-        </motion.p>
-      </section>
-
-      {/* Graphic Description Section */}
-      <section className="bg-gray-50 py-20 px-6 md:px-20">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-purple-700 to-pink-600 text-white py-20 px-6 md:px-20">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           
           {/* Left Content */}
@@ -114,21 +281,25 @@ const EventConsulting = () => {
                   visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
             }}
           >
-            <h2 className="text-3xl font-bold text-gray-800">
-              Event Consulting Services
-            </h2>
-            <p className="text-gray-600">
-              We help brands plan, manage, and execute events that leave lasting impressions. From strategic ideation to flawless execution — our team is with you every step of the way.
+            <h1 className="text-5xl font-bold">
+              Event Consulting
+            </h1>
+            <p className="">
+              We design events that turn experiences into long-term growth.
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
-              <li>Custom Event Strategy & Planning</li>
-              <li>Budget & Vendor Management</li>
-              <li>Creative Design & Marketing Integration</li>
-              <li>On-Ground Execution & Analytics</li>
+            <p className="">
+              We plan events with intelligent designs, data-driven experiences, and  AI technologies. From strategic ideation to flawless execution, they are built to:
+            </p>
+            <ul className="text-md list-disc leading-relaxed mx-10">
+              <li>Engage with audiences</li>
+              <li>Generate insights</li>
+              <li>Drive business outcomes</li>
+              <li>Turn interactions into actionable intelligence</li>
+              <li>Optimize engagement in real-time actions</li>
             </ul>
             <Link
               to="/contact"
-              className="inline-block bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+              className="inline-block bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-500 transition"
             >
               Let's Connect
             </Link>
@@ -155,117 +326,268 @@ const EventConsulting = () => {
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-16 px-6 md:px-20 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Expertise</h2>
-          <p className="text-gray-600">
-            Whether you’re organizing a corporate conference, product launch, or brand activation,
-            our event consulting services are designed to deliver outstanding experiences and measurable success.
-          </p>
+      {/* Image Section */}
+      <section className="py-16 bg-white px-4 sm:px-8 text-gray-800">
+        <div className="max-w-7xl mx-auto text-center">
+          {/* Icon list with scroll */}
+          <motion.div
+            ref={techScroll}
+            className="mt-10 flex item-center gap-10 overflow-x-auto scrollbar-hide px-4"
+            onMouseEnter={() => clearInterval()}
+          >
+            {categories.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col items-center min-w-[250px]"
+              >
+                <img src={item.icon} alt={item.label} className="w-auto h-28 hover:scale-105 transition-transform" />
+                <span className="mt-3 text-sm font-medium">{item.label}</span>
+              </div>
+            ))}
+          </motion.div>
+          
         </div>
       </section>
 
       {/* Steps Section */}
-      <section className="bg-white py-20">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-14 uppercase">
-            How We Address & Resolve Event Consultancy Queries
+            What We Deliver
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
           </h2>
 
           <motion.div
-            className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={containerVariant}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             {steps.map((step, index) => (
-              <div key={index} className="relative flex items-center">
-                
-                {/* Card */}
-                <motion.div
-                  variants={cardVariant}
-                  whileHover={{ y: -6 }}
-                  className="w-56 h-36 bg-gradient-to-br from-pink-600 to-pink-500 
-                            text-white rounded-xl shadow-lg flex flex-col 
-                            items-center justify-center px-6 text-center"
-                >
-                  <div className="w-12 h-12 mb-3 rounded-full bg-white text-pink-600 
-                                  flex items-center justify-center font-bold text-xl">
-                    {step.number}
-                  </div>
+              <motion.div
+                key={index}
+                variants={cardVariant}
+                whileHover={{ y: -6 }}
+                className="bg-white 
+                          text-black rounded-xl shadow-lg p-6 text-center"
+              >
+                <div className="w-10 h-10 mx-auto mb-4 rounded-full bg-pink-600 text-white 
+                                flex items-center justify-center font-bold text-lg">
+                  {step.number}
+                </div>
 
-                  <h3 className="text-lg font-semibold leading-snug">
-                    {step.title}
-                  </h3>
-                </motion.div>
-              </div>
+                <h3 className="text-lg font-semibold mb-2">
+                  {step.title}
+                </h3>
+
+                <p>
+                  {step.desc}
+                </p>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
       {/* Services Grid */}
       <section className="bg-gray-50 py-16 px-6 md:px-20">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Strategic Planning",
-              desc: "We analyze your event goals to craft a strategy that aligns with your brand and target audience.",
-              icon: Lightbulb,
-            },
-            {
-              title: "Vendor Coordination",
-              desc: "Leverage our network of trusted vendors for logistics, tech, venue, and more.",
-              icon: Truck,
-            },
-            {
-              title: "Audience Engagement",
-              desc: "We design interactive experiences and creative content to keep your audience hooked.",
-              icon: Users,
-            },
-            {
-              title: "On-Ground Management",
-              desc: "From setup to teardown, we manage everything so you can focus on networking and visibility.",
-              icon: CalendarCheck,
-            },
-            {
-              title: "Post-Event Analysis",
-              desc: "Get detailed insights and reports on performance, attendee feedback, and ROI.",
-              icon: BarChart3,
-            },
-            {
-              title: "Custom Branding",
-              desc: "We ensure your brand identity is seamlessly integrated across all event touchpoints.",
-              icon: Palette,
-            },
-          ].map((item, i) =>{
-            const Icon = item.icon;
-            return(
-            <motion.div
-              key={i}
-              className="bg-white p-6 rounded-xl shadow hover:shadow-md transition"
-              initial="hidden"
-              whileInView="visible"
-              custom={i + 1}
-              viewport={{ once: true }}
-              variants={{
-                    hidden: { opacity: 0, y: 50 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <Icon className="w-6 h-6 text-pink-600" />
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-              </div>
-              <p className="text-gray-600">{item.desc}</p>
-            </motion.div>
-            );
-          })}
+        <div className="container mx-auto text-center px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-14 uppercase">
+            How We Transform Events into Strategic Growth Frameworks
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+          </h2>
+          
+          <div className="flex flex-col md:flex-row gap-12">
+              <img
+                src= {event}
+                alt="Event Graphic"
+                className="w-1/2"
+              />
+            <div className="flex flex-wrap gap-4">
+              {grow.map((item, i) =>{
+                const Icon = item.icon;
+                return(
+                <motion.div
+                  key={i}
+                  className="bg-white w-full p-6 rounded-xl shadow hover:shadow-md transition"
+                  initial="hidden"
+                  whileInView="visible"
+                  custom={i + 1}
+                  viewport={{ once: true }}
+                  variants={{
+                        hidden: { opacity: 0, y: 50 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                  }}
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <Icon className="w-6 h-6 text-pink-600" />
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                  </div>
+                  <p className="text-gray-600">{item.desc}</p>
+                </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* FAQ Section */}
+      <section className="bg-white py-20 border-t">
+        <div className="max-w-5xl mx-auto px-6">
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+          </div>
+
+          {/* FAQ List */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} faq={faq} />
+            ))}
+          </div>
+
         </div>
       </section>
 
-      <CTA />
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 flex flex-row md:flex-col">
+          <div className="h-1/2 w-full bg-white"></div>
+          <motion.div
+            initial={{ opacity: 0, y: -60}}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="h-1/2 overflow-hidden w-full"
+            >
+              <img
+                src={event}
+                alt="comtact"
+                className="w-full h-full object-cover" />
+            </motion.div>
+        </div>
+        <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2">
+          <div></div>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="flex justify-center md:justify-end"
+          >
+              <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+                <h3 className="text-4xl font-bold text-white mb-6 text-center">
+                  Let’s Start Your Project
+                </h3>
+                {submitted ? (
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
+                    <p className="text-gray-300">
+                      We've received your details. Our team will get in touch with you shortly.
+                    </p>
+                  </div>
+                ) : (
+                <form onSubmit={handleSubmit} className="space-y-5 text-white">
+                  <motion.input
+                    whileFocus={{ scale: 1.02 }}
+                    name="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    pattern="^[A-Za-z\s]{2,50}$"
+                    placeholder="Your Name"
+                    className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                              focus:ring-2 focus:ring-white outline-none"
+                  />
+
+                  <motion.input
+                    whileFocus={{ scale: 1.02 }}
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                    placeholder="Email Address"
+                    className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                              focus:ring-2 focus:ring-white outline-none"
+                  />
+                  <motion.input
+                    whileFocus={{ scale: 1.02 }}
+                    name="phone"
+                    type="text"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    pattern="^[6-9]\d{9}$"
+                    placeholder="Phone Number"
+                    className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                              focus:ring-2 focus:ring-white outline-none"
+                  />
+                  <motion.input
+                    whileFocus={{ scale: 1.02 }}
+                    name="company"
+                    type="text"
+                    required
+                    value={formData.company}
+                    onChange={handleChange}
+                    pattern="[A-Za-z\s]{2,50}$"
+                    placeholder="Company Name"
+                    className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                              focus:ring-2 focus:ring-white outline-none"
+                  />
+
+                  <motion.textarea
+                    name="message"
+                    required
+                    whileFocus={{ scale: 1.02 }}
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about yourself"
+                    className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                              focus:ring-2 focus:ring-white outline-none"
+                  />
+
+                  <motion.button
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
+                    type="submit"
+                    className="relative overflow-hidden w-full bg-pink-700 border border-white rounded-xl font-semibold py-3 group"
+                  >
+                    <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-700">{loading ? "Sending..." : "Submit"}</span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                  </motion.button>
+                </form>
+              )}
+              </div>
+
+            {status?.error && (
+              <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
+            )}
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };

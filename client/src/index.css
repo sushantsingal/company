@@ -58,6 +58,9 @@ button:focus-visible {
   -webkit-text-stroke: 2px rgb(81, 80, 80);
 
 }
+textarea::placeholder, input::placeholder{
+  color: white;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
