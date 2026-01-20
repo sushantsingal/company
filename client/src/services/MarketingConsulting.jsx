@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import CTA from "../components/CTA";
-import Testimonials from "../components/Testimonials";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Counter from "../components/Counter";
 import marketing from "../assets/marketing-consulting.jpg";
-import { BarChart3, Lightbulb, Rocket, SlidersHorizontal } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -13,13 +13,141 @@ const fadeUp = {
   }),
 };
 
+const work = [
+  {
+    title: "Market Research",
+    desc: "We understand goals, challenges, market landscape, and growth ambitions.",
+  },
+  {
+    title: "Strategy Creation",
+    desc: "We analyze data, audience behavior, and competitive signals to uncover opportunities.",
+  },
+  {
+    title: "Execution",
+    desc: "We translate strategy into action, guiding execution across channels, teams, and initiatives to ensure alignment with business objectives.",
+  },
+  {
+    title: "Optimization",
+    desc: "We refine strategies using performance insights, adapt to changing conditions, and optimize for sustained, long-term growth.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Who can join this digital marketing course?",
+    answer:
+      "This course is ideal for students, fresh graduates, working professionals, entrepreneurs, and business owners who want to build practical digital marketing skills."
+  },
+  {
+    question: "Do I need prior marketing experience?",
+    answer:
+      "No prior experience is required. The course starts from fundamentals and gradually moves to advanced strategies, tools, and live projects."
+  },
+  {
+    question: "Is this course suitable for beginners?",
+    answer:
+      "Yes. The curriculum is designed to support beginners while also offering advanced modules for professionals looking to upskill."
+  },
+  {
+    question: "Will I get a certificate after completion?",
+    answer:
+      "Yes. You will receive industry-recognized certifications along with course completion certificates."
+  },
+  {
+    question: "Does the course provide placement assistance?",
+    answer:
+      "Yes. We provide placement assistance, internship opportunities, freelancing guidance, and career mentorship."
+  },
+  {
+    question: "Is the training online or offline?",
+    answer:
+      "The course is delivered in a hybrid format, combining classroom sessions with online learning resources."
+  },
+];
+
 const MarketingConsulting = () => {
+  const FAQItem = ({ faq }) => {
+      const [open, setOpen] = useState(false);
+    
+      return (
+        <motion.div
+          initial={false}
+          animate={{}}
+          className="border rounded-lg bg-gradient-to-r from-purple-700 to-pink-600"
+        >
+          <button
+            onClick={() => setOpen(!open)}
+            className="w-full flex justify-between items-center p-5 text-left bg-white"
+          >
+            <span className="text-lg font-semibold text-black">
+              {faq.question}
+            </span>
+            <span className="text-2xl text-black">
+              {open ? "−" : "+"}
+            </span>
+          </button>
+    
+          <motion.div
+            initial={false}
+            animate={{
+              height: open ? "auto" : 0,
+              opacity: open ? 1 : 0
+            }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <p className="px-5 py-5 leading-relaxed text-white">
+              {faq.answer}
+            </p>
+          </motion.div>
+        </motion.div>
+      );
+    };
+
+    const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: ""
+    });
+    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState(null);
+    const [loading, setLoading] = useState(false);
+  
+    const handleChange = (e) =>
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      setStatus(null);
+  
+      try {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+  
+        const data = await res.json();
+  
+        if (!res.ok) throw new Error(data.error || "Submission failed");
+  
+        setSubmitted(true);
+      } catch (error) {
+        setStatus({ error: true, message: error.message });
+      } finally {
+        setLoading(false);
+      }
+    };
+
   return (
     <div className="text-gray-800">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#2563eb] to-[#db2777] text-white py-20 text-center px-4">
+      <section className="bg-white text-white py-20 text-center px-4">
         <motion.h1
-          className="text-4xl font-bold mb-4"
+          className="text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-pink-600 font-extrabold py-8"
           initial="hidden"
           animate="visible"
           viewport={{ once: true }}
@@ -28,10 +156,10 @@ const MarketingConsulting = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
         >
-          Marketing Consulting
+          Marketing Consulting in the Age of AI
         </motion.h1>
         <motion.p
-          className="text-lg max-w-3xl mx-auto"
+          className="text-2xl text-black font-semibold mx-auto"
           initial="hidden"
           animate="visible"
           custom={1}
@@ -41,13 +169,13 @@ const MarketingConsulting = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
         >
-          Our marketing consultants help you create high-impact strategies that connect with your audience and drive growth.
+          Consultancy for businesses that are ready to think ahead and grow with intelligence.
         </motion.p>
       </section>
 
       {/* Graphic + Description */}
-      <section className="py-6 px-6 md:px-20 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="p-4 md:px-10 bg-white">
+        <div className="w-full grid md:grid-cols-2 gap-2 rounded-3xl shadow-lg items-center bg-gradient-to-r from-blue-700 to-pink-600">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -56,22 +184,80 @@ const MarketingConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
+            className="flex flex-wrap gap-2 p-10 text-left"
           >
-            <h2 className="text-3xl font-bold mb-6">Marketing that Drives Real Results</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Whether it’s performance marketing, branding, or campaign planning, we align our strategies with your goals. Our experts bring together data, creativity, and experience to ensure maximum ROI.
+            <h2 className="text-5xl font-bold text-white mb-6">Where Strategy Meets Intelligent Growth</h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Based in the vibrant city of Jaipur, Rajasthan. <b>Marketing Crawlers</b> is a future-ready growth consulting agency where <b>AI intelligence, human creativity, and data-led storytelling</b> converge to deliver measurable business impact.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              We provide <b>end-to-end marketing consulting</b>, scalable digital growth strategies, and intelligent <b>web and app ecosystems crafted for D2C, B2B, and B2C brands, as well as modern professionals</b> who demand more than just visibility—they demand outcomes.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              We don’t chase trends
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed">
+               We <b>analyze, consult, execute, and optimize to scale.</b>
             </p>
           </motion.div>
-          <motion.img
-            src={marketing}
-            alt="Marketing Strategy"
-            className="rounded-xl shadow-md"
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             variants={{
-                  hidden: { opacity: 0, x: 40 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-          />
+            className="grid grid-cols-2 gap-12 text-white"
+          >
+            <div>
+              <h2 className="text-5xl font-bold">
+                <Counter end={350} />
+              </h2>
+              <p className="mt-2 text-lg font-semibold">Projects Handled</p>
+            </div>
+
+            <div>
+              <h2 className="text-5xl font-bold">
+                <Counter end={55} />
+              </h2>
+              <p className="mt-2 text-lg font-semibold">Team of Professionals</p>
+            </div>
+
+            <div>
+              <h2 className="text-5xl font-bold">
+                <Counter end={500} />
+              </h2>
+              <p className="mt-2 text-lg font-semibold">Video Productions</p>
+            </div>
+
+            <div>
+              <h2 className="text-5xl font-bold">
+                <Counter end={45} />
+              </h2>
+              <p className="mt-2 text-lg font-semibold">Different Sectors</p>
+            </div>
+          </motion.div>
+          <div className="col-span-2 flex justify-center pb-8">
+          <Link
+              to="/contact"
+              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
+            >
+              <span className="relative z-10 text-white transition-colors duration-300 text-3xl">Let's Connect</span>
+                    <span
+                      className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -79,7 +265,7 @@ const MarketingConsulting = () => {
       <section className="bg-gray-50 py-6 px-6 md:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
-            className="text-3xl font-bold mb-12"
+            className="text-5xl font-bold mb-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -88,31 +274,11 @@ const MarketingConsulting = () => {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            Our Consulting Process
+            How We Work
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
           </motion.h2>
           <div className="grid md:grid-cols-4 gap-8 text-left">
-            {[
-              {
-                icon: <BarChart3 className="text-pink-600 w-6 h-6 mb-3" />,
-                title: "Market Research",
-                desc: "In-depth analysis of your industry, competitors, and audience for informed strategies.",
-              },
-              {
-                icon: <Lightbulb className="text-pink-600 w-6 h-6 mb-3" />,
-                title: "Strategy Creation",
-                desc: "We build custom campaigns focused on performance, conversion, and customer journey.",
-              },
-              {
-                icon: <Rocket className="text-pink-600 w-6 h-6 mb-3" />,
-                title: "Execution",
-                desc: "Deploy and monitor marketing campaigns across the right channels for your business.",
-              },
-              {
-                icon: <SlidersHorizontal className="text-pink-600 w-6 h-6 mb-3" />,
-                title: "Optimization",
-                desc: "We refine and scale campaigns based on continuous tracking, analytics, and user behavior.",
-              },
-            ].map((item, i) => (
+            {work.map((item, i) => (
               <motion.div
                 key={i}
                 className="bg-white p-6 rounded-lg shadow hover:shadow-md transition"
@@ -125,7 +291,6 @@ const MarketingConsulting = () => {
                       visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
                 }}
               >
-                <div className="mb-2">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </motion.div>
@@ -134,11 +299,162 @@ const MarketingConsulting = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <Testimonials/>
+      {/* FAQ */}
+      <section className="bg-white py-20 border-t">
+        <div className="max-w-5xl mx-auto px-6">
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+          </div>
+
+          {/* FAQ List */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} faq={faq} />
+            ))}
+          </div>
+
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <CTA />
+      <section className="relative py-24 overflow-hidden">
+              <div className="absolute inset-0 flex flex-row md:flex-col">
+                <div className="h-1/2 w-full bg-white"></div>
+                <motion.div
+                  initial={{ opacity: 0, y: -60}}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="h-1/2 overflow-hidden w-full"
+                  >
+                    <img
+                      src={marketing}
+                      alt="comtact"
+                      className="w-full h-full object-cover" />
+                  </motion.div>
+              </div>
+              <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2">
+                <div></div>
+                <motion.div
+                  initial={{ opacity: 0, y: 80 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="flex justify-center md:justify-end"
+                >
+                    <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+                      <h3 className="text-4xl font-bold text-white mb-6 text-center">
+                        Let’s Start Your Project
+                      </h3>
+                      {submitted ? (
+                        <div>
+                          <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
+                          <p className="text-gray-300">
+                            We've received your details. Our team will get in touch with you shortly.
+                          </p>
+                        </div>
+                      ) : (
+                      <form onSubmit={handleSubmit} className="space-y-5 text-white">
+                        <motion.input
+                          whileFocus={{ scale: 1.02 }}
+                          name="name"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          pattern="^[A-Za-z\s]{2,50}$"
+                          placeholder="Your Name"
+                          className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                    focus:ring-2 focus:ring-white outline-none"
+                        />
+      
+                        <motion.input
+                          whileFocus={{ scale: 1.02 }}
+                          name="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                          placeholder="Email Address"
+                          className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                    focus:ring-2 focus:ring-white outline-none"
+                        />
+                        <motion.input
+                          whileFocus={{ scale: 1.02 }}
+                          name="phone"
+                          type="text"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          pattern="^[6-9]\d{9}$"
+                          placeholder="Phone Number"
+                          className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                    focus:ring-2 focus:ring-white outline-none"
+                        />
+                        <motion.input
+                          whileFocus={{ scale: 1.02 }}
+                          name="company"
+                          type="text"
+                          required
+                          value={formData.company}
+                          onChange={handleChange}
+                          pattern="[A-Za-z\s]{2,50}$"
+                          placeholder="Company Name"
+                          className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                    focus:ring-2 focus:ring-white outline-none"
+                        />
+      
+                        <motion.textarea
+                          name="message"
+                          required
+                          whileFocus={{ scale: 1.02 }}
+                          rows="4"
+                          value={formData.message}
+                          onChange={handleChange}
+                          placeholder="Tell us about yourself"
+                          className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                    focus:ring-2 focus:ring-white outline-none"
+                        />
+      
+                        <motion.button
+                          whileHover={{ scale: 1.04 }}
+                          whileTap={{ scale: 0.96 }}
+                          type="submit"
+                          className="relative overflow-hidden w-full bg-pink-700 border border-white rounded-xl font-semibold py-3 group"
+                        >
+                          <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-700">{loading ? "Sending..." : "Submit"}</span>
+                          <span
+                            className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                      -translate-x-full skew-x-[-18deg]
+                                      group-hover:translate-x-0
+                                      transition-transform duration-1000 ease-in-out"
+                          ></span>
+                          <span
+                            className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                      translate-x-full skew-x-[-18deg]
+                                      group-hover:translate-x-0
+                                      transition-transform duration-1000 ease-in-out"
+                          ></span>
+                        </motion.button>
+                      </form>
+                    )}
+                    </div>
+      
+                  {status?.error && (
+                    <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
+                  )}
+                </motion.div>
+              </div>
+            </section>
     </div>
   );
 };

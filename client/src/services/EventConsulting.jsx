@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useRef, useEffect, useState} from "react";
-import CTA from "../components/CTA";
 import event from "../assets/event-consulting.jpg";
 import laravel from "../assets/Web/laravel.png";
 import python from "../assets/Web/python.png";
