@@ -78,7 +78,7 @@ const Home = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Your 360° Growth Partners or Where Intelligence Meets Growth
+              Your 360° Growth Partners
             </h1>
             <p className="text-gray-700 text-base md:text-lg mb-6">
               We don’t execute marketing. We partner with brands to design future-ready growth beyond tactics.
