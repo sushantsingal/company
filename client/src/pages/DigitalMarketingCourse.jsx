@@ -229,16 +229,40 @@ const DigitalMarketingCourse = () => {
             <div className="flex flex-col md:flex-row gap-4">
               <Link
                 to="/register"
-                className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
+                className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
               >
-                Enroll Now
+                <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Enroll Now</span>
+                <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
               </Link>
 
               <Link
                 to="/digital-marketing-course"
-                className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
+                className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
               >
-                Download Brochure
+                <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Download Brochure</span>
+                <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
               </Link>
             </div>
           </div>
@@ -250,9 +274,9 @@ const DigitalMarketingCourse = () => {
             viewport={{ once: true }}
           >
             {submitted ? (
-              <div>
-                <h3 className="text-2xl font-semibold text-White mb-4">Thank You!</h3>
-                <p className="text-gray-300">
+              <div >
+                <h3 className="text-4xl font-semibold text-white mb-4 text-center">Thank You!</h3>
+                <p className="text-gray-50 text-lg">
                   We've received your details. Our team will get in touch with you shortly.
                 </p>
               </div>
@@ -304,13 +328,27 @@ const DigitalMarketingCourse = () => {
                   required
                 ></input>
                 </div>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
                   type="submit"
                   disabled={loading}
-                  className="text-xl bg-pink-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition"
+                  className="relative overflow-hidden w-full bg-pink-700 border border-white rounded-xl font-semibold py-3 group"
                 >
-                  {loading ? "Sending..." : "Register"}
-                </button>
+                  <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-700">{loading ? "Sending..." : "Register"}</span>
+                  <span
+                    className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                              -translate-x-full skew-x-[-18deg]
+                              group-hover:translate-x-0
+                              transition-transform duration-1000 ease-in-out"
+                  ></span>
+                  <span
+                    className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                              translate-x-full skew-x-[-18deg]
+                              group-hover:translate-x-0
+                              transition-transform duration-1000 ease-in-out"
+                  ></span>
+                </motion.button>
               </form>
             )}
 
@@ -477,9 +515,21 @@ const DigitalMarketingCourse = () => {
           <div className="text-center mt-14">
             <Link
               to="/register"
-              className="inline-block bg-pink-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border bg-pink-600 border-pink-600 font-semibold group"
             >
-              Join the Next Batch
+              <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Join the Next Batch</span>
+                <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
             </Link>
           </div>
           
@@ -543,9 +593,21 @@ const DigitalMarketingCourse = () => {
       </p>
       <Link
         to="/contact"
-        className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+        className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
       >
-        Let's Connect
+        <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Let's Connect</span>
+        <span
+          className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                    -translate-x-full skew-x-[-18deg]
+                    group-hover:translate-x-0
+                    transition-transform duration-1000 ease-in-out"
+        ></span>
+        <span
+          className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                    translate-x-full skew-x-[-18deg]
+                    group-hover:translate-x-0
+                    transition-transform duration-1000 ease-in-out"
+        ></span>
       </Link>
     </section>
 
