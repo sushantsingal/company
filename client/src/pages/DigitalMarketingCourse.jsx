@@ -577,7 +577,7 @@ const DigitalMarketingCourse = () => {
         </div>
       </section> 
 
-       <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
+      <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
       <motion.h2
         className="text-3xl md:text-4xl font-bold mb-4"
         viewport={{ once: true }}
@@ -609,9 +609,9 @@ const DigitalMarketingCourse = () => {
                     transition-transform duration-1000 ease-in-out"
         ></span>
       </Link>
-    </section>
+      </section>
 
-       <section className="bg-white py-20 border-t">
+      <section className="bg-white py-20 border-t">
         <div className="max-w-5xl mx-auto px-6">
 
           {/* Heading */}
@@ -619,9 +619,6 @@ const DigitalMarketingCourse = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold text-black">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 mt-3 text-lg">
-              Everything you need to know before enrolling
-            </p>
             <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
           </div>
 

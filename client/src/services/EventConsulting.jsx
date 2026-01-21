@@ -169,7 +169,7 @@ const EventConsulting = () => {
     if(!container) return;
 
     let scrollAmount = 0;
-    const scrollStep = 0.5;
+    const scrollStep = 1;
     const interval = setInterval(() => {
       if(!container) return;
 
@@ -182,7 +182,7 @@ const EventConsulting = () => {
         container.scrollLeft = 0;
         scrollAmount = 0;
       }
-    }, 20);
+    }, 40);
 
     return () => clearInterval(interval);
   }, []);
@@ -452,9 +452,6 @@ const EventConsulting = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold text-black">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 mt-3 text-lg">
-              Everything you need to know before enrolling
-            </p>
             <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
           </div>
 
