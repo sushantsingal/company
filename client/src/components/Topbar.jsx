@@ -44,7 +44,7 @@ const pages = [
 ];
 
 const Topbar = () => {
-  const [isTop, setIsTop] = useState(true);
+  const [isTop, setVisible] = useState(true);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [lastScrollY, setLastScrollY] = useState(0);
