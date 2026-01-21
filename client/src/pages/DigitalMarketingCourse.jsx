@@ -226,7 +226,7 @@ const DigitalMarketingCourse = () => {
               </ul>
             <p className="text-md font-medium leading-relaxed mb-6">Ready to Launch Your Digital Career?
             </p>
-            <div>
+            <div className="flex flex-col md:flex-row gap-4">
               <Link
                 to="/register"
                 className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 mx-6 rounded-lg hover:bg-blue-50 transition"
@@ -329,7 +329,7 @@ const DigitalMarketingCourse = () => {
             </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
-          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center md:text-left">
             <div className="border-r-0 md:border-r-2">
               <h2 className="text-black text-xl font-bold py-4">Certifications</h2>
               <div className="flex items-center gap-4">
@@ -388,7 +388,7 @@ const DigitalMarketingCourse = () => {
           </div>
       </section>
 
-      <section className="max-w-6xl mx-auto text-center my-10">
+      <section className="max-w-6xl mx-auto text-center my-10 p-4 md-p-0">
         <div className="text-center text-black mb-14">
           <h2 className="text-3xl md:text-4xl font-extrabold relative inline-block">
               AI-Integrated Digital Marketing Course in Jaipur
