@@ -210,13 +210,13 @@ const DigitalMarketingCourse = () => {
     };
   return (
     <div className="bg-white">
-      <section className="bg-gradient-to-r from-purple-700 to-pink-500 p-12 text-center">
-        <div className="flex grid-cols-1 lg:grid-cols-2 p-4 gap-8 justify-end">
-          <div className="text-white text-left">
-            <h1 className="text-6xl font-bold py-4">Join The Best Digital Marketing Course In Jaipur</h1>
+      <section className="bg-gradient-to-r from-purple-700 to-pink-500 py-16 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
+          <div className="text-white text-left ">
+            <h1 className="text-4xl md:text-6xl font-bold py-4">Join The Best Digital Marketing Course In Jaipur</h1>
             <p className="text-lg font-medium leading-relaxed py-4">Real Projects • Expert Mentorship • Gen-AI Powered Marketing</p>
             <p className="text-md leading-relaxed mb-2">
-<b>Marketing Crawlers</b> delivers an AI-powered digital marketing course in Jaipur where learning meets execution. Work on real campaigns, scale brands, and build job-ready skills, all in just 60 days. Our goal-oriented training takes you from fundamentals to advanced execution.
+              <b>Marketing Crawlers</b> delivers an AI-powered digital marketing course in Jaipur where learning meets execution. Work on real campaigns, scale brands, and build job-ready skills, all in just 60 days. Our goal-oriented training takes you from fundamentals to advanced execution.
             </p>
             <ul className="text-md list-disc leading-relaxed mx-10 py-6">
                 <li>Internship & Freelancing Opportunities</li>
@@ -243,7 +243,7 @@ const DigitalMarketingCourse = () => {
             </div>
           </div>
           <motion.div
-            className="border-white border-2 rounded-2xl shadow-xl p-10 w-3/4"
+            className="border-white border-2 rounded-2xl shadow-xl p-4 md:p-10 md:w-3/4"
             initial="hidden"
             whileInView="visible"
             variants={fade}
@@ -329,8 +329,8 @@ const DigitalMarketingCourse = () => {
             </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
-          <div className="grid gap-10 md:grid-cols-4">
-            <div className="border-r-2">
+          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+            <div className="border-r-0 md:border-r-2">
               <h2 className="text-black text-xl font-bold py-4">Certifications</h2>
               <div className="flex items-center gap-4">
                 <GraduationCap className="w-10 h-10 text-pink-600 flex-shrink-0" />
@@ -342,7 +342,7 @@ const DigitalMarketingCourse = () => {
                 </div>
               </div>
             </div>
-            <div className="border-r-2">
+            <div className="border-r-0 md:border-r-2">
               <h2 className="text-black text-xl font-bold py-4">Course Duration</h2>
               <div className="flex items-center gap-6">
                 <CalendarDays className="w-10 h-10 text-pink-600 flex-shrink-0" />
@@ -356,7 +356,7 @@ const DigitalMarketingCourse = () => {
                 </div>
               </div>
             </div>
-            <div className="border-r-2">
+            <div className="border-r-0 md:border-r-2">
               <h2 className="text-black text-xl font-bold py-4">Batch Timings</h2>
               <div className="flex items-center gap-3">
                 <ClockFading className="w-10 h-10 text-pink-600 flex-shrink-0" />
@@ -486,7 +486,7 @@ const DigitalMarketingCourse = () => {
         </div>
       </section>
 
-      <section className="px-32 py-10">
+      <section className="px-4 md:px-16 py-10">
         <div className="my-10 text-center">
           <h1 className="text-black text-4xl font-extrabold text-center ">Why Choose Marketing Crawlers?</h1>
           <p className="text-gray-600 mt-3 text-lg">
@@ -494,7 +494,7 @@ const DigitalMarketingCourse = () => {
             </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
-        <div className="grid gap-10 md:grid-cols-2 py-6">
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
           <div>
               <img
                 src={dm}
