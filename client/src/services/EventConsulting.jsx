@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useRef, useEffect, useState} from "react";
-import event from "../assets/event-consulting.jpg";
-import laravel from "../assets/Web/laravel.png";
-import python from "../assets/Web/python.png";
-import react from "../assets/Web/react.png";
-import javascript from "../assets/Web/javascript.png";
-import php from "../assets/Web/php.png";
-import dotnet from "../assets/Web/dotnet.png";
-import node from "../assets/Web/node.png";
+import cta from "../assets/img/cta1.jpg";
+import event1 from "../assets/img/1.jpg";
+import event2 from "../assets/img/3.jpg";
+import event3 from "../assets/img/14.jpg";
+import event4 from "../assets/img/7.jpg";
+import event5 from "../assets/img/2.jpg";
+import event6 from "../assets/img/4.jpg";
+import event7 from "../assets/img/6.jpg";
+import event8 from "../assets/img/5.jpg";
+import event9 from "../assets/img/13.jpg";
 import {
   Lightbulb,
   Truck,
@@ -62,13 +64,13 @@ const steps = [
 ];
 
 const categories = [
-  { icon: php, label: "PHP" },
-  { icon: react, label: "React.js" },
-  { icon: node, label: "Node.js" },
-  { icon: dotnet, label: ".Net" },
-  { icon: python, label: "Python" },
-  { icon: javascript, label: "JavaScript" },
-  { icon: laravel, label: "Laravel" },
+  { icon: event6},
+  { icon: event2},
+  { icon: event3},
+  { icon: event5},
+  { icon: event7},
+  { icon: event4},
+  { icon: event1},
 ];
 
 const grow = [
@@ -106,34 +108,34 @@ const grow = [
 
 const faqs = [
   {
-    question: "Who can join this digital marketing course?",
+    question: "What types of events do you consult and manage?",
     answer:
-      "This course is ideal for students, fresh graduates, working professionals, entrepreneurs, and business owners who want to build practical digital marketing skills."
+      "We consult and manage corporate events, brand activations, product launches, conferences, exhibitions, community meetups, and experiential marketing events. Whether it’s a high-level strategy or full-scale execution, we tailor our approach to your objectives."
   },
   {
-    question: "Do I need prior marketing experience?",
+    question: "How do you ensure strong audience engagement?",
     answer:
-      "No prior experience is required. The course starts from fundamentals and gradually moves to advanced strategies, tools, and live projects."
+      "We design interactive touchpoints, smart content flows, and real-time engagement mechanisms that keep attendees involved. From live interactions to post-event follow-ups, engagement is intentional and measurable."
   },
   {
-    question: "Is this course suitable for beginners?",
+    question: "How early should we involve you in event planning?",
     answer:
-      "Yes. The curriculum is designed to support beginners while also offering advanced modules for professionals looking to upskill."
+      "Ideally, the earlier the better. Early involvement allows us to align strategy, audience intent, technology, and execution for maximum impact. However, we can also step in at mid or late stages if needed."
   },
   {
-    question: "Will I get a certificate after completion?",
-    answer:
-      "Yes. You will receive industry-recognized certifications along with course completion certificates."
+  question: "What governance and reporting structures do you follow?",
+  answer: [
+    "Defined approval workflows",
+    "Centralized communication",
+    "Timeline and milestone tracking",
+    "Post-event executive reporting",
+    "Ensures transparency, accountability, and leadership confidence"
+    ]
   },
   {
-    question: "Does the course provide placement assistance?",
+    question: "Are your events suitable for tech-savvy audiences?",
     answer:
-      "Yes. We provide placement assistance, internship opportunities, freelancing guidance, and career mentorship."
-  },
-  {
-    question: "Is the training online or offline?",
-    answer:
-      "The course is delivered in a hybrid format, combining classroom sessions with online learning resources."
+      "Yes. We design events for developers, founders, CXOs, product teams, and innovation leaders, ensuring the content, flow, and engagement match their expectations."
   },
 ];
 
@@ -217,9 +219,15 @@ const EventConsulting = () => {
           transition={{ duration: 0.3 }}
           className="overflow-hidden"
         >
-          <p className="px-5 py-5 leading-relaxed text-white">
-            {faq.answer}
-          </p>
+          {Array.isArray(faq.answer) ? (
+            <ul className="list-disc pl-6 space-y-2 text-white px-5 py-5 leading-relaxed">
+              {faq.answer.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-white px-5 py-5 leading-relaxed">{faq.answer}</p>
+          )}
         </motion.div>
       </motion.div>
     );
@@ -328,9 +336,9 @@ const EventConsulting = () => {
             }}
           >
             <img
-              src= {event}
+              src= {event9}
               alt="Event Graphic"
-              className="w-full max-w-md mx-auto"
+              className="w-full max-w-md mx-auto rounded-lg"
             />
           </motion.div>
 
@@ -351,7 +359,7 @@ const EventConsulting = () => {
                 key={idx}
                 className="flex flex-col items-center min-w-[250px]"
               >
-                <img src={item.icon} alt={item.label} className="w-auto h-28 hover:scale-105 transition-transform" />
+                <img src={item.icon} alt={item.label} className="w-auto h-36 hover:scale-105 transition-transform rounded-md" />
                 <span className="mt-3 text-sm font-medium">{item.label}</span>
               </div>
             ))}
@@ -410,7 +418,7 @@ const EventConsulting = () => {
           
           <div className="flex flex-col md:flex-row gap-12">
               <img
-                src= {event}
+                src= {event8}
                 alt="Event Graphic"
                 className="w-1/2"
               />
@@ -477,7 +485,7 @@ const EventConsulting = () => {
             className="h-1/2 overflow-hidden w-full"
             >
               <img
-                src={event}
+                src={cta}
                 alt="comtact"
                 className="w-full h-full object-cover" />
             </motion.div>
@@ -491,11 +499,11 @@ const EventConsulting = () => {
                   className="flex items-end pb-16"
                 >
                   <div className="max-w-lg text-center md:text-left">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
                       Ready to Plan Your Upcoming Event?
                     </h2>
 
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-50 leading-relaxed">
                       Let’s turn your next event into a strategic growth experience. Get a tailored event strategy today!
                     </p>
                   </div>

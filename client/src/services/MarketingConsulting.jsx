@@ -34,34 +34,29 @@ const work = [
 
 const faqs = [
   {
-    question: "Who can join this digital marketing course?",
+    question: "How involved will our internal team need to be?",
     answer:
-      "This course is ideal for students, fresh graduates, working professionals, entrepreneurs, and business owners who want to build practical digital marketing skills."
+      "We work collaboratively. Your team stays informed and aligned, while we provide clarity, direction, and expert guidance—reducing confusion and improving decision-making."
   },
   {
-    question: "Do I need prior marketing experience?",
+    question: "How do we know if we’re ready for marketing consulting?",
     answer:
-      "No prior experience is required. The course starts from fundamentals and gradually moves to advanced strategies, tools, and live projects."
+      "If you’re asking: “What should we focus on next?”, “Why isn’t our marketing delivering results?”, “How do we scale intelligently?” Then you’re ready."
   },
   {
-    question: "Is this course suitable for beginners?",
+    question: "What industries do you work with?",
     answer:
-      "Yes. The curriculum is designed to support beginners while also offering advanced modules for professionals looking to upskill."
+      "We’ve worked across 50+ sectors, including technology, FMCG, healthcare, education, real estate, fashion, startups, and service businesses. Our strategies adapt to the market, not the other way around."
   },
   {
-    question: "Will I get a certificate after completion?",
+    question: "Is your consulting suitable for growing or mid-stage businesses?",
     answer:
-      "Yes. You will receive industry-recognized certifications along with course completion certificates."
+      "Absolutely. Our consulting is designed to be scalable—whether you’re building your foundation, preparing to scale, or optimizing an existing marketing ecosystem."
   },
   {
-    question: "Does the course provide placement assistance?",
+    question: "Why should leadership invest in AI-led marketing consulting now?",
     answer:
-      "Yes. We provide placement assistance, internship opportunities, freelancing guidance, and career mentorship."
-  },
-  {
-    question: "Is the training online or offline?",
-    answer:
-      "The course is delivered in a hybrid format, combining classroom sessions with online learning resources."
+      "Because growth today is no longer driven by intuition alone. AI-led consulting helps leadership reduce uncertainty, improve decision quality, and scale faster using data-backed intelligence—before competitors do."
   },
 ];
 
@@ -455,9 +450,6 @@ const MarketingConsulting = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold text-black">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 mt-3 text-lg">
-              Everything you need to know before enrolling
-            </p>
             <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
           </div>
 

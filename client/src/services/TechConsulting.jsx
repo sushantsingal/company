@@ -56,34 +56,29 @@ const steps = [
 
 const faqs = [
   {
-    question: "Who can join this digital marketing course?",
+    question: "Do you sell or push specific tools or software?",
     answer:
-      "This course is ideal for students, fresh graduates, working professionals, entrepreneurs, and business owners who want to build practical digital marketing skills."
+      "No. We are tool-agnostic. Our recommendations are driven by your business goals, scale plans, and operational needs, not vendor partnerships or software sales."
   },
   {
-    question: "Do I need prior marketing experience?",
+    question: "How does AI fit into your tech consulting approach?",
     answer:
-      "No prior experience is required. The course starts from fundamentals and gradually moves to advanced strategies, tools, and live projects."
+      "AI is used as a decision accelerator, not just automation. We help businesses identify where AI adds real value—whether in workflows, analytics, forecasting, or operations—without overengineering."
   },
   {
-    question: "Is this course suitable for beginners?",
+    question: "What industries do you support with tech consulting?",
     answer:
-      "Yes. The curriculum is designed to support beginners while also offering advanced modules for professionals looking to upskill."
+      "Our experience spans multiple sectors, including startups, D2C, B2B, enterprise services, and tech-enabled businesses. Our approach adapts to your business model—not the industry buzzwords."
   },
   {
-    question: "Will I get a certificate after completion?",
+    question: "What stage of business benefits most from tech consulting?",
     answer:
-      "Yes. You will receive industry-recognized certifications along with course completion certificates."
+      "Tech consulting is valuable at every stage: Early-stage businesses setting foundations. Growing companies preparing to scale. Mature enterprises optimizing efficiency. Organizations adopting AI or automation. If technology decisions feel unclear—you’re at the right stage."
   },
   {
-    question: "Does the course provide placement assistance?",
+    question: "Do you help with security and compliance considerations?",
     answer:
-      "Yes. We provide placement assistance, internship opportunities, freelancing guidance, and career mentorship."
-  },
-  {
-    question: "Is the training online or offline?",
-    answer:
-      "The course is delivered in a hybrid format, combining classroom sessions with online learning resources."
+      "Yes. Security, data protection, and compliance are built into architecture planning and technology recommendations, especially for cloud and AI solutions."
   },
 ];
 
