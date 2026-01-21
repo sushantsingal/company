@@ -17,7 +17,7 @@ const Layout = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="custom-scroll">
+    <div className="custom-scroll pt-[96px] md:pt-[112px]">
       <Outlet />
       {/* Go-to-top Button */}
       {showTopBtn && (
