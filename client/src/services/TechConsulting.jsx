@@ -233,7 +233,14 @@ const TechConsulting = () => {
 
       {/* Center Paragraph Section */}
       <section className="py-6 px-6 md:px-20 bg-white">
-        <div className="max-w-6xl mx-auto flex gap-12 text-center">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 text-left">
+          <div className="w-full">
+            <div className="flex flex-row mb-6">
+              <div className="w-3 h-26 bg-rose-500 mx-auto mr-4"></div>
+              <h2 className="text-5xl font-bold mb-6">Where Technology Becomes a Growth Enabler</h2>
+            </div>
+            <img src={tech} alt="tech" className="w-full max-w-md mx-auto" />
+          </div>
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -242,8 +249,8 @@ const TechConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
+            className="flex flex-col gap-4"
           >
-            <h2 className="text-5xl font-bold mb-6">Where Technology Becomes a Growth Enabler</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
               Technology accelerates your business. It simplifies decisions, scales operations, and unlocks new growth. At Marketing Crawlers, we don’t sell tools. We design technology thinking.
             </p>
@@ -262,6 +269,26 @@ const TechConsulting = () => {
             <p className="text-gray-700 text-lg leading-relaxed text-left">
               So your technology becomes an asset, not a bottleneck.
             </p>
+            <div className="flex justify-center">
+              <Link
+              to="/contact"
+              className="text-center relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-pink-600 bg-pink-600 font-semibold group"
+            >
+              <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Let's Connect</span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                -translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+                    <span
+                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                translate-x-full skew-x-[-18deg]
+                                group-hover:translate-x-0
+                                transition-transform duration-1000 ease-in-out"
+                    ></span>
+          </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -283,7 +310,7 @@ const TechConsulting = () => {
           </motion.h2>
 
           <motion.div
-            className="flex flex-row items-center gap-6 overflow-x-auto no-scrollbar px-2 md:px-6"
+            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4 md:px-6"
             variants={containerVariant}
             initial="hidden"
             whileInView="visible"
@@ -293,7 +320,7 @@ const TechConsulting = () => {
               <motion.div
                 key={index}
                 variants={cardVariant}
-                className="relative flex-shrink-0 w-60 h-48 bg-gradient-to-r from-purple-700 to-pink-600 text-white shadow-md transform -skew-x-12"
+                className="relative flex-shrink-0 w-56 h-44 bg-gradient-to-r from-purple-700 to-pink-600 text-white shadow-md md:-skew-x-12"
               >
                 <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
                   <div className="text-4xl font-bold mb-2">{step.number}</div>
@@ -301,7 +328,7 @@ const TechConsulting = () => {
                 </div>
   
                 {index !== steps.length - 1 && (
-                  <div className="absolute top-1/2 -right-5 transform -translate-y-1/2 border-l-[20px] border-l-pink-600 border-y-[24px] border-y-transparent"></div>
+                  <div className="hidden md:block absolute top-1/2 -right-5 transform -translate-y-1/2 border-l-[20px] border-l-pink-600 border-y-[24px] border-y-transparent"></div>
                 )}
               </motion.div>
             ))}
@@ -354,7 +381,7 @@ const TechConsulting = () => {
 
       {/* CTA Button Section */}
       <section className="bg-gradient-to-r from-purple-700 to-pink-600 text-white py-20 px-6 text-center">
-        <div className="flex items-center gap-20 px-20 justify-evenly">
+        <div className="flex flex-col md:flex-row items-center gap-20 py-6 md:px-20 justify-evenly">
           <div>
             <motion.h2
               className="text-3xl md:text-4xl font-bold mb-4"

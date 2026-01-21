@@ -175,7 +175,7 @@ const MarketingConsulting = () => {
 
       {/* Graphic + Description */}
       <section className="p-4 md:px-10 bg-white">
-        <div className="w-full grid md:grid-cols-2 gap-2 rounded-3xl shadow-lg items-center bg-gradient-to-r from-blue-700 to-pink-600">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 rounded-3xl shadow-lg items-center bg-gradient-to-r from-blue-700 to-pink-600">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -184,7 +184,7 @@ const MarketingConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-            className="flex flex-wrap gap-3 m-10 text-left"
+            className="flex flex-col gap-3 p-6 md:p-10 text-left"
           >
             <h2 className="text-5xl font-bold text-white mb-6">Where Strategy Meets Intelligent Growth</h2>
             <p className="text-white text-md leading-relaxed">
@@ -208,7 +208,7 @@ const MarketingConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-            className="grid grid-cols-2 gap-12 text-white text-center"
+            className="grid grid-cols-2 gap-6 sm:gap-8 text-white text-center p-6 md:p-10"
           >
             <div>
               <h2 className="text-5xl font-bold">
