@@ -78,14 +78,29 @@ const Home = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              We are your <span className="text-pink-600">Growth Partner</span>
+              Your 360° Growth Partners or Where Intelligence Meets Growth
             </h1>
             <p className="text-gray-700 text-base md:text-lg mb-6">
-              From Branding to Performance Marketing, we deliver strategies that convert and grow your business online.
+              We don’t execute marketing. We partner with brands to design future-ready growth beyond tactics.
             </p>
-            <Link to="/contact" className="bg-pink-600 text-white px-6 py-3 rounded-md shadow hover:bg-blue-600 hover:text-white transition">
-              Get a Proposal
-            </Link>
+            <Link
+              to="/contact"
+              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-pink-600 font-semibold group"
+            >
+              <span className="relative z-10 text-pink-600 transition-colors duration-300 group-hover:text-white">Get a Proposal</span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          -translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+          </Link>
           </motion.div>
           <motion.img
             src={hero}
@@ -124,7 +139,7 @@ const Home = () => {
             {partners.map((logo, index) => (
               <div key={index} className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded shadow">
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
+                  src={logo.imageUrl}
                   alt={`partner-${index}`}
                   className="max-h-full max-w-full object-contain"
                 />
@@ -186,11 +201,23 @@ const Home = () => {
               variants={fadeUp}
             >
               <Link
-                to="/about"
-                className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 transition hover:text-white"
-              >
-                About Us
-              </Link>
+              to="/about"
+              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-pink-600 font-semibold group"
+            >
+              <span className="relative z-10 text-pink-600 transition-colors duration-300 group-hover:text-white">About Us</span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          -translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+          </Link>
             </motion.div>
           </motion.div>
           <motion.img
@@ -345,7 +372,7 @@ const Home = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <img src= {`${import.meta.env.VITE_BACKEND_URL}${project.image}`} alt={project.title} className="w-full h-52 object-cover" />
+            <img src= {project.image} alt={project.title} className="w-full h-52 object-cover" />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{project.title}</h3>
             </div>
@@ -358,9 +385,24 @@ const Home = () => {
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}>
-      <Link to="/insights" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
-        View All
-      </Link>
+      <Link
+              to="/insights"
+              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-pink-600 font-semibold group"
+            >
+              <span className="relative z-10 text-pink-600 transition-colors duration-300 group-hover:text-white">View All</span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          -translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+          </Link>
     </motion.div>
   </section>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const CTA = () => {
   return (
-    <section className="bg-pink-600 text-white py-20 px-6 text-center">
+    <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
       <motion.h2
         className="text-3xl md:text-4xl font-bold mb-4"
         viewport={{ once: true }}
@@ -19,11 +19,23 @@ const CTA = () => {
       </p>
       <Link
         to="/contact"
-        className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+        className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
       >
-        Let's Connect
+        <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Let's Connect</span>
+        <span
+          className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                    -translate-x-full skew-x-[-18deg]
+                    group-hover:translate-x-0
+                    transition-transform duration-1000 ease-in-out"
+        ></span>
+        <span
+          className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                    translate-x-full skew-x-[-18deg]
+                    group-hover:translate-x-0
+                    transition-transform duration-1000 ease-in-out"
+        ></span>
       </Link>
-    </section>
+      </section>
   );
 };
 
