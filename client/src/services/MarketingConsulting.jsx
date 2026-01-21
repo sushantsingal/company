@@ -147,7 +147,7 @@ const MarketingConsulting = () => {
       {/* Hero Section */}
       <section className="bg-white text-white py-20 text-center px-4">
         <motion.h1
-          className="text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-pink-600 font-extrabold py-8"
+          className="text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-pink-600 font-extrabold py-10"
           initial="hidden"
           animate="visible"
           viewport={{ once: true }}
@@ -184,19 +184,19 @@ const MarketingConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-            className="flex flex-wrap gap-2 p-10 text-left"
+            className="flex flex-wrap gap-3 m-10 text-left"
           >
             <h2 className="text-5xl font-bold text-white mb-6">Where Strategy Meets Intelligent Growth</h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white text-md leading-relaxed">
               Based in the vibrant city of Jaipur, Rajasthan. <b>Marketing Crawlers</b> is a future-ready growth consulting agency where <b>AI intelligence, human creativity, and data-led storytelling</b> converge to deliver measurable business impact.
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white text-md leading-relaxed">
               We provide <b>end-to-end marketing consulting</b>, scalable digital growth strategies, and intelligent <b>web and app ecosystems crafted for D2C, B2B, and B2C brands, as well as modern professionals</b> who demand more than just visibility—they demand outcomes.
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white text-md leading-relaxed">
               We don’t chase trends
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-white text-md leading-relaxed">
                We <b>analyze, consult, execute, and optimize to scale.</b>
             </p>
           </motion.div>
@@ -208,7 +208,7 @@ const MarketingConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-            className="grid grid-cols-2 gap-12 text-white"
+            className="grid grid-cols-2 gap-12 text-white text-center"
           >
             <div>
               <h2 className="text-5xl font-bold">
@@ -296,31 +296,6 @@ const MarketingConsulting = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="bg-white py-20 border-t">
-        <div className="max-w-5xl mx-auto px-6">
-
-          {/* Heading */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-gray-600 mt-3 text-lg">
-              Everything you need to know before enrolling
-            </p>
-            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
-          </div>
-
-          {/* FAQ List */}
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <FAQItem key={index} faq={faq} />
-            ))}
-          </div>
-
         </div>
       </section>
 
@@ -469,6 +444,31 @@ const MarketingConsulting = () => {
                     </div>
                 </motion.div>
               </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-20 border-t">
+        <div className="max-w-5xl mx-auto px-6">
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Everything you need to know before enrolling
+            </p>
+            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+          </div>
+
+          {/* FAQ List */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} faq={faq} />
+            ))}
+          </div>
+
+        </div>
       </section>
     </div>
   );
