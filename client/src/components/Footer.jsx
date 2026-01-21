@@ -34,11 +34,11 @@ const Footer = () => {
                 Internship Program
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="/partners" className="text-gray-600 hover:text-pink-600">
                 Our Clients
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="/advisors" className="text-gray-600 hover:text-pink-600">
                 Our Advisors
