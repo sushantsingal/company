@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Building2, ShoppingCart } from "lucide-react";
@@ -169,7 +170,6 @@ const categories = [
     { icon: python, label: "Python" },
     { icon: javascript, label: "JavaScript" },
   ]},
-  // Add other categories here...
 ];
 
 
@@ -197,7 +197,7 @@ const WebDev = () => {
     useEffect(() => {
         const fetchLogos = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
+            const res = await axios.get(`/api/partners`);
             setPartners(res.data.generalPartners || []);
         } catch (err) {
             console.error("Failed to fetch partner logos", err);
@@ -248,12 +248,24 @@ const WebDev = () => {
                 </p>
               </div>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-xl">
-                <button
-                  onClick={() => window.location.href = "/contact"}
-                  className="mt-4 md:mt-0 bg-rose-600 hover:bg-rose-700 text-white font-semibold px-6 py-3 rounded-md transition-all duration-300"
-                >
-                  Let’s Connect
-                </button>
+                <Link
+                          to="/contact"
+                          className="relative inline-block overflow-hidden px-6 py-3 rounded-lg border border-pink-600 font-semibold group"
+                        >
+                          <span className="relative z-10 text-pink-600 transition-colors duration-300 text-xl group-hover:text-white">Let's Connect</span>
+                                <span
+                                  className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                            -translate-x-full skew-x-[-18deg]
+                                            group-hover:translate-x-0
+                                            transition-transform duration-1000 ease-in-out"
+                                ></span>
+                                <span
+                                  className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                            translate-x-full skew-x-[-18deg]
+                                            group-hover:translate-x-0
+                                            transition-transform duration-1000 ease-in-out"
+                                ></span>
+                        </Link>
               </div>
             </div>
 
@@ -274,7 +286,7 @@ const WebDev = () => {
             <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-6xl font-extrabold relative inline-block">
                 Our Clients
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+                <div className="w-16 h-1 bg-pink-500 mx-auto mt-4"></div>
                 </h2>
             </div>
 
@@ -306,7 +318,7 @@ const WebDev = () => {
                     {partners.map((logo, index) => (
                     <img
                         key={index}
-                        src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
+                        src={logo.imageUrl}
                         alt={`partner-${index}`}
                         className="h-24 w-24 object-contain transition-transform duration-300 hover:scale-110"
                     />
@@ -323,7 +335,7 @@ const WebDev = () => {
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
               What We Offer
             </h2>
-            <div className="w-16 h-1 bg-rose-600 mx-auto mt-2"></div>
+            <div className="w-16 h-1 bg-pink-600 mx-auto mt-2"></div>
             <p className="mt-4 text-gray-500 text-lg">
               Work with groundbreakers who create top-notch mobile and web apps on time & on budget.
             </p>
@@ -340,8 +352,8 @@ const WebDev = () => {
                   className="flex items-start justify-center space-x-4"
                 >
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center bg-rose-100 rounded-lg">
-                    <Icon className="w-10 h-10 text-rose-600" />
+                  <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center bg-pink-100 rounded-lg">
+                    <Icon className="w-10 h-10 text-pink-600" />
                   </div>
                   {/* Text */}
                   <div>
@@ -361,7 +373,7 @@ const WebDev = () => {
           <div className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
               What We Have
-              <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+              <div className="w-16 h-1 bg-pink-500 mx-auto mt-2"></div>
             </h2>
             <p className="mt-4 text-gray-500 text-xl max-w-3xl mx-auto">
               We’re a team of designers, developers, and marketers who deliver
@@ -373,16 +385,16 @@ const WebDev = () => {
             {services.map(({ title, description, icon: Icon, image, colSpan }, index) => (
               <div
                 key={index}
-                className={` group relative p-6 rounded-2xl overflow-hidden border-2 border-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:border-rose-700 flex items-center`}
+                className={` group relative p-6 rounded-2xl overflow-hidden border-2 border-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:border-pink-700 flex items-center`}
               >
                 {/* Left-to-right background fill */}
-                {/* <div className="absolute inset-0 bg-rose-500 scale-x-100 origin-right group-hover:scale-x-0 transition-transform duration-500 ease-out"></div> */}
+                {/* <div className="absolute inset-0 bg-pink-500 scale-x-100 origin-right group-hover:scale-x-0 transition-transform duration-500 ease-out"></div> */}
 
                 {/* Content (left side) */}
                 <div className="relative z-10 flex flex-col flex-1">
                   <div className="w-32 h-32 mb-4 rounded-full flex items-center justify-center bg-gray-100 group-hover:bg-white transition-colors duration-300">
                     <img src={image} alt={title}/>
-                    {/* <Icon className="w-10 h-10 text-rose-600 transition-colors duration-300" /> */}
+                    {/* <Icon className="w-10 h-10 text-pink-600 transition-colors duration-300" /> */}
                   </div>
                   <h3 className="text-2xl font-semibold mb-2">
                     {title}
@@ -403,7 +415,7 @@ const WebDev = () => {
           <div className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
               Our Process
-              <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+              <div className="w-16 h-1 bg-pink-500 mx-auto mt-2"></div>
             </h2>
             <p className="mt-4 text-gray-500 text-xl max-w-3xl mx-auto">
               Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
@@ -417,7 +429,7 @@ const WebDev = () => {
                 <div key={idx} className="flex items-center gap-8">
                   {/* Step Circle */}
                   <div className="flex flex-col items-center group">
-                    <div className="w-24 h-24 flex items-center justify-center rounded-full border-2 border-gray-300 bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:bg-rose-500">
+                    <div className="w-24 h-24 flex items-center justify-center rounded-full border-2 border-gray-300 bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:bg-gradient-to-r from-purple-700 to-pink-600">
                       <Icon className="w-10 h-10 text-gray-700 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <p className="mt-3 font-semibold text-gray-800">
@@ -443,7 +455,7 @@ const WebDev = () => {
             <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
                   Technologies Expertise
-                  <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+                  <div className="w-16 h-1 bg-pink-500 mx-auto mt-2"></div>
                 </h2>
                 <p className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
                   That Powers Your Digital Success
@@ -458,8 +470,8 @@ const WebDev = () => {
                   onClick={() => setActiveTab(idx)}
                   className={`px-4 py-2 cursor-pointer text-lg font-semibold border-r border-gray-300 last:border-none ${
                     activeTab === idx
-                      ? "text-rose-500 border-b-2 border-rose-500"
-                      : "text-black hover:text-rose-500"
+                      ? "text-pink-500 border-b-2 border-pink-500"
+                      : "text-black hover:text-pink-500"
                   }`}
                 >
                   {cat.name}
@@ -488,19 +500,38 @@ const WebDev = () => {
         </section>
         
         {/* CTA */}
-        <section className="bg-white py-8 px-6 md:px-20 text-center text-gray-800">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Transform Your Business?
-            </h2>
-            <p className="text-gray-700 mb-8 max-w-2xl mx-auto text-lg">
-                Let's build something amazing together. Reach out today and take the first step toward digital success.
-            </p>
-            <button
-                className="bg-gray-600 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-rose-600 hover:scale-105 transition-transform duration-300"
-                onClick={() => window.location.href = "/contact"}
-            >
-                Get In Touch
-            </button>
+        <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+          >
+            Ready to Transform Your Business?
+          </motion.h2>
+          <p className="mb-6 max-w-xl mx-auto">
+            Let's build something amazing together. Reach out today and take the first step toward digital success.
+          </p>
+          <Link
+            to="/contact"
+            className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
+          >
+            <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Let's Connect</span>
+            <span
+              className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                        -translate-x-full skew-x-[-18deg]
+                        group-hover:translate-x-0
+                        transition-transform duration-1000 ease-in-out"
+            ></span>
+            <span
+              className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                        translate-x-full skew-x-[-18deg]
+                        group-hover:translate-x-0
+                        transition-transform duration-1000 ease-in-out"
+            ></span>
+          </Link>
         </section>
     </div>
   );

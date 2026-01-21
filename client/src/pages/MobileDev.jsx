@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Calendar, PhoneCall, ShieldCheck, DollarSign, Headphones, Settings2, } from "lucide-react";
@@ -32,32 +33,32 @@ const cardVariants = {
 
 const offer = [
   {
-    icon: <Ios className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    icon: <Ios className="w-8 h-8 text-pink-600 transition-transform duration-300 hover:scale-110" />,
     title: "iOS App Development",
     desc: "Craft high-performance, intuitive, and elegant apps for iPhone and iPad using the latest iOS frameworks.",
   },
   {
-    icon: <Android className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    icon: <Android className="w-8 h-8 text-pink-600 transition-transform duration-300 hover:scale-110" />,
     title: "Android App Development",
     desc: "Build feature-rich Android applications that run smoothly across all devices, tailored for diverse screen sizes and user needs.",
   },
   {
-    icon: <Embed className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    icon: <Embed className="w-8 h-8 text-pink-600 transition-transform duration-300 hover:scale-110" />,
     title: "Wearables and Embedded Software",
     desc: "Develop smart, responsive apps for wearables and IoT devices with seamless connectivity and real-time performance.",
   },
   {
-    icon: <Native className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    icon: <Native className="w-8 h-8 text-pink-600 transition-transform duration-300 hover:scale-110" />,
     title: "Native Mobile Apps",
     desc: "Fast, responsive apps built specifically for iOS or Android, offering superior user experience and device-level optimization.",
   },
   {
-    icon: <Cross className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    icon: <Cross className="w-8 h-8 text-pink-600 transition-transform duration-300 hover:scale-110" />,
     title: "Cross-Platform Apps",
     desc: "Deliver cost-effective mobile apps that work seamlessly across iOS and Android platforms.",
   },
   {
-    icon: <Progress className="w-8 h-8 text-rose-600 transition-transform duration-300 hover:scale-110" />,
+    icon: <Progress className="w-8 h-8 text-pink-600 transition-transform duration-300 hover:scale-110" />,
     title: "Progressive Web Apps",
     desc: "Combine the power of web and mobile with fast, installable, and offline-capable web apps that boost user engagement and reach.",
   },
@@ -125,32 +126,32 @@ const steps = [
 
 const features = [
   {
-    icon: <Calendar className="w-6 h-6 text-rose-600" />,
+    icon: <Calendar className="w-6 h-6 text-pink-600" />,
     title: "We Think Like Partners",
     desc: "Your success is our priority. We collaborate closely to solve real problems with smart tech.",
   },
   {
-    icon: <PhoneCall className="w-6 h-6 text-rose-600" />,
+    icon: <PhoneCall className="w-6 h-6 text-pink-600" />,
     title: "Weekly Scrum Updates",
     desc: " Stay in the loop with structured weekly calls, updates, and progress reviews.",
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-rose-600" />,
+    icon: <ShieldCheck className="w-6 h-6 text-pink-600" />,
     title: "Quality First, Always",
     desc: "Every line of code is reviewed, tested, and optimized for performance and security.",
   },
   {
-    icon: <DollarSign className="w-6 h-6 text-rose-600" />,
+    icon: <DollarSign className="w-6 h-6 text-pink-600" />,
     title: "On Time. Within Budget",
     desc: "We deliver exactly what you expect, on schedule and with no hidden costs.",
   },
   {
-    icon: <Headphones className="w-6 h-6 text-rose-600" />,
+    icon: <Headphones className="w-6 h-6 text-pink-600" />,
     title: "Scalable Solutions",
     desc: "We don’t just build apps. We build future-proof platforms designed to grow with your business.",
   },
   {
-    icon: <Settings2 className="w-6 h-6 text-rose-600" />,
+    icon: <Settings2 className="w-6 h-6 text-pink-600" />,
     title: "Free Support",
     desc: "Our commitment doesn’t end at launch. We’re here for the long haul with 90 days of free support.",
   },
@@ -179,7 +180,7 @@ const MobileDev = () => {
     useEffect(() => {
         const fetchLogos = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
+            const res = await axios.get(`/api/partners`);
             setPartners(res.data.generalPartners || []);
         } catch (err) {
             console.error("Failed to fetch partner logos", err);
@@ -225,9 +226,24 @@ const MobileDev = () => {
                         </p>
 
                         {/* CTA Button */}
-                        <button onClick={() => window.location.href = "/contact"} className="mt-8 bg-rose-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-rose-600 transition">
-                        Let's Connect
-                        </button>
+                        <Link
+                          to="/contact"
+                          className="mt-8 relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-pink-600 font-semibold group"
+                        >
+                          <span className="relative z-10 text-pink-600 transition-colors duration-300 text-xl group-hover:text-white">Let's Connect</span>
+                                <span
+                                  className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                            -translate-x-full skew-x-[-18deg]
+                                            group-hover:translate-x-0
+                                            transition-transform duration-1000 ease-in-out"
+                                ></span>
+                                <span
+                                  className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                            translate-x-full skew-x-[-18deg]
+                                            group-hover:translate-x-0
+                                            transition-transform duration-1000 ease-in-out"
+                                ></span>
+                        </Link>
                     </div>
                     <img
                         src={phone2}
@@ -243,7 +259,7 @@ const MobileDev = () => {
             <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-6xl font-extrabold relative inline-block">
                 Our Clients
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+                <div className="w-16 h-1 bg-pink-500 mx-auto mt-4"></div>
                 </h2>
             </div>
 
@@ -275,7 +291,7 @@ const MobileDev = () => {
                     {partners.map((logo, index) => (
                     <img
                         key={index}
-                        src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
+                        src={logo.imageUrl}
                         alt={`partner-${index}`}
                         className="h-24 w-24 object-contain transition-transform duration-300 hover:scale-110"
                     />
@@ -292,7 +308,7 @@ const MobileDev = () => {
             <div className="text-center mb-14">
               <h2 className="text-4xl md:text-5xl text-gray-800 font-extrabold relative inline-block">
                 What We Offer
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+                <div className="w-16 h-1 bg-pink-500 mx-auto mt-4"></div>
               </h2>
               <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
                 We offer end-to-end digital solutions to help businesses launch, scale, and succeed with technology.
@@ -326,7 +342,7 @@ const MobileDev = () => {
                       variants={cardVariants}
                       className="flex items-start gap-4 mb-6"
                     >
-                      <div className="bg-rose-100 p-3 rounded-full">
+                      <div className="bg-pink-100 p-3 rounded-full">
                         {item.icon}
                       </div>
                       <div>
@@ -341,10 +357,24 @@ const MobileDev = () => {
 
                 {/* CTA Button */}
                 <div className="mt-6">
-                  <button className="px-6 py-3 bg-rose-500 text-white font-semibold rounded-lg shadow hover:bg-rose-600 transition-all duration-300"
-                  onClick={() => window.location.href = "/contact"}>
-                    Let's Connect
-                  </button>
+                  <Link
+                    to="/contact"
+                    className="mt-8 relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-pink-600 font-semibold group"
+                  >
+                    <span className="relative z-10 text-pink-600 transition-colors duration-300 text-xl group-hover:text-white">Let's Connect</span>
+                          <span
+                            className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                      -translate-x-full skew-x-[-18deg]
+                                      group-hover:translate-x-0
+                                      transition-transform duration-1000 ease-in-out"
+                          ></span>
+                          <span
+                            className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                      translate-x-full skew-x-[-18deg]
+                                      group-hover:translate-x-0
+                                      transition-transform duration-1000 ease-in-out"
+                          ></span>
+                  </Link>
                 </div>
               </motion.div>
             </div>
@@ -357,7 +387,7 @@ const MobileDev = () => {
             <div className="text-center mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
                 What We Have
-                <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+                <div className="w-16 h-1 bg-pink-500 mx-auto mt-4"></div>
                 </h2>
                 <p className="py-4 text-gray-500 text-2xl max-w-full mx-auto">
                 We’re a team of designers, developers, and marketers who deliver
@@ -368,7 +398,7 @@ const MobileDev = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
                 {services.map(({ title, description, icon: Icon }, index) => (
                 <div key={index} className="flex flex-col w-2/3 items-start transition-transform duration-300 hover:scale-110">
-                    <Icon className="w-8 h-8 mb-4 text-rose-600" />
+                    <Icon className="w-8 h-8 mb-4 text-pink-600" />
                     <h3 className="text-lg font-semibold mb-2">{title}</h3>
                     <p className="text-md text-gray-600">{description}</p>
                 </div>
@@ -382,7 +412,7 @@ const MobileDev = () => {
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
               Our Process
-              <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+              <div className="w-16 h-1 bg-pink-500 mx-auto mt-2"></div>
             </h2>
             <p className="mt-4 text-gray-500 text-xl max-w-3xl mx-auto">
               Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
@@ -452,19 +482,19 @@ const MobileDev = () => {
                   >
                     {/* Number on left for odd rows, right for even rows */}
                     {!isEven && (
-                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-rose-500 text-rose-500 font-bold rounded-full flex items-center justify-center z-10">
+                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-pink-500 text-pink-500 font-bold rounded-full flex items-center justify-center z-10">
                         {index + 1}
                       </div>
                     )}
 
                     {/* Content */}
                     <div className="max-w-sm">
-                      <h3 className="text-xl font-bold text-rose-500">{step.title}</h3>
+                      <h3 className="text-xl font-bold text-pink-500">{step.title}</h3>
                       <p className="text-gray-700 mt-2">{step.description}</p>
                     </div>
 
                     {isEven && (
-                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-rose-500 text-rose-500 font-bold rounded-full flex items-center justify-center z-10">
+                      <div className="flex-shrink-0 w-12 h-12 bg-white border-2 border-pink-500 text-pink-500 font-bold rounded-full flex items-center justify-center z-10">
                         {index + 1}
                       </div>
                     )}
@@ -481,7 +511,7 @@ const MobileDev = () => {
                 <div className="text-center text-gray-800 mb-14">
                 <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block">
                     Your Mobile App, In Trusted Hands
-                    <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
+                    <div className="w-16 h-1 bg-pink-500 mx-auto mt-4"></div>
                 </h2>
                 <p className="mt-4 text-gray-500 text-2xl max-w-full mx-auto">
                     We treat your project like our own. As a team of passionate tech experts, we bring not only skill but genuine care to every stage of development.
@@ -502,7 +532,7 @@ const MobileDev = () => {
                     className="group flex flex-col items-center p-6 rounded-md shadow-sm border transition-all duration-300 bg-white text-gray-800 hover:bg-gray-600 hover:text-white"
                     >
                     <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-rose-200 group-hover:bg-white transition-colors duration-300">
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-pink-200 group-hover:bg-white transition-colors duration-300">
                         {item.icon}
                         </div>
                         <h4 className="font-semibold text-md">{item.title}</h4>
@@ -515,19 +545,38 @@ const MobileDev = () => {
         </section>
         
         {/* CTA */}
-        <section className="bg-white py-8 px-6 md:px-20 text-center text-gray-900">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Transform Your Business?
-            </h2>
-            <p className="text-gray-700 mb-8 max-w-2xl mx-auto text-lg">
-                Let's build something amazing together. Reach out today and take the first step toward digital success.
-            </p>
-            <button
-                className="bg-gray-600 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-rose-700 hover:scale-105 transition-transform duration-300"
-                onClick={() => window.location.href = "/contact"}
-            >
-                Get In Touch
-            </button>
+        <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            viewport={{ once: true }}
+            variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+          >
+            Ready to Transform Your Business?
+          </motion.h2>
+          <p className="mb-6 max-w-xl mx-auto">
+            Let's build something amazing together. Reach out today and take the first step toward digital success.
+          </p>
+          <Link
+            to="/contact"
+            className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
+          >
+            <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Let's Connect</span>
+            <span
+              className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                        -translate-x-full skew-x-[-18deg]
+                        group-hover:translate-x-0
+                        transition-transform duration-1000 ease-in-out"
+            ></span>
+            <span
+              className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                        translate-x-full skew-x-[-18deg]
+                        group-hover:translate-x-0
+                        transition-transform duration-1000 ease-in-out"
+            ></span>
+          </Link>
         </section>
     </div>
   );
