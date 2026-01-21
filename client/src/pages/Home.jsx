@@ -188,10 +188,13 @@ const Home = () => {
           <motion.div className="space-y-2" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h1 className="text-3xl md:text-5xl font-bold text-pink-600">Who We Are</h1>
             <p className="text-gray-700 text-base md:text-lg">
-              At <b>Marketing Crawlers</b>, we are passionate digital experts focused on crafting meaningful <b>brand experiences</b>. Our team blends creativity with data to generate results that matter.
+              At <b>Marketing Crawlers</b>, we create brand experiences and engineer how brands are experienced. 
             </p>
             <p className="text-gray-600">
-              From ideation to execution, we specialize in building strategies that help businesses grow across platforms.
+              By combining AI-driven storytelling with strategic creativity, we turn data into direction and execution into scalable growth.
+            </p>
+            <p className="text-gray-600">
+              From ideation to implementation, we design connected growth solutions that evolve with technology and changing consumer behavior.
             </p>
             <motion.div
               className="mt-6 text-center py-16"
@@ -243,7 +246,7 @@ const Home = () => {
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}>
-            Transforming Businesses with Insight, Creativity, and Bold Ideas
+            Transforming Business Visions for What’s Next
           </motion.h1>
           <motion.p
             className="text-gray-600 mb-12 max-w-xl mx-auto text-xl"
@@ -256,17 +259,17 @@ const Home = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            Marketing Crawlers blends strategy, analytics, and innovation to push your brand beyond just ideas and into lasting success.
+           Marketing Crawlers blends creativity and emerging technologies to help brands move beyond ideas and build growth that evolves, adapts, and lasts.
           </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { title: "Advanced Tech Integration", icon: <Cpu size={36} />, desc: "Boost visibility and drive results with strategic SEO." },
-              { title: "Automated Marketing Solutions", icon: <Workflow size={36} />, desc: "Fast, modern websites built to convert visitors." },
-              { title: "Multi-Channel Engagement", icon: <Share2 size={36} />, desc: "Stand out with impactful design and intuitive interfaces." },
-              { title: "Comprehensive Digital Revamp", icon: <RefreshCcw size={36} />, desc: "Captivate your audience with compelling content." },
-              { title: "Complete Engineering Solutions", icon: <GitBranch size={36} />, desc: "Drive ROI with targeted, high-performance campaigns." },
-              { title: "Event & Experiential Marketing", icon: <Megaphone size={36} />, desc: "Tell your story with stunning digital video content." },
+              { title: "Advanced Tech Integration", icon: <Cpu size={36} />, desc: "Blending technology with innovation to build scalable, high-impact, SEO-driven digital strategies." },
+              { title: "Automated Marketing Solutions", icon: <Workflow size={36} />, desc: "Smart automation streamlining campaigns, nurturing leads, and building conversion-focused websites." },
+              { title: "Multi-Channel Engagement", icon: <Share2 size={36} />, desc: "Stand out across channels through impactful design, intuitive interfaces, and seamless user experiences." },
+              { title: "Comprehensive Digital Revamp", icon: <RefreshCcw size={36} />, desc: "Revitalize your online presence with content that engages, inspires, and leaves a lasting impact." },
+              { title: "Complete Engineering Solutions", icon: <GitBranch size={36} />, desc: "End-to-end engineering solutions built to boost ROI, Performance and Campaign efficiency." },
+              { title: "Event & Experiential Marketing", icon: <Megaphone size={36} />, desc: "Captivating events and digital videos powered by storytelling that elevate your brand." },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -293,11 +296,10 @@ const Home = () => {
       <section className="bg-gray-50 py-8 px-6 md:px-20">
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Empowering Businesses with Data, Design & Disruption
+          Helping brands move beyond ideas by turning insight into impact
         </h1>
         <p className="text-gray-500 max-w-3xl mx-auto text-xl">
-          Marketing Crawlers blends strategy, analytics, and innovation to push your brand—
-          beyond just ideas and into lasting success.
+          We design intelligent experiences and growth systems that shape future-ready change.
         </p>
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
@@ -309,8 +311,7 @@ const Home = () => {
             </div>
             <h4 className="text-xl font-semibold text-gray-900 mb-3">Brand-Centric Vision</h4>
             <p className="text-gray-500">
-              From concept to execution, we keep your brand at the center. Our strategies align
-              with your mission and values to establish authentic connections with your audience.
+              From ideas to execution, we place your brand at the core of every decision. Our strategies align with your mission to create relevance and long-term connections with your audience.
             </p>
           </div>
 
@@ -322,8 +323,7 @@ const Home = () => {
             </div>
             <h4 className="text-xl font-semibold text-gray-900 mb-3">Resilient Growth</h4>
             <p className="text-gray-500">
-              Every business deserves consistent and measurable growth. We build strategies that scale,
-              using data-driven insights and disruptive innovation.
+              Every business deserves consistent and measurable growth. We design data-informed, future-ready strategies and deliver consistent progress over time.
             </p>
           </div>
 
@@ -335,8 +335,7 @@ const Home = () => {
             </div>
             <h4 className="text-xl font-semibold text-gray-900 mb-3">The Financial Gain</h4>
             <p className="text-gray-500">
-              We don’t just create marketing strategies—we engineer business growth. Every decision
-              is made to optimize your return on investment.
+              We don’t just create marketing strategies, we engineer business growth. Every decision is guided by intelligence, performance signals to optimize your return on investment.
             </p>
           </div>
         </div>
