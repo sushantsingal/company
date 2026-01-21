@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import tech from "../assets/tech-consulting.jpg";
+import tech from "../assets/tech.jpg";
+import tech1 from "../assets/tech2.png";
+import cta from "../assets/img/cta1.jpg";
 import {
   ServerCog,
   Cloud,
@@ -234,7 +236,7 @@ const TechConsulting = () => {
               <div className="w-3 h-26 bg-rose-500 mx-auto mr-4"></div>
               <h2 className="text-5xl font-bold mb-6">Where Technology Becomes a Growth Enabler</h2>
             </div>
-            <img src={tech} alt="tech" className="w-full max-w-md mx-auto" />
+            <img src={tech1} alt="tech" className="w-full max-w-md mx-auto" />
           </div>
           <motion.div
             initial="hidden"
@@ -442,16 +444,16 @@ const TechConsulting = () => {
       {/* CTA Form Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 flex flex-row md:flex-col">
-          <div className="h-1/2 w-full bg-white"></div>
+          <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
           <motion.div
             initial={{ opacity: 0, y: -60}}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative h-1/2 overflow-hidden w-full"
+            className="relative h-screen md:h-1/2 overflow-hidden w-full"
             >
               <img
-                src={tech}
+                src={cta}
                 alt="comtact"
                 className="w-full h-full object-cover" />
             </motion.div>
@@ -465,10 +467,10 @@ const TechConsulting = () => {
             className="flex items-end pb-16"
           >
             <div className="max-w-lg text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
                 Bring Clarity to Your Marketing Strategy
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-50 leading-relaxed">
                 We are eager to learn about your aspirations and visions. Feel free to schedule a call with us.
               </p>
             </div>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Counter from "../components/Counter";
-import marketing from "../assets/marketing-consulting.jpg";
+import cta from "../assets/img/cta1.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -297,16 +297,16 @@ const MarketingConsulting = () => {
       {/* CTA Section */}
       <section className="relative py-24 overflow-hidden">
               <div className="absolute inset-0 flex flex-row md:flex-col">
-                <div className="h-1/2 w-full bg-white"></div>
+                <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
                 <motion.div
                   initial={{ opacity: 0, y: -60}}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="relative h-1/2 overflow-hidden w-full"
+                  className="relative h-full md:h-1/2 overflow-hidden w-full"
                   >
                     <img
-                      src={marketing}
+                      src={cta}
                       alt="comtact"
                       className="w-full h-full object-cover" />
                   </motion.div>
@@ -320,11 +320,11 @@ const MarketingConsulting = () => {
                   className="flex items-end pb-16"
                 >
                   <div className="max-w-lg text-center md:text-left">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
                       Bring Clarity to Your Marketing Strategy
                     </h2>
 
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-50 leading-relaxed">
                       We are eager to learn about your aspirations and visions. Feel free to schedule a call with us.
                     </p>
                   </div>

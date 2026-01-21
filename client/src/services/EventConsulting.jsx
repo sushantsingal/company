@@ -4,13 +4,13 @@ import {useRef, useEffect, useState} from "react";
 import cta from "../assets/img/cta1.jpg";
 import event1 from "../assets/img/1.jpg";
 import event2 from "../assets/img/3.jpg";
-import event3 from "../assets/img/14.jpg";
+import event3 from "../assets/img/13.jpg";
 import event4 from "../assets/img/7.jpg";
 import event5 from "../assets/img/2.jpg";
 import event6 from "../assets/img/4.jpg";
 import event7 from "../assets/img/6.jpg";
 import event8 from "../assets/img/5.jpg";
-import event9 from "../assets/img/13.jpg";
+import event9 from "../assets/img/14.jpg";
 import {
   Lightbulb,
   Truck,
@@ -476,13 +476,13 @@ const EventConsulting = () => {
       {/* CTA Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 flex flex-row md:flex-col">
-          <div className="h-1/2 w-full bg-white"></div>
+          <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
           <motion.div
             initial={{ opacity: 0, y: -60}}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="h-1/2 overflow-hidden w-full"
+            className="relative h-screen md:h-1/2 overflow-hidden w-full"
             >
               <img
                 src={cta}

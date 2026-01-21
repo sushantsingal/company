@@ -47,15 +47,24 @@ const Topbar = () => {
   const [isTop, setIsTop] = useState(true);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsTop(window.scrollY < 50);
+     const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setVisible(false); // scrolling down
+      } else {
+        setVisible(true); // scrolling up
+      }
+
+      setLastScrollY(currentScrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -73,7 +82,7 @@ const Topbar = () => {
 
   return (
     <div className="hidden md:block">
-      <div className={`w-full bg-white border-b border-gray-300 text-sm text-gray-600 shadow-sm z-50 transition-all duration-300 ${isTop ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+      <div className={`w-full bg-white border-b border-gray-300 text-sm text-gray-600 shadow-sm transition-all duration-300 overflow-hidden ${isTop ? "opacity-100 max-h-12" : "max-h-0 opacity-0 pointer-events-none"}`}>
         <div className="max-w-7xl mx-auto px-4 py-1 flex justify-between items-center relative">
           {/* Left: Contact Info */}
           <div className="flex items-center gap-4">

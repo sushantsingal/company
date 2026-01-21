@@ -1,8 +1,7 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import Topbar from "./components/Topbar";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import Loader from "./components/LoadingScreen";
@@ -69,8 +68,7 @@ function App() {
       {loading && <Loader />} {/* Loading screen overlay */}
       {!loading && (
         <>
-          <Topbar />
-          <Navbar />
+          <Header />
           <Routes>
             {/* Admin Routes */}
             <Route path="/admin/login" element={<AdminLogin setAuth={setIsAuthenticated} />} />

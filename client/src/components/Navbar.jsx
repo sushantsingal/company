@@ -16,21 +16,6 @@ const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const navAnimationClass = `transition-transform duration-300 ${
-    showNavbar ? "translate-y-0" : "-translate-y-full"
-  }`;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 50);
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   const navLinkClass = ({ isActive }) =>
     `relative pb-1 font-medium capitalize transition duration-300
      ${isActive ? "text-blue-600" : "text-gray-700 hover:text-pink-600"}
@@ -45,7 +30,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className={`bg-white shadow sticky top-0 z-50 transform ${navAnimationClass}`}>
+    <header className={"bg-white shadow"}>
       <div className="max-w-7xl mx-auto py-4 flex justify-between items-center">
         {/* Logo */}
         <Link
