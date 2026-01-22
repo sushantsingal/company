@@ -47,12 +47,16 @@ const steps = [
     number: "2",
   },
   {
-    title: "Strategy Implementation Guidance",
+    title: "Risk, Feasibility & ROI Assessment",
     number: "3",
   },
   {
-    title: "Continuous Optimization & Advisory",
+    title: "Strategy Implementation Guidance",
     number: "4",
+  },
+  {
+    title: "Continuous Optimization & Advisory",
+    number: "5",
   },
 ];
 
@@ -291,8 +295,8 @@ const TechConsulting = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-6 px-6 md:px-32 bg-gray-50">
-        <div className="max-w-8xl text-center">
+      <section className="py-6 px-6 md:px-16 bg-gray-50">
+        <div className="max-w-full text-center">
           <motion.h2
             className="text-5xl font-bold mb-8"
             initial="hidden"
@@ -307,7 +311,7 @@ const TechConsulting = () => {
           </motion.h2>
 
           <motion.div
-            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4 md:px-6"
+            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4"
             variants={containerVariant}
             initial="hidden"
             whileInView="visible"
@@ -317,7 +321,7 @@ const TechConsulting = () => {
               <motion.div
                 key={index}
                 variants={cardVariant}
-                className="relative flex-shrink-0 w-56 h-44 bg-gradient-to-r from-purple-700 to-pink-600 text-white shadow-md md:-skew-x-12"
+                className="relative flex-shrink-0 w-52 h-40 bg-gradient-to-r from-purple-700 to-pink-600 text-white shadow-md md:-skew-x-12"
               >
                 <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
                   <div className="text-4xl font-bold mb-2">{step.number}</div>
