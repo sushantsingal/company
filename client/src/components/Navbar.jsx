@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const navLinkClass = ({ isActive }) =>
     `relative pb-1 font-medium capitalize transition duration-300
-     ${isActive ? "text-blue-600" : "text-gray-700 hover:text-pink-600"}
+     ${isActive ? "text-pink-600" : "text-gray-700 hover:text-pink-600"}
      before:absolute before:bottom-0 before:left-0 before:h-[2px]
      before:bg-pink-600 before:transition-all before:duration-300
      before:w-0 hover:before:w-full`;
@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="px-12 bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent"
+          className="px-12 bg-clip-text text-transparent"
         >
           <img className="h-8" src={logo} alt="logo"/>
         </Link>
