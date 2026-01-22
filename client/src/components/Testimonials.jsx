@@ -1,6 +1,10 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import test from "../assets/team5.jpg";
+import test1 from "../assets/img/team1.png";
+import test2 from "../assets/img/team2.png";
+import test3 from "../assets/img/team3.png";
+import test4 from "../assets/img/team4.png";
+import test5 from "../assets/img/team5.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
@@ -10,7 +14,7 @@ const testimonials = [
     title: "Unrivalled",
     feedback:
       "Marketing Crawlers gets startup hustle. Fast strategy, clean execution, real growth. No fluff, only results.",
-    image: test,
+    image: test3,
   },
   {
     name: "Daniel Wright (UK)",
@@ -18,7 +22,7 @@ const testimonials = [
     title: "Indeed the Best!!",
     feedback:
       "They understand tech + marketing perfectly. Smart targeting, strong creatives, and performance that actually scales.",
-    image: test,
+    image: test2,
   },
   {
     name: "Sophia Martinez (Spain)",
@@ -26,7 +30,7 @@ const testimonials = [
     title: "Incredible !!",
     feedback:
       "Our event buzz exploded online. From pre-launch to post-event hype, Marketing Crawlers nailed every touchpoint.",
-    image: test,
+    image: test1,
   },
   {
     name: "Aisha Khan (UAE)",
@@ -34,7 +38,7 @@ const testimonials = [
     title: "Amazing Work",
     feedback:
       "They simplified digital marketing for our institution and boosted enrollments organically and through ads. Super smooth collaboration.",
-    image: test,
+    image: test4,
   },
   {
     name: "Michael Chen (Singapore)",
@@ -42,7 +46,7 @@ const testimonials = [
     title: "Amazing Work",
     feedback:
       "Professional, compliant, and growth-focused. Marketing Crawlers helped us build trust while increasing patient inquiries.",
-    image: test,
+    image: test5,
   },
 ];
 

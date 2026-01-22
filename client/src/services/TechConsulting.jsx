@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import tech from "../assets/tech.jpg";
 import tech1 from "../assets/tech2.png";
-import cta from "../assets/img/cta1.jpg";
+import cta from "../assets/img/cta.jpg";
 import {
   ServerCog,
   Cloud,

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useRef, useEffect, useState} from "react";
-import cta from "../assets/img/cta1.jpg";
+import cta from "../assets/img/cta.jpg";
 import event1 from "../assets/img/1.jpg";
 import event2 from "../assets/img/3.jpg";
 import event3 from "../assets/img/13.jpg";

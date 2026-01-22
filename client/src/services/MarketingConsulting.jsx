@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Counter from "../components/Counter";
-import cta from "../assets/img/cta1.jpg";
+import cta from "../assets/img/cta.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
