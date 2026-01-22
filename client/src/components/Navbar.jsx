@@ -121,11 +121,23 @@ const Navbar = () => {
 
         {/* CTA for Desktop */}
         <Link
-          to="/contact"
-          className="hidden md:inline-block bg-pink-600 text-white px-4 py-2 rounded hover:bg-blue-600 hover:text-white transition"
-        >
-          Get Proposal
-        </Link>
+              to="/contact"
+              className="relative inline-block overflow-hidden px-4 py-2 rounded-xl border border-pink-600 font-semibold group"
+            >
+              <span className="relative z-10 text-pink-600 transition-colors duration-300 group-hover:text-white">Get Proposal</span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          -translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+              <span
+                className="absolute inset-0 bg-pink-600 top-[-25%] left-[-50%] h-[150%] w-[200%]
+                          translate-x-full skew-x-[-18deg]
+                          group-hover:translate-x-0
+                          transition-transform duration-1000 ease-in-out"
+              ></span>
+          </Link>
 
         {/* Mobile Menu Toggle */}
         <button
