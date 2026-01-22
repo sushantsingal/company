@@ -311,7 +311,7 @@ const TechConsulting = () => {
           </motion.h2>
 
           <motion.div
-            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4 md:px-8"
+            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4 md:px-12"
             variants={containerVariant}
             initial="hidden"
             whileInView="visible"
