@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import india from "../assets/flags/india.jpg";
 import philippines from "../assets/flags/philippines.webp";
-import usa from "../assets/flags/usa.png";
-import nepal from "../assets/flags/nepal.png";
-import kenya from "../assets/flags/kenya.png";
-import hongkong from "../assets/flags/hongkong.png";
-import uk from "../assets/flags/uk.avif";
 
 const officeData = [
   {
@@ -31,40 +26,6 @@ const officeData = [
     title: "Philippines Office",
     address: ["34-A General Echavez St.", "Cebu City, Philippines"],
     flag: philippines,
-  },
-  {
-    title: "USA Office",
-    address: ["331 Sorrento Drive, Ballwin", "MO 63021, Missouri, USA"],
-    flag: usa,
-  },
-  {
-    title: "Nepal Office",
-    address: [
-      "Ground Floor, Trade Tower Building",
-      "Thapathali Road, Kathmandu-44600, Nepal",
-    ],
-    flag: nepal,
-  },
-  {
-    title: "Kenya Office",
-    address: [
-      "4th Floor, Laiboni Centre, Lenana Road",
-      "Kilimani, Nairobi, Kenya",
-    ],
-    flag: kenya,
-  },
-  {
-    title: "Hong Kong Office",
-    address: [
-      "RM 1701, 17th Floor, Shui On Centre",
-      "6-8 Harbour Road, Wanchai, Hong Kong",
-    ],
-    flag: hongkong,
-  },
-  {
-    title: "UK Office",
-    address: ["27 Court Farm Avenue, Epsom, Surrey", "England, KT19 0HD"],
-    flag: uk,
   },
 ];
 

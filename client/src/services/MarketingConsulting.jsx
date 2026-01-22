@@ -214,23 +214,23 @@ const MarketingConsulting = () => {
 
             <div>
               <h2 className="text-5xl font-bold">
-                <Counter end={55} />
+                <Counter end={45} />
               </h2>
-              <p className="mt-2 text-lg font-semibold">Team of Professionals</p>
+              <p className="mt-2 text-lg font-semibold">Industries Served</p>
             </div>
 
             <div>
               <h2 className="text-5xl font-bold">
                 <Counter end={500} />
               </h2>
-              <p className="mt-2 text-lg font-semibold">Video Productions</p>
+              <p className="mt-2 text-lg font-semibold">Performance-Driven Stories</p>
             </div>
 
             <div>
               <h2 className="text-5xl font-bold">
-                <Counter end={45} />
+                <Counter end={55} />
               </h2>
-              <p className="mt-2 text-lg font-semibold">Different Sectors</p>
+              <p className="mt-2 text-lg font-semibold">Strategy & Execution Professionals</p>
             </div>
           </motion.div>
           <div className="col-span-2 flex justify-center pb-8">

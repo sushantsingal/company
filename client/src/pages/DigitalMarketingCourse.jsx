@@ -432,7 +432,7 @@ const DigitalMarketingCourse = () => {
               AI-Integrated Digital Marketing Course in Jaipur
           </h2>
           <p className="text-gray-600 mt-3 text-lg">
-              Everything you need to know before enrolling
+              Learn modern marketing powered by AI and automation
             </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>
@@ -540,7 +540,7 @@ const DigitalMarketingCourse = () => {
         <div className="my-10 text-center">
           <h1 className="text-black text-4xl font-extrabold text-center ">Why Choose Marketing Crawlers?</h1>
           <p className="text-gray-600 mt-3 text-lg">
-              Everything you need to know before enrolling
+              Because skills matter more than theory
             </p>
           <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
         </div>

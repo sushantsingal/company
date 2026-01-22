@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import{ChevronLeft, ChevronRight} from "lucide-react";
 import axios from "axios";
 
@@ -14,14 +13,14 @@ const fadeIn = {
 };
 
 const industries = [
-  { title: "FMCG", icon: "🧴", description: "Empowering FMCG brands with agile digital strategies that captivate fast-paced consumer attention." },
-  { title: "Healthcare", icon: "🏥", description: "Building trust and engagement for healthcare providers through ethical and informative campaigns." },
-  { title: "EdTech", icon: "🎓", description: "Accelerating growth for education platforms with scalable and intelligent marketing funnels." },
-  { title: "Fashion & Lifestyle", icon: "👗", description: "Helping fashion brands own the narrative with aesthetic storytelling and influencer synergy." },
-  { title: "Food & Beverages", icon: "🍔", description: "From cafes to cloud kitchens — we cook up engagement, loyalty, and footfall." },
-  { title: "Real Estate", icon: "🏢", description: "Creating immersive digital journeys that turn browsers into serious buyers." },
-  { title: "Startups", icon: "🚀", description: "Fueling startup growth with lean strategies, brand identity, and rapid performance tracking." },
-  { title: "Hospitality", icon: "🏨", description: "Bringing guests to the doorstep with strong digital presence and smart CRM tactics." },
+  { title: "FMCG", icon: "🧴", description: "Driving demand through consumer intelligence, agile digital strategies, and data-led storytelling built for fast-moving markets." },
+  { title: "Healthcare", icon: "🏥", description: "Enabling trust and engagement through ethical communication and patient-first digital experiences." },
+  { title: "EdTech", icon: "🎓", description: "Accelerating education platforms with AI-enabled engagement and performance-focused learner journeys." },
+  { title: "Fashion & Lifestyle", icon: "👗", description: "Helping fashion brands shape culture through aesthetic storytelling, creator ecosystems, and intelligent commerce strategies." },
+  { title: "Food & Beverages", icon: "🍔", description: "From cafés to cloud kitchens, we design digital experiences that drive discovery, loyalty, and footfall." },
+  { title: "Real Estate", icon: "🏢", description: "Creating immersive, intent-driven experiences and virtual walkthroughs that move buyers from exploration to confident decisions." },
+  { title: "Startups", icon: "🚀", description: "Fueling startup growth with lean strategies, strong brand foundations, rapid experimentation, and performance intelligence." },
+  { title: "Hospitality", icon: "🏨", description: "Bringing guests closer through smart CRM-driven engagement and digital strategies that convert interest into bookings." },
 ];
 
 const Industries = () => {
@@ -61,7 +60,7 @@ const Industries = () => {
           animate="visible"
           variants={fadeIn}
         >
-          Industries We Empower
+          Industries We Help Scale
         </motion.h1>
         <motion.p
           className="max-w-2xl mx-auto text-lg md:text-xl font-light"
@@ -70,7 +69,7 @@ const Industries = () => {
           custom={1}
           variants={fadeIn}
         >
-          Tailored strategies that suit your domain, customer expectations, and business ambitions.
+          From startups to enterprises, we deliver domain-specific solutions to align with customer expectations and business ambitions.
         </motion.p>
       </section>
 
@@ -115,7 +114,7 @@ const Industries = () => {
             {partners.map((logo, index) => (
               <div key={index} className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded shadow">
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
+                  src={logo.imageUrl}
                   alt={`partner-${index}`}
                   className="max-h-full max-w-full object-contain"
                 />
@@ -145,9 +144,6 @@ const Industries = () => {
                           hidden: { opacity: 0, y: 50 },
                           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
                     }}>
-          <Link to="/partners" className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 hover:text-white transition">
-            View All
-          </Link>
         </motion.div>
       </section>
     </div>

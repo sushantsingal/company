@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Lightbulb, Layout, Code, BugPlay, Rocket, Building2, ShoppingCart } from "lucide-react";
+import cta from "../assets/img/cta.jpg";
 import phone1 from "../assets/Group 4.png";
 import html from "../assets/Web/html.png";
 import css from "../assets/Web/css.png";
@@ -216,6 +217,44 @@ const WebDev = () => {
 
         return () => clearInterval(interval);
     }, [isHovered, isManual]);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: ""
+      });
+      const [submitted, setSubmitted] = useState(false);
+      const [status, setStatus] = useState(null);
+      const [loading, setLoading] = useState(false);
+    
+      const handleChange = (e) =>
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setStatus(null);
+    
+        try {
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+    
+          const data = await res.json();
+    
+          if (!res.ok) throw new Error(data.error || "Submission failed");
+    
+          setSubmitted(true);
+        } catch (error) {
+          setStatus({ error: true, message: error.message });
+        } finally {
+          setLoading(false);
+        }
+      };
 
   return (
     <div>
@@ -500,38 +539,149 @@ const WebDev = () => {
         </section>
         
         {/* CTA */}
-        <section className="bg-gradient-to-r from-purple-700 to-pink-500 text-white py-20 px-6 text-center">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-4"
-            viewport={{ once: true }}
-            variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-            }}
-          >
-            Ready to Transform Your Business?
-          </motion.h2>
-          <p className="mb-6 max-w-xl mx-auto">
-            Let's build something amazing together. Reach out today and take the first step toward digital success.
-          </p>
-          <Link
-            to="/contact"
-            className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
-          >
-            <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Let's Connect</span>
-            <span
-              className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
-                        -translate-x-full skew-x-[-18deg]
-                        group-hover:translate-x-0
-                        transition-transform duration-1000 ease-in-out"
-            ></span>
-            <span
-              className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
-                        translate-x-full skew-x-[-18deg]
-                        group-hover:translate-x-0
-                        transition-transform duration-1000 ease-in-out"
-            ></span>
-          </Link>
+        <section className="relative py-24 overflow-hidden">
+            <div className="absolute inset-0 flex flex-row md:flex-col">
+              <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
+              <motion.div
+                initial={{ opacity: 0, y: -60}}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="relative h-screen md:h-1/2 overflow-hidden w-full"
+                >
+                  <img
+                    src={cta}
+                    alt="comtact"
+                    className="w-full h-full object-cover" />
+              </motion.div>
+          </div>
+          <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="flex items-end pb-16"
+            >
+              <div className="max-w-lg text-center md:text-left">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                  Design a Smarter, Future-Ready Tech Roadmap
+                </h2>
+                <p className="text-lg text-gray-50 leading-relaxed">
+                  Schedule a call to bring clarity, structure, and direction to your technology strategy.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="flex justify-center md:justify-end"
+            >
+                <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+                  <h3 className="text-4xl font-bold text-white mb-6 text-center">
+                    Let’s Start Your Project
+                  </h3>
+                  {submitted ? (
+                    <div>
+                      <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
+                      <p className="text-gray-300">
+                        We've received your details. Our team will get in touch with you shortly.
+                      </p>
+                    </div>
+                  ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5 text-white">
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      pattern="^[A-Za-z\s]{2,50}$"
+                      placeholder="Your Name"
+                      className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                focus:ring-2 focus:ring-white outline-none"
+                    />
+  
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                      placeholder="Email Address"
+                      className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                focus:ring-2 focus:ring-white outline-none"
+                    />
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
+                      name="phone"
+                      type="text"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      pattern="^[6-9]\d{9}$"
+                      placeholder="Phone Number"
+                      className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                focus:ring-2 focus:ring-white outline-none"
+                    />
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
+                      name="company"
+                      type="text"
+                      required
+                      value={formData.company}
+                      onChange={handleChange}
+                      pattern="[A-Za-z\s]{2,50}$"
+                      placeholder="Company Name"
+                      className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                focus:ring-2 focus:ring-white outline-none"
+                    />
+  
+                    <motion.textarea
+                      name="message"
+                      required
+                      whileFocus={{ scale: 1.02 }}
+                      rows="4"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell us about yourself"
+                      className="w-full border bg-pink-700 border-white rounded-lg px-4 py-3 
+                                focus:ring-2 focus:ring-white outline-none"
+                    />
+  
+                    <motion.button
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      type="submit"
+                      className="relative overflow-hidden w-full bg-pink-700 border border-white rounded-xl font-semibold py-3 group"
+                    >
+                      <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-700">{loading ? "Sending..." : "Submit"}</span>
+                      <span
+                        className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                  -translate-x-full skew-x-[-18deg]
+                                  group-hover:translate-x-0
+                                  transition-transform duration-1000 ease-in-out"
+                      ></span>
+                      <span
+                        className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
+                                  translate-x-full skew-x-[-18deg]
+                                  group-hover:translate-x-0
+                                  transition-transform duration-1000 ease-in-out"
+                      ></span>
+                    </motion.button>
+                  </form>
+                )}
+                {status?.error && (
+                <p className="mt-4 text-red-600 text-sm text-center">{status.message}</p>
+              )}
+                </div>
+            </motion.div>
+          </div>
         </section>
     </div>
   );

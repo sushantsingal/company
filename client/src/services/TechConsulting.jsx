@@ -472,10 +472,10 @@ const TechConsulting = () => {
           >
             <div className="max-w-lg text-center md:text-left">
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                Bring Clarity to Your Marketing Strategy
+                Design a Smarter, Future-Ready Tech Roadmap
               </h2>
               <p className="text-lg text-gray-50 leading-relaxed">
-                We are eager to learn about your aspirations and visions. Feel free to schedule a call with us.
+                Schedule a call to bring clarity, structure, and direction to your technology strategy.
               </p>
             </div>
           </motion.div>

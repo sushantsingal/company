@@ -4,11 +4,6 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../assets/logo1.png";
 import indiaFlag from "../assets/flags/india.jpg";
 import philippinesFlag from "../assets/flags/philippines.webp";
-import usaFlag from "../assets/flags/usa.png";
-import nepalFlag from "../assets/flags/nepal.png";
-import kenyaFlag from "../assets/flags/kenya.png";
-import hongkongFlag from "../assets/flags/hongkong.png";
-import ukFlag from "../assets/flags/uk.avif";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -108,7 +103,7 @@ const Navbar = () => {
 
         {/* Country Flags (Desktop) */}
         <div className="hidden md:flex items-center gap-2">
-          {[indiaFlag, philippinesFlag, usaFlag, nepalFlag, kenyaFlag, hongkongFlag, ukFlag].map((flag, idx) => (
+          {[indiaFlag, philippinesFlag].map((flag, idx) => (
             <img
               key={idx}
               src={flag}

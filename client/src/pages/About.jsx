@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Linkedin, Brain,Users,Layers,Cpu,Handshake,ChevronLeft, ChevronRight } from "lucide-react";
-import team1 from "../assets/team1.jpg";
-import team2 from "../assets/team2.jpg";
-import team4 from "../assets/team4.jpg";
+import team1 from "../assets/team1.jpeg";
+import team2 from "../assets/team2.jpeg";
+import team3 from "../assets/team3.jpeg";
+import team4 from "../assets/team4.jpeg";
 import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
 import { useRef } from "react";
@@ -23,10 +24,49 @@ const teamMembers = [
     {
       name: "Bhanu Priya",
       role: "Digital Marketing Manager",
-      img: team4,
+      img: team3,
       linkedin: "https://www.linkedin.com/in/bhanupriya-singal/",
     },
+    {
+      name: "Divanshu Saini",
+      role: "Growth & Marketing Executive",
+      img: team4,
+      linkedin: "https://www.linkedin.com/in/divanshu-saini-25a106322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
   ];
+
+const why = [
+              {
+                title: "Vision & Intelligent Thinking",
+                desc: "We begin with strategic thinking, AI-driven insight, and creative storytelling to design growth that is purposeful, relevant, and built to perform.",
+                icon: <Brain className="text-pink-600 w-8 h-8 mb-4" />,
+              },
+              {
+                title: "Experience & Growth Perspective",
+                desc: "Our work across diverse industries, platforms, and evolving technologies gives us the perspective to understand what works, what doesn’t, and what’s coming next.",
+                icon: <Users className="text-pink-600 w-8 h-8 mb-4" />,
+              },
+              {
+                title: "Measurable, Scalable Growth",
+                desc: "Results aren’t just numbers, they’re progress. Our approach has delivered scalable impact, clear outcomes, and long-term growth for 100+ brands.",
+                icon: <TrendingUp className="text-pink-600 w-8 h-8 mb-4" />,
+              },
+              {
+                title: "Integrated Growth Capabilities",
+                desc: "We operate across marketing, technology, digital experiences, and events. Bringing everything together into a single connected growth ecosystem.",
+                icon: <Layers className="text-pink-600 w-8 h-8 mb-4" />,
+              },
+              {
+                title: "Technology-Enabled Execution",
+                desc: "We leverage modern technologies, intelligent automation, and performance intelligence to inform decisions, optimize execution, and drive smarter growth.",
+                icon: <Cpu className="text-pink-600 w-8 h-8 mb-4" />,
+              },
+              {
+                title: "Client-Centric Approach",
+                desc: "Your vision leads the way. We collaborate closely, think alongside you, and align every initiative with your goals, because meaningful growth is built together, not outsourced.",
+                icon: <Handshake className="text-pink-600 w-8 h-8 mb-4" />,
+              },
+            ]
 
 const About = () => {
   const scrollRef = useRef(null);
@@ -88,48 +128,9 @@ const About = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
         >
-          We’re a passionate team driving brands forward with strategy, creativity, and technology.
+          We market brands. Architect growth. Frame strategies.
         </motion.p>
       </section>
-
-      {/* Focus Points */}
-      {/* <section className="py-16 px-6 md:px-20 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center">
-          {[{
-              title: "Brand Awareness",
-              desc: "Creating a unique digital identity that your customers remember.",
-              icon: <Lightbulb className="mx-auto h-16 w-16 text-pink-600" />,
-            },
-            {
-              title: "Brand Growth",
-              desc: "Deploying strategies that scale your business across platforms.",
-              icon: <TrendingUp className="mx-auto h-16 w-16 text-blue-600" />,
-            },
-            {
-              title: "Brand Profit",
-              desc: "Focusing on ROI-driven marketing that delivers real results.",
-              icon: <DollarSign className="mx-auto h-16 w-16 text-green-600" />,
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="space-y-4"
-              initial="hidden"
-              whileInView="visible"
-              custom={i + 1}
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
-            >
-              {item.icon}
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="text-gray-600 text-sm">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section> */}
 
       {/* Company Story */}
       <section className="py-10 px-4 md:px-20 bg-gray-50">
@@ -143,18 +144,21 @@ const About = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
+            <h2 className="text-3xl font-bold mb-6">Who Are We ?</h2>
             <p className="text-gray-700 leading-relaxed">
-              We're <b>Marketing Crawlers</b> - your digital growth partners, not just another IT company. 💡
+              <b>Marketing Crawlers</b> is a growth-focused company built for an AI-driven, fast-evolving digital world.
             </p><br></br>
             <p className="text-gray-700 leading-relaxed">
-              From branding that vibes to designs that click,<b> we craft digital experiences that make people stop, scroll, and engage. Our mission? To take your product from just another option → to the brand everyone remembers. </b>With a mix of creativity, tech, and strategy,<b> we build websites, apps, and campaigns that don’t just look good—they perform. Big brands trust us.Startups love us. And audiences? They can’t ignore us.
-            </b></p><br></br>
-            <p className="text-gray-700 leading-relaxed"><b>
-              At Marketing Crawlers, we don’t chase trends. We set them.
-            </b></p><br></br>
+              We don’t operate as a traditional IT or digital firm. We connect with brands to design intelligent digital experiences that blend strategy, creativity, and emerging technology to drive real, measurable growth.
+            </p><br></br>
             <p className="text-gray-700 leading-relaxed">
-              Contact us today to experience the power of ethical and data-driven marketing solutions.
+              From brand identity and experience design to intelligent websites, applications, and performance ecosystems. Our work is engineered to do more than exist online. It is built to learn, adapt, and perform new ideas.
+            </p><br></br>
+            <p className="text-gray-700 leading-relaxed">
+              We help products move from being one of many options to becoming a brand. We don’t chase trends. We analyze data, understand behavior, and transform intelligence into foresight, anticipating what’s next.
+            </p><br></br>
+            <p className="text-gray-700 leading-relaxed">
+              At Marketing Crawlers, growth is powered by intelligence, ethics, and systems designed for long-term impact.
             </p>
           </motion.div>
           <motion.img
@@ -191,7 +195,7 @@ const About = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            Our team consists of creative thinkers, problem solvers, and experienced professionals who bring their best every day to help your brand thrive. From strategic planning to flawless execution, every member plays a key role in our success.
+           Our team is a collective of strategic thinkers and creative minds working together to turn ideas into intelligent execution and vision into measurable growth.
           </motion.p>
 
           <div className="relative">
@@ -225,9 +229,6 @@ const About = () => {
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                         <Linkedin size={40} />
                       </a>
-                      {/* <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
-                        <Instagram size={20} />
-                      </a> */}
                     </div>
                   </div>
                 </motion.div>
@@ -273,7 +274,7 @@ const About = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
               }}
             >
-             Empowering our clients with systems that maximize productivity and performance. We turn complex challenges into scalable, impactful solutions.
+             We turn complex challenges into clear, measurable growth by combining strategy, technology, and intelligence.
             </motion.p>
             {[{ label: "Creative Strategy", value: 90 },
               { label: "Tech Development", value: 80 },
@@ -322,38 +323,7 @@ const About = () => {
             Why Choose Marketing Crawlers?
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-8 text-left">
-            {[
-              {
-                title: "Creative & Strategic",
-                desc: "We combine imaginative storytelling with data-backed strategies to deliver campaigns that resonate and convert.",
-                icon: <Brain className="text-pink-600 w-8 h-8 mb-4" />,
-              },
-              {
-                title: "Experienced Team",
-                desc: "With over a decade of hands-on experience across diverse industries, our team understands what works and what doesn’t—so your brand doesn’t have to learn the hard way.",
-                icon: <Users className="text-pink-600 w-8 h-8 mb-4" />,
-              },
-              {
-                title: "Proven Results",
-                desc: "100+ brands have scaled their business with our performance-driven solutions. We let our track record speak for itself.",
-                icon: <TrendingUp className="text-pink-600 w-8 h-8 mb-4" />,
-              },
-              {
-                title: "Full-Service Capabilities",
-                desc: "From branding and digital marketing to development and automation—we offer end-to-end services to cover your complete growth journey.",
-                icon: <Layers className="text-pink-600 w-8 h-8 mb-4" />,
-              },
-              {
-                title: "Tech-Enabled Execution",
-                desc: "We leverage the latest technologies, automation tools, and performance dashboards to ensure precision and transparency.",
-                icon: <Cpu className="text-pink-600 w-8 h-8 mb-4" />,
-              },
-              {
-                title: "Client-Centric Approach",
-                desc: "Your vision is at the core of what we do. We work closely with you to align strategies with your goals and KPIs.",
-                icon: <Handshake className="text-pink-600 w-8 h-8 mb-4" />,
-              },
-            ].map((item, i) => (
+            {why.map((item, i) => (
               <motion.div
                 key={i}
                 className="bg-white p-6 rounded-lg shadow hover:shadow-md transition"
