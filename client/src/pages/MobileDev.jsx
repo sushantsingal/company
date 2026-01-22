@@ -457,7 +457,7 @@ const MobileDev = () => {
               <path
                 key={i}
                 d={d}
-                stroke="#f43f5e"
+                stroke="#EC4899"
                 strokeWidth="3"
                 strokeLinejoin="round"
                 strokeDasharray="8,8"
