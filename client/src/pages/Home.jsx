@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import hero from "../assets/hero-image.png";
+import hero from "../assets/home.png";
 import about from "../assets/aa.jpg";
 import axios from "axios";
 import { useEffect, useState } from "react";
