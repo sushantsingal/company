@@ -191,7 +191,7 @@ const TechConsulting = () => {
           
           {/* Left Content */}
           <motion.div
-            className="flex-1 space-y-6"
+            className="w-auto space-y-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -210,7 +210,7 @@ const TechConsulting = () => {
 
           {/* Right Image */}
           <motion.div
-            className="flex-1"
+            className="w-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
