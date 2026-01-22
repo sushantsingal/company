@@ -586,10 +586,10 @@ const DigitalMarketingCourse = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        Ready to Elevate Your Brand?
+        Your Path to Career Acceleration Starts Here
       </motion.h2>
       <p className="mb-6 max-w-xl mx-auto">
-        Let’s build something impactful together. Talk to our consultants today.
+        Learn how to think, adapt, and grow in an intelligence-driven ecosystem
       </p>
       <Link
         to="/contact"

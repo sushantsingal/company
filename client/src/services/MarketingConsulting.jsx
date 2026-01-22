@@ -203,7 +203,7 @@ const MarketingConsulting = () => {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-            className="grid grid-cols-2 gap-6 sm:gap-8 text-white text-center p-6 md:p-10"
+            className="hidden md:grid grid-cols-2 gap-6 sm:gap-8 text-white text-center p-6 md:p-10"
           >
             <div>
               <h2 className="text-5xl font-bold">

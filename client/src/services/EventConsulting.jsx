@@ -279,7 +279,7 @@ const EventConsulting = () => {
           
           {/* Left Content */}
           <motion.div
-            className="flex-1 space-y-6"
+            className="w-full space-y-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -326,7 +326,7 @@ const EventConsulting = () => {
 
           {/* Right Image */}
           <motion.div
-            className="flex-1"
+            className="w-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -338,7 +338,7 @@ const EventConsulting = () => {
             <img
               src= {event9}
               alt="Event Graphic"
-              className="w-full max-w-md mx-auto rounded-lg"
+              className="w-full mx-auto rounded-lg"
             />
           </motion.div>
 
@@ -359,7 +359,7 @@ const EventConsulting = () => {
                 key={idx}
                 className="flex flex-col items-center min-w-[250px]"
               >
-                <img src={item.icon} alt={item.label} className="w-auto h-36 hover:scale-105 transition-transform rounded-md" />
+                <img src={item.icon} alt={item.label} className="w-full hover:scale-105 transition-transform rounded-md" />
                 <span className="mt-3 text-sm font-medium">{item.label}</span>
               </div>
             ))}
@@ -420,7 +420,7 @@ const EventConsulting = () => {
               <img
                 src= {event8}
                 alt="Event Graphic"
-                className="w-1/2"
+                className="w-auto md:w-1/2"
               />
             <div className="flex flex-wrap gap-4">
               {grow.map((item, i) =>{
