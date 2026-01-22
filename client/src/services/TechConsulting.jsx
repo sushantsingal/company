@@ -311,7 +311,7 @@ const TechConsulting = () => {
           </motion.h2>
 
           <motion.div
-            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4"
+            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 overflow-x-auto px-4 md:px-8"
             variants={containerVariant}
             initial="hidden"
             whileInView="visible"
@@ -321,7 +321,7 @@ const TechConsulting = () => {
               <motion.div
                 key={index}
                 variants={cardVariant}
-                className="relative flex-shrink-0 w-52 h-40 bg-gradient-to-r from-purple-700 to-pink-600 text-white shadow-md md:-skew-x-12"
+                className="relative flex-shrink-0 w-56 h-44 bg-gradient-to-r from-purple-700 to-pink-600 text-white shadow-md md:-skew-x-12"
               >
                 <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
                   <div className="text-4xl font-bold mb-2">{step.number}</div>
