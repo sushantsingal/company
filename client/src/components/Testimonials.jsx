@@ -71,28 +71,47 @@ export default function Testimonials() {
         </h2>
 
         {/* Navigation Buttons */}
+        {/* Desktop Arrows */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-8 top-1/2 -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full shadow-md z-10"
+          className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full shadow-md z-10"
         >
           <ChevronLeft size={24} />
         </button>
+
         <button
           onClick={() => scroll("right")}
-          className="absolute right-8 top-1/2 -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full shadow-md z-10"
+          className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full shadow-md z-10"
         >
           <ChevronRight size={24} />
         </button>
 
+        {/* Mobile Buttons */}
+        <div className="flex md:hidden justify-center gap-6 my-8">
+          <button
+            onClick={() => scroll("left")}
+            className="bg-pink-600 text-white p-3 rounded-full shadow-md"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <button
+            onClick={() => scroll("right")}
+            className="bg-pink-600 text-white p-3 rounded-full shadow-md"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
+
         {/* Carousel Container (no manual scroll) */}
         <div
           ref={carouselRef}
-          className="flex gap-24 overflow-hidden scroll-smooth px-12 select-none"
+          className="flex gap-6 md:gap-24 overflow-x-auto md:overflow-hidden scroll-smooth px-[calc(50vw-10rem)] md:px-12 snap-x snap-mandatory select-none"
         >
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              className="flex flex-col items-center relative min-w-[20rem] min-h-[22rem]"
+              className="flex flex-col items-center relative min-w-[20rem] min-h-[22rem] snap-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -119,7 +138,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Content Box */}
-                <div className="bg-white -mt-8 pt-16 h-full rounded-lg shadow-lg text-center relative z-0 w-64 ">
+                <div className="bg-white -mt-8 pt-16 h-full rounded-lg shadow-lg text-center relative z-0 w-56 md:w-64 ">
                   <h4 className="font-bold text-lg mb-2 bg-pink-600 text-white">
                     {t.name}
                   </h4>

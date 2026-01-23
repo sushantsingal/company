@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="px-12 bg-clip-text text-transparent"
+          className="px-4 md:px-12 bg-clip-text text-transparent"
         >
           <img className="h-8" src={logo} alt="logo"/>
         </Link>

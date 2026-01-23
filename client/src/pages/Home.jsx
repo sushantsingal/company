@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import hero from "../assets/home.png";
 import about from "../assets/aa.jpg";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import cta from "../assets/img/cta.jpg";
 import Testimonials from "../components/Testimonials";
 import { Link } from "react-router-dom";
@@ -63,7 +63,7 @@ const Home = () => {
       } catch (error) {
         setStatus({ error: true, message: error.message });
       } finally {
-        setLoading(false);
+        setFormLoading(false);
       }
     };
 
@@ -109,16 +109,31 @@ const Home = () => {
     fetchLogos();
   }, []);
 
+  const autoScrollRef = useRef(null);
+
+useEffect(() => {
+  if (!partners.length) return;
+
+  autoScrollRef.current = setInterval(() => {
+    setCurrentIndex((prev) =>
+      prev === partners.length - 1 ? 0 : prev + 1
+    );
+  }, 2000);
+
+  return () => clearInterval(autoScrollRef.current);
+}, [partners]);
+
+
   return (
     <div className="text-black overflow-x-hidden">
       {/* Hero Section */}
-      <section className="py-28 bg-white px-10 md:px-20 flex items-center">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-20 px-4 bg-white sm:px-6 md:px-20 flex items-center">
+        <div className="max-w-full mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-center md:text-left mb-6">
               Your 360° Growth Partners
             </h1>
-            <p className="text-gray-700 text-base md:text-lg mb-6">
+            <p className="text-gray-700 text-base md:text-xl mb-6">
               We don’t execute marketing. We partner with brands to design future-ready growth beyond tactics.
             </p>
             <Link
@@ -157,85 +172,101 @@ const Home = () => {
 
       {/* Partner Carousel */}
       <section className="bg-gray-50 py-10">
-      <div className="text-center mb-10 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-800">Trusted by Leading Brands</h1>
-        <p className="text-gray-600 mt-2 text-sm md:text-lg">
-          We’re proud to partner with some of the most respected organizations in the industry.
-        </p>
-      </div>
-
-      {/* Carousel Container */}
-      <div className="relative">
-        <div className="overflow-x-auto whitespace-nowrap px-4 scrollbar-hide">
-          <div
-            className="inline-flex space-x-6"
-            style={{
-              transform: `translateX(-${currentIndex*140}px)`,
-              transition: "transform 0.5s ease-in-out",
-            }}
-          >
-            {partners.map((logo, index) => (
-              <div key={index} className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded shadow">
-                <img
-                  src={logo.imageUrl}
-                  alt={`partner-${index}`}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="text-center mb-10 px-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
+            Trusted by Leading Brands
+          </h1>
+          <p className="text-gray-600 mt-2 text-sm md:text-lg">
+            We’re proud to partner with some of the most respected organizations.
+          </p>
         </div>
 
-        {/* Previous Button */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-transparent p-2 border-transparent focus:outline-none active:border-transparent"
-        >
-          <ChevronLeft className="w-20 h-20 text-gray-600"/>
-        </button>
+        {/* Buttons – top on mobile, sides on desktop */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="flex justify-center gap-6 mb-6 md:hidden">
+            <button
+              onClick={handlePrev}
+              className="bg-pink-600 text-white p-2 rounded-full shadow"
+            >
+              <ChevronLeft />
+            </button>
+            <button
+              onClick={handleNext}
+              className="bg-pink-600 text-white p-2 rounded-full shadow"
+            >
+              <ChevronRight />
+            </button>
+          </div>
 
-        {/* Next Button */}
-        <button
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-transparent p-2 focus:outline-none active:border-transparent"
-        >
-          <ChevronRight className="w-20 h-20 text-gray-600"/>
-        </button>
-      </div>
+          {/* Carousel */}
+          <div
+            className="overflow-hidden px-4"
+            onMouseEnter={() => clearInterval(autoScrollRef.current)}
+            onMouseLeave={() => {
+              autoScrollRef.current = setInterval(() => {
+                setCurrentIndex((prev) =>
+                  prev === partners.length - 1 ? 0 : prev + 1
+                );
+              }, 2500);
+            }}
+          >
+            <div
+              className="inline-flex space-x-6 transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * 140}px)`,
+              }}
+            >
+              {partners.map((logo, index) => (
+                <div
+                  key={index}
+                  className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded-xl shadow"
+                >
+                  <img
+                    src={logo.imageUrl}
+                    alt={`partner-${index}`}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
-      {/* View All Button */}
-      {/* <motion.div
-        className="mt-6 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUp}
-      >
-        <Link
-          to="/partners"
-          className="bg-pink-600 text-white px-6 py-3 font-medium rounded hover:bg-blue-600 transition"
-        >
-          View All
-        </Link>
-      </motion.div> */}
-    </section>
+          {/* Desktop arrows */}
+          <button
+            onClick={handlePrev}
+            className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 border-transparent focus:outline-none active:border-transparent bg-transparent"
+          >
+            <ChevronLeft className="w-12 h-12 text-gray-600" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 border-transparent focus:outline-none active:border-transparent bg-transparent"
+          >
+            <ChevronRight className="w-12 h-12 text-gray-600" />
+          </button>
+        </div>
+      </section>
 
       {/* About Section */}
-      <section className=" bg-gray-50 py-8 px-6 md:px-20 flex items-center">
+      <section className="py-10 px-4 bg-gray-50 sm:px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <motion.div className="space-y-2" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h1 className="text-3xl md:text-5xl font-bold text-pink-600">Who We Are</h1>
+          <motion.div className="space-y-4" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-pink-600">Who We Are</h1>
             <p className="text-gray-700 text-base md:text-lg">
               At <b>Marketing Crawlers</b>, we create brand experiences and engineer how brands are experienced. 
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-600 md:text-lg">
+              We don’t operate as a traditional IT or digital firm. We connect with brands to design intelligent digital experiences that blend strategy, creativity, and emerging technology to drive real, measurable growth.
+            </p>
+            <p className="text-gray-600 md:text-lg">
               By combining AI-driven storytelling with strategic creativity, we turn data into direction and execution into scalable growth.
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-600 md:text-lg">
               From ideation to implementation, we design connected growth solutions that evolve with technology and changing consumer behavior.
             </p>
             <motion.div
-              className="mt-6 text-center py-16"
+              className="mt-6 text-center py-8"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -277,7 +308,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className=" bg-white py-10 px-6 md:px-20 flex items-center">
+      <section className=" bg-white py-10 px-4 sm:px-6 md:px-20 flex items-center">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h1 className="text-3xl md:text-5xl font-bold mb-4" initial="hidden" whileInView="visible" viewport={{ once: true }}
             variants={{
@@ -564,6 +595,7 @@ const Home = () => {
                           whileHover={{ scale: 1.04 }}
                           whileTap={{ scale: 0.96 }}
                           type="submit"
+                          disabled={formloading}
                           className="relative overflow-hidden w-full bg-pink-700 border border-white rounded-xl font-semibold py-3 group"
                         >
                           <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-700">{loading ? "Sending..." : "Submit"}</span>
@@ -588,7 +620,7 @@ const Home = () => {
                     </div>
                 </motion.div>
               </div>
-            </section>
+      </section>
     </div>
   )
 };

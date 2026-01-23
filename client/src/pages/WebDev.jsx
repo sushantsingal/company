@@ -182,6 +182,7 @@ const WebDev = () => {
     const [isManual, setIsManual] = useState(false);
     const [partners, setPartners] = useState([]);
     const manualTimerRef = useRef(null);
+    const techItems = [...categories[activeTab].items, ...categories[activeTab].items];
 
     const scroll = (direction) => {
         if (!scrollRef.current) return;
@@ -198,25 +199,34 @@ const WebDev = () => {
     useEffect(() => {
         const fetchLogos = async () => {
         try {
-            const res = await axios.get(`/api/partners`);
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
             setPartners(res.data.generalPartners || []);
         } catch (err) {
             console.error("Failed to fetch partner logos", err);
         }
         };
         fetchLogos();
+      }, []);
 
-        if (isManual) return;
+      useEffect(() => {
 
-        const interval = setInterval(() => {
-        if (!isHovered && scrollRef.current && techScroll.current) {
-            scrollRef.current.scrollBy({ left: 1, behavior: "smooth" });
-            techScroll.current.scrollBy({ left: 1, behavior: "smooth" });
+       if (!techScroll.current || isManual) return;
+
+      const container = techScroll.current;
+
+      const interval = setInterval(() => {
+        if (!isHovered) {
+          container.scrollLeft += 1;
+
+          // reset seamlessly when half reached
+          if (container.scrollLeft >= container.scrollWidth / 2) {
+            container.scrollLeft = 0;
+          }
         }
-        }, 20);
+      }, 15);
 
         return () => clearInterval(interval);
-    }, [isHovered, isManual]);
+    }, [isHovered, isManual, activeTab]);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -286,7 +296,7 @@ const WebDev = () => {
                   Your Vision. Our Code.
                 </p>
               </div>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full max-w-xl">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between w-2/3">
                 <Link
                           to="/contact"
                           className="relative inline-block overflow-hidden px-6 py-3 rounded-lg border border-pink-600 font-semibold group"
@@ -420,7 +430,7 @@ const WebDev = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-4 gap-8 text-gray-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-gray-800">
             {services.map(({ title, description, icon: Icon, image, colSpan }, index) => (
               <div
                 key={index}
@@ -521,11 +531,11 @@ const WebDev = () => {
             {/* Icon list with scroll */}
             <motion.div
               ref={techScroll}
-              className="mt-10 flex gap-10 overflow-x-auto scrollbar-hide px-4"
+              className="mt-10 flex gap-10 overflow-x-hidden scrollbar-hide px-4"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              {categories[activeTab].items.map((item, idx) => (
+              {techItems.map((item, idx) => (
                 <div
                   key={idx}
                   className="flex flex-col items-center min-w-[250px]"
@@ -564,7 +574,7 @@ const WebDev = () => {
               className="flex items-end pb-16"
             >
               <div className="max-w-lg text-center md:text-left">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
                   Design a Smarter, Future-Ready Tech Roadmap
                 </h2>
                 <p className="text-lg text-gray-50 leading-relaxed">

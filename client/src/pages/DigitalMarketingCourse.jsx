@@ -247,7 +247,7 @@ const DigitalMarketingCourse = () => {
               </Link>
 
               <Link
-                to="/digital-marketing-course"
+                to="https://drive.google.com/file/d/11yB1LXtvbddnEU2xVYkiBc6TDdobYA81/view?usp=sharing"
                 className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border border-white font-semibold group"
               >
                 <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Download Brochure</span>
