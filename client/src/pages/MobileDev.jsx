@@ -457,7 +457,28 @@ const MobileDev = () => {
               Partner with innovators who deliver mobile and web solutions on time, on budget, and beyond expectations.
             </p>
           </div>
-          <div className="max-w-6xl mx-auto relative">
+
+          <div className="flex flex-col items-center gap-8 md:hidden">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="w-full max-w-sm bg-white border border-pink-200 rounded-xl p-6 text-center shadow-sm"
+              >
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full border-2 border-pink-500 text-pink-500 font-bold flex items-center justify-center">
+                  {index + 1}
+                </div>
+
+                <h3 className="text-xl font-bold text-pink-500">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 mt-2">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="hidden md:block max-w-6xl mx-auto relative">
             {/* Curved dotted connectors */}
             <svg
           className="absolute top-6 left-1/2 transform -translate-x-1/2 space-8 hidden md:block "
