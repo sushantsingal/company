@@ -563,13 +563,13 @@ const DigitalMarketingCourse = () => {
             <motion.div
             key={idx}
             variants={cardVariants}
-            className="group flex flex-col items-center p-6 rounded-md border transition-all duration-300 text-black hover:border-gray-600 shadow-lg"
+            className="group flex flex-col items-center md:items-center p-4 rounded-md border transition-all duration-300 text-black hover:border-gray-600 shadow-lg"
             >
-            <div className="justify-center flex flex-wrap gap-3 mb-3">
+            <div className="justify-center items-center flex flex-col gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center text-pink-500 bg-blue-300 group-hover:bg-white transition-colors duration-300">
                 {item.icon}
               </div>
-              <h4 className="font-bold text-md text-center">{item.title}</h4>
+              <h4 className="font-bold text-sm md:text-lg text-center">{item.title}</h4>
             </div>
             </motion.div>
         ))}
