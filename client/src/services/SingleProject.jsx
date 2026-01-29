@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
-import {
-  Clock,
-  Keyboard,
-  FolderOpen,
-  MessageCircle,
-} from "lucide-react";
+import { Keyboard, FolderOpen } from "lucide-react";
 
 const SingleProject = () => {
   const { id } = useParams();
@@ -15,15 +10,17 @@ const SingleProject = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const allTags = [...new Set((project?.tags || []))];
+  const allTags = [...new Set(project?.tags || [])];
 
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${id}`);
+        const res = await axios.get(
+          `/api/portfolio/${id}`
+        );
         setProject(res.data);
       } catch (err) {
-        setError("Project not found.");
+        setError("Insight not found.");
       } finally {
         setLoading(false);
       }
@@ -36,80 +33,90 @@ const SingleProject = () => {
   if (error) return <div className="p-10 text-center text-red-500">{error}</div>;
 
   return (
-    <motion.div
-      className="max-w-screen mx-auto bg-white px-4 md:px-8 py-12 text-[#313131]"
+    <motion.article
+      className="bg-white min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Breadcrumb */}
-      <div className="text-sm text-gray-500 mb-3 space-x-1">
-        <span className="hover:underline cursor-pointer">Home</span>
-        <span>/</span>
-        <span className="hover:underline cursor-pointer">Portfolio</span>
-        <span>/</span>
-        <span className="text-pink-600 font-medium">{project.title}</span>
+      {/* Back */}
+      <div className="max-w-4xl mx-auto px-4 pt-6">
+        <Link
+          to="/insights"
+          className="text-pink-600 text-sm font-medium hover:underline"
+        >
+          ← Back to Insights
+        </Link>
       </div>
 
-      {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold text-pink-600 leading-snug mb-3">
-        {project.title}
-      </h1>
-
-      {/* Meta Info */}
-      <div className="flex items-center text-sm text-gray-500 mb-6 gap-6">
-        <div className="flex items-center gap-2">
-          <Clock className="text-pink-500" />
-          {project.date || "N/A"}
-        </div>
-        <div className="flex items-center gap-2">
-          <Keyboard className="text-pink-500" />
-          {project.author || "Anonymous"}
-        </div>
-        <div className="flex items-center gap-2">
-          <FolderOpen className="text-pink-500" />
-          {project.category || "General"}
-        </div>
-      </div>
-
-      {/* Cover Image */}
-      <div className="mb-8">
+      {/* Image */}
+      <div className="max-w-4xl mx-auto px-4 mt-6">
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}${project.image}`}
+          src={project.image}
           alt={project.title}
-          className="w-full rounded-lg object-cover shadow"
+          className="w-full h-[400px] md:h-[600px] object-cover rounded-xl shadow-sm"
         />
       </div>
 
-      {/* Description */}
-      <div className="space-y-6 text-[1rem] text-gray-700 leading-relaxed">
-        {project.description.split("\n").map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
-      </div>
+      {/* Content */}
+      <div className="max-w-3xl mx-auto px-4 py-10 text-gray-800">
+        {/* Title */}
+        <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
+          {project.title}
+        </h1>
 
-      {/* Tags */}
-      <div>
-        <label className="block text-gray-700 font-medium mb-2">Tags</label>
-        <div className="flex flex-wrap gap-2">
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              className="px-3 py-1 rounded-full text-sm bg-pink-500 text-white"
-            >
-              {tag}
-            </button>
-          ))}
+        {/* Meta */}
+        <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-8">
+          <div className="flex items-center gap-2">
+            <Keyboard className="w-4 h-4 text-pink-500" />
+            {project.author || "Anonymous"}
+          </div>
+          <div className="flex items-center gap-2">
+            <FolderOpen className="w-4 h-4 text-pink-500" />
+            {project.category || "General"}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="w-16 h-1 bg-pink-500 mb-8"></div>
+
+        {/* Description */}
+        <div
+          className=" prose prose-lg max-w-none prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-gray-700 prose-p:my-2 prose-h1:my-4 prose-h2:my-4 prose-h3:my-3 prose-h4:my-2 prose-ul:my-2 prose-li:my-1 prose-img:my-4 prose-img:rounded-lg prose-img:shadow "
+          dangerouslySetInnerHTML={{ __html: project.description }}
+        />
+
+        {/* Tags */}
+        {allTags.length > 0 && (
+          <div className="mt-10">
+            <h4 className="font-semibold mb-3 text-gray-800">Tags</h4>
+            <div className="flex flex-wrap gap-2">
+              {allTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 rounded-full text-sm bg-pink-100 text-pink-700"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CTA */}
+        <div className="mt-14 bg-gray-50 rounded-xl p-6 text-center">
+          <h3 className="text-xl font-semibold mb-2">
+            Want insights like this for your brand?
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-block mt-4 bg-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-pink-700 transition"
+          >
+            Talk to Our Experts
+          </Link>
         </div>
       </div>
-
-      {/* Social Share (optional) */}
-      <div className="mt-8 flex gap-3 flex-wrap">
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">Share on Facebook</button>
-        <button className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded text-sm">Share on Twitter</button>
-        <button className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded text-sm">Share on Pinterest</button>
-      </div>
-    </motion.div>
+    </motion.article>
   );
 };
 

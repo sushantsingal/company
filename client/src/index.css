@@ -24,13 +24,6 @@ a {
   text-decoration: inherit;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
 
 h1 {
   font-size: 3.2em;
@@ -119,4 +112,134 @@ select:-webkit-autofill{
     75% 95%, 25% 95%,
     0% 50%
   );
+}
+
+.editor-btn {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editor-btn:hover {
+  background: #f3f4f6;
+}
+
+.editor-select {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.prose h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.6rem;
+}
+
+.prose h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.prose h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0.75rem 0 0.4rem;
+}
+
+.prose p {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+.prose span {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+.prose ul{
+  list-style-type: disc;
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin: 0.25rem 0;
+}
+
+.prose img {
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  max-width: 100%;
+}
+
+.editor {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.editor img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.editor ul{
+  list-style-type: disc;
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+.editor ol {
+  list-style-type: decimal;
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.editor li {
+  margin: 0.25rem 0;
+}
+
+.editor p {
+  margin: 0.5rem 0;
+}
+.editor span {
+  margin: 0.5rem 0;
+}
+
+.editor h1 { margin: 1.25rem 0 0.75rem; }
+.editor h2 { margin: 1rem 0 0.6rem; }
+.editor h3 { margin: 0.75rem 0 0.5rem; }
+.editor h4 { margin: 0.6rem 0 0.4rem; }
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
 }

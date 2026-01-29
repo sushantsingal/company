@@ -114,7 +114,7 @@ function App() {
               <Route path="partners" element={<PartnerPage />} />
               <Route path="terms" element={<TermsPage />} />
               <Route path="advisors" element={<Advisor />} />
-              <Route path="/portfolio/:id" element={<SingleProject />} />
+              <Route path="/insights/:id" element={<SingleProject />} />
             </Route>
           </Routes>
           <Footer />

@@ -22,15 +22,21 @@ const PortfolioPage = () => {
 
   const categories = [...new Set(projects.map((p) => p.category).filter(Boolean))];
   const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
+  const stripHTML = (html = "") => {
+  return html
+    .replace(/<[^>]+>/g, "") // remove all HTML tags
+    .replace(/\s+/g, " ")    // clean extra spaces
+    .trim();
+};
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`)
+    axios.get(`/api/portfolio`)
       .then((res) => {
         setProjects(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        setError("Failed to fetch portfolio items.");
+        setError("Failed to fetch insights.");
         setLoading(false);
       });
   }, []);
@@ -84,7 +90,7 @@ const PortfolioPage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {paginatedProjects.map((project, index) => (
                   <motion.a
-                    href={`/portfolio/${project.slug || project.id}`}
+                    href={`/insights/${project.slug || project.id}`}
                     key={project.id}
                     viewport={{ once: true }}
                     variants={{
@@ -94,19 +100,17 @@ const PortfolioPage = () => {
                     className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition block"
                   >
                     <img
-                      src={project.image ? `${import.meta.env.VITE_BACKEND_URL}${project.image}` : "/placeholder.png"}
+                      src={project.image || "/placeholder.png"}
                       alt={project.title}
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-5">
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h3>
                       <div className="flex flex-wrap items-center text-sm text-gray-500 gap-3 mb-3">
-                        <div className="flex items-center gap-1"><Clock className="text-pink-500" /> {project.date}</div>
                         <div className="flex items-center gap-1"><Keyboard className="text-pink-500" /> {project.author}</div>
                         <div className="flex items-center gap-1"><FolderOpen className="text-pink-500" /> {project.category}</div>
-                        <div className="flex items-center gap-1"><MessageCircle className="text-pink-500" /> {project.comments || "0"}</div>
                       </div>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{project.description}</p>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{stripHTML(project.description).slice(0, 180)}...</p>
                       <span className="text-pink-600 font-medium hover:underline text-sm">Read More →</span>
                     </div>
                   </motion.a>
@@ -163,14 +167,14 @@ const PortfolioPage = () => {
           <div>
             <label className="block text-gray-700 font-medium mb-2">Categories</label>
             <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => (
+              {categories.slice(-5).map((cat) => (
                 <button
                   key={cat}
                   onClick={() => {
                     setCategoryFilter(cat === categoryFilter ? "" : cat);
                     setCurrentPage(1);
                   }}
-                  className={`px-3 py-1 rounded-full text-sm ${categoryFilter === cat ? "bg-pink-500 text-white" : "bg-gray-100 text-gray-600"}`}
+                  className={`px-3 py-1 text-left rounded-full text-sm ${categoryFilter === cat ? "bg-pink-500 text-white" : "bg-gray-100 text-gray-600"}`}
                 >
                   {cat}
                 </button>
@@ -182,7 +186,7 @@ const PortfolioPage = () => {
           <div>
             <label className="block text-gray-700 font-medium mb-2">Tags</label>
             <div className="flex flex-wrap gap-2">
-              {allTags.map((tag) => (
+              {allTags.slice(-5).map((tag) => (
                 <button
                   key={tag}
                   onClick={() => {

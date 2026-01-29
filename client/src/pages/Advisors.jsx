@@ -27,11 +27,6 @@ const Advisor = () => {
       name: "Mr. Kamala Kant Dash",
       role: "Government & Public Affairs | Academia ⇆ Industry ⇆Govt Partnership",
     },
-    {
-      imageUrl: team5,
-      name: "Mr. Dev Ray",
-      role: "Co-founder KANOE GLOBAL",
-    },
   ];
 
   return (

@@ -2,12 +2,80 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./src/assets/hero-image.png" />
+
+    <!-- Google Search Console -->
+  <meta
+    name="google-site-verification"
+    content="YOUR_CODE_HERE"
+  />
+
+    <!-- ✅ FAVICONS (MUST BE IN /public) -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.ico" />
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marketing Crawlers - Let's Connect</title>
+
+    <!-- ================= DEFAULT SEO (FALLBACK ONLY) ================= -->
+    <!-- These will be overridden dynamically using React (setSEO / Helmet) -->
+
+    <title>Marketing Crawlers | AI Growth Consulting</title>
+
+    <meta
+      name="description"
+      content="Marketing Crawlers is a future-ready growth consulting agency delivering AI-powered marketing, automation, web development, and scalable digital solutions."
+    />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.marketingcrawlers.com/" />
+
+    <!-- ================= OPEN GRAPH ================= -->
+    <meta property="og:title" content="Marketing Crawlers | AI Growth Consulting" />
+    <meta
+      property="og:description"
+      content="AI-powered marketing & technology consulting for scalable business growth."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.marketingcrawlers.com/" />
+    <meta property="og:image" content="https://www.marketingcrawlers.com/og-image.jpg" />
+
+    <!-- ================= TWITTER ================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marketing Crawlers | AI Growth Consulting" />
+    <meta
+      name="twitter:description"
+      content="Future-ready AI marketing & digital consulting for scalable growth."
+    />
+    <meta name="twitter:image" content="https://www.marketingcrawlers.com/og-image.jpg" />
+
+    <!-- ================= ORGANIZATION SCHEMA (VERY IMPORTANT FOR LOGO) ================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Marketing Crawlers",
+        "url": "https://www.marketingcrawlers.com",
+        "logo": "https://www.marketingcrawlers.com/logo.png",
+        "sameAs": [
+          "https://www.instagram.com/marketingcrawlers",
+          "https://www.linkedin.com/company/marketingcrawlers"
+        ]
+      }
+    </script>
+
+    <!-- ================= GOOGLE ANALYTICS (GA4) ================= -->
+    <!-- Replace G-XXXXXXXXXX with your real Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY79WL859E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-DY79WL859E");
+    </script>
+
   </head>
   <body>
-    <div id="root" class="w-screen"></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

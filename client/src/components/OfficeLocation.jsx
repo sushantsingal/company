@@ -13,12 +13,12 @@ const officeData = [
     flag: india,
   },
   {
-    title: "Bengaluru Office",
+    title: "Pune Office",
     address: [
-      "Tejas Arcade",
-      "No. 527/B 1st Main Road Ward No. 9",
-      "Dr Rajkumar Rd, Bengaluru",
-      "Karnataka 560010, INDIA",
+      "D-1, Shree Shankar Nagri",
+      "Besides Cosmos Bank, Near Vanaz Company",
+      "Opposite Metro Pillar Number 17-18, Paud Road, Kothrud, Pune 38",
+      "Maharasthra, INDIA",
     ],
     flag: india,
   },

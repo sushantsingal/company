@@ -30,6 +30,8 @@ const DreamChasers = () => {
               <img
                 key={i}
                 src={img}
+                loading="eager"
+                decoding="async"
                 alt={`left-${i}`}
                 className="w-48 h-52 object-cover skew-y-6 transform shadow-md rounded"
               />
@@ -40,6 +42,8 @@ const DreamChasers = () => {
               <img
                 key={i}
                 src={img}
+                loading="eager"
+                decoding="async"
                 alt={`left-${i}`}
                 className="w-48 h-52 object-cover skew-y-6 transform shadow-md rounded"
               />

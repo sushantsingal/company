@@ -11,7 +11,7 @@ const RegisterAdmin = () => {
   }, []);
 
   const fetchRegisters = () => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/registers`)
+    axios.get(`/api/registers`)
       .then((res) => {
         setRegisters(res.data);
         setLoading(false);
@@ -25,7 +25,7 @@ const RegisterAdmin = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this Register?")) return;
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/registers/${id}`);
+      await axios.delete(`/api/registers/${id}`);
       setRegisters(prev => prev.filter(Register => Register.id !== id));
     } catch (error) {
       console.error("Delete failed:", error);

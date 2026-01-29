@@ -6,7 +6,8 @@ import team3 from "../assets/team3.jpeg";
 import team4 from "../assets/team4.jpeg";
 import about from "../assets/about.jpg";
 import focus from "../assets/focus.jpg";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { setSEO } from "../utils/seo";
 
 const teamMembers = [
     {
@@ -69,6 +70,15 @@ const why = [
             ]
 
 const About = () => {
+  useEffect(() => {
+      setSEO({
+        title: "Marketing Crawlers | About Us",
+        description:
+          "AI-driven digital marketing & IT agency with a vision for intelligent growth. Marketing Crawlers deliver scalable, integrated, and client-centric solutions.",
+        canonical: "https://www.marketingcrawlers.com/about",
+      });
+    }, []);
+
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {

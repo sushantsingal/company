@@ -8,7 +8,7 @@ const PartnersPage = () => {
   useEffect(() => {
     const fetchLogos = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
+        const res = await axios.get(`/api/partners`);
         setPartners(res.data.generalPartners || []);
         setEventPartners(res.data.eventPartners || []);
       } catch (err) {
@@ -44,7 +44,7 @@ const PartnersPage = () => {
                 className="w-32 h-32 sm:w-56 sm:h-56 bg-white p-4 rounded shadow flex items-center justify-center hover:scale-105 hover:shadow-md transition-all"
               >
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
+                  src={logo.imageUrl}
                   alt={`partner-${index}`}
                   className="object-contain max-h-full max-w-full"
                 />
@@ -69,7 +69,7 @@ const PartnersPage = () => {
                 className="w-36 h-20 sm:w-56 sm:h-40 bg-white p-3 rounded shadow flex items-center justify-center hover:scale-105 hover:shadow-md transition-all"
               >
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${logo.imageUrl}`}
+                  src={logo.imageUrl}
                   alt={`event-partner-${index}`}
                   className="object-contain max-h-full max-w-full"
                 />

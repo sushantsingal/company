@@ -1,10 +1,21 @@
 import { motion } from "framer-motion";
 import { GiSprint } from "react-icons/gi";
+import { useEffect } from "react";
 import { GraduationCap, Brain, BadgeCheck, Users, Earth, Clock, Cpu, ClipboardCheck, Award } from "lucide-react";
 import Internship from "../assets/internship.jpg";
 import InternshipBanner from "../assets/internship-program.jpg";
+import { setSEO } from "../utils/seo";
 
 const InternshipProgram = () => {
+  useEffect(() => {
+      setSEO({
+          title: "Marketing Crawlers | Internship Program",
+          description:
+            "Whether you’re into tech, marketing, design, or DevOps. At Marketing Crawlers, you’ll work on real projects with real teams.",
+          canonical: "https://www.marketingcrawlers.com/internship-program",
+        });
+  }, []);
+
   return (
     <div className="bg-white text-gray-800">
       <div className="bg-gradient-to-r from-purple-700 to-pink-500 py-24 text-center">

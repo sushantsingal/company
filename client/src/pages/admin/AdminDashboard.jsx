@@ -42,7 +42,7 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-gray-50 text-gray-800">
+    <div className="min-h-screen flex flex-col md:flex-row bg-gray-50 text-gray-800 pt-[96px] md:pt-[112px]">
       {/* Mobile Header */}
       <div className="md:hidden flex justify-between items-center p-4 bg-white shadow">
         <h2 className="text-xl font-bold text-pink-600">Admin Panel</h2>

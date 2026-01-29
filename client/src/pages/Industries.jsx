@@ -39,7 +39,7 @@ const Industries = () => {
   useEffect(() => {
     const fetchLogos = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
+        const res = await axios.get(`/api/partners`);
         setPartners(res.data.generalPartners || []);
         setEventPartners(res.data.eventPartners || []);
       } catch (err) {

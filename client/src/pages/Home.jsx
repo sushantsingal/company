@@ -1,23 +1,13 @@
 import { motion } from "framer-motion";
-import hero from "../assets/home.png";
+import hero from "../assets/home.jpeg";
 import about from "../assets/aa.jpg";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import cta from "../assets/img/cta.jpg";
 import Testimonials from "../components/Testimonials";
 import { Link } from "react-router-dom";
-import {
-  ChevronLeft, 
-  ChevronRight,
-  Workflow,
-  Megaphone,
-  TrendingUp, 
-  BarChart4,
-  Cpu,
-  Share2,
-  RefreshCcw,
-  GitBranch
-} from "lucide-react";
+import { setSEO } from "../utils/seo";
+import { ChevronLeft, ChevronRight, Workflow, Megaphone, TrendingUp,  BarChart4, Cpu, Share2, RefreshCcw, GitBranch } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -29,6 +19,15 @@ const fadeUp = {
 };
 
 const Home = () => {
+  useEffect(() => {
+    setSEO({
+      title: "Marketing Crawlers - Let's Connect",
+      description:
+        "Marketing Crawlers is an AI-driven digital marketing & IT agency offering AI marketing, automation, performance ads, and data-driven growth solutions. Let’s connect.",
+      canonical: "https://www.marketingcrawlers.com/",
+    });
+  }, []);
+
   const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -49,7 +48,7 @@ const Home = () => {
       setStatus(null);
   
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
+        const res = await fetch(`/api/contacts`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -67,17 +66,6 @@ const Home = () => {
       }
     };
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Function to move to the previous item
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? partners.length - 1 : prev - 1));
-  };
-
-  // Function to move to the next item
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === partners.length - 1 ? 0 : prev + 1));
-  };
   const [portfolioData, setPortfolioData] = useState([]);
   const [partners, setPartners] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -86,7 +74,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`);
+        const res = await axios.get(`/api/portfolio`);
         setPortfolioData(res.data);
       } catch (err) {
         console.error(err);
@@ -98,7 +86,7 @@ const Home = () => {
 
     const fetchLogos = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
+        const res = await axios.get(`/api/partners`);
         setPartners(res.data.generalPartners || []);
       } catch (err) {
         console.error("Failed to fetch partner logos", err);
@@ -108,20 +96,6 @@ const Home = () => {
     fetchPortfolio();
     fetchLogos();
   }, []);
-
-  const autoScrollRef = useRef(null);
-
-useEffect(() => {
-  if (!partners.length) return;
-
-  autoScrollRef.current = setInterval(() => {
-    setCurrentIndex((prev) =>
-      prev === partners.length - 1 ? 0 : prev + 1
-    );
-  }, 2000);
-
-  return () => clearInterval(autoScrollRef.current);
-}, [partners]);
 
 
   return (
@@ -157,6 +131,8 @@ useEffect(() => {
           </motion.div>
           <motion.img
             src={hero}
+            loading="eager"
+            decoding="async"
             alt="Marketing Hero"
             className="rounded-xl w-full max-w-full h-auto"
             initial="hidden"
@@ -170,83 +146,39 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* Partner Carousel */}
-      <section className="bg-gray-50 py-10">
-        <div className="text-center mb-10 px-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
-            Trusted by Leading Brands
-          </h1>
-          <p className="text-gray-600 mt-2 text-sm md:text-lg">
-            We’re proud to partner with some of the most respected organizations.
-          </p>
-        </div>
 
-        {/* Buttons – top on mobile, sides on desktop */}
-        <div className="relative max-w-6xl mx-auto">
-          <div className="flex justify-center gap-6 mb-6 md:hidden">
-            <button
-              onClick={handlePrev}
-              className="bg-pink-600 text-white p-2 rounded-full shadow"
-            >
-              <ChevronLeft />
-            </button>
-            <button
-              onClick={handleNext}
-              className="bg-pink-600 text-white p-2 rounded-full shadow"
-            >
-              <ChevronRight />
-            </button>
-          </div>
+{/* Partner Carousel – Backend Powered Auto Scroll */}
+<section className="bg-gray-50 py-10 overflow-hidden">
+  <div className="text-center mb-10 px-4">
+    <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
+      Trusted by Leading Brands
+    </h1>
+    <p className="text-gray-600 mt-2 text-sm md:text-lg">
+      We’re proud to partner with some of the most respected organizations.
+    </p>
+  </div>
 
-          {/* Carousel */}
+  {partners.length > 0 && (
+    <div className="relative w-full overflow-hidden">
+      <div className="flex gap-10 px-6 w-max animate-marquee">
+        {partners.map((logo, index) => (
           <div
-            className="overflow-hidden px-4"
-            onMouseEnter={() => clearInterval(autoScrollRef.current)}
-            onMouseLeave={() => {
-              autoScrollRef.current = setInterval(() => {
-                setCurrentIndex((prev) =>
-                  prev === partners.length - 1 ? 0 : prev + 1
-                );
-              }, 2500);
-            }}
+            key={index}
+            className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded-xl shadow"
           >
-            <div
-              className="inline-flex space-x-6 transition-transform duration-700 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * 140}px)`,
-              }}
-            >
-              {partners.map((logo, index) => (
-                <div
-                  key={index}
-                  className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white rounded-xl shadow"
-                >
-                  <img
-                    src={logo.imageUrl}
-                    alt={`partner-${index}`}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+            <img
+              src={logo.imageUrl}
+              alt={`partner-${index}`}
+              className="max-h-full max-w-full object-contain"
+              loading="lazy"
+            />
           </div>
+        ))}
+      </div>
+    </div>
+  )}
+</section>
 
-          {/* Desktop arrows */}
-          <button
-            onClick={handlePrev}
-            className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 border-transparent focus:outline-none active:border-transparent bg-transparent"
-          >
-            <ChevronLeft className="w-12 h-12 text-gray-600" />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 border-transparent focus:outline-none active:border-transparent bg-transparent"
-          >
-            <ChevronRight className="w-12 h-12 text-gray-600" />
-          </button>
-        </div>
-      </section>
 
       {/* About Section */}
       <section className="py-10 px-4 bg-gray-50 sm:px-6 md:px-20 flex items-center">
@@ -475,18 +407,22 @@ useEffect(() => {
   </section>
 
       <Testimonials />
-      <section className="relative py-24 overflow-hidden">
+
+      {/* CTA Section */}
+      <section className="relative py-10 overflow-hidden">
               <div className="absolute inset-0 flex flex-row md:flex-col">
-                <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
+                <div className="hidden md:block md:h-1/3 w-full bg-white"></div>
                 <motion.div
                   initial={{ opacity: 0, y: -60}}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="relative h-screen md:h-1/2 overflow-hidden w-full"
+                  className="relative h-screen md:h-2/3 overflow-hidden w-full"
                   >
                     <img
                       src={cta}
+                      loading="lazy"
+                      decoding="async"
                       alt="comtact"
                       className="w-full h-full object-cover" />
                   </motion.div>
@@ -516,12 +452,12 @@ useEffect(() => {
                   viewport={{ once: true }}
                   className="flex justify-center md:justify-end"
                 >
-                    <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+                    <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10 min-h-[520px] md:min-h-[560px] flex flex-col justify-center transition-all duration-300">
                       <h3 className="text-4xl font-bold text-white mb-6 text-center">
                         Let’s Start Your Project
                       </h3>
                       {submitted ? (
-                        <div>
+                        <div className="flex flex-col items-center justify-center text-center flex-1">
                           <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
                           <p className="text-gray-300">
                             We've received your details. Our team will get in touch with you shortly.

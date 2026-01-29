@@ -199,7 +199,7 @@ const WebDev = () => {
     useEffect(() => {
         const fetchLogos = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/partners`);
+            const res = await axios.get(`/api/partners`);
             setPartners(res.data.generalPartners || []);
         } catch (err) {
             console.error("Failed to fetch partner logos", err);
@@ -248,7 +248,7 @@ const WebDev = () => {
         setStatus(null);
     
         try {
-          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
+          const res = await fetch(`/api/contacts`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
@@ -551,17 +551,19 @@ const WebDev = () => {
         {/* CTA */}
         <section className="relative py-24 overflow-hidden">
             <div className="absolute inset-0 flex flex-row md:flex-col">
-              <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
+              <div className="hidden md:block md:h-1/3 w-full bg-white"></div>
               <motion.div
                 initial={{ opacity: 0, y: -60}}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="relative h-screen md:h-1/2 overflow-hidden w-full"
+                className="relative h-screen md:h-2/3 overflow-hidden w-full"
                 >
                   <img
                     src={cta}
                     alt="comtact"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover" />
               </motion.div>
           </div>
@@ -589,12 +591,12 @@ const WebDev = () => {
               viewport={{ once: true }}
               className="flex justify-center md:justify-end"
             >
-                <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+                <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10 min-h-[520px] md:min-h-[560px] flex flex-col justify-center transition-all duration-300">
                   <h3 className="text-4xl font-bold text-white mb-6 text-center">
                     Let’s Start Your Project
                   </h3>
                   {submitted ? (
-                    <div>
+                    <div className="flex flex-col items-center justify-center text-center flex-1">
                       <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
                       <p className="text-gray-300">
                         We've received your details. Our team will get in touch with you shortly.

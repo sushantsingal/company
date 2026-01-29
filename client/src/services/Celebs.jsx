@@ -31,7 +31,7 @@ const CelebrityLandingPage = () => {
         <div className="flex flex-col items-center gap-10">
 
           {/* Main horizontal row */}
-          <div className="flex flex-row items-center justify-center gap-6 flex-wrap">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 px-2">
 
             {/* Left 4 celebs */}
             <div className="hidden md:flex gap-4">
@@ -45,6 +45,8 @@ const CelebrityLandingPage = () => {
                 >
                   <img
                     src={celeb.src}
+                    loading="lazy"
+                    decoding="async"
                     alt={`celeb-${index}`}
                     className="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-300"
                   />
@@ -80,6 +82,8 @@ const CelebrityLandingPage = () => {
                 >
                   <img
                     src={celeb.src}
+                    loading="lazy"
+                    decoding="async"
                     alt={`celeb-${index + 4}`}
                     className="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-300"
                   />

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {useRef, useEffect, useState} from "react";
+import { setSEO } from "../utils/seo";
 import cta from "../assets/img/cta.jpg";
 import event1 from "../assets/img/1.jpg";
 import event2 from "../assets/img/3.jpg";
@@ -167,6 +168,13 @@ const EventConsulting = () => {
   const techScroll = useRef(null);
 
   useEffect(() => {
+    setSEO({
+        title: "Marketing Crawlers | Event Consulting",
+        description:
+          "From corporate conferences to brand activations, our AI-driven event consulting transforms experiences into data-backed growth outcomes.",
+        canonical: "https://www.marketingcrawlers.com/services/event-consulting",
+      });
+      
     const container = techScroll.current;
     if(!container) return;
 
@@ -253,7 +261,7 @@ const EventConsulting = () => {
       setStatus(null);
   
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
+        const res = await fetch(`/api/contacts`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -337,6 +345,8 @@ const EventConsulting = () => {
           >
             <img
               src= {event9}
+              loading="eager"
+              decoding="async"
               alt="Event Graphic"
               className="w-full mx-auto rounded-lg"
             />
@@ -359,7 +369,7 @@ const EventConsulting = () => {
                 key={idx}
                 className="flex flex-col items-center min-w-[250px]"
               >
-                <img src={item.icon} alt={item.label} className="w-full hover:scale-105 transition-transform rounded-md" />
+                <img src={item.icon} loading="lazy" decoding="async" alt={item.label} className="w-full hover:scale-105 transition-transform rounded-md" />
                 <span className="mt-3 text-sm font-medium">{item.label}</span>
               </div>
             ))}
@@ -420,6 +430,8 @@ const EventConsulting = () => {
               <img
                 src= {event8}
                 alt="Event Graphic"
+                loading="eager"
+                decoding="async"
                 className="w-auto md:w-1/2"
               />
             <div className="flex flex-wrap gap-4">
@@ -474,19 +486,21 @@ const EventConsulting = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative pb-10 overflow-hidden">
         <div className="absolute inset-0 flex flex-row md:flex-col">
-          <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
+          <div className="hidden md:block md:h-1/3 w-full bg-white"></div>
           <motion.div
             initial={{ opacity: 0, y: -60}}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative h-screen md:h-1/2 overflow-hidden w-full"
+            className="relative h-screen md:h-2/3 overflow-hidden w-full"
             >
               <img
                 src={cta}
                 alt="comtact"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover" />
             </motion.div>
         </div>
@@ -515,12 +529,12 @@ const EventConsulting = () => {
             viewport={{ once: true }}
             className="flex justify-center md:justify-end"
           >
-              <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+              <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10 min-h-[520px] md:min-h-[560px] flex flex-col justify-center transition-all duration-300">
                 <h3 className="text-4xl font-bold text-white mb-6 text-center">
                   Let’s Start Your Project
                 </h3>
                 {submitted ? (
-                  <div>
+                  <div className="flex flex-col items-center justify-center text-center flex-1">
                     <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
                     <p className="text-gray-300">
                       We've received your details. Our team will get in touch with you shortly.

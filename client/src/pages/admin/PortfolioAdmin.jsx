@@ -12,13 +12,19 @@ const PortfolioAdmin = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio`);
+      const res = await axios.get(`/api/portfolio`);
       setProjects(res.data);
       setLoading(false);
     } catch (err) {
       toast.error("Failed to load portfolios.");
       setLoading(false);
     }
+  };
+  const stripHTML = (html = "") => {
+    return html
+      .replace(/<[^>]+>/g, "") // remove all HTML tags
+      .replace(/\s+/g, " ")    // clean extra spaces
+      .trim();
   };
 
   const handleEditSubmit = async (updatedData) => {
@@ -30,7 +36,7 @@ const PortfolioAdmin = () => {
         form.append("image", updatedData.image);
       }
 
-      await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${updatedData.id}`, form, {
+      await axios.put(`/api/portfolio/${updatedData.id}`, form, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       
@@ -47,7 +53,7 @@ const PortfolioAdmin = () => {
     if (!confirm("Are you sure you want to delete this portfolio item?")) return;
 
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/portfolio/${id}`);
+      await axios.delete(`/api/portfolio/${id}`);
       toast.success("Portfolio deleted.");
       fetchProjects(); // Refresh list
     } catch (err) {
@@ -78,12 +84,12 @@ const PortfolioAdmin = () => {
               className="relative rounded-xl shadow-lg bg-white p-4 border"
             >
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${project.image}`}
+                src={project.image}
                 alt={project.title}
                 className="w-full h-40 object-cover rounded-md mb-3"
               />
               <h3 className="font-bold text-lg mb-1">{project.title}</h3>
-              <p className="text-sm text-gray-500 line-clamp-3">{project.description}</p>
+              <p className="text-sm text-gray-500 line-clamp-3">{stripHTML(project.description).slice(0, 180)}...</p>
 
               <div className="absolute top-2 right-2 flex gap-2">
                 <button
@@ -114,7 +120,7 @@ const PortfolioAdmin = () => {
             exit={{ opacity: 0 }}
             >
             <motion.div
-                className="bg-white w-full max-w-2xl p-6 rounded-2xl shadow-2xl relative"
+                className="bg-white w-full max-w-4xl max-h-[90vh] flex flex-col rounded-2xl shadow-2xl relative"
                 initial={{ scale: 0.95, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 20 }}
@@ -127,12 +133,17 @@ const PortfolioAdmin = () => {
                 <X className="w-6 h-6" />
                 </button>
 
-                <h3 className="text-xl font-bold mb-4">Edit Portfolio</h3>
-                <EditPortfolioForm
-                formData={editingProject}
-                onClose={() => setEditingProject(null)}
-                onSubmit={handleEditSubmit}
-                />
+                <h3 className="text-xl p-6 font-bold">Edit Portfolio</h3>
+                <div className="overflow-y-auto px-6 pb-6">
+                  <EditPortfolioForm
+                    formData={editingProject}
+                    onClose={() => setEditingProject(null)}
+                    onSuccess={() => {
+                      setEditingProject(null);
+                      fetchProjects();
+                    }}
+                  />
+                </div>
             </motion.div>
             </motion.div>
         )}

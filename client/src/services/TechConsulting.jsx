@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import tech from "../assets/tech.jpg";
 import tech1 from "../assets/tech2.png";
+import { setSEO } from "../utils/seo";
 import cta from "../assets/img/cta.jpg";
 import {
   ServerCog,
@@ -111,6 +112,15 @@ const cardVariant = {
 };
 
 const TechConsulting = () => {
+  useEffect(() => {
+        setSEO({
+          title: "Marketing Crawlers | Tech Consulting",
+          description:
+            "At Marketing Crawlers, we don’t sell tools. We design technology thinking that simplifies decisions, scales operations, and unlocks new growth.",
+          canonical: "https://www.marketingcrawlers.com/services/tech-consulting",
+        });
+      }, []);
+
   const FAQItem = ({ faq }) => {
         const [open, setOpen] = useState(false);
       
@@ -169,7 +179,7 @@ const TechConsulting = () => {
         setStatus(null);
     
         try {
-          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contacts`, {
+          const res = await fetch(`/api/contacts`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
@@ -448,17 +458,19 @@ const TechConsulting = () => {
       {/* CTA Form Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 flex flex-row md:flex-col">
-          <div className="hidden md:block md:h-1/2 w-full bg-white"></div>
+          <div className="hidden md:block md:h-1/3 w-full bg-white"></div>
           <motion.div
             initial={{ opacity: 0, y: -60}}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative h-screen md:h-1/2 overflow-hidden w-full"
+            className="relative h-screen md:h-2/3 overflow-hidden w-full"
             >
               <img
                 src={cta}
                 alt="comtact"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover" />
             </motion.div>
         </div>
@@ -486,12 +498,12 @@ const TechConsulting = () => {
             viewport={{ once: true }}
             className="flex justify-center md:justify-end"
           >
-              <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10">
+              <div className="w-full max-w-xl bg-pink-600 rounded-2xl shadow-2xl p-8 md:p-10 min-h-[520px] md:min-h-[560px] flex flex-col justify-center transition-all duration-300">
                 <h3 className="text-4xl font-bold text-white mb-6 text-center">
                   Let’s Start Your Project
                 </h3>
                 {submitted ? (
-                  <div>
+                  <div className="flex flex-col items-center justify-center text-center flex-1">
                     <h3 className="text-2xl font-semibold text-white mb-4">Thank You!</h3>
                     <p className="text-gray-300">
                       We've received your details. Our team will get in touch with you shortly.

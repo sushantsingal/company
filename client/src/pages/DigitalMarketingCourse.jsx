@@ -1,12 +1,17 @@
-import {useState} from "react";
+import {useState, useRef, useEffect} from "react";
 import { motion } from "framer-motion";
 import lin from "../assets/lin.png";
+import { setSEO } from "../utils/seo";
 import { Link } from "react-router-dom";
-import {ClockFading, GraduationCap, CalendarDays, Tags, Sparkles, BrainCircuit, Target, Layers, Settings2, TrendingUp} from "lucide-react";
+import {ClockFading, GraduationCap, CalendarDays, Tags, Sparkles, BrainCircuit, Target, Layers, Settings2, TrendingUp, ChevronLeft, ChevronRight} from "lucide-react";
 import dm from "../assets/hero-image.jpg";
 import google from "../assets/google.png";
 import hs from "../assets/hs.png";
 import meta from "../assets/meta.png";
+import testi1 from "../assets/testi/test1.jpeg";
+import testi2 from "../assets/testi/test2.jpeg";
+import testi3 from "../assets/testi/test3.jpg";
+import testi4 from "../assets/testi/test4.jpg";
 
 const fade = {
   hidden: { opacity: 0, y: 30 },
@@ -116,23 +121,37 @@ const faqs = [
   },
 ];
 
-const videoTestimonials = [
+const testimonials = [
   {
-    name: "Aman Sharma",
-    role: "Performance Marketer",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1",
+    name: "Aditi Sharma",
+    title: "This course completely changed how I see digital marketing.",
+    feedback:
+      "This course completely changed how I see digital marketing. I joined with zero practical knowledge, but the hands-on projects, live campaigns, and real tools made everything click. I’m now confidently handling SEO, ads, and content strategy for clients.",
+    image: testi1,
   },
   {
-    name: "Neha Verma",
-    role: "Social Media Strategist",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_2",
+    name: "Sugandha Shekhawat",
+    title: "Not just theory — real industry exposure.",
+    feedback:
+      "What I loved most is that we worked on real brands and live campaigns. The mentors explained why things work, not just how. This gave me clarity and confidence.",
+    image: testi2,
   },
   {
-    name: "Rohit Meena",
-    role: "SEO Specialist",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_3",
+    name: "Sushant Singal",
+    title: "Helped me crack my first digital marketing job.",
+    feedback:
+      "The resume support, interview prep, and live project experience gave me an edge. Recruiters were impressed that I already knew tools like Google Ads and Analytics.",
+    image: testi3,
+  },
+  {
+    name: "Punit Sen",
+    title: "A valuable learning experience.",
+    feedback:
+      "I gained hands-on exposure to real-world marketing tasks and learned how strategies are implemented in live projects. The mentorship provided clear guidance and a structured workflow, which significantly improved my skills and confidence.",
+    image: testi4,
   },
 ];
+
 const FAQItem = ({ faq }) => {
   const [open, setOpen] = useState(false);
 
@@ -172,6 +191,27 @@ const FAQItem = ({ faq }) => {
 };
 
 const DigitalMarketingCourse = () => {
+  useEffect(() => {
+      setSEO({
+        title: "Marketing Crawlers | Digital Marketing Course",
+        description:
+          "Marketing Crawlers delivers an AI-powered digital marketing course. Work on real campaigns, scale brands, and build job-ready skills, all in just 60 days.",
+        canonical: "https://www.marketingcrawlers.com/digital-marketing-course",
+      });
+    }, []);
+
+  const carouselRef = useRef(null);
+  
+    const scroll = (direction) => {
+      if (carouselRef.current) {
+        const scrollAmount = 320; // width of each card + gap
+        carouselRef.current.scrollBy({
+          left: direction === "left" ? -scrollAmount : scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    };
+
   const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -191,7 +231,7 @@ const DigitalMarketingCourse = () => {
       setStatus(null);
   
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/registers`, {
+        const res = await fetch(`/api/registers`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -458,83 +498,85 @@ const DigitalMarketingCourse = () => {
         </motion.div>
       </section>
 
-      <section className="bg-gray-50 py-8">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 bg-gray-50 relative">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-5xl text-black font-bold text-center mb-12">
+          Hear It from Them
+          <div className="w-16 h-1 bg-rose-500 mx-auto mt-2"></div>
+        </h2>
 
-          {/* Heading */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
-              Students Testimonials
-            </h2>
-            <p className="text-gray-600 mt-3 text-lg">
-              Hear directly from our students who transformed their careers
-            </p>
-            <div className="w-16 h-1 bg-rose-500 mx-auto mt-4"></div>
-          </div>
+        {/* Navigation Buttons */}
+        {/* Desktop Arrows */}
+        <button
+          onClick={() => scroll("left")}
+          className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full shadow-md z-10"
+        >
+          <ChevronLeft size={24} />
+        </button>
 
-          {/* Videos */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+        <button
+          onClick={() => scroll("right")}
+          className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full shadow-md z-10"
+        >
+          <ChevronRight size={24} />
+        </button>
+
+        {/* Mobile Buttons */}
+        <div className="flex md:hidden justify-center gap-6 my-8">
+          <button
+            onClick={() => scroll("left")}
+            className="bg-pink-600 text-white p-3 rounded-full shadow-md"
           >
-            {videoTestimonials.map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={cardVariants}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
-              >
-                {/* Video */}
-                <div className="relative aspect-video">
-                  <iframe
-                    src={item.videoUrl}
-                    title={item.name}
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-            
-                {/* Info */}
-                <div className="p-5 text-center">
-                  <h4 className="font-bold text-lg text-black">
-                    {item.name}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {item.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          {/* CTA */}
-          <div className="text-center mt-14">
-            <Link
-              to="/register"
-              className="relative inline-block overflow-hidden px-6 py-3 rounded-xl border bg-pink-600 border-pink-600 font-semibold group"
-            >
-              <span className="relative z-10 text-white transition-colors duration-300 group-hover:text-pink-600">Join the Next Batch</span>
-                <span
-                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
-                                -translate-x-full skew-x-[-18deg]
-                                group-hover:translate-x-0
-                                transition-transform duration-1000 ease-in-out"
-                    ></span>
-                    <span
-                      className="absolute inset-0 bg-white top-[-25%] left-[-50%] h-[150%] w-[200%]
-                                translate-x-full skew-x-[-18deg]
-                                group-hover:translate-x-0
-                                transition-transform duration-1000 ease-in-out"
-                    ></span>
-            </Link>
-          </div>
-          
+            <ChevronLeft size={24} />
+          </button>
+
+          <button
+            onClick={() => scroll("right")}
+            className="bg-pink-600 text-white p-3 rounded-full shadow-md"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
-      </section>
+
+        {/* Carousel Container (no manual scroll) */}
+        <div
+          ref={carouselRef}
+          className="flex gap-6 md:gap-12 overflow-x-auto md:overflow-hidden scroll-smooth px-[calc(50vw-10rem)] md:px-12 snap-x snap-mandatory select-none"
+        >
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              className="flex flex-col items-center relative min-w-[20rem] min-h-[22rem] snap-center"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+            >
+              {/* Hexagon + Content */}
+              <div className="relative flex flex-col min-h-[20rem] items-center">
+                {/* Hexagon */}
+                <div className="w-28 h-28 relative z-10">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-full h-full object-cover clip-hex shadow-md"
+                  />
+                </div>
+
+                {/* Content Box */}
+                <div className="bg-white -mt-12 pt-16 h-[350px] rounded-lg shadow-lg text-center relative z-0 w-56 md:w-64 ">
+                  <h4 className="font-bold text-lg mb-2 bg-pink-600 text-white">
+                    {t.name}
+                  </h4>
+                  <p className="text-black font-semibold p-2 text-sm">{t.title}</p>
+                  <p className="text-gray-600 p-4 text-sm">{t.feedback}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       <section className="px-4 md:px-16 py-10">
         <div className="my-10 text-center">
